@@ -1,0 +1,20 @@
+/* Generic use through body */
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+/* Use for top of page headers */
+h1 {
+    font-family: 'Lobster', cursive;
+}
+
+/* General paragraph use. */
+p {
+    font-weight: 300;
+}
+
+/* Use for reviews */
+.reviews-font {
+    font-family: 'Lato', sans-serif;
+}

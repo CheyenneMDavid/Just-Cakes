@@ -24,6 +24,15 @@ class Reviews(models.Model):
     likes = models.ManyToManyField(
         User, related_name="reviews_like", blank=True
     )
+    featured_image = CloudinaryField("image", default="placeholder")
+    excerpt = models.TextField(blank=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    content = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+    likes = models.ManyToManyField(
+        User, related_name="reviewspost_like", blank=True
+    )
 
     class Meta:
         ordering = ["-created_on"]

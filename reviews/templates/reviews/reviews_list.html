@@ -1,0 +1,66 @@
+<!-- Extends from the base.html -->
+{% extends "base.html" %} {% block content %}
+
+<!-- This entire page is mostly a copy of the walkthrough project -->
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Reviews Entries Column -->
+    <div class="col-12 mt-3 left">
+      <div class="row">
+        <!-- Loops through the reviews list and displays the reviews in the cards -->
+        {% for reviews in reviews_list %}
+        <div class="col-md-3">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="image-container">
+                <!-- Placeholder for image.  Otherwise use the default image -->
+                {% if "placeholder" in reviews.featured_image.url %}
+                <img
+                  class="card-img-top"
+                  src="https://res.cloudinary.com/cheymd/image/upload/v1693205372/cakes/banner_kiwcqu.jpg"
+                />
+                {% else %}
+                <!-- Otheriwise use the image that's in the review -->
+                <img class="card-img-top" src=" {{ reviews.featured_image.url }}" />
+                {% endif %}
+                <div class="image-flash">
+                  <p class="author">Author: {{ reviews.author }}</p>
+                </div>
+              </div>
+              <!-- title and excerpt of the review for the display -->
+              <a href="#" class="-link">
+                <h2 class="card-title">{{ reviews.title }}</h2>
+                <p class="card-text">{{ reviews.excerpt }}</p>
+              </a>
+              <hr />
+              <!-- Displays the date the review was made and the number of like for the review -->
+              <p class="card-text text-muted h6">
+                {{ reviews.created_on}} <i class="far fa-heart"></i> {{ reviews.number_of_likes }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Starts a new row after 3 reviews -->
+        {% if forloop.counter|divisibleby:3 %}
+      </div>
+      <div class="row">{% endif %} {% endfor %}</div>
+    </div>
+  </div>
+  <!-- display pagination, controls if needed -->
+  {% if is_paginated %}
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      {% if page_obj.has_previous %}
+      <li>
+        <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a>
+      </li>
+      {% endif %} {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+
+      {% endif %}
+    </ul>
+  </nav>
+  {% endif %}
+</div>
+{%endblock%}
