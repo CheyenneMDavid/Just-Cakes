@@ -75,7 +75,7 @@
             {% if user.is_authenticated %}
             <!--User logout  -->
             <li class="nav-item">
-              <a class="nav-link" href="#">Logout</a>
+              <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
             </li>
             <!-- Link to confirmed user's basket -->
             <li class="nav-item">
@@ -84,11 +84,11 @@
             {% else %}
             <!-- Link to registration for new user -->
             <li class="nav-item">
-              <a class="nav-link" href="#">Register</a>
+              <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
             </li>
             <!-- Login for registered users. -->
             <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
+              <a class="nav-link" href="{% url 'account_login' %}">Login</a>
             </li>
             {% endif %}
           </ul>

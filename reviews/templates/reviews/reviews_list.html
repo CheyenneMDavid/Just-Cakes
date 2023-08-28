@@ -18,7 +18,7 @@
                 {% if "placeholder" in reviews.featured_image.url %}
                 <img
                   class="card-img-top"
-                  src="https://res.cloudinary.com/cheymd/image/upload/v1693205372/cakes/banner_kiwcqu.jpg"
+                  src="https://res.cloudinary.com/cheymd/image/upload/v1693233889/banner_fjtoi3.jpg"
                 />
                 {% else %}
                 <!-- Otheriwise use the image that's in the review -->
@@ -29,7 +29,7 @@
                 </div>
               </div>
               <!-- title and excerpt of the review for the display -->
-              <a href="#" class="-link">
+              <a href="{% url 'reviews_detail' reviews.slug  %}" class="-link">
                 <h2 class="card-title">{{ reviews.title }}</h2>
                 <p class="card-text">{{ reviews.excerpt }}</p>
               </a>

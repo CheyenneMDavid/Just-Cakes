@@ -39,6 +39,6 @@ class ReviewsDetail(View):
         # Returns page.
         return render(
             request,
-            "reviews_detail.html",
+            "reviews/reviews_detail.html",
             {"reviews": reviews, "liked": liked},
         )
