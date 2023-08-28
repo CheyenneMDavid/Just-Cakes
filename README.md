@@ -11,6 +11,7 @@ ___
 ## Table of Contents
 
 - [Features](#features)
+- [Project Planning & Development](#project-planning--development)
 - [Dependencies and Required Packages](#dependencies-and-required-packages)
 - [Installation](#installation)
 - [Use](#use)
@@ -25,6 +26,26 @@ ___
 ## Features
 
 ___
+## Project Planning & Development
+
+- ### Apps required in project
+
+    Table for planning **"Reviews"** database models.py
+![Reviews Tables Model](static/assets/images_for_readme/reviews-table.webp)
+
+
+Tables used to plan model.py for cakes, defining type:Wedding, Novelty and Birthday. Allergy: GF for Gluten Free. V for plantbased.  Flavours and colours. And a list of the cakes themselves, making them searchable by users of the site.
+
+![Cake Types](static/assets/images_for_readme/cake-type.png)
+
+![Cake List](static/assets/images_for_readme/cake-list.png)
+
+![Cake colour and colour association table](static/assets/images_for_readme/cake-colour-association-table.png)
+
+![Cake flavour and flavour association table](static/assets/images_for_readme/cake-flavour-association-table.png)
+
+
+
 
 ## Prerequisites
 
