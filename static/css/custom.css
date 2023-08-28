@@ -1,20 +1,15 @@
-/* Generic use through body */
-body {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-}
-
-/* Use for top of page headers */
-h1 {
+h1,
+h2 {
     font-family: 'Lobster', cursive;
+    color: #b0a15d;
+    padding-right: 20px;
 }
 
-/* General paragraph use. */
-p {
-    font-weight: 300;
-}
 
-/* Use for reviews */
-.reviews-font {
-    font-family: 'Lato', sans-serif;
+
+/* footer */
+/* Your custom.css */
+footer {
+    background-color: #b0a15d;
+     !important;
 }
