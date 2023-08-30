@@ -1,15 +1,16 @@
+/* Header */
 h1,
-h2 {
+.navbar-text.text-muted h2 {
     font-family: 'Lobster', cursive;
+    text-decoration: underline;
     color: #b0a15d;
     padding-right: 20px;
 }
 
 
 
-/* footer */
-/* Your custom.css */
+/* Footer */
+
 footer {
-    background-color: #b0a15d;
-     !important;
+    background-color: #b0a15d !important;
 }
