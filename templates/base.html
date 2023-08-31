@@ -69,7 +69,7 @@
             </li>
             <!-- Link to confirmed customer reviews -->
             <li class="nav-item">
-              <a class="nav-link" href="#">Reviews</a>
+              <a class="nav-link" href="{% url 'post_list' %}">Reviews</a>
             </li>
             <!-- Dynamic content, depending on user authentication -->
             {% if user.is_authenticated %}

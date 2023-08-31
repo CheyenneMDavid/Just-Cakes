@@ -18,8 +18,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 class Post(models.Model):
     """Handles structure and content of posts"""
 
-    # Ensure that the maximum character length of a title is kept to 100
-    # and setting unique to "True", ensures that
+    # Ensure that the maximum character length of a title is kept to 100.
     title = models.CharField(max_length=100)
 
     # Having purposely not enforced title to be unique, still setting unique

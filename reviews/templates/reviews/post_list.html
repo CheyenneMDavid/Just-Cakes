@@ -5,43 +5,43 @@
 
 <div class="container-fluid">
   <div class="row">
-    <!-- posts Entries Column -->
+    <!-- post Entries Column -->
     <div class="col-12 mt-3 left">
       <div class="row">
-        <!-- Loops through the posts list and displays the posts in the cards -->
-        {% for posts in posts_list %}
+        <!-- Loops through the post list and displays the post in the cards -->
+        {% for post in post_list %}
         <div class="col-md-3">
           <div class="card mb-4">
             <div class="card-body">
               <div class="image-container">
                 <!-- Placeholder for image.  Otherwise use the default image -->
-                {% if "placeholder" in posts.featured_image.url %}
+                {% if "placeholder" in post.featured_image.url %}
                 <img
                   class="card-img-top"
                   src="https://res.cloudinary.com/cheymd/image/upload/v1693233889/banner_fjtoi3.jpg"
                 />
                 {% else %}
                 <!-- Otheriwise use the image that's in the post -->
-                <img class="card-img-top" src=" {{ posts.featured_image.url }}" />
+                <img class="card-img-top" src=" {{ post.featured_image.url }}" />
                 {% endif %}
                 <div class="image-flash">
-                  <p class="author">Author: {{ posts.author }}</p>
+                  <p class="author">Author: {{ post.author }}</p>
                 </div>
               </div>
               <!-- title and excerpt of the post for the display -->
-              <a href="{% url 'posts_detail' posts.slug  %}" class="-link">
-                <h2 class="card-title">{{ posts.title }}</h2>
-                <p class="card-text">{{ posts.excerpt }}</p>
+              <a href="{% url 'post_detail' post.slug  %}" class="post-link">
+                <h2 class="card-title">{{ post.title }}</h2>
+                <p class="card-text">{{ post.excerpt }}</p>
               </a>
               <hr />
               <!-- Displays the date the post was made and the number of like for the post -->
               <p class="card-text text-muted h6">
-                {{ posts.created_on}} <i class="far fa-heart"></i> {{ posts.number_of_likes }}
+                {{ post.created_on}} <i class="far fa-heart"></i> {{ post.number_of_likes }}
               </p>
             </div>
           </div>
         </div>
-        <!-- Starts a new row after 3 posts -->
+        <!-- Starts a new row after 3 post -->
         {% if forloop.counter|divisibleby:3 %}
       </div>
       <div class="row">{% endif %} {% endfor %}</div>

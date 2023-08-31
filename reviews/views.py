@@ -19,7 +19,7 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by("-created_on")
 
     # Name of the template that's used to render the list of posts.
-    template_name = "post_list.html"
+    template_name = "reviews/post_list.html"
 
     # Limit posts to 6 per page in order for django to automatically add
     # page navigation.
