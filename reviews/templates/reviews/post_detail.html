@@ -1,0 +1,97 @@
+{% extends 'base.html' %} {% block content %}
+
+<!-- Much in this file is from the walkthrough project with Hello Django
+Had to change names defining singular and plural to make more sense, both
+here and in other places throughout files.
+Also, have changed "review" to "post" for consistency and to fit with how
+django handles things. -->
+
+<!-- Masthead contains the featured image, title, author and creation date
+of each post -->
+<div class="masthead">
+  <div class="container">
+    <div class="row g-0">
+      <!-- Text part of masthead -->
+      <div class="col-md-6 masthead-text">
+        <!-- Display the post title in h1 tags -->
+        <h1 class="post-title">{{ post.title }}</h1>
+        <!-- Displays the author's name and the creation date -->
+        <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+      </div>
+      <!-- Image part of the post in masthead -->
+      <div class="d-none d-md-block col-md-6 masthead-image">
+        <!-- Checks if "placeholder" is found in the url -->
+        {% if "placeholder" in post.featured_image.url %}
+        <!-- If it IS found, then the image in this link is displayed -->
+        <img
+          src="https://res.cloudinary.com/cheymd/image/upload/v1693233889/banner_fjtoi3.jpg"
+          width="100%"
+        />
+        <!-- Otheriwise the feature image from the user is used  -->
+        {% else %}
+        <img src="{{ post.featured_image.url }}" width="100%" />
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Main contents -->
+<div class="container">
+  <div class="row">
+    <div class="col card mb-4 mt-3 left top">
+      <div class="card-body">
+        <!-- Making content safe for HTML display -->
+        <p class="card-text">{{ post.content | safe }}</p>
+        <div class="row">
+          <div class="col-1">
+            <strong>
+              <!-- Checks if the user is authenticated, only allowing the user
+              to "like" the post if they are. -->
+              {% if user.is_authenticated %}
+              <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+                <!-- Using a "Cross Site Request Forgery Token" so that users
+                aren't tricked into clicking on things, and then hacked as
+                a result -->
+                {% csrf_token %}
+                <!-- Displays a filled heart if they've liked the post  -->
+                {% if liked %}
+                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
+                  <i class="fas fa-heart"></i>
+                </button>
+                <!-- Displays an empty heart if they're not liked the post-->
+                {% else %}
+                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
+                  <i class="far fa-heart"></i>
+                </button>
+                {% endif %}
+              </form>
+              <!-- If the user isn't authenticated, they're unable to click on the heart to any affect -->
+              {% else %}
+              <span class="text-secondary"><i class="far fa-heart"></i></span>
+              {% endif %}
+              <!-- Displays the number if likes -->
+              <span class="text-secondary">{{ post.number_of_likes }} </span>
+            </strong>
+
+            <!-- Displays the number of likes for the post -->
+            <strong class="text-secondary"
+              ><i class="far fa-heart"></i> {{ post.number_of_likes }}</strong
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <hr />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 card mb-4 mt-3">
+      <div class="card-body"></div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

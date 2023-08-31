@@ -5,43 +5,43 @@
 
 <div class="container-fluid">
   <div class="row">
-    <!-- Reviews Entries Column -->
+    <!-- posts Entries Column -->
     <div class="col-12 mt-3 left">
       <div class="row">
-        <!-- Loops through the reviews list and displays the reviews in the cards -->
-        {% for reviews in reviews_list %}
+        <!-- Loops through the posts list and displays the posts in the cards -->
+        {% for posts in posts_list %}
         <div class="col-md-3">
           <div class="card mb-4">
             <div class="card-body">
               <div class="image-container">
                 <!-- Placeholder for image.  Otherwise use the default image -->
-                {% if "placeholder" in reviews.featured_image.url %}
+                {% if "placeholder" in posts.featured_image.url %}
                 <img
                   class="card-img-top"
                   src="https://res.cloudinary.com/cheymd/image/upload/v1693233889/banner_fjtoi3.jpg"
                 />
                 {% else %}
-                <!-- Otheriwise use the image that's in the review -->
-                <img class="card-img-top" src=" {{ reviews.featured_image.url }}" />
+                <!-- Otheriwise use the image that's in the post -->
+                <img class="card-img-top" src=" {{ posts.featured_image.url }}" />
                 {% endif %}
                 <div class="image-flash">
-                  <p class="author">Author: {{ reviews.author }}</p>
+                  <p class="author">Author: {{ posts.author }}</p>
                 </div>
               </div>
-              <!-- title and excerpt of the review for the display -->
-              <a href="{% url 'reviews_detail' reviews.slug  %}" class="-link">
-                <h2 class="card-title">{{ reviews.title }}</h2>
-                <p class="card-text">{{ reviews.excerpt }}</p>
+              <!-- title and excerpt of the post for the display -->
+              <a href="{% url 'posts_detail' posts.slug  %}" class="-link">
+                <h2 class="card-title">{{ posts.title }}</h2>
+                <p class="card-text">{{ posts.excerpt }}</p>
               </a>
               <hr />
-              <!-- Displays the date the review was made and the number of like for the review -->
+              <!-- Displays the date the post was made and the number of like for the post -->
               <p class="card-text text-muted h6">
-                {{ reviews.created_on}} <i class="far fa-heart"></i> {{ reviews.number_of_likes }}
+                {{ posts.created_on}} <i class="far fa-heart"></i> {{ posts.number_of_likes }}
               </p>
             </div>
           </div>
         </div>
-        <!-- Starts a new row after 3 reviews -->
+        <!-- Starts a new row after 3 posts -->
         {% if forloop.counter|divisibleby:3 %}
       </div>
       <div class="row">{% endif %} {% endfor %}</div>

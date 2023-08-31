@@ -1,12 +1,19 @@
+# Imports the required modules and models.
 from django.contrib import admin
-from .models import Reviews
 from django_summernote.admin import SummernoteModelAdmin
+from .models import Post
+
+# Much in this file is from the walkthrough project with Hello Django
+# Had to change names defining singular and plural to make more sense, both
+# here and in other places throughout files.
+# Also, have changed "review" to "post" for consistency and to fit with how
+# django handles things.
 
 
-@admin.register(Reviews)
-class ReviewsAdmin(SummernoteModelAdmin):
+@admin.register(Post)
+class PostAdmin(SummernoteModelAdmin):
     """
-    Use to define how the Admin manages reviews
+    Use to define how the Admin manages posts.
     """
 
     # defines which fields of the model are displayed on the change list
