@@ -26,5 +26,8 @@
    "editor.defaultFormatter": "HookyQR.beautify",
    "[markdown]": {
       "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+   },
+   "[css]": {
+      "editor.defaultFormatter": "stylelint.vscode-stylelint"
    }
 }

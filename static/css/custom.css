@@ -1,11 +1,43 @@
+body {
+    background-image: url("/static/css/endless-clouds.svg");
+    background-size: cover;
+    background-size: 10% 10%;
+    background-size: auto;
+    background-position: top left;
+}
+
+
 /* Header */
-h1,
-.navbar-text.text-muted h2 {
+.navbar-text h2,
+.custom-svg {
+    padding-right: 20px;
     font-family: 'Lobster', cursive;
     text-decoration: underline;
     color: #b0a15d;
-    padding-right: 20px;
+    background-image: url("/static/css/endless-clouds.svg");
+    background-size: cover;
+    background-size: 10% 10%;
+    background-size: auto;
+    background-position: top left;
 }
+
+/* Main body */
+
+.custom-svg {
+    background-image: url("/static/css/endless-clouds.svg");
+    background-size: cover;
+    background-size: 10% 10%;
+    background-size: auto;
+    background-position: top left;
+}
+
+.input-labels {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+
 
 
 
