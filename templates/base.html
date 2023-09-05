@@ -94,6 +94,9 @@
             {% if user.is_authenticated %}
             <!--User logout  -->
             <li class="nav-item">
+              <a class="nav-link" href="#">My Account</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
             </li>
             <!-- Link to confirmed user's basket -->
