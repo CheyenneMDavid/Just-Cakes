@@ -23,6 +23,19 @@ body {
 
 /* Main body */
 
+main, .custom-nav .container-fluid {
+    margin: 0 auto;
+    max-width: 1200px;
+    
+  }
+
+
+.review {
+    font-family: 'Lobster', cursive;
+    color: #b0a15d;
+}
+  
+
 .custom-svg {
     background-image: url("/static/css/endless-clouds.svg");
     background-size: cover;

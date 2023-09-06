@@ -62,5 +62,12 @@
     </ul>
   </nav>
   {% endif %}
+  <span>
+    {% if user.is_authenticated %}
+    <div class="text-center my-4">
+      <a href="{% url 'create_post' %}" class="btn btn-primary"> Write a Review </a>
+    </div>
+    {% endif %}</span
+  >
 </div>
 {%endblock%}

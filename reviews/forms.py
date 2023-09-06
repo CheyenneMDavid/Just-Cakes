@@ -13,9 +13,5 @@ class UserPostForm(forms.ModelForm):
         fields = (
             "title",
             "content",
-            # This automatically gets set to zero which keeps it
-            # as unpublised until the admin approves it.
-            "status",
             "featured_image",
-            "excerpt",
         )
