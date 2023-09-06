@@ -25,13 +25,15 @@ ___
 
 ## Features
 
+  
+
 ___
 ## Project Planning & Development
 
 - ### Apps required in project
 
     Table for planning **"Reviews"** database models.py
-![Reviews Tables Model](static/assets/images_for_readme/reviews-table.webp)
+![Reviews Tables Model](static/assets/images_for_readme/reviews-table.png)
 
 
 Tables used to plan model.py for cakes, defining type:Wedding, Novelty and Birthday. Allergy: GF for Gluten Free. V for plantbased.  Flavours and colours. And a list of the cakes themselves, making them searchable by users of the site.

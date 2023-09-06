@@ -29,7 +29,7 @@ from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls, name="reviews-urls"),
     path("summernote/", include("django_summernote.urls")),
+    path("cakes/", include("cakes.urls")),
     path("", include("reviews.urls")),
     path("account/", include("allauth.urls")),
-    path("our_cakes/", views.our_cakes, name="our_cakes"),
 ]

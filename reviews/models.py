@@ -59,7 +59,7 @@ class Post(models.Model):
 
     def __str__(self):
         """Returns the post title as a string."""
-        return self.title
+        return str(self.title)
 
     def number_of_likes(self):
         """Returns the number of likes the post got."""

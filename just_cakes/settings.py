@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     "core",
     "orders",
     "reviews",
+    "cakes",
 ]
 
 SITE_ID = 1
