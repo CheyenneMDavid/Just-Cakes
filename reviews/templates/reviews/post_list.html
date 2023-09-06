@@ -63,6 +63,8 @@
   </nav>
   {% endif %}
   <span>
+    <!-- Checks if the user is authenticated, only allowing the user to access the form for
+      submitting reviews if they are -->
     {% if user.is_authenticated %}
     <div class="text-center my-4">
       <a href="{% url 'create_post' %}" class="btn btn-primary"> Write a Review </a>
