@@ -1,19 +1,20 @@
 # Import required modules
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 
-# -- This section of the cake models deal with the attributes of the cakes
+# This section of the cake models deal with the attributes of the cakes
 # These models are for describing the cakes according to type (i.e. wedding,
 # novelty, birthday), flavours, colours, layers, diet, allergies and price.
 class CakeType(models.Model):
     """
-    Represents the type fo cake.
+    Represents the type for cake.
     """
 
     # Max length set to 100 to accommodate longer names in the future.
     type = models.CharField(max_length=100)
 
-    # Specifying retruning a string to offset linter warnings
+    # Specifying returning a string to offset linter warnings
     def __str__(self):
         return str(self.type)
 
@@ -25,19 +26,19 @@ class CakeFlavour(models.Model):
 
     flavour = models.CharField(max_length=50)
 
-    # specifying retruning a string to offset linter warnings
+    # Specifying returning a string to offset linter warnings
     def __str__(self):
         return str(self.flavour)
 
 
 class CakeColour(models.Model):
     """
-    Represents the cake flavours available.
+    Represents the cake colours available.
     """
 
     colour = models.CharField(max_length=100)
 
-    # specifying retruning a string to offset linter warnings
+    # Specifying returning a string to offset linter warnings
     def __str__(self):
         return str(self.colour)
 
@@ -57,11 +58,11 @@ class IndividualCake(models.Model):
     type = models.ForeignKey(CakeType, on_delete=models.CASCADE)
 
     # Indicates if the cake is gluten free and using the statement " is "
-    # so that it can be marked as Tue or False.
+    # so that it can be marked as True or False.
     is_gluten_free = models.BooleanField()
 
     # Indicates if the cake is plant based and using the statement " is "
-    # so that it can be marked as Tue or False.
+    # so that it can be marked as True or False.
     is_plant_based = models.BooleanField()
 
     # Number of layers the cake has.
@@ -73,4 +74,38 @@ class IndividualCake(models.Model):
     # Many-to-Many relation as a cake can have multiple flavours.
     flavours = models.ManyToManyField(CakeFlavour)
 
-    #
+
+# This section of the cake models deals with the images of cakes that are
+# stored on cloudinary.
+# Rather than just putting an extra line or so into the
+# previous model in order to deal with the images, this is a totally separate
+# model which will for multiple images of the same cake, which is likely given
+# the nature of the site.
+# Currently, there's only one image per cake.  But having a separate model
+# makes it easier to manage this change in the future.
+
+
+class CakeImage(models.Model):
+    """
+    For the moment, there's only one picture per cake. But it's likely that
+    multiple angles of view for each cake will be added in the future.
+
+    """
+
+    # Cake is a foriegn key for each cake.  It allows for a  manay to many
+    # relationship which will ultimnately be the multiple photos of one cake.
+    # Using CASCADE for deleting ensures that when a particular cake type if no
+    # longer being sold, and hence deleted from the site.  All other pictures
+    # of that cake are also deleted.
+    cake = models.ForeignKey(
+        IndividualCake, related_name="images", on_delete=models.CASCADE
+    )
+
+    # "image", because it's literally the image that's being stored on
+    # cloudinary
+    image = CloudinaryField("image")
+
+    # Using string literal to return the name of the cake as it's stored
+    # on cloudinary and the word "image"
+    def __str__(self):
+        return f"{self.cake.name} Image"
