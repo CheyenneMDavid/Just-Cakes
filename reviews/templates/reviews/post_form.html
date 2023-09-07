@@ -24,8 +24,7 @@ which can be found here: https://www.youtube.com/watch?v=TCIhh5A522M -->
 
   <form method="POST" action="" enctype="multipart/form-data">
     {% csrf_token %} {{ form|crispy }}
-
-    <input type="submit" class="btn btn-default" value="Submit Post" />
+    <input type="submit" class="btn custom-submit-color" value="Submit Post" />
   </form>
 </div>
 {% endblock content%}

@@ -1,47 +1,38 @@
+/* Global Styles */
 body {
     background-image: url("/static/css/endless-clouds.svg");
-    background-size: cover;
-    background-size: 10% 10%;
     background-size: auto;
     background-position: top left;
+    color: #444444;
 }
-
 
 /* Header */
+.logo {
+    color: #b0a15d;
+}
+
 .navbar-text h2,
 .custom-svg {
-    padding-right: 20px;
     font-family: 'Lobster', cursive;
-    text-decoration: underline;
-    color: #b0a15d;
     background-image: url("/static/css/endless-clouds.svg");
-    background-size: cover;
-    background-size: 10% 10%;
-    background-size: auto;
     background-position: top left;
 }
 
-/* Main body */
-
-main, .custom-nav .container-fluid {
+/* Main Body */
+main, 
+.custom-nav .container-fluid {
     margin: 0 auto;
     max-width: 1200px;
-    
-  }
+}
 
+.carousel-top-margin {
+    margin-top: 10px;
+    color: #444444;
+}
 
 .review {
     font-family: 'Lobster', cursive;
     color: #b0a15d;
-}
-  
-
-.custom-svg {
-    background-image: url("/static/css/endless-clouds.svg");
-    background-size: cover;
-    background-size: 10% 10%;
-    background-size: auto;
-    background-position: top left;
 }
 
 .image-container {
@@ -50,21 +41,25 @@ main, .custom-nav .container-fluid {
 
 .post-link:hover,
 .page-link {
-    color: #5d83a7;
+    color: #556B2F;
 }
 
 .input-labels {
     font-family: 'Roboto', sans-serif;
 }
 
+.custom-button-color {
+    background-color: #b0a15d;
+    border: 1px solid #556B2F;
+}
 
-
-
-
-
+.custom-submit-color {
+    background-color: #b0a15d;
+    border: 1px solid #556B2F;
+    margin-top: 10px;
+}
 
 /* Footer */
-
 footer {
-    background-color: #b0a15d !important;
+    background-color: #b0a15d;
 }
