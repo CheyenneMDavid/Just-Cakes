@@ -26,10 +26,11 @@ of each post -->
         <img
           src="https://res.cloudinary.com/cheymd/image/upload/v1693482045/default_image_rlpqek.jpg"
           width="100%"
+          alt="default image"
         />
         <!-- Otheriwise the feature image from the user is used  -->
         {% else %}
-        <img src="{{ post.featured_image.url }}" width="100%" />
+        <img src="{{ post.featured_image.url }}" width="100%" alt="default image" />
         {% endif %}
       </div>
     </div>
@@ -44,35 +45,44 @@ of each post -->
         <p class="card-text">{{ post.content | safe }}</p>
         <div class="row">
           <div class="col-1">
-            <strong>
-              <!-- Checks if the user is authenticated, only allowing the user
+            <!-- Checks if the user is authenticated, only allowing the user
               to "like" the post if they are. -->
-              {% if user.is_authenticated %}
-              <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
-                <!-- Using a "Cross Site Request Forgery Token" so that users
+            {% if user.is_authenticated %}
+            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+              <!-- Using a "Cross Site Request Forgery Token" so that users
                 aren't tricked into clicking on things, and then hacked as
                 a result -->
-                {% csrf_token %}
-                <!-- Displays a filled heart if they've liked the post  -->
-                {% if liked %}
-                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
-                  <i class="fas fa-heart"></i>
-                </button>
-                <!-- Displays an empty heart if they're not liked the post-->
-                {% else %}
-                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
-                  <i class="far fa-heart"></i>
-                </button>
-                {% endif %}
-              </form>
-              <!-- If the user isn't authenticated, they're unable to click on the heart to any affect -->
+              {% csrf_token %}
+              <!-- Displays a filled heart if they've liked the post  -->
+              {% if liked %}
+              <!-- Addition of aria-label to offset the warning about not having a label for the button -->
+              <button
+                type="submit"
+                name="blogpost_id"
+                value="{{post.slug}}"
+                class="btn-like"
+                aria-label="Like this post"
+              >
+                <i class="fas fa-heart"></i>
+              </button>
+              <!-- Displays an empty heart if they're not liked the post-->
               {% else %}
-              <span class="text-secondary"><i class="far fa-heart"></i></span>
+              <!-- Addition of aria-label to offset the warning about not having a label for the button -->
+              <button
+                type="submit"
+                name="blogpost_id"
+                value="{{post.slug}}"
+                class="btn-like"
+                aria-label="Like this post"
+              >
+                <i class="far fa-heart"></i>
+              </button>
               {% endif %}
-              <!-- Displays the number if likes -->
-              <span class="text-secondary">{{ post.number_of_likes }} </span>
-            </strong>
-
+            </form>
+            <!-- If the user isn't authenticated, they're unable to click on the heart to any affect -->
+            {% else %}
+            <span class="text-secondary"><i class="far fa-heart"></i></span>
+            {% endif %}
             <!-- Displays the number of likes for the post -->
             <strong class="text-secondary"
               ><i class="far fa-heart"></i> {{ post.number_of_likes }}</strong
@@ -82,16 +92,5 @@ of each post -->
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-      <hr />
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4 card mb-4 mt-3">
-      <div class="card-body"></div>
-    </div>
-  </div>
+  {% endblock content %}
 </div>
-
-{% endblock content %}
