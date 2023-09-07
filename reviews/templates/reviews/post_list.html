@@ -19,10 +19,15 @@
                 <img
                   class="card-img-top"
                   src="https://res.cloudinary.com/cheymd/image/upload/v1693482045/default_image_rlpqek.jpg"
+                  alt="default image"
                 />
                 {% else %}
                 <!-- Otheriwise use the image that's in the post -->
-                <img class="card-img-top" src=" {{ post.featured_image.url }}" />
+                <img
+                  class="card-img-top"
+                  src=" {{ post.featured_image.url }}"
+                  alt="default image"
+                />
                 {% endif %}
                 <div class="image-flash">
                   <p class="author">Author: {{ post.author }}</p>

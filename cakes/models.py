@@ -2,22 +2,25 @@
 from django.db import models
 
 
+# -- This section of the cake models deal with the attributes of the cakes
+# These models are for describing the cakes according to type (i.e. wedding,
+# novelty, birthday), flavours, colours, layers, diet, allergies and price.
 class CakeType(models.Model):
     """
-    Representing type of cake.
+    Represents the type fo cake.
     """
 
     # Max length set to 100 to accommodate longer names in the future.
     type = models.CharField(max_length=100)
 
-    # specifying retruning a string to offset linter warnings
+    # Specifying retruning a string to offset linter warnings
     def __str__(self):
         return str(self.type)
 
 
-class Flavour(models.Model):
+class CakeFlavour(models.Model):
     """
-    Cake flavours
+    Represents the cake flavours available.
     """
 
     flavour = models.CharField(max_length=50)
@@ -27,9 +30,9 @@ class Flavour(models.Model):
         return str(self.flavour)
 
 
-class Colour(models.Model):
+class CakeColour(models.Model):
     """
-    Colours of the cakes.
+    Represents the cake flavours available.
     """
 
     colour = models.CharField(max_length=100)
@@ -39,10 +42,10 @@ class Colour(models.Model):
         return str(self.colour)
 
 
-class Cake(models.Model):
+class IndividualCake(models.Model):
     """
-    Represents the cakes, along with their names, types, gluten-free or plant-based status,
-    number of layers, prices, flavours, and colours.
+    "IndividualCake", brings all the attributes together in it's representation
+    as one cake and the name that is attributed to it.
     """
 
     # Name of the cake. Max length set to 100 to accommodate longer names
@@ -68,4 +71,6 @@ class Cake(models.Model):
     price = models.DecimalField(max_digits=5, decimal_places=2)
 
     # Many-to-Many relation as a cake can have multiple flavours.
-    flavours = models.ManyToManyField(Flavour)
+    flavours = models.ManyToManyField(CakeFlavour)
+
+    #
