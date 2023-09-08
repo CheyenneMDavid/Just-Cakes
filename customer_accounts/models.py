@@ -37,5 +37,6 @@ class CustomerAccount(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     # Returns the username.
+    # Disabling pylint because the warning is a linter issue and distracting.
     def __str__(self):
-        return self.user.username
+        return self.user.username  # pylint: disable=no-member

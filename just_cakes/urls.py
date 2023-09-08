@@ -32,4 +32,5 @@ urlpatterns = [
     path("cakes/", include("cakes.urls")),
     path("", include("reviews.urls")),
     path("account/", include("allauth.urls")),
+    path("customer_accounts/", include("customer_accounts.urls")),
 ]

@@ -138,6 +138,8 @@ ___
 ___
 
 ## Testing of functions
+![tests](static/assets/images_for_readme/tests.png)
+
 
 ## Conclusion
 
