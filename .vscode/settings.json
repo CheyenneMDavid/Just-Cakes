@@ -35,9 +35,18 @@
    },
    "cSpell.words": [
       "allauth",
+      "asgiref",
       "Cakecolor",
       "cloudinary",
+      "gunicorn",
       "plantbased",
-      "summernote"
+      "psycopg",
+      "pylint",
+      "runserver",
+      "sqlparse",
+      "startapp",
+      "startproject",
+      "summernote",
+      "urllib"
    ]
 }
