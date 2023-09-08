@@ -80,7 +80,7 @@ def create_post(request):
     """
     Handles the creation of new posts from the user by checking if the request
     is a POST request.
-    if it's not, then it's a GET request and the ELSE statememnt takes over
+    if it's not, then it's a GET request and the ELSE statement takes over
     and produces an empty form for the user to use for submitting a post.
     """
     # Checks if request is using the POST method.
@@ -106,6 +106,6 @@ def create_post(request):
             # to post_list.html
             return redirect("post_list")
     else:
-        # Otherwise a blank form it produced for ethe user.
+        # Otherwise a blank form it produced for ether user.
         form = UserPostForm()
     return render(request, "reviews/post_form.html", {"form": form})

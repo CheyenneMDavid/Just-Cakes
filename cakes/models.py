@@ -5,7 +5,7 @@ from cloudinary.models import CloudinaryField
 
 # This section of the cake models deal with the attributes of the cakes
 # These models are for describing the cakes according to type (i.e. wedding,
-# novelty, birthday), flavours, colours, layers, diet, allergies and price.
+# novelty, birthday), flavours, colors, layers, diet, allergies and price.
 class CakeType(models.Model):
     """
     Represents the type for cake.
@@ -31,16 +31,16 @@ class CakeFlavour(models.Model):
         return str(self.flavour)
 
 
-class CakeColour(models.Model):
+class CakeColor(models.Model):
     """
-    Represents the cake colours available.
+    Represents the cake colors available.
     """
 
-    colour = models.CharField(max_length=100)
+    color = models.CharField(max_length=100)
 
     # Specifying returning a string to offset linter warnings
     def __str__(self):
-        return str(self.colour)
+        return str(self.color)
 
 
 class IndividualCake(models.Model):
@@ -92,8 +92,8 @@ class CakeImage(models.Model):
 
     """
 
-    # Cake is a foriegn key for each cake.  It allows for a  manay to many
-    # relationship which will ultimnately be the multiple photos of one cake.
+    # Cake is a foreign key for each cake.  It allows for a  many to many
+    # relationship which will ultimately be the multiple photos of one cake.
     # Using CASCADE for deleting ensures that when a particular cake type if no
     # longer being sold, and hence deleted from the site.  All other pictures
     # of that cake are also deleted.

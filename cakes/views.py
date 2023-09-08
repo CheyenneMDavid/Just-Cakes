@@ -15,7 +15,7 @@ def cake_list(request):
 
 # To view the cake details
 def cake_detail(request, cake_id):
-    """Render the view of an indiviual cake"""
+    """Render the view of an individual cake"""
 
     # Returns individual cake or returns a 404 error if the cake's not found.
     cake = get_object_or_404(IndividualCake, id=cake_id)
