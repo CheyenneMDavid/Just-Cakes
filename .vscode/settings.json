@@ -34,8 +34,10 @@
       "editor.defaultFormatter": "esbenp.prettier-vscode"
    },
    "cSpell.words": [
+      "allauth",
       "Cakecolor",
       "cloudinary",
-      "plantbased"
+      "plantbased",
+      "summernote"
    ]
 }
