@@ -25,6 +25,11 @@ class CustomerAccount(models.Model):
     # non-active until app is extended in functionality.
     payment_method = models.CharField(max_length=50)
 
+    # Keeping these set to true so that they allow them to be essentially empty
+    # until the application has extended functionality of ordering in place.
+    purchase_order_date = models.DateTimeField(null=True, blank=True)
+    delivery_order_date = models.DateTimeField(null=True, blank=True)
+
     # non-active until app is extended in functionality.
     basket_item_count = models.IntegerField(default=0)
 
