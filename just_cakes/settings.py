@@ -34,7 +34,7 @@ CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "just-cakes-b64da04d316a.herokuapp.com",
+    "just-beautiful-cakes-f9a2414b4d06.herokuapp.com",
     "localhost",
     "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu104.gitpod.io",
 ]
