@@ -172,5 +172,5 @@ I have used ChatGPT to workout the structure of what I wanted to build.  The thi
 
 I've found it to be the best resource in understanding something because I could just keep asking it to explain a single point, over and over again in different ways until I grasped it.  And it does not get impatient with repeating itself.
 Other than the Reviews application, which I have used from the walkthrough project, all of the code is my own.  And because of that, I have not needed to credit anyone in the comments.
-I have used ChatGPT as a tutor that is on tap.  But none of the code is written by ChatGPT or any other form of AI (there's no point and also it's unnecessary).
+I have used ChatGPT as a tutor that is on tap.  But none of the code is written by ChatGPT or any other form of AI (there's no point and also it's unnecessary because there's only so much stuff canm be varied at this basic level.  In this sense the walkthroughs from Code Institute have been the best templates, not necessarily just for learning how to write code, but also how to go about laying things out.).
 ___
