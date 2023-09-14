@@ -1,1 +1,1 @@
-web: gunicorn just_beautiful_cakes.wsgi
+web: gunicorn just_cakes.wsgi
