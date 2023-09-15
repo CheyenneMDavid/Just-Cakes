@@ -41,8 +41,12 @@ ALLOWED_HOSTS = [
 
 
 # Application definition
-
+# Using WhiteNoise for efficient static file serving; disables Django's
+# built-in static file server during development.
+# Advice and help on how to do this from Matt Segal's YouTube tutorial, here:
+# https://www.youtube.com/watch?v=97UQM-Cfhxs
 INSTALLED_APPS = [
+    "whitenoise.runserver_nostatic",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
