@@ -62,7 +62,6 @@ INSTALLED_APPS = [
     "reviews",
     "cakes",
     "customer_accounts",
-    "whitenoise",
 ]
 
 SITE_ID = 1
@@ -78,6 +77,7 @@ ACCOUNT_EMAIL_VERIFICATION = "none"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
