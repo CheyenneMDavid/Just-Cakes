@@ -15,6 +15,7 @@ class CakeType(models.Model):
     type = models.CharField(max_length=100)
 
     # Specifying returning a string to offset linter warnings
+    # Using __str__ so the objects show correctly in the admin panel
     def __str__(self):
         return str(self.type)
 
@@ -24,9 +25,11 @@ class CakeFlavour(models.Model):
     Represents the cake flavours available.
     """
 
+    # flavour, using a max of 50 characters
     flavour = models.CharField(max_length=50)
 
     # Specifying returning a string to offset linter warnings
+    # Using __str__ so the objects show correctly in the admin panel
     def __str__(self):
         return str(self.flavour)
 
@@ -36,9 +39,10 @@ class CakeColor(models.Model):
     Represents the cake colors available.
     """
 
-    color = models.CharField(max_length=100)
+    color = models.CharField(max_length=50)
 
     # Specifying returning a string to offset linter warnings
+    # Using __str__ so the objects show correctly in the admin panel
     def __str__(self):
         return str(self.color)
 
@@ -48,6 +52,11 @@ class IndividualCake(models.Model):
     "IndividualCake", brings all the attributes together in it's representation
     as one cake and the name that is attributed to it.
     """
+
+    # Specifying returning a string to offset linter warnings
+    # Using __str__ so the objects show correctly in the admin panel
+    def __str__(self):
+        return str(self.name)
 
     # Name of the cake. Max length set to 100 to accommodate longer names
     # in the future.
@@ -103,8 +112,8 @@ class CakeImage(models.Model):
     )
 
     # "image", because it's literally the image that's being stored on
-    # cloudinary
-    image = CloudinaryField("image")
+    # cloudinary, using a specific folder "just_cakes_images"
+    image = CloudinaryField("image", folder="just_cakes_images")
 
     # Using string literal to return the name of the cake as it's stored
     # on cloudinary and the word "image"
