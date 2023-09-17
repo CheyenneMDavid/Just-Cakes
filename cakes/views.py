@@ -7,8 +7,13 @@ from .models import IndividualCake
 def cake_list(request):
     """Renders a list of all the cakes"""
 
-    # Fetches all the cake objects to display in the cake_list.html
-    cakes = IndividualCake.objects.all()
+    # Using "prefetch_related('images').all()" to tell Django to fetch all
+    # related images for the IndividualCake in just one database query which
+    # reduces the amount of queries made.  Currently there is only one image
+    # per IndividualCake, but when this changes, using the prefetch_related
+    # will be be more efficient.
+    cakes = IndividualCake.objects.prefetch_related("images").all()
+
     # Returns the cake_list.html
     return render(request, "cakes/cakes_list.html", {"cakes": cakes})
 

@@ -53,9 +53,10 @@ class IndividualCake(models.Model):
     # in the future.
     name = models.CharField(max_length=100)
 
-    # Foreign key to CakeType. If a CakeType is deleted, all associated
-    # cakes will also be deleted (CASCADE).
-    type = models.ForeignKey(CakeType, on_delete=models.CASCADE)
+    # Foreign key to CakeType. If a CakeType is deleted, django checks to see
+    # if any other cake is reliant on cake type. If there is, then it's
+    # protected from being deleted.
+    type = models.ForeignKey(CakeType, on_delete=models.PROTECT)
 
     # Indicates if the cake is gluten free and using the statement " is "
     # so that it can be marked as True or False.
