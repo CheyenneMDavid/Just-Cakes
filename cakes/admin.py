@@ -46,7 +46,7 @@ class CakeFlavourAdmin(admin.ModelAdmin):
 
 # Decorator to register it in the admin panel.
 @admin.register(CakeColor)
-class CakecolorAdmin(admin.ModelAdmin):
+class CakeColorAdmin(admin.ModelAdmin):
     """
     Sets how Cakecolor appears and can be searched in the admin panel.
     """
@@ -73,12 +73,12 @@ class IndividualCakeAdmin(admin.ModelAdmin):
         "is_plant_based",
         "number_of_layers",
         "price",
+        "description",
     )
 
     # Defining which fields can be searched using the admin panel's search bar.
-    # Using "__" to search for CakeType by the cake's name.
-    search_fields = ("name", "type__type")
-    search_fields = ("name", "type__type")
+    # Using "__" to search for CakeType by the cake's name and description.
+    search_fields = ("name", "type__type", "description")
 
     # Adds options in the admin panel for filtering.
     list_filter = ("type", "is_gluten_free", "is_plant_based")

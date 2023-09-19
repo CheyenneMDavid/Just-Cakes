@@ -15,7 +15,9 @@ import os
 import dj_database_url
 
 if os.path.isfile("env.py"):
-    import env
+    # Linter incorrectly saying that the imported env.py wasn't being used,
+    # so I've disabled the warning because it's off putting.
+    import env  # pylint: disable=unused-import
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

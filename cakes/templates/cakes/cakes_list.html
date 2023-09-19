@@ -1,8 +1,40 @@
 <!-- Extends from the base.html -->
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
 
-<!-- Gallery Page Content -->
-
+<!-- Start of the content block -->
+{% block content %}
 <h2>Our Cakes</h2>
 
-{%endblock%}
+<div class="container">
+	<div class="row">
+
+		<!-- Checks if there's any cakes to display. -->
+		{% if cakes %}
+
+		<!-- Iterates through each cake -->
+		{% for cake in cakes %}
+		<div class="col-md-3">
+			<div class="card">
+				<!-- Display the first image for each cake -->
+				{% if cake.images.all %}
+				<img src="{{ cake.images.all.0.image.url }}" class="card-img-top" alt="{{ cake.name }}" />
+				{% endif %}
+				<div class="card-body">
+					<h5 class="card-title">{{ cake.name }}</h5>
+					<!-- If the description of the cakes is long, it's truncated down to 25 words with the
+					use of "truncatewords" and the :25 -->
+					<p class="card-text">{{ cake.description|truncatewords:25 }}</p>
+					<a href="{% url 'cake_detail' cake.id %}" class="btn custom-button-color">See Details </a>
+				</div>
+			</div>
+		</div>
+		<!-- Closes the forloop that's iterating over each cake. -->
+		{% endfor %}
+		<!-- Using else to display "No cakes found" -->
+		{% else %}
+		<p>No cakes found.</p>
+		<!-- Ending the if and else statements that checks for cakes -->
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

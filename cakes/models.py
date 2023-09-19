@@ -53,6 +53,9 @@ class IndividualCake(models.Model):
     as one cake and the name that is attributed to it.
     """
 
+    # No limit on character count to ensure room for full descriptions.
+    description = models.TextField()
+
     # Specifying returning a string to offset linter warnings
     # Using __str__ so the objects show correctly in the admin panel
     def __str__(self):

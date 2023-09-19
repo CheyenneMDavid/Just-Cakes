@@ -31,22 +31,29 @@
       "editor.defaultFormatter": "stylelint.vscode-stylelint"
    },
    "[html]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "vscode.html-language-features"
    },
    "cSpell.words": [
       "allauth",
       "asgiref",
       "Cakecolor",
+      "cheyennemdavi",
       "cloudinary",
+      "forloop",
       "gunicorn",
+      "herokuapp",
+      "justcakes",
+      "nostatic",
       "plantbased",
       "psycopg",
       "pylint",
       "runserver",
+      "socialaccount",
       "sqlparse",
       "startapp",
       "startproject",
       "summernote",
-      "urllib"
+      "urllib",
+      "whitenoise"
    ]
 }
