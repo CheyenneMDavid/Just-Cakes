@@ -3,11 +3,13 @@
 
 <!-- Start of the content block -->
 {% block content %}
-<h2>Our Cakes</h2>
+<h2 class="mission-statement">At Just Cakes, Your Joy is Our Passion</h2>
+<h4 class="cake-type-headings">Wedding Cakes</h4>
 
 <div class="container">
 	<div class="row">
 
+		<!-- Wedding Cake Images Start Here -->
 		<!-- Checks if there's any cakes to display. -->
 		{% if cakes %}
 
@@ -20,7 +22,7 @@
 				<img src="{{ cake.images.all.0.image.url }}" class="card-img-top" alt="{{ cake.name }}" />
 				{% endif %}
 				<div class="card-body">
-					<h5 class="card-title">{{ cake.name }}</h5>
+					<h4 class="card-title">{{ cake.name }}</h4>
 					<!-- If the description of the cakes is long, it's truncated down to 25 words with the
 					use of "truncatewords" and the :25 -->
 
@@ -38,5 +40,15 @@
 		<!-- Ending the if and else statements that checks for cakes -->
 		{% endif %}
 	</div>
+
+	<hr>
+
+	<h4 class="cake-type-headings">Birthdays</h4>
+	<!-- Birthday Cake Images Start Here -->
+
+	<hr>
+
+	<h4 class="cake-type-headings">Novelty Cakes</h4>
+	<!-- Novelty Cake Images Start Here -->
 </div>
 {% endblock %}
