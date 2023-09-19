@@ -23,8 +23,10 @@
 					<h5 class="card-title">{{ cake.name }}</h5>
 					<!-- If the description of the cakes is long, it's truncated down to 25 words with the
 					use of "truncatewords" and the :25 -->
-					<p class="card-text">{{ cake.description|truncatewords:25 }}</p>
-					<a href="{% url 'cake_detail' cake.id %}" class="btn custom-button-color">See Details </a>
+
+					<a href="{% url 'cake_detail' cake.id %}">
+						<p class="card-text">{{ cake.description|truncatewords:25 }}</p>
+					</a>
 				</div>
 			</div>
 		</div>
