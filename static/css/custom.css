@@ -7,11 +7,15 @@ body {
 }
 
 /* Header */
-.logo {
+.logo, h2 {
     color: #b0a15d;
+    text-decoration: underline;
+    margin-left: 15px;
+    margin-right: 15px;
+
 }
 
-.navbar-text h2,
+.navbar-text, h2,
 .custom-svg {
     font-family: 'Lobster', cursive;
     background-image: url("/static/css/endless-clouds.svg");
