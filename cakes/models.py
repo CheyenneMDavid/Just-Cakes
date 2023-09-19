@@ -54,7 +54,7 @@ class IndividualCake(models.Model):
     """
 
     # No limit on character count to ensure room for full descriptions.
-    description = models.TextField()
+    description = models.TextField(default="")
 
     # Specifying returning a string to offset linter warnings
     # Using __str__ so the objects show correctly in the admin panel
