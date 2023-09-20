@@ -22,16 +22,17 @@ h1 {
     text-decoration: underline;
 }
 
-.mission-statement {
-    font-family: 'Lobster', cursive;
-    padding-left: 15px;
-}
-
 .navbar-text,
 .custom-svg {
     font-family: 'Lobster', cursive;
+    font-size: 20px;
     background-image: url("/static/css/endless-clouds.svg");
     background-position: top left;
+}
+
+.mission-statement {
+    font-family: 'Lobster', cursive;
+    padding-left: 15px;
 }
 
 /* Main Body */
@@ -104,6 +105,16 @@ hr {
 .img-fluid {
     border: 2px solid #b0a15d;
 }
+
+.plant-based-icon {
+    color: rgb(44, 120, 44);
+}
+
+.gluten-free-icon {
+    column-rule-color: #556B2F;
+}
+
+
 
 /* Footer */
 footer {

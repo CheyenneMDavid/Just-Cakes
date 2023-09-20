@@ -24,10 +24,22 @@
     <div class="col-md-6">
       <!-- Using dynamic templating to display the cake's name  -->
       <h2>{{ cake.name }}</h2>
+
       <!-- Using dynamic templating to display the cake's description -->
       <p>{{ cake.description }}</p>
+
       <!-- Using dynamic templating to display the cake's price -->
       <p>£{{ cake.price }}</p>
+
+      <!-- Using dynamic templating to indicate if cake is plantbased  -->
+      {% if cake.is_plant_based %}
+      <p><i class="fas fa-seedling plant-based-icon"></i> Plant Based</p>
+
+      <!-- Using dynamic templating to indicate if cake is gluten free  -->
+      {% endif %} {% if cake.is_gluten_free %}
+      <p><i class="fas fa-check-circle gluten-free-icon"></i> Gluten Free</p>
+
+      {% endif %}
 
       <!-- Button to return to main page of cakes -->
       <a href="{% url 'cake_list' %}" class="btn custom-button-color">Back to Our Cakes</a>
