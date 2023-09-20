@@ -53,6 +53,7 @@
       "startapp",
       "startproject",
       "summernote",
+      "templating",
       "urllib",
       "whitenoise"
    ]

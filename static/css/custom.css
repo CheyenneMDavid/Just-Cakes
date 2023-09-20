@@ -9,6 +9,7 @@ body {
 /* Header */
 h1 {
     color: #b0a15d;
+    font-size: 40px;
     text-decoration: underline;
     margin-left: 15px;
     margin-right: 15px;
@@ -21,14 +22,8 @@ h1 {
     text-decoration: underline;
 }
 
-h1 {
-    font-size: 40px;
-}
-
-
 .mission-statement {
     font-family: 'Lobster', cursive;
-    color: #b0a15d;
     padding-left: 15px;
 }
 
@@ -68,21 +63,22 @@ main,
     border: 2px solid #b0a15d;
 }
 
+
 .card-img-top {
     border: 2px solid #b0a15d;
 }
 
-a {
-   color: #444444;
-   text-decoration: none; 
-}
-
-p, .card-text {
+a, p, .card-text {
     color: #444444;
+    text-decoration: none;
 }
 
-h2, h4 {
+h1,h2,h3, h4, h5 {
     color: #b0a15d;
+}
+
+hr {
+    color: #444444;
 }
 
 .post-link:hover,
@@ -96,13 +92,17 @@ h2, h4 {
 
 .custom-button-color {
     background-color: #b0a15d;
-    border: 2px solid #556B2F;
+    border: 3px solid white;
 }
 
 .custom-submit-color {
     background-color: #b0a15d;
-    border: 2px solid #556B2F;
+    border: 3px solid white;
     margin-top: 10px;
+}
+
+.img-fluid {
+    border: 2px solid #b0a15d;
 }
 
 /* Footer */

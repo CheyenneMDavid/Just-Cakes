@@ -2,6 +2,7 @@
 {% extends "base.html" %} {% block content %}
 
 <!-- Much of this layout is based around the post_detail in the walkthrough project surrounding django -->
+<!-- Using dynamic  templating to display the individual cakes in detail. -->
 <div class="container-fluid">
   <hr />
   <div class="row">
@@ -21,10 +22,15 @@
       {% endif %}
     </div>
     <div class="col-md-6">
-      <!-- Displays the individual cake's name  -->
+      <!-- Using dynamic templating to display the cake's name  -->
       <h2>{{ cake.name }}</h2>
-      <!-- Displays the description of that individual cake, as it was put in via the admin panel -->
+      <!-- Using dynamic templating to display the cake's description -->
       <p>{{ cake.description }}</p>
+      <!-- Using dynamic templating to display the cake's price -->
+      <p>£{{ cake.price }}</p>
+
+      <!-- Button to return to main page of cakes -->
+      <a href="{% url 'cake_list' %}" class="btn custom-button-color">Back to Our Cakes</a>
     </div>
   </div>
 </div>
