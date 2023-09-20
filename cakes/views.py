@@ -25,4 +25,4 @@ def cake_detail(request, cake_id):
     # Returns individual cake or returns a 404 error if the cake's not found.
     cake = get_object_or_404(IndividualCake, id=cake_id)
 
-    return render(request, "cakes/cake_detail.html", {"cake": cake})
+    return render(request, "cakes/cakes_detail.html", {"cake": cake})

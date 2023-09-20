@@ -81,6 +81,9 @@ p, .card-text {
     color: #444444;
 }
 
+h2, h4 {
+    color: #b0a15d;
+}
 
 .post-link:hover,
 .page-link {

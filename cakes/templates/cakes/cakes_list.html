@@ -3,52 +3,52 @@
 
 <!-- Start of the content block -->
 {% block content %}
+<hr />
 <h2 class="mission-statement">At Just Cakes, Your Joy is Our Passion</h2>
 <h4 class="cake-type-headings">Wedding Cakes</h4>
 
 <div class="container">
-	<div class="row">
+  <div class="row">
+    <!-- Wedding Cake Images Start Here -->
+    <!-- Checks if there's any cakes to display. -->
+    {% if cakes %}
 
-		<!-- Wedding Cake Images Start Here -->
-		<!-- Checks if there's any cakes to display. -->
-		{% if cakes %}
-
-		<!-- Iterates through each cake -->
-		{% for cake in cakes %}
-		<div class="col-md-3">
-			<div class="card">
-				<!-- Display the first image for each cake -->
-				{% if cake.images.all %}
-				<img src="{{ cake.images.all.0.image.url }}" class="card-img-top" alt="{{ cake.name }}" />
-				{% endif %}
-				<div class="card-body">
-					<h4 class="card-title">{{ cake.name }}</h4>
-					<!-- If the description of the cakes is long, it's truncated down to 25 words with the
+    <!-- Iterates through each cake -->
+    {% for cake in cakes %}
+    <div class="col-md-3">
+      <div class="card">
+        <!-- Display the first image for each cake -->
+        {% if cake.images.all %}
+        <img src="{{ cake.images.all.0.image.url }}" class="card-img-top" alt="{{ cake.name }}" />
+        {% endif %}
+        <div class="card-body">
+          <h4 class="card-title">{{ cake.name }}</h4>
+          <!-- If the description of the cakes is long, it's truncated down to 25 words with the
 					use of "truncatewords" and the :25 -->
 
-					<a href="{% url 'cake_detail' cake.id %}">
-						<p class="card-text">{{ cake.description|truncatewords:25 }}</p>
-					</a>
-				</div>
-			</div>
-		</div>
-		<!-- Closes the forloop that's iterating over each cake. -->
-		{% endfor %}
-		<!-- Using else to display "No cakes found" -->
-		{% else %}
-		<p>No cakes found.</p>
-		<!-- Ending the if and else statements that checks for cakes -->
-		{% endif %}
-	</div>
+          <a href="{% url 'cake_detail' cake.id %}">
+            <p class="card-text">{{ cake.description|truncatewords:25 }}</p>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Closes the forloop that's iterating over each cake. -->
+    {% endfor %}
+    <!-- Using else to display "No cakes found" -->
+    {% else %}
+    <p>No cakes found.</p>
+    <!-- Ending the if and else statements that checks for cakes -->
+    {% endif %}
+  </div>
 
-	<hr>
+  <hr />
 
-	<h4 class="cake-type-headings">Birthdays</h4>
-	<!-- Birthday Cake Images Start Here -->
+  <h4 class="cake-type-headings">Birthdays</h4>
+  <!-- Birthday Cake Images Start Here -->
 
-	<hr>
+  <hr />
 
-	<h4 class="cake-type-headings">Novelty Cakes</h4>
-	<!-- Novelty Cake Images Start Here -->
+  <h4 class="cake-type-headings">Novelty Cakes</h4>
+  <!-- Novelty Cake Images Start Here -->
 </div>
 {% endblock %}

@@ -1,7 +1,31 @@
 <!-- Extends from the base.html -->
 {% extends "base.html" %} {% block content %}
 
-<!-- Cake Detail Page Content -->
+<!-- Much of this layout is based around the post_detail in the walkthrough project surrounding django -->
+<div class="container-fluid">
+  <hr />
+  <div class="row">
+    <div class="col-md-6">
+      <!-- Displays the image of the cake. Currently, there's only one image for each cake. But at a
+        later date, more images are added, this will display the first image of that particular cake,
+        by default. -->
+      {% if cake.images.all %}
 
-
-{%endblock%}
+      <!-- Rather than writing 'cake' in the alt attribute, we're dynamically loading the correct
+        name for for the image being displayed -->
+      <img src="{{ cake.images.all.0.image.url }}" alt="{{ cake.name }}" class="img-fluid" />
+      {% else %}
+      <!-- If there's no image available, the else statement's used is used to
+        display "No image available" -->
+      <p>No image available</p>
+      {% endif %}
+    </div>
+    <div class="col-md-6">
+      <!-- Displays the individual cake's name  -->
+      <h2>{{ cake.name }}</h2>
+      <!-- Displays the description of that individual cake, as it was put in via the admin panel -->
+      <p>{{ cake.description }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
