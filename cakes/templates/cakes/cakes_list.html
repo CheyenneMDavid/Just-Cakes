@@ -19,7 +19,13 @@
       <div class="card">
         <!-- Display the first image for each cake -->
         {% if cake.images.all %}
-        <img src="{{ cake.images.all.0.image.url }}" class="card-img-top" alt="{{ cake.name }}" />
+        <!-- Ensures that the image is served in WebP when it's supported by the browser -->
+        <img
+          src="{{ cake.images.all.0.image.url|add:'?format=webp' }}"
+          class="card-img-top"
+          alt="{{ cake.name }}"
+        />
+
         {% endif %}
         <div class="card-body">
           <h5 class="card-title">{{ cake.name }}</h5>

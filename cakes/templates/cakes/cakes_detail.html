@@ -12,12 +12,12 @@
         by default. -->
       {% if cake.images.all %}
 
-      <!-- Rather than writing 'cake' in the alt attribute, we're dynamically loading the correct
-        name for for the image being displayed -->
-      <img src="{{ cake.images.all.0.image.url }}" alt="{{ cake.name }}" class="img-fluid" />
+      <!-- Ensures that the image is served in WebP when it's supported by the browser -->
+      <img src="{{ cake.featured_image.url|add:'?format=webp' }}" alt="cake image" />
+
       {% else %}
       <!-- If there's no image available, the else statement's used is used to
-        display "No image available" -->
+      display "No image available" -->
       <p>No image available</p>
       {% endif %}
     </div>

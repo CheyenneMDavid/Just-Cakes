@@ -23,14 +23,20 @@ of each post -->
         <!-- Checks if "placeholder" is found in the url -->
         {% if "placeholder" in post.featured_image.url %}
         <!-- If it IS found, then the image in this link is displayed -->
+        <!-- Ensures that the image is served in WebP when it's supported by the browser -->
         <img
-          src="https://res.cloudinary.com/cheymd/image/upload/v1693482045/default_image_rlpqek.jpg"
+          src="https://res.cloudinary.com/cheymd/image/upload/v1693482045/default_image_rlpqek.jpg?format=webp"
           width="100%"
           alt="default image"
         />
-        <!-- Otheriwise the feature image from the user is used  -->
+        <!-- Otherwise the feature image from the user is used  -->
         {% else %}
-        <img src="{{ post.featured_image.url }}" width="100%" alt="default image" />
+        <!-- Ensures that the image is served in WebP when it's supported by the browser -->
+        <img
+          src="{{ post.featured_image.url|add:'?format=webp' }}"
+          width="100%"
+          alt="{{ post.title }}"
+        />
         {% endif %}
       </div>
     </div>
