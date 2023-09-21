@@ -29,9 +29,9 @@
         {% endif %}
         <div class="card-body">
           <h5 class="card-title">{{ cake.name }}</h5>
+
           <!-- If the description of the cakes is long, it's truncated down to 25 words with the
 					use of "truncatewords" and the :25 -->
-
           <a href="{% url 'cake_detail' cake.id %}">
             <p class="card-text">{{ cake.description|truncatewords:25 }}</p>
           </a>
