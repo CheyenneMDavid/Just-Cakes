@@ -2,7 +2,7 @@
 from django.contrib import admin
 
 from .models import (
-    CakeType,
+    CakeCategory,
     CakeFlavour,
     CakeColor,
     IndividualCake,
@@ -11,23 +11,24 @@ from .models import (
 
 
 # This section of the cake models deal with the attributes of the cakes
-# These models are for describing the cakes according to type (i.e. wedding,
-# novelty, birthday), flavours, colors, layers, diet, allergies and price.
+# These models are for describing the cakes according to their
+# category (i.e. wedding, novelty, birthday), flavours, colors, layers,
+# diet, allergies and price.
 
 
 # In each class, I'm using the "@" to apply it as a decorator and register
 # it in the admin panel where it can be managed.
-@admin.register(CakeType)
-class CakeTypeAdmin(admin.ModelAdmin):
+@admin.register(CakeCategory)
+class CakeCategoryAdmin(admin.ModelAdmin):
     """
-    Sets how CakeType appears and can be searched in the admin panel.
+    Sets how CakeCategory appears and can be searched in the admin panel.
     """
 
     # Setting the fields that will be displayed in the admin panel's list view.
-    list_display = ("type",)
+    list_display = ("category",)
 
     # Defining which fields can be searched using the admin panel's search bar.
-    search_fields = ("type",)
+    search_fields = ("category",)
 
 
 # Decorator to register it in the admin panel.
@@ -68,7 +69,7 @@ class IndividualCakeAdmin(admin.ModelAdmin):
     # Sets the fields that will be displayed in the admin panel's list view.
     list_display = (
         "name",
-        "type",
+        "category",
         "is_gluten_free",
         "is_plant_based",
         "number_of_layers",
@@ -77,11 +78,11 @@ class IndividualCakeAdmin(admin.ModelAdmin):
     )
 
     # Defining which fields can be searched using the admin panel's search bar.
-    # Using "__" to search for CakeType by the cake's name and description.
-    search_fields = ("name", "type__type", "description")
+    # Using "__" to search for CakeCategory by the cake's name and description.
+    search_fields = ("name", "category__category", "description")
 
     # Adds options in the admin panel for filtering.
-    list_filter = ("type", "is_gluten_free", "is_plant_based")
+    list_filter = ("category", "is_gluten_free", "is_plant_based")
 
 
 @admin.register(CakeImage)

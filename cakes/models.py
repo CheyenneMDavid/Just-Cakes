@@ -4,20 +4,20 @@ from cloudinary.models import CloudinaryField
 
 
 # This section of the cake models deal with the attributes of the cakes
-# These models are for describing the cakes according to type (i.e. wedding,
+# These models are for describing the cakes according to their category (i.e. wedding,
 # novelty, birthday), flavours, colors, layers, diet, allergies and price.
-class CakeType(models.Model):
+class CakeCategory(models.Model):
     """
-    Represents the type for cake.
+    Represents the cake category.
     """
 
     # Max length set to 100 to accommodate longer names in the future.
-    type = models.CharField(max_length=100)
+    category = models.CharField(max_length=100)
 
     # Specifying returning a string to offset linter warnings
     # Using __str__ so the objects show correctly in the admin panel
     def __str__(self):
-        return str(self.type)
+        return str(self.category)
 
 
 class CakeFlavour(models.Model):
@@ -65,10 +65,10 @@ class IndividualCake(models.Model):
     # in the future.
     name = models.CharField(max_length=100)
 
-    # Foreign key to CakeType. If a CakeType is deleted, django checks to see
-    # if any other cake is reliant on cake type. If there is, then it's
-    # protected from being deleted.
-    type = models.ForeignKey(CakeType, on_delete=models.PROTECT)
+    # Foreign key to CakeCategory. If a CakeCategory is deleted, django
+    # checks to see if any other cake is reliant on cake category. If there
+    # is, then it's protected from being deleted.
+    category = models.ForeignKey(CakeCategory, on_delete=models.PROTECT)
 
     # Indicates if the cake is gluten free and using the statement " is "
     # so that it can be marked as True or False.
@@ -107,9 +107,9 @@ class CakeImage(models.Model):
 
     # Cake is a foreign key for each cake.  It allows for a  many to many
     # relationship which will ultimately be the multiple photos of one cake.
-    # Using CASCADE for deleting ensures that when a particular cake type if no
-    # longer being sold, and hence deleted from the site.  All other pictures
-    # of that cake are also deleted.
+    # Using CASCADE for deleting ensures that when a particular cake is no
+    # longer being sold and is deleted, all other associated images will also
+    # be deleted. Everything associated with that cake will also be deleted.
     cake = models.ForeignKey(
         IndividualCake, related_name="images", on_delete=models.CASCADE
     )
