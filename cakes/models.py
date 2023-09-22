@@ -4,15 +4,18 @@ from cloudinary.models import CloudinaryField
 
 
 # This section of the cake models deal with the attributes of the cakes
-# These models are for describing the cakes according to their category (i.e. wedding,
-# novelty, birthday), flavours, colors, layers, diet, allergies and price.
+# These models are for describing the cakes according to their category
+# (i.e. wedding, novelty, birthday), flavours, colors, layers, diet, allergies
+# and price.
 class CakeCategory(models.Model):
     """
     Represents the cake category.
     """
 
     # Max length set to 100 to accommodate longer names in the future.
-    category = models.CharField(max_length=100)
+    # The 'default' parameter is set to "to be set" so it's clear that the
+    # category should be defined when creating a new cake object.
+    category = models.CharField(max_length=100, default="to be set")
 
     # Specifying returning a string to offset linter warnings
     # Using __str__ so the objects show correctly in the admin panel
