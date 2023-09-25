@@ -1,11 +1,17 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+
+# Importing and using "get_user_model" to allow flexibility and easier
+# maintenance of the code in the future.
+User = get_user_model()
 
 
 class CustomerAccount(models.Model):
     """
-    Customer account model uses the allauth/django user model which extends
-    the User model with additional fields.
+    The CustomerAccount model is associated with the Django User model
+    (from django-allauth) through a one-to-one relationship.
+    This allows for the storage of extra user information without modifying
+    the User model directly.
     """
 
     # I've kept the character count pretty l because th is only dealing

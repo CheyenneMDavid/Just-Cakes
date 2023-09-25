@@ -1,9 +1,12 @@
 # Imports the required modules and models.
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.utils.text import slugify
 from cloudinary.models import CloudinaryField
 
+# Importing and using "get_user_model" to allow flexibility and easier
+# maintenance of the code in the future.
+User = get_user_model()
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -27,7 +30,10 @@ class Post(models.Model):
 
     # Author of the post is connected to the user model.
     author = models.ForeignKey(
-        User, on_delete=models.SET_NULL, related_name="post", null=True
+        User,
+        on_delete=models.SET_NULL,
+        related_name="post",
+        null=True,
     )
     # Content of the post.
     content = models.TextField()
@@ -62,8 +68,9 @@ class Post(models.Model):
         return str(self.title)
 
     def number_of_likes(self):
-        """Returns the number of likes the post got."""
-        return self.likes.count()
+        """Returns the number of likes the post has received."""
+        # Disabling pylint because the warning is a linter issue and distracting.
+        return self.likes.count()  # pylint: disable=no-member
 
     # Previously, for the title, "unique" was purposely omitted. But the slug
     # which is used to create a url, still needs to be unique.  So this is
