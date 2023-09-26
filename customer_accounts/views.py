@@ -30,3 +30,11 @@ def customer_accounts_detail(request, id):
     return render(
         request, "customer_account_detail.html", {"account": account}
     )
+
+
+def customer_signup(request):
+    """
+    Renders and returns the customer signup form using
+    'customer_accounts/customer_signup_form.html' template.
+    """
+    return render(request, "customer_accounts/customer_signup_form.html")
