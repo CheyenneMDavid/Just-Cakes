@@ -1,6 +1,9 @@
 """Importing required modules for URL configuration and views"""
+import os
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from django.views.static import serve
+from django.conf import settings
 
 # Much in this file is from the walkthrough project with Hello Django
 # Had to change names defining singular and plural to make more sense, both
@@ -16,4 +19,13 @@ urlpatterns = [
     path("reviews/", include("reviews.urls")),
     path("account/", include("allauth.urls")),
     path("customer_accounts/", include("customer_accounts.urls")),
+    # url pattern to load the favicon.ico from the static folder.
+    re_path(
+        r"^favicon.ico$",
+        serve,
+        {
+            "document_root": os.path.join(settings.BASE_DIR, "local_static"),
+            "path": "favicon.ico",
+        },
+    ),
 ]

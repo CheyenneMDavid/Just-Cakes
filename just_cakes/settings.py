@@ -38,7 +38,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "just-beautiful-cakes-f9a2414b4d06.herokuapp.com",
     "localhost",
-    "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu104.gitpod.io",
+    "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu105.gitpod.io",
 ]
 
 
@@ -169,7 +169,9 @@ STATIC_URL = "/static/"
 STATICFILES_STORAGE = (
     "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
 )
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 MEDIA_URL = "/media/"
