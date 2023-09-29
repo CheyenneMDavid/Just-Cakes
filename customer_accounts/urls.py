@@ -1,19 +1,23 @@
-"""Importing required modules for URL configuration and views"""
+"""Importing objects"""
+# I've chosen to import individual objects rather than the views module as a
+# whole, for better readability and less chance of mixing things up.
 from django.urls import path
 from .views import (
     customer_accounts_list,
     customer_accounts_detail,
-    customer_signup,
+    create_customer_profile,
 )
 
-# I've used the Code Institute walkthrough project of Hello Django as
-# a template to follow when creating this file.
 
 # URL patterns for the customer accounts application.
 urlpatterns = [
-    path("", customer_accounts_list, name="customer_account_list"),
+    path("", customer_accounts_list, name="customer_accounts_list"),
     path(
-        "<int:id>/", customer_accounts_detail, name="customer_account_detail"
+        "<int:id>/", customer_accounts_detail, name="customer_accounts_detail"
     ),
-    path("signup/", customer_signup, name="customer_signup"),
+    path(
+        "create-profile/",
+        create_customer_profile,
+        name="create_customer_profile",
+    ),
 ]

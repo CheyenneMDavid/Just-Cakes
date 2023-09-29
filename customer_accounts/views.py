@@ -6,11 +6,19 @@ It uses Django's built-in functions and methods for managing HTTP
 requests, rendering templates, and performing actions like login and
 redirecting the users.
 """
+# Using messages module to provide users with messages of successful or
+# unsuccessful signups.
 from django.contrib import messages
+
+# render to return a template/page, get_object_or_404 to return a 404
+# response if an object isn't found. And redirect to take a user somewhere
+# after they have completed a task.  Example being, the home page after
+# signing in.
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 from .models import CustomerAccount
-from .forms import CustomSignupForm
+from .forms import CustomerProfileForm
 
 
 def customer_accounts_list(request):
@@ -22,27 +30,31 @@ def customer_accounts_list(request):
 
     # Returns the customer_account_list.html
     return render(
-        request, "customer_account_list.html", {"accounts": accounts}
+        request, "customer_accounts_list.html", {"accounts": accounts}
     )
 
 
+@login_required
 def customer_accounts_detail(request, id):
     """
     Shows the details of a single account.
     If it can't find it or it doesn't exist, it shows a 404 error.
     """
-    # The get_object_or_404 function tries to get a CustomerAccount object.
-    # If the object's found, it’s assigned to the variable “account”.
-    # If not, then a HTTP 404 response is returned.
     account = get_object_or_404(CustomerAccount, id=id)
 
-    # Returns the customer_account_detail.html
+    try:
+        customer_account = CustomerAccount.objects.get(user=request.user)
+    except CustomerAccount.DoesNotExist:
+        customer_account = None
+
     return render(
-        request, "customer_account_detail.html", {"account": account}
+        request,
+        "customer_accounts_detail.html",
+        {"account": account, "customer_account": customer_account},
     )
 
 
-def customer_signup(request):
+def create_customer_profile(request):
     """
     This handles the customer signup process.
     If the method is POST, it validates the form data and either creates a new
@@ -53,7 +65,7 @@ def customer_signup(request):
     # execute this code block.  If it's not, then it;s treated as a GET and
     # moves onto rendering the signup-form.
     if request.method == "POST":
-        form = CustomSignupForm(request.POST)
+        form = CustomerProfileForm(request.POST)
 
         # If the the form's valid, the data's saved and a success message
         # is displayed to the user before they're redirected to the homepage.
@@ -78,9 +90,11 @@ def customer_signup(request):
             )
     # else the request is treated as a GET, creating a new empty form instance.
     else:
-        form = CustomSignupForm()
+        form = CustomerProfileForm()
 
     # Render the signup page
     return render(
-        request, "customer_accounts/customer_signup_form.html", {"form": form}
+        request,
+        "customer_accounts/create_customer_profile_form.html",
+        {"form": form},
     )

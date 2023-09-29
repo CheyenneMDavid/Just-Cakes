@@ -1,3 +1,4 @@
+"""Importing required classes/functions"""
 from django.db import models
 from django.contrib.auth import get_user_model
 
@@ -25,11 +26,13 @@ class CustomerAccount(models.Model):
     post_code = models.CharField(max_length=15)
 
     # non-active until app is extended in functionality.
-    account_number = models.CharField(max_length=20, unique=True)
+    account_number = models.CharField(
+        max_length=20, unique=True, blank=True, null=True
+    )
     registration_date = models.DateTimeField(auto_now_add=True)
 
     # non-active until app is extended in functionality.
-    payment_method = models.CharField(max_length=50)
+    payment_method = models.CharField(max_length=50, blank=True, null=True)
 
     # Keeping these set to true so that they allow them to be essentially empty
     # until the application has extended functionality of ordering in place.

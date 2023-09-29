@@ -6,7 +6,7 @@ body {
     color: #444444;
 }
 
-/* Header */
+
 h1 {
     color: #b0a15d;
     font-size: 40px;
@@ -16,6 +16,11 @@ h1 {
 
 }
 
+h2,h3, h4, h5 {
+    color: #b0a15d;
+}
+
+/* Header */
 .cake-type-headings {
     color: #b0a15d;
     margin-left: 15px;
@@ -42,6 +47,8 @@ main,
     max-width: 1200px;
 }
 
+
+ 
 .carousel-top-margin {
     margin-top: 10px;
     color: #444444;
@@ -74,9 +81,6 @@ a, p, .card-text {
     text-decoration: none;
 }
 
-h1,h2,h3, h4, h5 {
-    color: #b0a15d;
-}
 
 hr {
     color: #444444;

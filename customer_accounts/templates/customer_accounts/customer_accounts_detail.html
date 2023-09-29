@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header">
+          <h4>Customer Account Details</h4>
+        </div>
+        <div class="card-body">
+          <!-- Block to check if a customer account exists.  If it does, this block of details display
+            If they don't exist, then it jumps straight to the "else" and says that the account doesn't -->
+          {% if customer_account %}
+          <h5 class="card-title">{{ customer_account.user.username }}</h5>
+          <p class="card-text">
+            <strong>Phone:</strong> {{ customer_account.phone }}<br />
+            <strong>Address Line 1:</strong> {{ customer_account.address_line_1 }}<br />
+            <strong>Address Line 2:</strong> {{ customer_account.address_line_2 }}<br />
+            <strong>City:</strong> {{ customer_account.city }}<br />
+            <strong>County:</strong> {{ customer_account.county }}<br />
+            <strong>Post Code:</strong> {{ customer_account.post_code }}<br />
+            <strong>Account Number:</strong> {{ customer_account.account_number }}<br />
+            <strong>Registration Date:</strong> {{ customer_account.registration_date }}<br />
+            <strong>Payment Method:</strong> {{ customer_account.payment_method }}<br />
+            <strong>Purchase Order Date:</strong> {{ customer_account.purchase_order_date }}<br />
+            <strong>Delivery Order Date:</strong> {{ customer_account.delivery_order_date }}<br />
+            <strong>Basket Item Count:</strong> {{ customer_account.basket_item_count }}
+          </p>
+
+          <!-- Executed if the customer accounts doesn't exist -->
+          {% else %}
+
+          <!-- Displays to the user that the customer account doesn't exist -->
+          <p class="card-text">Customer Account does not exist for the logged-in user.</p>
+
+          <!-- End of the if block -->
+          {% endif %}
+        </div>
+        <div class="card-footer text-muted">
+          <a href="#" class="btn btn-primary">Edit</a>
+          <a href="#" class="btn btn-secondary">Back</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -30,11 +30,13 @@ pattern = re.compile(
 )
 
 
-class CustomSignupForm(SignupForm):
+class CustomerProfileForm(SignupForm):
     """
-    This class represents a custom signup form which extends the default
-    SignupForm provided by django-allauth. It includes additional fields
-    to capture more information about the user during the signup process.
+    This class represents a fuller customer profile form which extends the
+    default SignupForm provided by django-allauth. It includes additional
+    fields to capture more information about the user during the signup
+    process.
+    I've changed the name of this form for more clarity in it's purpose.
     """
 
     # Defining fields for the form, with their specification

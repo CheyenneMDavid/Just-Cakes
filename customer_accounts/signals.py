@@ -1,5 +1,4 @@
 """
-Module Docstring:
 I was continually receiving errors from pylint saying that the "imports"
 should all have docstrings. I don't recall being taught to include them
 for imports but am choosing to heed to warning from the linter and
