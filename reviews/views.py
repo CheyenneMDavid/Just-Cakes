@@ -1,8 +1,22 @@
-# Imports the required modules and models.
+"""Module to handle the views that are related to the Post model"""
+
+# render to return a template/page, get_object_or_404 to return a 404
+# response if an object isn't found. And redirect to take a user somewhere
+# after they have completed a task.  Example being, the home page after
+# signing in.
 from django.shortcuts import render, get_object_or_404, reverse, redirect
+
+# Provides generic views and view classes for HTTP requests.
 from django.views import generic, View
+
+# Module to handle HTTP responses, providing a way to redirect the user to
+# a different URL.
 from django.http import HttpResponseRedirect
+
+# Importing the post model.
 from .models import Post
+
+# Importing the user post Form.
 from .forms import UserPostForm
 
 
@@ -14,8 +28,14 @@ from .forms import UserPostForm
 
 
 class PostList(generic.ListView):
+    """
+    Class that represents the a list of the posts.  It defines what is
+    displayed and the order it's displayed in.
+    """
+
+    # Post is the model that is being used.
     model = Post
-    # Defines what is displayed and the order in which it is displayed.
+
     # Order being the most recent.
     queryset = Post.objects.filter(status=1).order_by("-created_on")
 
@@ -27,8 +47,9 @@ class PostList(generic.ListView):
     paginate_by = 6
 
 
-# Handles the detail view of a post.
 class PostDetail(View):
+    """Class that represents the detail of an individual post."""
+
     def get(self, request, slug, *args, **kwargs):
         """Handles the get request for the detail view of a post"""
 
@@ -54,11 +75,12 @@ class PostDetail(View):
         )
 
 
-# Handles the post likes.
 class PostLike(View):
+    """Class that handles the post likes"""
+
     def post(self, request, slug, *args, **kwargs):
         """
-        Toggles the like and unlikes
+        Toggles the likes.
         """
         # Attempts to get a post with a matching slug field.  If it can't
         # find on then it returns a 404, page not found error.
