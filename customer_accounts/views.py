@@ -40,12 +40,7 @@ def customer_accounts_list(request):
     The view fetches all the customer accounts from the database and renders
     them in a list view which only and admin will have access to.
     """
-    accounts = CustomerAccount.objects.all()
-
-    # Returns the customer_account_list.html
-    return render(
-        request, "customer_accounts_list.html", {"accounts": accounts}
-    )
+    # TODO: Implement features described in comments, for future development.
 
 
 # Using the login_required decorator to ensure that access is restricted to
