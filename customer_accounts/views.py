@@ -15,16 +15,30 @@ from django.contrib import messages
 # after they have completed a task.  Example being, the home page after
 # signing in.
 from django.shortcuts import render, get_object_or_404, redirect
+
+
 from django.contrib.auth import login
+
+# Importing the login_required decorator to restrict access of accounts to
+# authenticated users.
 from django.contrib.auth.decorators import login_required
+
+# Importing CustomerAccount model.
 from .models import CustomerAccount
+
+# Importing the CustomerProfileForm.
 from .forms import CustomerProfileForm
 
 
+# This function will only be available to someone who is signed in as an
+# admin and will include a decorator and the permission checks for it.
+# It's planned for future functionality and the logic within it will be
+# replaced with a "pass" and a "TODO" comment as the function is planned for
+# future functionality.
 def customer_accounts_list(request):
     """
     The view fetches all the customer accounts from the database and renders
-    them in a list view.
+    them in a list view which only and admin will have access to.
     """
     accounts = CustomerAccount.objects.all()
 
@@ -34,6 +48,8 @@ def customer_accounts_list(request):
     )
 
 
+# Using the login_required decorator to ensure that access is restricted to
+# only authenticated users.
 @login_required
 def customer_accounts_detail(request, id):
     """
@@ -42,11 +58,18 @@ def customer_accounts_detail(request, id):
     """
     account = get_object_or_404(CustomerAccount, id=id)
 
+    # Tries to get the customer account that is associated with the user that
+    # is currently logged in.
     try:
         customer_account = CustomerAccount.objects.get(user=request.user)
+
+    # If there's no user account associated with the user that's currently
+    # logged in, customer_account is set to None.
     except CustomerAccount.DoesNotExist:
         customer_account = None
 
+    # Displays a customer_account-s detail page that is associated with the
+    # user that is currently logged in.
     return render(
         request,
         "customer_accounts_detail.html",
@@ -62,7 +85,7 @@ def create_customer_profile(request):
     If the method is GET, it renders the empty signup form.
     """
     # Checks if the incoming request is a post request. If it is, then we
-    # execute this code block.  If it's not, then it;s treated as a GET and
+    # execute this code block.  If it's not, then it's treated as a GET and
     # moves onto rendering the signup-form.
     if request.method == "POST":
         form = CustomerProfileForm(request.POST)
@@ -85,8 +108,8 @@ def create_customer_profile(request):
             # requested to try again.
             messages.error(
                 request,
-                "There was an error in your signup. Please check your details"
-                "and try again.",
+                "There was an error in your signup. "
+                "Please check your details and try again.",
             )
     # else the request is treated as a GET, creating a new empty form instance.
     else:
