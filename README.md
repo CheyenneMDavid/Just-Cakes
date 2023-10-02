@@ -10,17 +10,27 @@ ___
 
 ## Table of Contents
 
-- [Features](#features)
-- [List of Applications](#list-of-applications-in-product)
-- [Pre-requisites](#pre-requisites)
-- [Project Planning & Development](#project-planning--development)
-- [Installation](#installation)
-- [Use](#use)
-- [Testing of Functions](#testing-of-functions)
-- [Further Development](#further-development)
-- [Deployment](#deployment)
-- [Copy / Improve / Contribute](#copy--improve--contribute)
-- [Credits, Acknowledgments and Appreciation to](#credits-acknowledgments-and-appreciation-to)
+- [*~Just Cakes ~*](#just-cakes-)
+	- [Table of Contents](#table-of-contents)
+	- [Features](#features)
+	- [List of Applications in product.](#list-of-applications-in-product)
+	- [Pre-requisites](#pre-requisites)
+			- [For basic functionality](#for-basic-functionality)
+			- [Nice to haves](#nice-to-haves)
+		- [Project Planning \& Development](#project-planning--development)
+	- [Development Approach](#development-approach)
+		- [Decision to Use Function-Based Views and Class-Based Views](#decision-to-use-function-based-views-and-class-based-views)
+		- [Other Development Choices](#other-development-choices)
+	- [Installation](#installation)
+		- [Install Django](#install-django)
+	- [Use](#use)
+		- [User: sign-up / sign-in / sign-out](#user-sign-up--sign-in--sign-out)
+	- [Testing](#testing)
+	- [Conclusion](#conclusion)
+	- [Further Development](#further-development)
+	- [Deployment](#deployment)
+	- [Copy / Improve / Contribute](#copy--improve--contribute)
+	- [Credits, Acknowledgments and Appreciation.](#credits-acknowledgments-and-appreciation)
 
 
 
@@ -80,9 +90,9 @@ Using Normalization to organize the data, so when changes to the data is require
 
 
 
-![Cake Types](static/assets/images_for_readme/cake-type.png)
+![Cake Types](static/assets/images_for_readme/cake-category-table.png)
 
-![Cake color and color association table](static/assets/images_for_readme/cake-color-association-table.png)
+![Cake color and color association table](static/assets/images_for_readme/cake-colour-association-table.png)
 
 ![Cake flavour and flavour association table](static/assets/images_for_readme/cake-flavour-association-table.png)
 
@@ -92,13 +102,25 @@ ___
 
 Table for planning **Customer Accounts** database models
 ![Customer Accounts](static/assets/images_for_readme/customer-account-tables.png)
-
-
 ___
+## Development Approach
+
+### Decision to Use Function-Based Views and Class-Based Views
+As I've been developing this project, I've used both function based views and class based views. Initially I had a preference to class based because it's what was shown in the walk throughs, so it was "familiar".  But as I've progressed, I found myself less reliant on patterns of usage that I had learned.  And instead I found myself leaning toward function based views because I found them to be clearer to "me", for what I was wanting to do.  The models.py in each application have remained class based because it's more suited to django. Doubtless, as I progress, my need will change. I'll probably move back and forth between classes and functions according to the complexity of tasks.
+
+
+
+### Other Development Choices
+The Just Cakes project, at this stage is simple.  And the functionality could have been more condensed/streamlined.  But I'm purposely spread it out across applications within the main project because the will allow me to keep it structured as it further develops and I add more features down the line.
+
+Hence applications that are currently dormant and functions where I've retained the framework but replaced the active logic with "TODO" placeholders, which will act as markers and guides for me or anyone else, for future development and implementations of these functionalities.
+
 ## Installation
 
+
+
 *Note on Versioning
-It's crucial to use compatible versions of all dependencies to ensure that your project runs smoothly. In this guide, we are using Django version 3.
+It's crucial to use compatible versions of all dependencies to ensure that your project runs smoothly. In this guide, we are using Django version3.
 
 ### Install Django
 
@@ -137,8 +159,7 @@ All handled by Allauth
 ___
 ___
 
-## Testing of functions
-![tests](static/assets/images_for_readme/tests.png)
+## Testing
 
 
 ## Conclusion
