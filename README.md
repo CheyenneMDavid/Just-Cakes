@@ -12,7 +12,7 @@ ___
 
 - [*~Just Cakes ~*](#just-cakes-)
 	- [Table of Contents](#table-of-contents)
-	- [Features](#features)
+	- [Features:](#features)
 	- [List of Applications in product.](#list-of-applications-in-product)
 	- [Pre-requisites](#pre-requisites)
 			- [For basic functionality](#for-basic-functionality)
@@ -37,9 +37,11 @@ ___
 ___
 ___
 
-## Features
-___
-
+## Features:
+- ### Signup handled by use of allauth.
+- ### Automated creation of a customer account upon signup.
+  - When a user signs up, an associated account is created and linked to them.
+  - Initially, only the username and password are created, prompting the users to "Complete Your Profile" by adding additional details at their convenience.
 
 ## List of Applications in product.
 - Core
