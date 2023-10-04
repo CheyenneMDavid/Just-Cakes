@@ -30,7 +30,7 @@ pattern = re.compile(
 )
 
 
-class CustomerProfileForm(SignupForm):
+class CreateProfileForm(SignupForm):
     """
     This class represents a fuller customer profile form which extends the
     default SignupForm provided by django-allauth. It includes additional
@@ -42,8 +42,16 @@ class CustomerProfileForm(SignupForm):
     # Defining fields for the form, with their specification
     first_name = forms.CharField(max_length=50, label="First Name")
     last_name = forms.CharField(max_length=30, label="Last Name")
-    username = forms.CharField(max_length=30, label="Username")
-    birth_date = forms.DateField(label="Birthdate")
+
+    # Defines the accepted format of dates, when they are pu in by the user.
+    birth_date = forms.DateField(
+        label="Birthdate",
+        input_formats=[
+            "%d/%m/%Y",
+            "%d.%m.%Y",
+            "%d:%m:%Y",
+        ],
+    )
 
     # Choice field for gender with options.
     gender = forms.ChoiceField(

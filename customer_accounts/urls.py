@@ -6,6 +6,7 @@ from .views import (
     customer_accounts_list,
     customer_accounts_detail,
     create_customer_profile,
+    update_customer_profile,
 )
 
 
@@ -20,4 +21,15 @@ urlpatterns = [
         create_customer_profile,
         name="create_customer_profile",
     ),
+    path(
+        "update/<int:id>/",
+        update_customer_profile,
+        name="update_profile",
+    ),
+    path(
+        "confirm_delete/<int:id>/",
+        confirm_delete_customer_profile,
+        name="confirm_delete_profile",
+    ),
+    path("delete/<int:id>/", delete_customer_profile, name="delete_profile"),
 ]

@@ -1,40 +1,33 @@
 """
 Views for the Customer Accounts app.
-It contains the views for rendering the customer accounts lists and details.
-It also handles the customer's signups.
-It uses Django's built-in functions and methods for managing HTTP
-requests, rendering templates, and performing actions like login and
-redirecting the users.
+This module manages the rendering of the customer accounts, lists and details.
+It also manages the process of creating and updating a customer's profile.
+
+It imports and uses the following modules and functions:
+- messages: Feedback to users after successful and unsuccessful sign ins.
+- render: Returns pages/templates.
+- get_object_or_404: Returns a 404 response if an object isn't found.
+- login: Logs users in after authentication and before re-direct.
+- redirect: Navigates users to another page after a task is completed.
+- login_required decorator: Restricts access by authenticated users.
+- CustomerAccount model: Interact with the corresponding database.
+- CreateProfileForm: Profile creation.
+- UpdateProfileForm: Updating of profile.
 """
-# Using messages module to provide users with messages of successful or
-# unsuccessful signups.
+# Moved the comments to the docstring at the top of the page to improve
+# readability.
+
+from django.urls import reverse
 from django.contrib import messages
-
-# render to return a template/page, get_object_or_404 to return a 404
-# response if an object isn't found. And redirect to take a user somewhere
-# after they have completed a task.  Example being, the home page after
-# signing in.
 from django.shortcuts import render, get_object_or_404, redirect
-
-
 from django.contrib.auth import login
-
-# Importing the login_required decorator to restrict access of accounts to
-# authenticated users.
 from django.contrib.auth.decorators import login_required
-
-# Importing CustomerAccount model.
 from .models import CustomerAccount
+from .forms import CreateProfileForm
 
-# Importing the CustomerProfileForm.
-from .forms import CustomerProfileForm
+# from .forms import UpdateProfileForm
 
 
-# This function will only be available to someone who is signed in as an
-# admin and will include a decorator and the permission checks for it.
-# It's planned for future functionality and the logic within it will be
-# replaced with a "pass" and a "TODO" comment as the function is planned for
-# future functionality.
 def customer_accounts_list(request):
     """
     The view fetches all the customer accounts from the database and renders
@@ -72,6 +65,9 @@ def customer_accounts_detail(request, id):
     )
 
 
+# Using the login_required decorator to ensure that access is restricted to
+# only authenticated users.
+@login_required
 def create_customer_profile(request):
     """
     This handles the customer signup process.
@@ -83,10 +79,11 @@ def create_customer_profile(request):
     # execute this code block.  If it's not, then it's treated as a GET and
     # moves onto rendering the signup-form.
     if request.method == "POST":
-        form = CustomerProfileForm(request.POST)
+        form = CreateProfileForm(request.POST)
 
         # If the the form's valid, the data's saved and a success message
-        # is displayed to the user before they're redirected to the homepage.
+        # is displayed to the user before they're redirected to the gallery of
+        # available cakes.
         if form.is_valid():
             user = form.save(request)
             messages.success(
@@ -95,9 +92,8 @@ def create_customer_profile(request):
             )
             login(request, user)
 
-            # Using the imported "HomePageView" in the urls.py and the
-            # imported "redirect" shortcut.
-            return redirect("home")
+            # Redirects the user to the gallery of available cakes.
+            return redirect("cake_list")
         else:
             # If form is not validated, the user receives an error message and
             # requested to try again.
@@ -108,7 +104,7 @@ def create_customer_profile(request):
             )
     # else the request is treated as a GET, creating a new empty form instance.
     else:
-        form = CustomerProfileForm()
+        form = CreateProfileForm()
 
     # Render the signup page
     return render(
@@ -116,3 +112,73 @@ def create_customer_profile(request):
         "customer_accounts/create_customer_profile_form.html",
         {"form": form},
     )
+
+
+# Using the login_required decorator to ensure that access is restricted to
+# only authenticated users.
+@login_required
+def update_customer_profile(request, id):
+    """
+    This enables a customer to update their profile and gives them a success
+    message when they've done it.
+    """
+    # Ensuring that the user is updating their own profile.
+    if request.user.id != id:
+        messages.error(
+            request,
+            "This is not your profile. You do not have permission to edit"
+            "this profile.",
+        )
+        # Redirect to a suitable page (perhaps the user's profile page)
+        return redirect("customer_accounts_detail", id=request.user.id)
+
+    # Retrieves a customer account that's linked to the user that's logged in.
+    customer_account = get_object_or_404(CustomerAccount, id=id)
+
+    # Checks if it's a post request
+    if request.method == "POST":
+        # If it is, then it's initialized with the data that will be used to
+        # update the account.
+        form = UpdateProfileForm(request.POST, instance=customer_account)
+
+        # Validates the form data
+        if form.is_valid():
+            # And then saves the updated customer_account.
+            form.save()
+
+            # Displays a message to the user, informing them of the successful
+            # updating of their profile.
+            messages.success(
+                request,
+                "Your profile has been updated. Remember, you can come back"
+                "and update this anytime.",
+            )
+
+            # Redirects the user to the gallery of available cakes.
+            return redirect("cake_list")
+
+    # Otherwise, if it's a GET request, it gets the customer's account details.
+    else:
+        form = UpdateProfileForm(instance=customer_account)
+
+    # Redirects the user to the gallery of available cakes.
+    return render(request, "cake_list.html", {"form": form})
+
+
+def delete_customer_profile(request, id):
+    """
+    handles the deletion of a customer's profile
+    """
+
+    # Retrieve the CustomerAccount instance with the given ID or return a
+    # 404 response if not found
+    customer_account = get_object_or_404(CustomerAccount, id=id)
+
+    # Deletes the customer account/profile.
+    customer_account.delete()
+
+    # Confirms deletion message to user, using an f-string and the user's name
+    messages.success(request, f"{customer_account.name} has been deleted.")
+
+    # Returns user to the gallery of available cakes
+    return redirect("{% url 'cake_list' %}")

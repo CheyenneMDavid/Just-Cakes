@@ -11,26 +11,20 @@ ___
 ## Table of Contents
 
 - [*~Just Cakes ~*](#just-cakes-)
-	- [Table of Contents](#table-of-contents)
-	- [Features:](#features)
-	- [List of Applications in product.](#list-of-applications-in-product)
-	- [Pre-requisites](#pre-requisites)
-			- [For basic functionality](#for-basic-functionality)
-			- [Nice to haves](#nice-to-haves)
-		- [Project Planning \& Development](#project-planning--development)
-	- [Development Approach](#development-approach)
-		- [Decision to Use Function-Based Views and Class-Based Views](#decision-to-use-function-based-views-and-class-based-views)
-		- [Other Development Choices](#other-development-choices)
-	- [Installation](#installation)
-		- [Install Django](#install-django)
-	- [Use](#use)
-		- [User: sign-up / sign-in / sign-out](#user-sign-up--sign-in--sign-out)
-	- [Testing](#testing)
-	- [Conclusion](#conclusion)
-	- [Further Development](#further-development)
-	- [Deployment](#deployment)
-	- [Copy / Improve / Contribute](#copy--improve--contribute)
-	- [Credits, Acknowledgments and Appreciation.](#credits-acknowledgments-and-appreciation)
+- [Features:](#features)
+- [List of Applications in product.](#list-of-applications-in-product)
+- [Pre-requisites](#pre-requisites)
+- [Project Planning \& Development](#project-planning--development)
+- [Development Approach](#development-approach)
+- [Other Development Choices](#other-development-choices)
+- [Installation](#installation)
+- [Use](#use)
+- [Testing](#testing)
+- [Conclusion](#conclusion)
+- [Further Development](#further-development)
+- [Deployment](#deployment)
+- [Copy / Improve / Contribute](#copy--improve--contribute)
+- [Credits, Acknowledgments and Appreciation.](#credits-acknowledgments-and-appreciation)
 
 
 
@@ -38,18 +32,19 @@ ___
 ___
 
 ## Features:
-- ### Signup handled by use of allauth.
-- ### Automated creation of a customer account upon signup.
-  - When a user signs up, an associated account is created and linked to them.
-  - Initially, only the username and password are created, prompting the users to "Complete Your Profile" by adding additional details at their convenience.
+- Gallery to browse a gallery of cakes.
+- Registration with signup.
+- Ability to create a customer profile.
+- Ability to update and delete customer profiles.
+- Ability to write reviews, comment on reviews, and delete reviews.
+- Ability to add cake images and details via the Django admin.
 
 ## List of Applications in product.
-- Core
 - Customer Accounts
 - Cakes
-- Orders
 - Reviews
-
+- Core (Dormant until further development)
+- Orders (Dormant until further development)
 ___
 
 
@@ -118,22 +113,16 @@ The Just Cakes project, at this stage is simple.  And the functionality could ha
 Hence applications that are currently dormant and functions where I've retained the framework but replaced the active logic with "TODO" placeholders, which will act as markers and guides for me or anyone else, for future development and implementations of these functionalities.
 
 ## Installation
-
-
-
 *Note on Versioning
 It's crucial to use compatible versions of all dependencies to ensure that your project runs smoothly. In this guide, we are using Django version3.
 
 ### Install Django
-
 Code: ```pip3 install 'django<4'```
-
 Notes: Use Django 3.* to ensure compatibility and support.
 Initialize the Django Project
 Code: django-admin startproject PROJ_NAME .
 Notes: The '.' at the end specifies that the project should be created in the current directory.
 Create Django Apps
-
 Code: ```python3 manage.py``` startapp APP_NAME
 Notes: This will create a new app inside your Django project. Replace APP_NAME with your desired application name.
 Running and Configuring the Server
@@ -141,7 +130,7 @@ Run the Django Development Server
 Code: ```python3 manage.py runserver```
 
 **Additional Information**
-For more details, you can refer to the official Django documentation [here](https://www.djangoproject.com).
+For more details, you can refer to the official [Django Documentation](https://www.djangoproject.com).
 Register the App in Django Settings
 
 **Prerequisites**
@@ -195,5 +184,7 @@ Picture images have been courtesy of Midjourney and Microsoft's Bing image-creat
 I have used ChatGPT as a tutor that is on tap, asking it's advice about structure with a view to further development.
 The things I needed to consider from a point of practicality and scalability in future development.  That's why there are parts that are dormant.
 
-The favicon.ico is courtesy of https://favicon.io
+The favicon.ico is courtesy of [Favicon Generator](https://favicon.io)
+
+The wallpaper for the site was sourced as a svg file courtesy of [Hero Patterns](https://heropatterns.com/)
 ___
