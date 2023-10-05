@@ -17,7 +17,6 @@ It imports and uses the following modules and functions:
 # Moved the comments to the docstring at the top of the page to improve
 # readability.
 
-from django.urls import reverse
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login
@@ -25,7 +24,7 @@ from django.contrib.auth.decorators import login_required
 from .models import CustomerAccount
 from .forms import CreateProfileForm
 
-# from .forms import UpdateProfileForm
+# from .forms import UpdateProfileForm  NOTE SORT OUT THE FORMS.PY & THE HTML
 
 
 def customer_accounts_list(request):
@@ -56,7 +55,7 @@ def customer_accounts_detail(request, id):
     except CustomerAccount.DoesNotExist:
         customer_account = None
 
-    # Displays a customer_account-s detail page that is associated with the
+    # Displays a customer_accounts detail page that is associated with the
     # user that is currently logged in.
     return render(
         request,
@@ -129,7 +128,14 @@ def update_customer_profile(request, id):
             "This is not your profile. You do not have permission to edit"
             "this profile.",
         )
-        # Redirect to a suitable page (perhaps the user's profile page)
+        #
+        #  ######  NOTE TO SELF  ##  Ask advice on where they should be
+        # redirected to in this instance, or how it should be better dealt
+        # with because at this point, anyone finding themselves here,
+        # may have malicious intent.
+        #
+        # Redirect to a suitable page (perhaps the user's profile page or back
+        # out to the gallery images.  )
         return redirect("customer_accounts_detail", id=request.user.id)
 
     # Retrieves a customer account that's linked to the user that's logged in.
@@ -165,13 +171,59 @@ def update_customer_profile(request, id):
     return render(request, "cake_list.html", {"form": form})
 
 
+# Using the login_required decorator to ensure that access is restricted to
+# only authenticated users.
+@login_required
+def confirm_delete_customer_profile(request, id):
+    """
+    Handles the confirmation of a request to delete
+    """
+
+    # Ensuring that the user is deleting their own profile.
+    if request.user.id != id:
+        messages.error(
+            request,
+            "This is not your profile. You do not have permission to delete it"
+            "this profile.",
+        )
+        #
+        #  ######  NOTE TO SELF  ##  Ask advice on where they should be
+        # redirected to in this instance, or how it should be better dealt
+        # with because at this point, anyone finding themselves here,
+        # may have malicious intent.
+        #
+        # Redirect to a suitable page (perhaps the user's profile page or back
+        # out to the gallery images.  )
+        #
+        #
+        # REMEMBER to get advice on this and probably need to apply it right
+        # across everything in this file!
+        #
+        return redirect("customer_accounts_detail", id=request.user.id)
+
+    # Retrieve the CustomerAccount instance with the given ID or return a
+    # 404 response if not found.
+    customer_account = get_object_or_404(CustomerAccount, id=id)
+
+    account_data_awaiting_deletion = {"customer_account": customer_account}
+
+    # Renders a html page with a danger warning, a go back button and a button
+    # to confirm deletion
+    return render(
+        request, "confirm_delete.html", account_data_awaiting_deletion
+    )
+
+
+# Using the login_required decorator to ensure that access is restricted to
+# only authenticated users.
+@login_required
 def delete_customer_profile(request, id):
     """
     handles the deletion of a customer's profile
     """
 
     # Retrieve the CustomerAccount instance with the given ID or return a
-    # 404 response if not found
+    # 404 response if not found.
     customer_account = get_object_or_404(CustomerAccount, id=id)
 
     # Deletes the customer account/profile.

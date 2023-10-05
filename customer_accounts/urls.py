@@ -7,6 +7,8 @@ from .views import (
     customer_accounts_detail,
     create_customer_profile,
     update_customer_profile,
+    confirm_delete_customer_profile,
+    delete_customer_profile,
 )
 
 
