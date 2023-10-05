@@ -21,12 +21,6 @@ h2,h3, h4, h5 {
 }
 
 /* Header */
-.cake-type-headings {
-    color: #b0a15d;
-    margin-left: 15px;
-    text-decoration: underline;
-}
-
 .navbar-text,
 .custom-svg {
     font-family: 'Lobster', cursive;
@@ -35,9 +29,8 @@ h2,h3, h4, h5 {
     background-position: top left;
 }
 
-.mission-statement {
-    font-family: 'Lobster', cursive;
-    padding-left: 15px;
+.username {
+    color: #444444;
 }
 
 /* Main Body */
@@ -47,16 +40,33 @@ main,
     max-width: 1200px;
 }
 
-
- 
 .carousel-top-margin {
-    margin-top: 10px;
-    color: #444444;
+    color: white;
+    background-color: #b0a15d;
+    padding: 10px;
+}
+
+.navbar-toggler-icon {
+    background-color: #b0a15d;
+}
+.cake-type-headings {
+    color: #b0a15d;
+    margin-left: 15px;
+    text-decoration: underline;
+}
+
+.navbar-nav .nav-link {
+    color: #b0a15d !important;
 }
 
 .review {
     font-family: 'Lobster', cursive;
     color: #b0a15d;
+}
+
+.mission-statement {
+    font-family: 'Lobster', cursive;
+    padding-left: 15px;
 }
 
 .image-container {
@@ -122,5 +132,5 @@ hr {
 
 /* Footer */
 footer {
-    background-color: #b0a15d;
+    background-color: #b0a15d !important;
 }
