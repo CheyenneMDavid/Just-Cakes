@@ -9,6 +9,7 @@ body {
 
 h1 {
     color: #b0a15d;
+    font-family: Lobster, cursive;
     font-size: 40px;
     text-decoration: underline;
     margin-left: 15px;
@@ -29,8 +30,16 @@ h2,h3, h4, h5 {
     background-position: top left;
 }
 
+.signed-in-as-tag {
+    color: #b0a15d;
+    padding: 8px;
+}
+
+
 .username {
     color: #444444;
+    font-family: Roboto;
+    font-weight: 600;
 }
 
 /* Main Body */
@@ -55,7 +64,7 @@ main,
     text-decoration: underline;
 }
 
-.navbar-nav .nav-link {
+.nav-link {
     color: #b0a15d !important;
 }
 

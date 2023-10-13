@@ -30,6 +30,7 @@ def create_customer_account(sender, instance, created, **kwargs):
     """
     if created:
         CustomerAccount.objects.create(user=instance)
+        print(f"Created CustomerAccount for {instance}")
 
 
 # Signal handler to save a CustomerAccount whenever a User is saved.
@@ -48,4 +49,9 @@ def save_customer_account(sender, instance, **kwargs):
         None in simple terms.
     """
     # Save the associated CustomerAccount when the User is saved.
-    instance.customeraccount.save()
+    try:
+        # Try to save the associated CustomerAccount when the User is saved.
+        instance.customeraccount.save()
+        print(f"Saved CustomerAccount for {instance}")
+    except CustomerAccount.DoesNotExist:
+        print(f"No CustomerAccount exists for user: {instance}")

@@ -8,7 +8,7 @@ class UserPostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        # The fields that are used by the forms a user fils in when
+        # The fields that are used by the forms a user fills in when
         # submitting a post.
         fields = (
             "title",

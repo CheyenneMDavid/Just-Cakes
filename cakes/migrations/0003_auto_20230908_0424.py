@@ -4,19 +4,18 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('cakes', '0002_auto_20230907_0634'),
+        ("cakes", "0002_auto_20230907_0634"),
     ]
 
     operations = [
         migrations.RenameModel(
-            old_name='CakeColour',
-            new_name='CakeColor',
+            old_name="CakeColour",
+            new_name="CakeColor",
         ),
         migrations.RenameField(
-            model_name='cakecolor',
-            old_name='colour',
-            new_name='color',
+            model_name="cakecolor",
+            old_name="colour",
+            new_name="color",
         ),
     ]

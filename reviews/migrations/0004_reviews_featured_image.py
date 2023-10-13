@@ -5,15 +5,18 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('reviews', '0003_remove_reviews_featured_image'),
+        ("reviews", "0003_remove_reviews_featured_image"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='reviews',
-            name='featured_image',
-            field=cloudinary.models.CloudinaryField(default='your_default_image_url_here', max_length=255, verbose_name='image'),
+            model_name="reviews",
+            name="featured_image",
+            field=cloudinary.models.CloudinaryField(
+                default="your_default_image_url_here",
+                max_length=255,
+                verbose_name="image",
+            ),
         ),
     ]

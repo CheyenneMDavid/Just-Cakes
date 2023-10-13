@@ -5,29 +5,40 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('cakes', '0006_individualcake_description'),
+        ("cakes", "0006_individualcake_description"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='CakeCategory',
+            name="CakeCategory",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('category', models.CharField(default='to be set', max_length=100)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("category", models.CharField(default="to be set", max_length=100)),
             ],
         ),
         migrations.RemoveField(
-            model_name='individualcake',
-            name='type',
+            model_name="individualcake",
+            name="type",
         ),
         migrations.DeleteModel(
-            name='CakeType',
+            name="CakeType",
         ),
         migrations.AddField(
-            model_name='individualcake',
-            name='category',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.PROTECT, to='cakes.cakecategory'),
+            model_name="individualcake",
+            name="category",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.PROTECT,
+                to="cakes.cakecategory",
+            ),
         ),
     ]

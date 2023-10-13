@@ -52,29 +52,24 @@ ___
 
 #### For basic functionality
 ```
-Django3.2.20
-dj-database-url 0.5.0
+Django==3.2.20
+dj-database-url==0.5.0
 psycopg2==2.9.7
-PostgreSQL
-django-allauth 0.55.0
-Pillow 10.0.0
-cloudinary 1.34.0
-dj3-cloudinary-storage 0.0.6
-django-cloudinary-storage 0.3.0
-```
-#### Nice to haves
-```
-black 23.7.0
-pylint-django 2.5.3
-gunicorn 21.2.0
+django-allauth==0.55.0
+Pillow==10.0.0
+cloudinary==1.34.0
+dj3-cloudinary-storage==0.0.6
+django-cloudinary-storage==0.3.0
+django-crispy-forms==1.14.0
+django-summernote==0.8.20.0
+gunicorn==21.2.0
+whitenoise==6.5.0
 ```
 
+## Project Planning & Development
+### Database Modeling Tables
 
-
-### Project Planning & Development
 Reviews:
-
-Table for planning **"Reviews"** database models.py
 
 ![Reviews Tables Model](static/assets/images_for_readme/reviews-table.png)
 ___
@@ -102,9 +97,8 @@ Table for planning **Customer Accounts** database models
 ___
 ## Development Approach
 
-### Decision to Use Function-Based Views and Class-Based Views
+**Decision to Use Function-Based Views and Class-Based Views**.  As I've been developing this project, I've used both function based views and class based views. Initially I had a preference to class based because it's what was shown in the walk throughs, so it was "familiar".  But as I've progressed, I found myself less reliant on patterns of usage that I had learned.  And instead I found myself leaning toward function based views because I found them to be clearer to "me", for what I was wanting to do.  The models.py in each application have remained class based because it's more suited to django. Doubtless, as I progress, my need will change. I'll probably move back and forth between classes and functions according to the complexity of tasks.
 As I've been developing this project, I've used both function based views and class based views. Initially I had a preference to class based because it's what was shown in the walk throughs, so it was "familiar".  But as I've progressed, I found myself less reliant on patterns of usage that I had learned.  And instead I found myself leaning toward function based views because I found them to be clearer to "me", for what I was wanting to do.  The models.py in each application have remained class based because it's more suited to django. Doubtless, as I progress, my need will change. I'll probably move back and forth between classes and functions according to the complexity of tasks.
-
 
 
 ### Other Development Choices
@@ -112,8 +106,38 @@ The Just Cakes project, at this stage is simple.  And the functionality could ha
 
 Hence applications that are currently dormant and functions where I've retained the framework but replaced the active logic with "TODO" placeholders, which will act as markers and guides for me or anyone else, for future development and implementations of these functionalities.
 
+Bit of a learning curve whilst building this project.  Variables, by their nature are chosen names. So I've chosen those names according to what I believed to be suitable in describing what they are,  However, I've also learned that whilst you can choose whatever you want, some things are an agreed standard. And trying to stick to that has many benefits including readability and maintenance. As a result I've gone back and changed names of things. "pk" rather than "id" is one example.
+
+The changing of names of has caused it's own confusion and problems. Despite this, I've chosen to go ahead with changes and will continue to do so as I encounter opportunities for standardization.
+
+### Debugging Dilemmas: Uncovering Issues and Finding Solutions.
+
+Issues with Navigation:
+The display logic in the navigation (found within base.html) is controlled by an if/else conditional that checks two things.
+
+1. If a user is authenticated/signed-in.
+2. Whether the authenticated user has an associated customer account.
+
+Unexpected issues came up when some users, despite being authenticated, did not display the "My Account" option.  I didn't think this should be possible because the signals.py script was written so that, when a user initially signs in using allauth, a customer account was automatically created and associated to that user.
+
+Having users appearing without associated accounts and without the expected navigation was a bit confusing. To diagnose the problem, I added multiple span elements like:
+
+`<span>1 User ID: {{ user.username }}</span>`
+`<span>2 User ID: {{ user.username }}</span>`
+`<span>3 User ID: {{ user.username }}</span>`
+
+and so on, scattered throughout the navigation logic. This allowed me to track which elements were displayed under the different user states of: "not authenticated", "authenticated WITHOUT an associated account", and "authenticated WITH an associated account".
+
+The idea being that an authenticated user with an associated account would see their username and a "My Account" link, whilst an authenticated user without an associated account would have an "Update Your Profile" link in the navigation.
+
+Using the differently numbered and placed span elements, I finally realised that the only real issue was that the users I'd created via the Django admin panel bypassed the signals.py logic which would have automatically created an account and associated it with them.
+
+Considering how this had come about, I decided that these were edge cases and didn't represent genuine user scenarios.
+So I've streamlined the logic and removed the unnecessary complex parts.
+This decision's grounded in the fact that all the "actual users" (those not created via the admin panel) would always have an associated account. This ensures consistency in the navigation for the user.
+
 ## Installation
-*Note on Versioning
+**Note on Versioning**
 It's crucial to use compatible versions of all dependencies to ensure that your project runs smoothly. In this guide, we are using Django version3.
 
 ### Install Django
@@ -169,7 +193,7 @@ ___
 
 ___
 
-## Copy / Improve / Contribute
+### Copy / Improve / Contribute
 
 If anyone wishes to copy and improve this software by contributing changes,
 please do.  You will find instructions from
@@ -183,6 +207,8 @@ The reviews application within the just cakes project has been copied from the C
 Picture images have been courtesy of Midjourney and Microsoft's Bing image-creator. Some I have 
 I have used ChatGPT as a tutor that is on tap, asking it's advice about structure with a view to further development.
 The things I needed to consider from a point of practicality and scalability in future development.  That's why there are parts that are dormant.
+
+StackOverflow for regex patterns and advice on naming conventions.
 
 The favicon.ico is courtesy of [Favicon Generator](https://favicon.io)
 

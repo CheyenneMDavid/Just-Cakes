@@ -71,9 +71,7 @@ class IndividualCake(models.Model):
     # Foreign key to CakeCategory. If a CakeCategory is deleted, django
     # checks to see if any other cake is reliant on cake category. If there
     # is, then it's protected from being deleted.
-    category = models.ForeignKey(
-        CakeCategory, on_delete=models.PROTECT, default=None
-    )
+    category = models.ForeignKey(CakeCategory, on_delete=models.PROTECT, default=None)
 
     # Indicates if the cake is gluten free and using the statement " is "
     # so that it can be marked as True or False.

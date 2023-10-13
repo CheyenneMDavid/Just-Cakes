@@ -13,12 +13,12 @@ from django.conf import settings
 
 # URL patterns for overall project.
 urlpatterns = [
-    path("admin/", admin.site.urls, name="reviews-urls"),
+    path("admin/", admin.site.urls),
+    path("customer_accounts/", include("customer_accounts.urls")),
     path("summernote/", include("django_summernote.urls")),
     path("", include("cakes.urls")),
     path("reviews/", include("reviews.urls")),
     path("account/", include("allauth.urls")),
-    path("customer_accounts/", include("customer_accounts.urls")),
     # url pattern to load the favicon.ico from the static folder.
     re_path(
         r"^favicon.ico$",

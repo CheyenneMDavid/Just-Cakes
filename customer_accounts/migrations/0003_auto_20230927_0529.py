@@ -4,20 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('customer_accounts', '0002_auto_20230910_0231'),
+        ("customer_accounts", "0002_auto_20230910_0231"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='customeraccount',
-            name='account_number',
+            model_name="customeraccount",
+            name="account_number",
             field=models.CharField(blank=True, max_length=20, null=True, unique=True),
         ),
         migrations.AlterField(
-            model_name='customeraccount',
-            name='payment_method',
+            model_name="customeraccount",
+            name="payment_method",
             field=models.CharField(blank=True, max_length=50, null=True),
         ),
     ]

@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('cakes', '0005_alter_cakecolor_color'),
+        ("cakes", "0005_alter_cakecolor_color"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='individualcake',
-            name='description',
-            field=models.TextField(default=''),
+            model_name="individualcake",
+            name="description",
+            field=models.TextField(default=""),
         ),
     ]

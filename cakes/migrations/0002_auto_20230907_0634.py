@@ -6,30 +6,49 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('cakes', '0001_initial'),
+        ("cakes", "0001_initial"),
     ]
 
     operations = [
         migrations.RenameModel(
-            old_name='Colour',
-            new_name='CakeColour',
+            old_name="Colour",
+            new_name="CakeColour",
         ),
         migrations.RenameModel(
-            old_name='Flavour',
-            new_name='CakeFlavour',
+            old_name="Flavour",
+            new_name="CakeFlavour",
         ),
         migrations.RenameModel(
-            old_name='Cake',
-            new_name='IndividualCake',
+            old_name="Cake",
+            new_name="IndividualCake",
         ),
         migrations.CreateModel(
-            name='CakeImage',
+            name="CakeImage",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', cloudinary.models.CloudinaryField(max_length=255, verbose_name='image')),
-                ('cake', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='images', to='cakes.individualcake')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "image",
+                    cloudinary.models.CloudinaryField(
+                        max_length=255, verbose_name="image"
+                    ),
+                ),
+                (
+                    "cake",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="images",
+                        to="cakes.individualcake",
+                    ),
+                ),
             ],
         ),
     ]

@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('cakes', '0004_alter_individualcake_type'),
+        ("cakes", "0004_alter_individualcake_type"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='cakecolor',
-            name='color',
+            model_name="cakecolor",
+            name="color",
             field=models.CharField(max_length=50),
         ),
     ]
