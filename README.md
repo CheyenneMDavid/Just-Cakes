@@ -105,13 +105,23 @@ ___
 ### Decision to Use Function-Based Views and Class-Based Views
 As I've been developing this project, I've used both function based views and class based views. Initially I had a preference to class based because it's what was shown in the walk throughs, so it was "familiar".  But as I've progressed, I found myself less reliant on patterns of usage that I had learned.  And instead I found myself leaning toward function based views because I found them to be clearer to "me", for what I was wanting to do.  The models.py in each application have remained class based because it's more suited to django. Doubtless, as I progress, my need will change. I'll probably move back and forth between classes and functions according to the complexity of tasks.
 
-
-
-### Other Development Choices
+## Other Development Choices
 The Just Cakes project, at this stage is simple.  And the functionality could have been more condensed/streamlined.  But I'm purposely spread it out across applications within the main project because the will allow me to keep it structured as it further develops and I add more features down the line.
 
 Hence applications that are currently dormant and functions where I've retained the framework but replaced the active logic with "TODO" placeholders, which will act as markers and guides for me or anyone else, for future development and implementations of these functionalities.
 
+### Using a DEVELOPMENT Environment Variable
+I've used an environment variable to control the DEBUG setting, so that it sets to True when I'm working on development of of the application and then to False when it runs in the deployed production mode.  This ensures security in production and detailed error messages in development.
+The idea and code was copied from my walkthrough projects with code institute.
+
+### Clashes between packages extensions.
+Initially installing linters and formatters to ensure code quality and consistency.  But as I tried different extensions, after a while this seemed to cause more issues and I was unable to workout what was clashing with what.  So I separated things into a requirements.txt for the stuff that the project was dependant on, in order to run and the stuff that was useful during development was placed in requirements-dev.txt after reading this article: https://realpython.com/lessons/production-vs-development-dependencies/
+
+### Fork to solve Database Schema and models.py Issues
+In the back and forth with the clashing of extensions, At some point the Database Schema and the models.py in the customer_accounts app didn't match up.  On one hand I was getting errors saying that the first_name, last_name and memorable_dates weren't recognised after I had added and migrated them.  On the other hand I couldn't migrate them again because I was told that there were no changes detected.  I tried editing the migration files and finally deleted them in the hope of creating fresh migrations, but seemed to come full circle.  Eventually, creating a new database instance which seemed a cleaner way to go forward.
+
+
+___
 ## Installation
 *Note on Versioning
 It's crucial to use compatible versions of all dependencies to ensure that your project runs smoothly. In this guide, we are using Django version3.
@@ -185,6 +195,9 @@ I have used ChatGPT as a tutor that is on tap, asking it's advice about structur
 The things I needed to consider from a point of practicality and scalability in future development.  That's why there are parts that are dormant.
 
 The favicon.ico is courtesy of [Favicon Generator](https://favicon.io)
+
+
+Code and the idea for toggling the DEBUG according to environment is courtesy of Code Institute walkthrough projects.
 
 The wallpaper for the site was sourced as a svg file courtesy of [Hero Patterns](https://heropatterns.com/)
 ___
