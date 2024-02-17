@@ -63,7 +63,7 @@ class CustomerAccount(models.Model):
         default="Information not provided",
     )
     county = models.CharField(
-        max_length=20,
+        max_length=30,
         default="Information not provided",
     )
     post_code = models.CharField(
