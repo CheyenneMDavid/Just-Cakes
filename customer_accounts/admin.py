@@ -29,8 +29,6 @@ class CustomerAccountAdmin(admin.ModelAdmin):
         "city",
         "county",
         "registration_date",
-        "purchase_order_date",
-        "delivery_order_date",
     )
 
 

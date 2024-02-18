@@ -47,6 +47,9 @@ def customer_accounts_detail(request, pk):
     It uses a login_required decorator that checks if a user is
     logged in/authenticated.
     """
+
+    # gets the customer account that's passed as an argument to
+    # customer_accounts_detail
     account = get_object_or_404(CustomerAccount, pk=pk)
 
     # Tries to get the customer account that is associated with the user that
@@ -83,13 +86,14 @@ def update_customer_profile(request, pk):
             "This is not your profile. You do not have permission to edit"
             "this profile.",
         )
-        return redirect("customer_accounts_detail",pk=request.user.pk)
+        return redirect("customer_accounts_detail", pk=request.user.pk)
 
     # Retrieves a customer account that's linked to the user that's logged in.
     customer_account = get_object_or_404(CustomerAccount, pk=pk)
 
     # Checks if it's a post request
     if request.method == "POST":
+
         form = UpdateProfileForm(request.POST, instance=customer_account)
 
         # Validates the form data

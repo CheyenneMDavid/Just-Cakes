@@ -38,8 +38,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "just-beautiful-cakes-f9a2414b4d06.herokuapp.com",
     "localhost",
-    "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu105.gitpod.io",
-    "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu104.gitpod.io",
+    "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
 ]
 
 
@@ -64,8 +63,6 @@ INSTALLED_APPS = [
     "cloudinary",
     "django_summernote",
     "crispy_forms",
-    "core",
-    "orders",
     "reviews",
     "cakes",
     "customer_accounts",
