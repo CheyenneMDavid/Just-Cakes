@@ -42,7 +42,7 @@ class CustomerAccount(models.Model):
     )
 
     phone = models.CharField(
-        max_length=15,
+        max_length=30,
         validators=[phone_regex],
         blank=True,
     )
@@ -67,7 +67,7 @@ class CustomerAccount(models.Model):
         default="Information not provided",
     )
     post_code = models.CharField(
-        max_length=15,
+        max_length=30,
         default="Information not provided",
     )
 
