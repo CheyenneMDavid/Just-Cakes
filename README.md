@@ -1,4 +1,4 @@
-# *~Just Cakes ~*
+# *Just Cakes*
 
 *Just Cakes*, is a maker of beautiful cakes, that takes online orders and delivers across the UK.
 
@@ -10,13 +10,15 @@ ___
 
 ## Table of Contents
 
-- [*~Just Cakes ~*](#just-cakes-)
+- [*Just Cakes*](#just-cakes-)
 - [Features:](#features)
 - [List of Applications in product.](#list-of-applications-in-product)
 - [Pre-requisites](#pre-requisites)
 - [Project Planning \& Development](#project-planning--development)
 - [Development Approach](#development-approach)
-- [Other Development Choices](#other-development-choices)
+- [Agile Development Process](#agile-development-drocess)
+  - [Decision to Use Function-Based Views and Class-Based Views](#decision-to-use-function-based-views-and-class-based-views)
+   
 - [Installation](#installation)
 - [Use](#use)
 - [Testing](#testing)
@@ -67,7 +69,7 @@ gunicorn 21.2.0
 ### Project Planning & Development
 Reviews:
 
-Table for planning **"Reviews"** database models.py
+Table for planning **"Reviews"** database `models.py`
 
 ![Reviews Tables Model](static/assets/images_for_readme/reviews-table.png)
 ___
@@ -94,22 +96,35 @@ Table for planning **Customer Accounts** database models
 ![Customer Accounts](static/assets/images_for_readme/customer-account-tables.png)
 ___
 ## Development Approach
+> The Just Cakes project, at this stage is simple.  And the functionality could have been more condensed/streamlined.  But I'm purposely spread it out across applications within the main project.  My intention was to keep it structured in a manner that allowed me to add more features further down the line.  With this in mind, I previously had other apps such as "orders" which whilst not being utilized at this point, I did have fields such as account_number,  payment_method, purchase_order_date, delivery_order_date and basket_item_count which would have contributed to this wider functionality. As few as these extra lines of code were sitting latently as they did, demanded that I add a fair amount of comments around them in order to explain their presence, which resulted in an excessive amount of commenting which in turn detracted from the functional code which was more important.  I decided that removing it and inserting it at a later date was the lesser of the two evils, given that the functional code was the important part for assessment.  Not the provisional code for what the functions might do in the future.
+
 
 ### Decision to Use Function-Based Views and Class-Based Views
-As I've been developing this project, I've used both function based views and class based views. Initially I had a preference to class based because it's what was shown in the walk throughs, so it was "familiar".  But as I've progressed, I found myself less reliant on patterns of usage that I had learned.  And instead I found myself leaning toward function based views because I found them to be clearer to "me", for what I was wanting to do.  The models.py in each application have remained class based because it's more suited to django. Doubtless, as I progress, my need will change. I'll probably move back and forth between classes and functions according to the complexity of tasks.
+> As I've been developing this project, I've used both function based views and class based views. Initially I had a preference to class based because it's what was shown in the walk throughs, so it was "familiar".  But as I've progressed, I found myself less reliant on patterns of usage that I had learned.  And instead I found myself leaning toward function based views because I found them to be clearer to "me", for what I was wanting to do.  The `models.py` in each application have remained class based because it's more suited to django. Doubtless, as I progress, my need will change. I'll probably move back and forth between classes and functions according to the complexity of tasks.
 
-## Other Development Choices
-The Just Cakes project, at this stage is simple.  And the functionality could have been more condensed/streamlined.  But I'm purposely spread it out across applications within the main project.  My intention was to keep it structured in a manner that allowed me to add more features further down the line.  With this in mind, I previously had other apps such as "orders" which whilst not being utilized at this point, I did have fields such as account_number,  payment_method, purchase_order_date, delivery_order_date and basket_item_count which would have contributed to this wider functionality. As few as these extra lines of code were sitting latently as they did, demanded that I add a fair amount of comments around them in order to explain their presence, which resulted in an excessive amount of commenting which in turn detracted from the functional code which was more important.  I decided that removing it and inserting it at a later date was the lesser of the two evils, given that the functional code was the important part for assessment.  Not the provisional code for what the functions might do in the future.
+### Using a DEVELOPMENT Environment Variable
+> I've used an environment variable to control the DEBUG setting, so that it sets to True when I'm working on development of of the application and then to False when it runs in the deployed production mode.  This ensures security in production and detailed error messages in development.
+The idea and code was copied from my walkthrough projects with code institute.
+
 ___
 
 ## Agile Development Process
 
 ### User Stories
+
+These are a few key user stories that guided the development of *Just Cakes:*
+
+- As a Site User, I can browse a selection of cakes so that I can choose one I like.
+- As a Site User, I can like and unlike reviews so that I can show if I found them helpful
+
+- As a Admin, I can search posts using filters such as titles and when the posts were written so that I'm able to find the posts I'm looking for, quicker and more efficiently
+
+For a complete list of user stories, see [My Project Board](https://github.com/users/CheyenneMDavid/projects/30).
+
+
 ___
 
-### Using a DEVELOPMENT Environment Variable
-I've used an environment variable to control the DEBUG setting, so that it sets to True when I'm working on development of of the application and then to False when it runs in the deployed production mode.  This ensures security in production and detailed error messages in development.
-The idea and code was copied from my walkthrough projects with code institute.
+
 
 ### Clashes between package extensions.
 Initially installing linters and formatters to ensure code quality and consistency.  But as I tried different extensions, after a while this seemed to cause more issues and I was unable to workout what was clashing with what.  So I separated things into a requirements.txt for the stuff that the project was dependant on, in order to run and the stuff that was useful during development was placed in requirements-dev.txt after reading this article: https://realpython.com/lessons/production-vs-development-dependencies/. In the search for way to stop things clashing I eventually came across the term "virtual environment" which people seemed to mention quite a lot on slack.
@@ -117,8 +132,8 @@ I eventually did away with the requirements-dev.txt file and setup a virtual env
 
 ### Other issues encountered during development
 
-### Fork to solve Database Schema and models.py Issues
-In the back and forth with the clashing of extensions, At some point the Database Schema and the models.py in the customer_accounts app didn't match up.  On one hand I was getting errors saying that the first_name, last_name and memorable_dates weren't recognized after I had added and migrated them.  On the other hand I couldn't migrate them again because I was told that there were no changes detected.  I tried editing the migration files and finally deleted them in the hope of creating fresh migrations, but seemed to come full circle.  Eventually, creating a new database instance which seemed a cleaner way to go forward.
+### Fork to solve Database Schema and `models.py` Issues
+In the back and forth with the clashing of extensions, At some point the Database Schema and the `models.py` in the customer_accounts app didn't match up.  On one hand I was getting errors saying that the first_name, last_name and memorable_dates weren't recognized after I had added and migrated them.  On the other hand I couldn't migrate them again because I was told that there were no changes detected.  I tried editing the migration files and finally deleted them in the hope of creating fresh migrations, but seemed to come full circle.  Eventually, creating a new database instance which seemed a cleaner way to go forward.
 
 
 ___
