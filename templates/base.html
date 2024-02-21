@@ -100,13 +100,14 @@
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<!-- Static Nav Items -->
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="#">Home</a>
+							<a
+								class="nav-link active"
+								aria-current="page"
+								href="{% url 'index' %}"
+								>Home</a
+							>
 						</li>
 
-						<!-- Generates a link to Cake selection -->
-						<li class="nav-item">
-							<a class="nav-link" href="{% url 'cake_list' %}">Our Cakes</a>
-						</li>
 						<!-- Generates a link to customer reviews -->
 						<li class="nav-item">
 							<a class="nav-link" href="{% url 'post_list' %}">Reviews</a>
