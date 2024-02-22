@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container-fluid">
+	<hr />
+	<div class="row">
+		<div class="col-md-6">
+			{% if cake.images.all %}
+
+			<img
+				src="{{ cake.images.all.0.image.url|add:'?format=webp' }}"
+				alt="{{ cake.name }}"
+				class="img-fluid"
+			/>
+
+			{% else %}
+			<p>No image available</p>
+			{% endif %}
+		</div>
+		<div class="col-md-6">
+			<h2>{{ cake.name }}</h2>
+			<p>Category: {{ cake.category.category }}</p>
+
+			<p>{{ cake.description }}</p>
+			<p>£{{ cake.price }}</p>
+			{% if cake.is_plant_based %}
+			<p><i class="fas fa-seedling plant-based-icon"></i> Plant Based</p>
+			{% endif %} {% if cake.is_gluten_free %}
+			<p><i class="fas fa-check-circle gluten-free-icon"></i> Gluten Free</p>
+			{% endif %}
+			<a href="{% url 'index' %}" class="btn custom-button-color"
+				>Back to Our Cakes</a
+			>
+		</div>
+	</div>
+</div>
+{% endblock %}
