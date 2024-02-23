@@ -1,24 +1,20 @@
-# *Just Cakes*
+# Just Cakes
 
-*Just Cakes*, is a maker of beautiful cakes, that takes online orders and delivers across the UK.
+**Just Cakes**, is a maker of beautiful cakes, that takes online orders and delivers across the UK.
 
-Users of the site are able to create an account, browse a gallery of available cakes, search according to ingredients, flavours and diet choice, and choose dates for collection or delivery.
+Users of the site are able to browse a gallery of cake according to ingredients, flavours and diet choice.  They can read the reviews of past customers and contribute to the site content when authenticated and make enquiries via a contact form.
 
-*Just Cakes* welcomes feedback and reviews from their customers on a dedicated page.
-___
 ___
 
 ## Table of Contents
 
-- [*Just Cakes*](#just-cakes-)
-- [Features:](#features)
-- [List of Applications in product.](#list-of-applications-in-product)
+- [Features](#features)
+- [List of Applications in product](#list-of-applications-in-product)
 - [Pre-requisites](#pre-requisites)
 - [Project Planning \& Development](#project-planning--development)
 - [Development Approach](#development-approach)
-- [Agile Development Process](#agile-development-drocess)
-  - [Decision to Use Function-Based Views and Class-Based Views](#decision-to-use-function-based-views-and-class-based-views)
-   
+- [Agile Development Process](#agile-development-process)
+- [User Stories](#user-stories)
 - [Installation](#installation)
 - [Use](#use)
 - [Testing](#testing)
@@ -26,7 +22,7 @@ ___
 - [Further Development](#further-development)
 - [Deployment](#deployment)
 - [Copy / Improve / Contribute](#copy--improve--contribute)
-- [Credits, Acknowledgments and Appreciation.](#credits-acknowledgments-and-appreciation)
+- [Credits, Acknowledgments and Appreciation](#credits-acknowledgments-and-appreciation)
 
 
 
@@ -41,16 +37,16 @@ ___
 - Ability to write reviews, comment on reviews, and delete reviews.
 - Ability to add cake images and details via the Django admin.
 
-## List of Applications in product.
+## List of Applications in product:
 - Customer Accounts
 - Cakes
 - Reviews
 ___
 
 
-## Pre-requisites
+## Pre-requisites:
 
-#### For basic functionality
+#### For basic functionality:
 ```
 Django3.2.20
 dj-database-url 0.5.0
@@ -66,7 +62,7 @@ gunicorn 21.2.0
 
 
 
-### Project Planning & Development
+### Project Planning & Development:
 Reviews:
 
 Table for planning **"Reviews"** database `models.py`
@@ -96,16 +92,28 @@ Table for planning **Customer Accounts** database models
 ![Customer Accounts](static/assets/images_for_readme/customer-account-tables.png)
 ___
 ## Development Approach
-> The Just Cakes project, at this stage is simple.  And the functionality could have been more condensed/streamlined.  But I'm purposely spread it out across applications within the main project.  My intention was to keep it structured in a manner that allowed me to add more features further down the line.  With this in mind, I previously had other apps such as "orders" which whilst not being utilized at this point, I did have fields such as account_number,  payment_method, purchase_order_date, delivery_order_date and basket_item_count which would have contributed to this wider functionality. As few as these extra lines of code were sitting latently as they did, demanded that I add a fair amount of comments around them in order to explain their presence, which resulted in an excessive amount of commenting which in turn detracted from the functional code which was more important.  I decided that removing it and inserting it at a later date was the lesser of the two evils, given that the functional code was the important part for assessment.  Not the provisional code for what the functions might do in the future.
+The Just Cakes project, at this stage is simple.  And the functionality could have been more condensed/streamlined.  But I'm purposely spread it out across applications within the main project.  My intention was to keep it structured in a manner that allowed me to add more features further down the line.  With this in mind, I previously had other apps such as "orders" which whilst not being utilized at this point, I did have fields such as account_number,  payment_method, purchase_order_date, delivery_order_date and basket_item_count which would have contributed to this wider functionality. As few as these extra lines of code were sitting latently as they did, demanded that I add a fair amount of comments around them in order to explain their presence, which resulted in an excessive amount of commenting which in turn detracted from the functional code which was more important.  I decided that removing it and inserting it at a later date was the lesser of the two evils, given that the functional code was the important part for assessment.  Not the provisional code for what the functions might do in the future.
 
+- Decision to use Function Based Views vs Class Based Views
+As I've been developing this project, I've used both function based views and class based views. Initially I had a preference to class based because it's what was shown in the walk throughs, so it was "familiar".  But as I've progressed, I found myself less reliant on patterns of usage that I had learned.  And instead I found myself leaning toward function based views because I found them to be clearer to "me", for what I was wanting to do.  The `models.py` in each application have remained class based because it's more suited to django. Doubtless, as I progress, my need will change. I'll probably move back and forth between classes and functions according to the complexity of tasks or indeed which seems to suit better, as I myself progress in my learning.
+&nbsp;
+- **Use of Environment Variables**
+I've used an environment variable to control the DEBUG setting, so that it sets to True when I'm working on development of of the application and then to False when it runs in the deployed production mode.  This ensures security in production and detailed error messages in development.  The idea and code was copied from my walkthrough projects with code institute.
 
-### Decision to Use Function-Based Views and Class-Based Views
-> As I've been developing this project, I've used both function based views and class based views. Initially I had a preference to class based because it's what was shown in the walk throughs, so it was "familiar".  But as I've progressed, I found myself less reliant on patterns of usage that I had learned.  And instead I found myself leaning toward function based views because I found them to be clearer to "me", for what I was wanting to do.  The `models.py` in each application have remained class based because it's more suited to django. Doubtless, as I progress, my need will change. I'll probably move back and forth between classes and functions according to the complexity of tasks.
+## Development Challenges & Solutions.
+During the development of *Just Cakes*, I encountered a number of issues. These are some of the notable ones and the solutions I found...
 
-### Using a DEVELOPMENT Environment Variable
-> I've used an environment variable to control the DEBUG setting, so that it sets to True when I'm working on development of of the application and then to False when it runs in the deployed production mode.  This ensures security in production and detailed error messages in development.
-The idea and code was copied from my walkthrough projects with code institute.
-
+### Renaming for Clarity and Relevance
+- **Reviews / Posts**
+Initially, I was following the structure of the walkthrough project which consisted of only one application that handled all the functions of posting, commenting, liking etc...  Aware that the scope for growth would make the application crowded, I decided to follow the design principle "Separation of Concerns".  In doing so, I created individual apps to manage the functions.
+The Unused applications which I've spoken about, aside, I had separate apps for the customer accounts, the database of cakes and the app that handled to posts.
+Initially attempting to adopt the tutorial's naming conventions led to some confusion, particularly with the "reviews" app, which was too narrowly defined and not entirely reflective of its broader purpose in the context of the site.
+Add to this, I was struggling with correctly applying singular and plural usage of the words "review/reviews" when naming the files.
+**Resolved** I was unsure of how much disruption would have been caused by changing the application's name, so I decided to leave it as "reviews" but chose to change the html files within the application to "post" and "posts" which were more relevant.
+&nbsp;
+- **The Index.html**
+Another issue that only became apparent later was that in my need to name the html pages according to the applications that they belonged to, I lost focus of keeping index.html as a central point.
+The purpose of the site was to showcase their cakes, so I decided to make the gallery view of the cakes the landing page and changed the cakes_list.html to index.html
 ___
 
 ## Agile Development Process
@@ -186,7 +194,7 @@ ___
 
 Just Cakes is more the business name.  The application's aim is to create and hold accounts, ability to order/buy online.  Further development would be to add a "delivery application" which would tie in with other applications within the over all , holding many of their bits of information as foreign keys in it's own model.
 
-It's because I plan to develop these aspects, I've purposely kept things quite separate.  So that when it's further developed, as aspects of it expand, they won't impinge on one another.  Hence, apparently redundant code such as 
+It's because I plan to develop these aspects, I've purposely kept things quite separate.  So that when it's further developed, as aspects of it expand, they won't impinge on one another.  Hence, apparently redundant code such as
 
 ___
 
@@ -203,9 +211,9 @@ ___
 
 ## Credits, Acknowledgments and Appreciation.
 
-The reviews application within the just cakes project has been copied from the Code Institute walkthrough django project "codestar".  
+The reviews application within the just cakes project has been copied from the Code Institute walkthrough django project "codestar".
 
-Picture images have been courtesy of Midjourney and Microsoft's Bing image-creator. Some I have 
+Picture images have been courtesy of Midjourney and Microsoft's Bing image-creator. Some I have
 I have used ChatGPT as a tutor that is on tap, asking it's advice about structure with a view to further development.
 The things I needed to consider from a point of practicality and scalability in future development.  That's why there are parts that are dormant.
 

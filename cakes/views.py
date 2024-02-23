@@ -1,53 +1,57 @@
-# Import all required modules
 from django.shortcuts import render, get_object_or_404
-from .models import IndividualCake
+from .models import IndividualCake, CakeCategory
 
 
-# To view the cake list.
 def cake_list(request):
-    """Renders a list of all the cakes"""
-
-    # Using "prefetch_related('images').all()" to tell Django to fetch all
-    # related images for the IndividualCake in just one database query which
-    # reduces the amount of queries made.  Currently there is only one image
-    # per IndividualCake, but when this changes, using the prefetch_related
-    # will be be more efficient.
-    cakes = IndividualCake.objects.prefetch_related("images").all()
-
-    # Returns the cake_list.html
-    return render(request, "cakes/cakes_list.html", {"cakes": cakes})
-
-
-# To view the cake details
-def cake_detail(request, cake_id):
-    """Render the view of an individual cake"""
-
-    # Returns individual cake or returns a 404 error if the cake's not found.
-    cake = get_object_or_404(IndividualCake, id=cake_id)
-
-    return render(request, "cakes/cakes_detail.html", {"cake": cake})
-
-
-# To view the categorized cake list.
-def categorized_cake_list(request):
     """
-    lists cakes filtered by their category, in order to enable the list of
-    cakes to be displayed by category on the landing page.
-    """
-    # Query for cakes with the 'wedding' category.
-    wedding_cakes = IndividualCake.objects.filter(category="wedding")
-    # Query for cakes with the 'birthday' category.
-    birthday_cakes = IndividualCake.objects.filter(category="birthday")
-    # Query for cakes with the 'novelty' category.
-    novelty_cakes = IndividualCake.objects.filter(category="novelty")
+    This view renders a list of cakes that's filtered by the individual
+    categories of:
+    Wedding, Novelty, and Birthday.
 
-    # Returns a html with the listed cake categories.
+    It does this by querying the database for cake under the categories and
+    then passes them to the index.html for rendering under the different
+    heading.
+    """
+
+    # Fetching the cake categories.
+    wedding_category = CakeCategory.objects.get(category="Wedding")
+    novelty_category = CakeCategory.objects.get(category="Novelty")
+    birthday_category = CakeCategory.objects.get(category="Birthday")
+
+    # Filtering the cakes according to the categories and using prefetch to
+    # limit the number of database queries
+    wedding_cakes = IndividualCake.objects.filter(
+        category=wedding_category
+    ).prefetch_related("images")
+    novelty_cakes = IndividualCake.objects.filter(
+        category=novelty_category
+    ).prefetch_related("images")
+    birthday_cakes = IndividualCake.objects.filter(
+        category=birthday_category
+    ).prefetch_related("images")
+
+    # Rendering the cake lists to index.html
     return render(
         request,
-        "cakes/categorized_cake_list.html",
+        "cakes/index.html",
         {
             "wedding_cakes": wedding_cakes,
-            "birthday_cakes": birthday_cakes,
             "novelty_cakes": novelty_cakes,
+            "birthday_cakes": birthday_cakes,
         },
     )
+
+
+def cake_detail(request, cake_id):
+    """
+    Renders the detail page for a cake.
+    It retrieves an IndividualCake object by its ID or returns a 404 error
+    if it doesn't exist. The cake's details are then passed to the
+    'cakes/cake_detail.html' template for display.
+    """
+
+    # Getting the cake or gives a 404 error.
+    cake = get_object_or_404(IndividualCake, id=cake_id)
+
+    # Renders the individual cake to the cake_detail.html
+    return render(request, "cakes/cake_detail.html", {"cake": cake})
