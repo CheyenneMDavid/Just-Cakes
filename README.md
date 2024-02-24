@@ -30,12 +30,22 @@ ___
 ___
 
 ## Features:
-- Gallery to browse a gallery of cakes.
-- Registration with signup.
-- Ability to create a customer profile.
-- Ability to update and delete customer profiles.
-- Ability to write reviews, comment on reviews, and delete reviews.
-- Ability to add cake images and details via the Django admin.
+- **Gallery to browse a gallery of cakes**.
+  The gallery of cakes is the landing page and showcases the available cakes, organising the display according to their category.
+&nbsp;
+- **Registration/sign-in/sign-out**.
+  The process of registration, signing in and signing out are handled by Allauth.
+&nbsp;
+- **Ability to create a customer profile**.
+&nbsp;
+- **Ability to update and delete customer profiles**.
+&nbsp;
+- **Ability to write reviews, comment on reviews, and delete reviews**.
+&nbsp;
+- **Ability to add cake images and details via the Django admin**.
+  Additional cake data it easily added via the admin panel.
+  Here an admin can add new data but also create new categories, flavours etc..  Enabling a greater flexibility.  The only thing that has been hardcoded is a default image that would be displayed if the admin didn't load one for the gallery.
+
 
 ## List of Applications in product:
 - Customer Accounts
