@@ -53,6 +53,7 @@
 		"plantbased",
 		"psycopg",
 		"pylint",
+		"recognised",
 		"runserver",
 		"signup",
 		"signups",

@@ -159,7 +159,9 @@ I eventually did away with the requirements-dev.txt file and setup a virtual env
 In the back and forth with the clashing of extensions, At some point the Database Schema and the `models.py` in the customer_accounts app didn't match up.  On one hand I was getting errors saying that the first_name, last_name and memorable_dates weren't recognized after I had added and migrated them.  On the other hand I couldn't migrate them again because I was told that there were no changes detected.  I tried editing the migration files and finally deleted them in the hope of creating fresh migrations, but seemed to come full circle.  Eventually, creating a new database instance which seemed a cleaner way to go forward.
 &nbsp;
 - **Database Issue**
-
+  When adding functionality to the reviews app, for users to delete their comments, I had a lot of issues with migrating the changes.  Changes weren't showing so couldn't be migrated and it was crashing as it was. Looking to resolve this, I removed the migration files in the hope that changes would be recognised to no avail. Unable to see a way forward I resorted to flushing the database. Even this was still giving me a message that said no changes had been made.
+  So I eventually just deleted the database instance at ElephantSQL, created another and re-entered everything again.
+  This left me with a lot of files that I had yet to commit, mostly migration ones.  So they were committed in bulk to clear the clutter.
 
 ___
 ## Installation
