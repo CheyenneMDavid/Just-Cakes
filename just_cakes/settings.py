@@ -15,6 +15,8 @@ import os
 import dj_database_url
 from django.contrib.messages import constants as messages
 
+development = os.environ.get("DEVELOPMENT", False)
+
 if os.path.isfile("env.py"):
     # Linter incorrectly saying that the imported env.py wasn't being used,
     # so I've disabled the warning because it's off putting.
@@ -34,13 +36,14 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = [
-    "just-cakes-1bff2f0ca384.herokuapp.com",
-    "localhost",
-    "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
-]
+DEBUG = development
+if development:
+    ALLOWED_HOSTS = [
+        "localhost",
+        "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
+    ]
+else:
+    ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
 
 
 # Application definition
