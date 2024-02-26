@@ -213,10 +213,10 @@ ___
 I tested this by creating a default image which was placed in Cloudinary.  After which I used the admin panel to save cake images, tying them up with the individual cake data, also added via the admin panel.
 I then systematically deleted one  from each category from the admin panel.
 
-**Result** - Pass
+**Result** -- **Pass**
 The screen was rendered using the default images as they should.
 Screenshots of default images displaying:
-- Wedding 
+- **Wedding** 
   
 ![Wedding section](static/assets/images_for_readme/default-wedding-image.png)
 - Birthday
@@ -225,6 +225,13 @@ Screenshots of default images displaying:
 - Novelty
 
 ![Novelty section](static/assets/images_for_readme/default-novelty-image.png)
+&nbsp;
+**Test images following the same process for the cakes details page.**
+- "test-detail-image-1" is the default image when the individual cake doesn't have an image associated with it.
+![Default image](static/assets/images_for_readme/test-detail-image-1.png)
+&nbsp;
+- "test-detail-image-2" is when a cake image was loaded via the Django interface and was associated with the "Hulk cake".
+![Associated image](static/assets/images_for_readme/test-detail-image-2.png)
 
 ___
 
