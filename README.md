@@ -45,7 +45,7 @@ ___
 - **Ability to add cake images and details via the Django admin**.
   Additional cake data it easily added via the admin panel.
   Here an admin can add new data but also create new categories, flavours etc..  Enabling a greater flexibility.  The only thing that has been hardcoded is a default image that would be displayed if the admin didn't load one for the gallery.
-
+___
 
 ## List of Applications in product:
 - Customer Accounts
@@ -72,7 +72,7 @@ gunicorn 21.2.0
 
 
 
-### Project Planning & Development:
+## Project Planning & Development:
 Reviews:
 
 Table for planning **"Reviews"** database `models.py`
@@ -80,11 +80,14 @@ Table for planning **"Reviews"** database `models.py`
 ![Reviews Tables Model](static/assets/images_for_readme/reviews-table.png)
 ___
 
-Table for planning **Cakes** database models
+### Table for planning **Cakes** database models
 
-Defining type:Wedding, Novelty and Birthday. Allergy: GF for Gluten Free. V for plantbased.  Flavours and colors. And a list of the cakes themselves, making them searchable by users of the site.
+Defining type:Wedding, Novelty and Birthday. Allergy: GF for Gluten Free. V for plantbased.  Flavours and colors. And a list of the cakes themselves, making them searchable by users of the site when such extra functionality added.
 
 Using Normalization to organize the data, so when changes to the data is required, it's more easily managed.
+In doing so, new content for the fields can be created by a site administrator.  The new content being cake names, descriptions and additional categories if the so wish.
+
+The purpose of the tables when planning the structure of the data was not to reflect the exact details of each cake currently available, but instead have the relevant sections.  So whilst I've used some of the names of cakes and data such as gluten free, etc...  The precise details of cakes on the site is subject to change, which was the purpose of the field structure.
 
 
 
@@ -124,6 +127,8 @@ Add to this, I was struggling with correctly applying singular and plural usage 
 - **The Index.html**
 Another issue that only became apparent later was that in my need to name the html pages according to the applications that they belonged to, I lost focus of keeping index.html as a central point.
 The purpose of the site was to showcase their cakes, so I decided to make the gallery view of the cakes the landing page and changed the cakes_list.html to index.html
+&nbsp;
+start here
 ___
 
 ## Agile Development Process
@@ -194,7 +199,30 @@ ___
 ___
 
 ## Testing
+### Written Tests
 
+### Manual Testing
+
+#### Test to ensure that a default image is displayed if an image isn't supplied from the Django admin panel or if they are deleted.
+
+**Method**
+I tested this by creating a default image which was placed in Cloudinary.  After which I used the admin panel to save cake images, tying them up with the individual cake data, also added via the admin panel.
+I then systematically deleted one  from each category from the admin panel.
+
+**Result** - Pass
+The screen was rendered using the default images as they should.
+Screenshots of default images displaying:
+- Wedding 
+  
+![Wedding section](static/assets/images_for_readme/default-wedding-image.png)
+- Birthday
+  
+![Birthday section](static/assets/images_for_readme/default-birthday-image.png)
+- Novelty
+
+![Novelty section](static/assets/images_for_readme/default-novelty-image.png)
+
+___
 
 ## Conclusion
 
@@ -213,10 +241,14 @@ ___
 ___
 
 ## Copy / Improve / Contribute
+### More work needed.
+**Code should be implemented to guard against**
+- negative number of layers input from admin panel
+- Repetition of input for names such as cake names, flavours, etc..
 
 If anyone wishes to copy and improve this software by contributing changes,
 please do.  You will find instructions from
-[GitHub on how to do this.]
+[GitHub](https://github.com/) on how to do this
 ___
 
 ## Credits, Acknowledgments and Appreciation.
