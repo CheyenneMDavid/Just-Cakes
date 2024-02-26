@@ -155,8 +155,10 @@ I eventually did away with the requirements-dev.txt file and setup a virtual env
 
 ### Other issues encountered during development
 
-### Fork to solve Database Schema and `models.py` Issues
+- **Fork to solve Database Schema and `models.py` Issues**
 In the back and forth with the clashing of extensions, At some point the Database Schema and the `models.py` in the customer_accounts app didn't match up.  On one hand I was getting errors saying that the first_name, last_name and memorable_dates weren't recognized after I had added and migrated them.  On the other hand I couldn't migrate them again because I was told that there were no changes detected.  I tried editing the migration files and finally deleted them in the hope of creating fresh migrations, but seemed to come full circle.  Eventually, creating a new database instance which seemed a cleaner way to go forward.
+&nbsp;
+- **Database Issue**
 
 
 ___

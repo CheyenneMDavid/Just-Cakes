@@ -1,19 +1,13 @@
 {% load static %}
 
-<!-- HTML5 Doctype Declaration -->
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 	<head>
 		<meta charset="UTF-8" />
-		<!-- Charset Declaration -->
 
-		<!-- Linking the Favicon -->
 		<link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
-
-		<!-- Page Title -->
 		<title>Just Cakes</title>
 
-		<!-- Preconnect to Google fonts, link for Google fonts and Font Awesome -->
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&family=Lobster&family=Roboto:wght@300;400&display=swap"
@@ -23,8 +17,6 @@
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
 		/>
-
-		<!-- Viewport and Bootstrap CSS link -->
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
@@ -32,6 +24,11 @@
 			integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
 			crossorigin="anonymous"
 		/>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+			crossorigin="anonymous"
+		></script>
 
 		<!-- CSS and Custom CSS which will over ride the normal style -->
 		<link rel="stylesheet" href="{% static 'css/style.css' %}" />
@@ -94,10 +91,10 @@
 				>
 					<span class="navbar-toggler-icon"></span>
 				</button>
-
+				<h1 class="logo">Just Cakes</h1>
 				<!-- Links in navbar -->
 				<div class="collapse navbar-collapse" id="navbarText">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 						<!-- Static Nav Items -->
 						<li class="nav-item">
 							<a
@@ -142,10 +139,32 @@
 						{% endif %}
 					</ul>
 				</div>
-				<h1 class="logo">Just Cakes</h1>
+				<!-- <h1 class="logo">Just Cakes</h1> -->
 			</div>
 		</nav>
 
+		<!-- successful sign-in / sign-out message -->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 offset-md-2">
+					{% for message in messages %}
+					<div
+						class="alert {{ message.tags }} alert-dismissible fade show"
+						id="msg"
+						role="alert"
+					>
+						{{ message | safe }}
+						<button
+							type="button"
+							class="btn-close custom-button-color"
+							data-bs-dismiss="alert"
+							aria-label="Close"
+						></button>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
 		<!-- Main Content Section -->
 		<main class="flex-shrink-0">
 			{% block content %}
@@ -182,12 +201,12 @@
 				></a>
 			</p>
 		</footer>
-
-		<!-- Bootstrap JS -->
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-			crossorigin="anonymous"
-		></script>
+		<script>
+			setTimeout(function () {
+				let messages = document.getElementById('msg');
+				let alert = new bootstrap.Alert(messages);
+				alert.close();
+			}, 2500);
+		</script>
 	</body>
 </html>
