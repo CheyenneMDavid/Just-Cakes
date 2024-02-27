@@ -36,21 +36,15 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# development
-# if development:
-#     ALLOWED_HOSTS = [
-#         "localhost",
-#         "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
-#     ]
-# else:
-#     ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
-
-ALLOWED_HOSTS = [
-    "just-cakes.heroku.com",
-    "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
-    "localhost",
-]
+DEBUG = development
+development
+if development:
+    ALLOWED_HOSTS = [
+        "localhost",
+        "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
+    ]
+else:
+    ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
 
 
 INSTALLED_APPS = [
