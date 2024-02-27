@@ -15,11 +15,9 @@ import os
 import dj_database_url
 from django.contrib.messages import constants as messages
 
-development = os.environ.get("DEVELOPMENT", False)
+# development = os.environ.get("DEVELOPMENT", False)
 
 if os.path.isfile("env.py"):
-    # Linter incorrectly saying that the imported env.py wasn't being used,
-    # so I've disabled the warning because it's off putting.
     import env  # pylint: disable=unused-import
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -36,14 +34,15 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = development
-if development:
-    ALLOWED_HOSTS = [
-        "localhost",
-        "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
-    ]
-else:
-    ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
+DEBUG = True
+
+# if development:
+#     ALLOWED_HOSTS = [
+#         "localhost",
+#         "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
+#     ]
+# else:
+#     ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
 
 
 # Application definition
@@ -52,7 +51,6 @@ else:
 # Advice and help on how to do this from Matt Segal's YouTube tutorial, here:
 # https://www.youtube.com/watch?v=97UQM-Cfhxs
 INSTALLED_APPS = [
-    "whitenoise.runserver_nostatic",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -169,18 +167,16 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = "/static/"
-STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
 MEDIA_URL = "/media/"
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
+STATIC_URL = "/static/"
+STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
