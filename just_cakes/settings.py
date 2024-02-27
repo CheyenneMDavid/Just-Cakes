@@ -18,6 +18,8 @@ from django.contrib.messages import constants as messages
 development = os.environ.get("DEVELOPMENT", False)
 
 if os.path.isfile("env.py"):
+    # Linter incorrectly saying that the imported env.py wasn't being used,
+    # so I've disabled the warning because it's off putting.
     import env  # pylint: disable=unused-import
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -34,22 +36,23 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = development
+DEBUG = True
+# development
+# if development:
+#     ALLOWED_HOSTS = [
+#         "localhost",
+#         "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
+#     ]
+# else:
+#     ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
 
-if development:
-    ALLOWED_HOSTS = [
-        "localhost",
-        "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
-    ]
-else:
-    ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
+ALLOWED_HOSTS = [
+    "just-cakes.heroku.com",
+    "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
+    "localhost",
+]
 
 
-# Application definition
-# Using WhiteNoise for efficient static file serving; disables Django's
-# built-in static file server during development.
-# Advice and help on how to do this from Matt Segal's YouTube tutorial, here:
-# https://www.youtube.com/watch?v=97UQM-Cfhxs
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -90,8 +93,6 @@ MESSAGE_TAGS = {
 
 
 MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -147,10 +148,10 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation." "MinimumLengthValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+        "NAME": "django.contrib.auth.password_validation." "CommonPasswordValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME": "django.contrib.auth.password_validation." "NumericPasswordValidator",
     },
 ]
 
@@ -167,16 +168,18 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+STATIC_URL = "/static/"
+STATICFILES_STORAGE = "cloudinary_storage.storage." "StaticHashedCloudinaryStorage"
+
 
 MEDIA_URL = "/media/"
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 STATIC_URL = "/static/"
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
