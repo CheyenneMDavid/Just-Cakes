@@ -15,7 +15,7 @@ import os
 import dj_database_url
 from django.contrib.messages import constants as messages
 
-# development = os.environ.get("DEVELOPMENT", False)
+development = os.environ.get("DEVELOPMENT", False)
 
 if os.path.isfile("env.py"):
     import env  # pylint: disable=unused-import
@@ -34,15 +34,15 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = development
 
-# if development:
-#     ALLOWED_HOSTS = [
-#         "localhost",
-#         "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
-#     ]
-# else:
-#     ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
+if development:
+    ALLOWED_HOSTS = [
+        "localhost",
+        "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
+    ]
+else:
+    ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
 
 
 # Application definition
@@ -147,10 +147,10 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation." "MinimumLengthValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation." "CommonPasswordValidator",
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation." "NumericPasswordValidator",
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -176,7 +176,7 @@ MEDIA_URL = "/media/"
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 STATIC_URL = "/static/"
-STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
