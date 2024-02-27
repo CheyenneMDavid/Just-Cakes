@@ -29,15 +29,15 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY is stored as an environmental variable.
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-# Cloudinary configuration URL
+# Credentials stored as an environmental variable
 CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG set to development with logic that will set it to True or False depending on production or local when running.
 DEBUG = development
-development
+
 if development:
     ALLOWED_HOSTS = [
         "localhost",
