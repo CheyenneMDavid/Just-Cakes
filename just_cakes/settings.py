@@ -37,7 +37,9 @@ CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
 
 # DEBUG set to development with logic that will set it to True or False
 # depending on production or local when running.
-DEBUG = True
+DEBUG = False
+
+X_FRAME_OPTIONS = "SAMEORIGIN"
 
 # if development:
 #     ALLOWED_HOSTS = [
@@ -48,6 +50,7 @@ DEBUG = True
 #     ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
 
 ALLOWED_HOSTS = [
+    "just-cakes-184a064333be.herokuapp.com",
     "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
     "localhost",
 ]
@@ -72,23 +75,23 @@ INSTALLED_APPS = [
     "customer_accounts",
 ]
 
-# SITE_ID = 1
+SITE_ID = 1
 
-# LOGIN_REDIRECT_URL = "/"
-# LOGOUT_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
-# CRISPY_TEMPLATE_PACK = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 
-# ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_EMAIL_VERIFICATION = "none"
 
-# MESSAGE_TAGS = {
-#     messages.DEBUG: "alert-info",
-#     messages.INFO: "alert-info",
-#     messages.SUCCESS: "alert-success",
-#     messages.WARNING: "alert-warning",
-#     messages.ERROR: "alert-danger",
-# }
+MESSAGE_TAGS = {
+    messages.DEBUG: "alert-info",
+    messages.INFO: "alert-info",
+    messages.SUCCESS: "alert-success",
+    messages.WARNING: "alert-warning",
+    messages.ERROR: "alert-danger",
+}
 
 
 MIDDLEWARE = [
