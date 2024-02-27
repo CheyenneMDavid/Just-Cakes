@@ -162,6 +162,9 @@ In the back and forth with the clashing of extensions, At some point the Databas
   When adding functionality to the reviews app, for users to delete their comments, I had a lot of issues with migrating the changes.  Changes weren't showing so couldn't be migrated and it was crashing as it was. Looking to resolve this, I removed the migration files in the hope that changes would be recognised to no avail. Unable to see a way forward I resorted to flushing the database. Even this was still giving me a message that said no changes had been made.
   So I eventually just deleted the database instance at ElephantSQL, created another and re-entered everything again.
   This left me with a lot of files that I had yet to commit, mostly migration ones.  So they were committed in bulk to clear the clutter.
+  &nbsp;
+  **New Site**
+  I was unable to get my svg pattern which I was using as wallpaper to display.  I thought that this was due to the fat that I hadn't set the DISABLE_COLLECTSTATIC in Heroku and after deploying once with it not set, I couldn't seem to simply set it on the deployments there after.  After numerous attempts to get round this which included trying  to use Whitenoise to serve the static files, I eventually reverted to Cloudinary settings for them.  After numerous re-runs and re-dos I can see that it's not the static file that is the issue because the other styling is present.  The SVG pattern is not.  It's not interfering with the functioning so this can me addressed at a later date.
 
 ___
 ## Installation
