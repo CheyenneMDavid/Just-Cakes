@@ -15,7 +15,7 @@ import os
 import dj_database_url
 from django.contrib.messages import constants as messages
 
-development = os.environ.get("DEVELOPMENT", False)
+# development = os.environ.get("DEVELOPMENT", False)
 
 if os.path.isfile("env.py"):
     # Linter incorrectly saying that the imported env.py wasn't being used,
@@ -37,15 +37,20 @@ CLOUDINARY_URL = os.environ.get("CLOUDINARY_URL")
 
 # DEBUG set to development with logic that will set it to True or False
 # depending on production or local when running.
-DEBUG = development
-if development:
-    ALLOWED_HOSTS = [
-        "localhost",
-        "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
-    ]
-else:
-    ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
+DEBUG = True
 
+# if development:
+#     ALLOWED_HOSTS = [
+#         "localhost",
+#         "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
+#     ]
+# else:
+#     ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
+
+ALLOWED_HOSTS = [
+    "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
+    "localhost",
+]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -67,26 +72,27 @@ INSTALLED_APPS = [
     "customer_accounts",
 ]
 
-SITE_ID = 1
+# SITE_ID = 1
 
-LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/"
+# LOGIN_REDIRECT_URL = "/"
+# LOGOUT_REDIRECT_URL = "/"
 
-CRISPY_TEMPLATE_PACK = "bootstrap4"
+# CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 
-ACCOUNT_EMAIL_VERIFICATION = "none"
+# ACCOUNT_EMAIL_VERIFICATION = "none"
 
-MESSAGE_TAGS = {
-    messages.DEBUG: "alert-info",
-    messages.INFO: "alert-info",
-    messages.SUCCESS: "alert-success",
-    messages.WARNING: "alert-warning",
-    messages.ERROR: "alert-danger",
-}
+# MESSAGE_TAGS = {
+#     messages.DEBUG: "alert-info",
+#     messages.INFO: "alert-info",
+#     messages.SUCCESS: "alert-success",
+#     messages.WARNING: "alert-warning",
+#     messages.ERROR: "alert-danger",
+# }
 
 
 MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -165,7 +171,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-# Correct settings
 MEDIA_URL = "/media/"
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
