@@ -107,8 +107,11 @@ ___
 ## Development Approach
 The Just Cakes project, at this stage is simple.  And the functionality could have been more condensed/streamlined.  But I'm purposely spread it out across applications within the main project.  My intention was to keep it structured in a manner that allowed me to add more features further down the line.  With this in mind, I previously had other apps such as "orders" which whilst not being utilized at this point, I did have fields such as account_number,  payment_method, purchase_order_date, delivery_order_date and basket_item_count which would have contributed to this wider functionality. As few as these extra lines of code were sitting latently as they did, demanded that I add a fair amount of comments around them in order to explain their presence, which resulted in an excessive amount of commenting which in turn detracted from the functional code which was more important.  I decided that removing it and inserting it at a later date was the lesser of the two evils, given that the functional code was the important part for assessment.  Not the provisional code for what the functions might do in the future.
 
-- Decision to use Function Based Views vs Class Based Views
+- **Decision to use Function Based Views vs Class Based Views**
 As I've been developing this project, I've used both function based views and class based views. Initially I had a preference to class based because it's what was shown in the walk throughs, so it was "familiar".  But as I've progressed, I found myself less reliant on patterns of usage that I had learned.  And instead I found myself leaning toward function based views because I found them to be clearer to "me", for what I was wanting to do.  The `models.py` in each application have remained class based because it's more suited to django. Doubtless, as I progress, my need will change. I'll probably move back and forth between classes and functions according to the complexity of tasks or indeed which seems to suit better, as I myself progress in my learning.
+&nbsp;
+**Since first writing the above**, this has indeed changed.  When adding the facility to comment and considering the facility to update posts, I've chosen to change more toward class based views.  This has been important because this project has is condensed into only three apps which makes for a lot of things in one space, making the code quite hard to read.
+Using Classes makes for cleaner more structured and easier to follow structures.
 &nbsp;
 - **Use of Environment Variables**
 I've used an environment variable to control the DEBUG setting, so that it sets to True when I'm working on development of of the application and then to False when it runs in the deployed production mode.  This ensures security in production and detailed error messages in development.  The idea and code was copied from my walkthrough projects with code institute.
@@ -128,7 +131,7 @@ Add to this, I was struggling with correctly applying singular and plural usage 
 Another issue that only became apparent later was that in my need to name the html pages according to the applications that they belonged to, I lost focus of keeping index.html as a central point.
 The purpose of the site was to showcase their cakes, so I decided to make the gallery view of the cakes the landing page and changed the cakes_list.html to index.html
 &nbsp;
-start here
+- **
 ___
 
 ## Agile Development Process
@@ -165,6 +168,8 @@ In the back and forth with the clashing of extensions, At some point the Databas
   &nbsp;
   **New Site**
   I was unable to get my svg pattern which I was using as wallpaper to display.  I thought that this was due to the fat that I hadn't set the DISABLE_COLLECTSTATIC in Heroku and after deploying once with it not set, I couldn't seem to simply set it on the deployments there after.  After numerous attempts to get round this which included trying  to use Whitenoise to serve the static files, I eventually reverted to Cloudinary settings for them.  After numerous re-runs and re-dos I can see that it's not the static file that is the issue because the other styling is present.  The SVG pattern is not.  It's not interfering with the functioning so this can me addressed at a later date.
+  &nbsp;
+  
 
 ___
 ## Installation
