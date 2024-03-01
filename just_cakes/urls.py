@@ -1,9 +1,18 @@
-"""Importing required modules for URL configuration and views"""
-import os
-from django.contrib import admin
-from django.urls import path, include, re_path
-from django.views.static import serve
-from django.conf import settings
+"""just_cakes URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/3.2/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
 
 # Much in this file is from the walkthrough project with Hello Django
 # Had to change names defining singular and plural to make more sense, both
@@ -11,21 +20,16 @@ from django.conf import settings
 # Also, have changed "review" to "post" for consistency and to fit with how
 # django handles things.
 
+
+# Importing required modules
+from django.contrib import admin
+from django.urls import path, include
+
 # URL patterns for overall project.
 urlpatterns = [
-    path("admin/", admin.site.urls, name="reviews-urls"),
+    path("admin/", admin.site.urls),
     path("summernote/", include("django_summernote.urls")),
-    path("", include("cakes.urls")),
-    path("reviews/", include("reviews.urls")),
     path("account/", include("allauth.urls")),
     path("customer_accounts/", include("customer_accounts.urls")),
-    # url pattern to load the favicon.ico from the static folder.
-    re_path(
-        r"^favicon.ico$",
-        serve,
-        {
-            "document_root": os.path.join(settings.BASE_DIR, "local_static"),
-            "path": "favicon.ico",
-        },
-    ),
+    path("", include("cakes.urls")),
 ]

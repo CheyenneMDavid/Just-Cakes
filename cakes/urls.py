@@ -9,8 +9,4 @@ urlpatterns = [
     # the cake's ID from the URL and passes it as an argument to the
     # cake_detail view.
     path("<int:cake_id>/", views.cake_detail, name="cake_detail"),
-    # URL pattern for categorized cake lists
-    # path(
-    #     "cakes-by-category/", views.categorized_cake_list, name="categorized_cake_list"
-    # ),
 ]
