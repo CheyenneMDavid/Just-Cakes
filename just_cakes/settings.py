@@ -49,11 +49,6 @@ if development:
 else:
     ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
 
-ALLOWED_HOSTS = [
-    "just-cakes-184a064333be.herokuapp.com",
-    "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
-    "localhost",
-]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
