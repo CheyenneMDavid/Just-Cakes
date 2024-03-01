@@ -9,7 +9,7 @@ body {
 
 h1 {
     color: #b0a15d;
-    font-size: 40px;
+    font-size: 60px;
     text-decoration: underline;
     margin-left: 15px;
     margin-right: 15px;
@@ -24,7 +24,7 @@ h2,h3, h4, h5 {
 .navbar-text,
 .custom-svg {
     font-family: 'Lobster', cursive;
-    font-size: 20px;
+    font-size: 27px;
     background-image: url("/static/css/endless-clouds.svg");
     background-position: top left;
 }
@@ -37,7 +37,7 @@ h2,h3, h4, h5 {
 main, 
 .custom-nav .container-fluid {
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1300px;
 }
 
 .carousel-top-margin {

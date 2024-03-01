@@ -1,7 +1,7 @@
 # Imports the required modules and models.
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Post
+from .models import Post, Comment
 
 # Much in this file is from the walkthrough project with Hello Django
 # Had to change names defining singular and plural to make more sense, both
@@ -31,3 +31,14 @@ class PostAdmin(SummernoteModelAdmin):
 
     # Defines which of the fields can use the text editor.
     summernote_fields = ("content",)
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ("name", "body", "post", "created_on", "approved")
+    list_filter = ("approved", "created_on")
+    search_fields = ("name", "email", "body")
+    actions = ["approve_comments"]
+
+    def approve_comments(self, request, queryset):
+        queryset.update(approved=True)

@@ -1,107 +1,102 @@
-<!-- Extends from the base.html -->
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %} {% load crispy_forms_tags %}
 
-<!-- Start of the content block -->
-{% block content %}
-
-<!-- Much in this file is from the walkthrough project with Hello Django
-Had to change names defining singular and plural to make more sense, both
-here and in other places throughout files.
-Also, have changed "review" to "post" for consistency and to fit with how
-django handles things. -->
-
-<!-- Masthead contains the featured image, title, author and creation date
-of each post -->
 <hr />
 <div class="masthead">
-  <div class="container-fluid">
-    <div class="row g-0">
-      <!-- Text part of masthead -->
-      <div class="col-md-6 masthead-text">
-        <!-- Display the post title in h1 tags -->
-        <h2 class="post-title">{{ post.title }}</h2>
-        <!-- Displays the author's name and the creation date -->
-        <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
-      </div>
-      <!-- Image part of the post in masthead -->
-      <div class="d-none d-md-block col-md-6 masthead-image">
-        <!-- Checks if "placeholder" is found in the url -->
-        {% if "placeholder" in post.featured_image.url %}
-        <!-- If it IS found, then the image in this link is displayed -->
-        <!-- Ensures that the image is served in WebP when it's supported by the browser -->
-        <img
-          src="https://res.cloudinary.com/cheymd/image/upload/v1693482045/default_image_rlpqek.jpg?format=webp"
-          width="100%"
-          alt="default image"
-        />
-        <!-- Otherwise the feature image from the user is used  -->
-        {% else %}
-        <!-- Ensures that the image is served in WebP when it's supported by the browser -->
-        <img
-          src="{{ post.featured_image.url|add:'?format=webp' }}"
-          width="100%"
-          alt="{{ post.title }}"
-        />
-        {% endif %}
-      </div>
-    </div>
-  </div>
+	<div class="container-fluid">
+		<div class="row g-0">
+			<div class="col-md-6 masthead-text">
+				<h2 class="post-title">{{ post.title }}</h2>
+
+				<p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+			</div>
+
+			<div class="d-none d-md-block col-md-6 masthead-image">
+				{% if "placeholder" in post.featured_image.url %}
+
+				<img
+					src="https://res.cloudinary.com/cheymd/image/upload/v1693482045/default_image_rlpqek.jpg?format=webp"
+					width="100%"
+					alt="default image"
+				/>
+
+				{% else %}
+
+				<img
+					src="{{ post.featured_image.url|add:'?format=webp' }}"
+					width="100%"
+					alt="{{ post.title }}"
+				/>
+				{% endif %}
+			</div>
+		</div>
+	</div>
 </div>
-<!-- Main contents -->
+
 <div class="container">
-  <div class="row">
-    <div class="col card mb-4 mt-3 left top">
-      <div class="card-body">
-        <!-- Making content safe for HTML display -->
-        <p class="card-text">{{ post.content | safe }}</p>
-        <div class="row">
-          <div class="col-1">
-            <!-- Checks if the user is authenticated, only allowing the user
-              to "like" the post if they are. -->
-            {% if user.is_authenticated %}
-            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
-              <!-- Using a "Cross Site Request Forgery Token" so that users
-                aren't tricked into clicking on things, and then hacked as
-                a result -->
-              {% csrf_token %}
-              <!-- Displays a filled heart if they've liked the post  -->
-              {% if liked %}
-              <!-- Addition of aria-label to offset the warning about not having a label for the button -->
-              <button
-                type="submit"
-                name="blogpost_id"
-                value="{{post.slug}}"
-                class="btn-like"
-                aria-label="Like this post"
-              >
-                <i class="fas fa-heart"></i>
-              </button>
-              <!-- Displays an empty heart if they're not liked the post-->
-              {% else %}
-              <!-- Addition of aria-label to offset the warning about not having a label for the button -->
-              <button
-                type="submit"
-                name="blogpost_id"
-                value="{{post.slug}}"
-                class="btn-like"
-                aria-label="Like this post"
-              >
-                <i class="far fa-heart"></i>
-              </button>
-              {% endif %}
-            </form>
-            <!-- If the user isn't authenticated, they're unable to click on the heart to any affect -->
-            {% else %}
-            <span class="text-secondary"><i class="far fa-heart"></i></span>
-            {% endif %}
-            <!-- Displays the number of likes for the post -->
-            <strong class="text-secondary"
-              ><i class="far fa-heart"></i> {{ post.number_of_likes }}</strong
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  {% endblock content %}
+	<div class="row">
+		<div class="col card mb-4 mt-3 left top">
+			<p class="card-text ">
+				{{ post.content | safe }}
+		</p>
+		<div class="row">
+
+				<div class="col-1">
+						<strong class="text-secondary"><i class="far fa-heart"></i> {{ post.number_of_likes }} </strong>
+				</div>
+				<div class="col-1">
+						{% with comments.count as total_comments %}
+						<strong class="text-secondary"><i class="far fa-comments"></i>
+								{{ total_comments }}</strong>
+						{% endwith %}
+				</div>
+		</div>
 </div>
+</div>
+</div>
+<div class="row">
+<div class="col">
+<hr>
+</div>
+</div>
+<div class="row">
+<div class="col-md-8 card mb-4  mt-3 ">
+<h3>Comments:</h3>
+<div class="card-body">
+		{% for comment in comments %}
+		<div class="comments" style="padding: 10px;">
+				<p class="font-weight-bold">
+						{{ comment.name }}
+						<span class=" text-muted font-weight-normal">
+								{{ comment.created_on }}
+						</span> wrote:
+				</p>
+			
+				{{ comment.body | linebreaks }}
+		</div>
+		{% endfor %}
+</div>
+</div>
+<div class="col-md-4 card mb-4  mt-3 ">
+<div class="card-body">
+		{% if commented %}
+		<div class="alert alert-success" role="alert">
+			Your comment is awaiting approval
+		</div>
+		{% else %}
+		{% if user.is_authenticated %}
+
+		<h3>Leave a comment:</h3>
+		<p>Posting as: {{ user.username }}</p>
+		<form method="post" style="margin-top: 1.3em;">
+			{{ comment_form | crispy }}
+			{% csrf_token %}
+			<button type="submit" class="btn btn-signup btn-lg">Submit</button>
+	</form>
+		{% endif %}
+		{% endif %}
+</div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

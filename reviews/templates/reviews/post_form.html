@@ -1,30 +1,30 @@
-<!-- Much in this file is from the walkthrough project with Hello Django
-Had to change names defining singular and plural to make more sense, both
-here and in other places throughout files.
-Also, have changed "review" to "post" for consistency and to fit with how
-django handles things. -->
+{% extends "base.html" %} {% load crispy_forms_tags %} {% block head_extra %}{{
+form.media }}{% endblock head_extra %} {% block content %}
+<div class="container-fluid">
+	<!-- Ensure it's container-fluid for full width -->
+	<div class="row">
+		<div class="col-12">
+			<!-- Using 'col-12' so it adjusts to the full width of a screen -->
+			<h1 class="review">Leave us a review!</h1>
+			<div class="content-preview">
+				<h1 id="preview-title"></h1>
+				<p id="preview-content"></p>
+			</div>
+		</div>
+		<div class="col-12">
+			<!-- Adjusted for full width -->
+			<h3 class="review">We love to hear from our customers!</h3>
+			<hr />
 
-<!-- As a guide to create this form, I used a Youtube video called
-"Advancing the Blog: 9 - Django Crispy Forms", by "Coding Entrepreneurs"
-which can be found here: https://www.youtube.com/watch?v=TCIhh5A522M -->
-
-{% extends "base.html" %} {% load crispy_forms_tags %}
-<!--  -->
-{% block head_extra %} {{ form.media }} {% endblock head_extra %} {% block content %}
-<div class="col-sm--8">
-    <h1 class="review">Leave us a review!</h1>
-    <div class="content-preview">
-        <h1 id="preview-title"></h1>
-        <p id="preview-content"></p>
-    </div>
+			<form method="POST" action="" enctype="multipart/form-data">
+				{% csrf_token %} {{ form|crispy }}
+				<input
+					type="submit"
+					class="btn custom-submit-color"
+					value="Submit Post"
+				/>
+			</form>
+		</div>
+	</div>
 </div>
-<div class="col-sm--6">
-    <h3 class="review">We love to hear from our customers!</h3>
-    <hr />
-
-    <form method="POST" action="" enctype="multipart/form-data">
-        {% csrf_token %} {{ form|crispy }}
-        <input type="submit" class="btn custom-submit-color" value="Submit Post" />
-    </form>
-</div>
-{% endblock content%}
+{% endblock content %}
