@@ -15,7 +15,7 @@ import os
 import dj_database_url
 from django.contrib.messages import constants as messages
 
-# development = os.environ.get("DEVELOPMENT", False)
+development = os.environ.get("DEVELOPMENT", False)
 
 if os.path.isfile("env.py"):
     # Linter incorrectly saying that the imported env.py wasn't being used,
@@ -39,22 +39,15 @@ X_FRAME_OPTIONS = "SAMEORIGIN"
 
 # DEBUG set to development with logic that will set it to True or False
 # depending on production or local when running.
-DEBUG = True
+DEBUG = development
 
-ALLOWED_HOSTS = [
-    "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
-    "local",
-    "just-cakes-184a064333be.herokuapp.com",
-]
-
-
-# if development:
-#     ALLOWED_HOSTS = [
-#         "localhost",
-#         "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
-#     ]
-# else:
-#     ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
+if development:
+    ALLOWED_HOSTS = [
+        "localhost",
+        "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
+    ]
+else:
+    ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
 
 
 INSTALLED_APPS = [
@@ -176,15 +169,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-MEDIA_URL = "/media/"
-DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
-
 STATIC_URL = "/static/"
 STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+MEDIA_URL = "/media/"
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 
 # Default primary key field type
