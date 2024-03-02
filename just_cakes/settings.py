@@ -47,7 +47,7 @@ if development:
         "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
     ]
 else:
-    ALLOWED_HOSTS = ["just-cakes-184a064333be.herokuapp.com"]
+    ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
 
 
 INSTALLED_APPS = [

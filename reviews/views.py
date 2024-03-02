@@ -109,11 +109,11 @@ class PostLike(View):
         return HttpResponseRedirect(reverse("post_detail", args=[slug]))
 
 
-class CreatePostView(CreateView):
-    model = Post
+# class CreatePostView(CreateView):
+#     model = Post
 
-    form_class = UserPostForm
+#     form_class = UserPostForm
 
-    template_name = "reviews/post_form.html"
+#     template_name = "reviews/post_form.html"
 
-    success_url = reverse_lazy("post_list")
+#     success_url = reverse_lazy("post_list")

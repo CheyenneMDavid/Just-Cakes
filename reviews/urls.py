@@ -12,7 +12,7 @@ from . import views
 # URL patterns for the reviews application.
 urlpatterns = [
     path("", views.PostList.as_view(), name="post_list"),
-    path("create-post/", views.CreatePostView.as_view(), name="create_post"),
+    # path("create-post/", views.CreatePostView.as_view(), name="create_post"),
     path("<slug:slug>/", views.PostDetail.as_view(), name="post_detail"),
     path("like/<slug:slug>", views.PostLike.as_view(), name="post_like"),
 ]
