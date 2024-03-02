@@ -15,7 +15,7 @@ import os
 import dj_database_url
 from django.contrib.messages import constants as messages
 
-development = os.environ.get("DEVELOPMENT", False)
+# development = os.environ.get("DEVELOPMENT", False)
 
 if os.path.isfile("env.py"):
     # Linter incorrectly saying that the imported env.py wasn't being used,
@@ -39,15 +39,22 @@ X_FRAME_OPTIONS = "SAMEORIGIN"
 
 # DEBUG set to development with logic that will set it to True or False
 # depending on production or local when running.
-DEBUG = development
+DEBUG = True
 
-if development:
-    ALLOWED_HOSTS = [
-        "localhost",
-        "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
-    ]
-else:
-    ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
+ALLOWED_HOSTS = [
+    "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
+    "local",
+    "https://just-cakes-184a064333be.herokuapp.com",
+]
+
+
+# if development:
+#     ALLOWED_HOSTS = [
+#         "localhost",
+#         "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
+#     ]
+# else:
+#     ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
 
 
 INSTALLED_APPS = [

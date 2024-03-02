@@ -41,6 +41,7 @@
 		"Cakecolor",
 		"cheyennemdavi",
 		"cloudinary",
+		"COLLECTSTATIC",
 		"customeraccount",
 		"docstrings",
 		"forloop",
@@ -65,6 +66,8 @@
 		"summernote",
 		"templating",
 		"throughs",
+		"unliked",
+		"unliking",
 		"urllib",
 		"whitenoise"
 	],
