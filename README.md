@@ -131,7 +131,14 @@ Add to this, I was struggling with correctly applying singular and plural usage 
 Another issue that only became apparent later was that in my need to name the html pages according to the applications that they belonged to, I lost focus of keeping index.html as a central point.
 The purpose of the site was to showcase their cakes, so I decided to make the gallery view of the cakes the landing page and changed the cakes_list.html to index.html
 &nbsp;
-- **
+- **Deployment & Static files**
+  To simplify things to a level where I had less to look at I once again removed the environmental variables that controlled DEBUG and ALLOWED_HOSTS and hardcoded these into the django settings file.
+  The ongoing issue was finally resolved when I tried to manually disable the collect static by logging into Heroku via my console and using:
+  `heroku config:set DISABLE_COLLECTSTATIC=0` which gave me a return saying that it couldn't find the app.
+  Somehow heroku was referencing an application that had previously been deleted.
+  Explicitly specifying the app name with:
+  `heroku config:set DISABLE_COLLECTSTATIC=0 --app just-cakes` seemed to break this link, solved the situation and enabled me to replace the hardcoded settings with the environmental variables.
+  
 ___
 
 ## Agile Development Process
@@ -167,8 +174,9 @@ In the back and forth with the clashing of extensions, At some point the Databas
   This left me with a lot of files that I had yet to commit, mostly migration ones.  So they were committed in bulk to clear the clutter.
   &nbsp;
   **New Site**
-  I was unable to get my svg pattern which I was using as wallpaper to display.  I thought that this was due to the fat that I hadn't set the DISABLE_COLLECTSTATIC in Heroku and after deploying once with it not set, I couldn't seem to simply set it on the deployments there after.  After numerous attempts to get round this which included trying  to use Whitenoise to serve the static files, I eventually reverted to Cloudinary settings for them.  After numerous re-runs and re-dos I can see that it's not the static file that is the issue because the other styling is present.  The SVG pattern is not.  It's not interfering with the functioning so this can me addressed at a later date.
+  I was unable to get my svg pattern which I was using as wallpaper to display.  I thought that this was due to the fact that I hadn't set the DISABLE_COLLECTSTATIC in Heroku and after deploying once with it not set, I couldn't seem to simply set it on the deployments there after.  After numerous attempts to get round this which included trying  to use Whitenoise to serve the static files, I eventually reverted to Cloudinary settings for them.  After numerous re-runs and re-dos I can see that it's not the static file that is the issue because the other styling is present.  The SVG pattern is not.  It's not interfering with the functioning so this can me addressed at a later date.
   &nbsp;
+
   
 
 ___
