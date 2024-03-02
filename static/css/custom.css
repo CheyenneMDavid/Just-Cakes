@@ -21,7 +21,7 @@ h2,h3, h4, h5 {
 }
 
 /* Header */
-.navbar-text,
+.navbar,
 .custom-svg {
     font-family: 'Lobster', cursive;
     font-size: 27px;
@@ -106,11 +106,19 @@ hr {
 }
 
 .custom-button-color {
+    color: whitesmoke;
+    background-color: #b0a15d;
+    border: 3px solid white;
+}
+
+.custom-delete-button {
+    color: red;
     background-color: #b0a15d;
     border: 3px solid white;
 }
 
 .custom-submit-color {
+    color: whitesmoke;
     background-color: #b0a15d;
     border: 3px solid white;
     margin-top: 10px;
@@ -128,6 +136,13 @@ hr {
     column-rule-color: #556B2F;
 }
 
+.form-style {
+    margin-top: 1.3em;
+}
+
+.comment-padding {
+    style="padding: 10px"
+}
 
 
 /* Footer */
