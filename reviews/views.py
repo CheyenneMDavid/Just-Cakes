@@ -3,7 +3,7 @@ Module to handle the views that are related to the Post model
  Much in this file is from the walkthrough project with Hello Django
 Had to change names defining singular and plural to make more sense, both
 here and in other places throughout files.
-Also, have changed "review" to "post" for consistency and to fit with how 
+Also, have changed "review" to "post" for consistency and to fit with how
 django handles things.
 """
 
@@ -37,13 +37,18 @@ class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
         """Handles the get request for the detail view of a post"""
+
+        # filtering posts by their status.
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
 
+        # Retrieving comments for a post.
         comments = post.comments.filter(approved=True).order_by("-created_on")
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
+
+        # Rendering the post detail page.
         return render(
             request,
             "reviews/post_detail.html",
@@ -58,15 +63,22 @@ class PostDetail(View):
 
     def post(self, request, slug, *args, **kwargs):
         """
-        Handles the get request for the detail view of a post
+        Handles the post request for the detail view of a post
         """
+
+        # Filtering the posts by their status.
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
+
+        # Retrieving the comments for a post
         comments = post.comments.filter(approved=True).order_by("-created_on")
         liked = False
+
+        # Checking if a post if liked by the current user.
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
 
+        # Processing the comment submission.
         comment_form = CommentForm(data=request.POST)
 
         if comment_form.is_valid():
@@ -77,6 +89,8 @@ class PostDetail(View):
             new_comment.save()
         else:
             comment_form = CommentForm()
+
+        # Rendering the detail page
         return render(
             request,
             "reviews/post_detail.html",
@@ -101,21 +115,25 @@ class PostLike(View):
         # find on then it returns a 404, page not found error.
         post = get_object_or_404(Post, slug=slug)
 
+        # Toggles the likes
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
         else:
             post.likes.add(request.user)
 
+        #  Redirecting to the post detail page after the likes are toggled.
         return HttpResponseRedirect(reverse("post_detail", args=[slug]))
 
 
 class CreatePostView(CreateView):
+    """
+    This view handles the creation of a post, and then uses the success_url to
+    return the user to the index page which is the list of posts.
+    """
+
     model = Post
-
     form_class = UserPostForm
-
     template_name = "reviews/post_form.html"
-
     success_url = reverse_lazy("post_list")
 
 
@@ -125,7 +143,8 @@ class PostDeleteView(DeleteView):
 
     def get_success_url(self):
         """
-        Override the get_success_url method to provide a custom success URL
-        after deleting a post.
+        This view handles thr deletion of a post, and then uses the
+        success_url to return the user to the index page which is the list of
+        posts.
         """
         return self.success_url
