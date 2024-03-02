@@ -12,7 +12,7 @@ django handles things.
 # after they have completed a task.  Example being, the home page after
 # signing in.
 from django.shortcuts import render, get_object_or_404, reverse
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
@@ -117,3 +117,15 @@ class CreatePostView(CreateView):
     template_name = "reviews/post_form.html"
 
     success_url = reverse_lazy("post_list")
+
+
+class PostDeleteView(DeleteView):
+    model = Post
+    success_url = reverse_lazy("post_list")
+
+    def get_success_url(self):
+        """
+        Override the get_success_url method to provide a custom success URL
+        after deleting a post.
+        """
+        return self.success_url

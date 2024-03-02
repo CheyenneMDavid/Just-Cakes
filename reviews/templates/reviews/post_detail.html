@@ -1,26 +1,28 @@
 {% extends 'base.html' %} {% block content %} {% load crispy_forms_tags %}
 
 <hr />
+<!-- Horizontal lines for visual separation. -->
+
+<!-- Masthead displaying title, author and date for each post. -->
 <div class="masthead">
 	<div class="container-fluid">
 		<div class="row g-0">
 			<div class="col-md-6 masthead-text">
+				<!-- Dynamically displays the posts title. -->
 				<h2 class="post-title">{{ post.title }}</h2>
-
+				<!-- Dynamically displays the Author and post creation date -->
 				<p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
 			</div>
 
+			<!-- Placeholder for the user's post image or the default image, asking for it to be in WEBP format if it's available, otherwise it accepts jpg -->
 			<div class="d-none d-md-block col-md-6 masthead-image">
 				{% if "placeholder" in post.featured_image.url %}
-
 				<img
 					src="https://res.cloudinary.com/cheymd/image/upload/v1693482045/default_image_rlpqek.jpg?format=webp"
 					width="100%"
 					alt="default image"
 				/>
-
 				{% else %}
-
 				<img
 					src="{{ post.featured_image.url|add:'?format=webp' }}"
 					width="100%"
@@ -32,71 +34,99 @@
 	</div>
 </div>
 
+<!-- Main content section displaying the post content -->
 <div class="container">
 	<div class="row">
 		<div class="col card mb-4 mt-3 left top">
-			<p class="card-text ">
-				{{ post.content | safe }}
-		</p>
-		<div class="row">
+			<!-- Displays the content of the post, using the safe filter to show the content exactly as it because it's considered "trusted" -->
+			<p class="card-text">{{ post.content | safe }}</p>
 
+			<!-- Likes and comments section showing the counts -->
+			<div class="row">
 				<div class="col-1">
-						<strong class="text-secondary"><i class="far fa-heart"></i> {{ post.number_of_likes }} </strong>
+					<strong class="text-secondary"
+						><i class="far fa-heart"></i> {{ post.number_of_likes }}</strong
+					>
+					<!-- Number of "likes" -->
 				</div>
 				<div class="col-1">
-						{% with comments.count as total_comments %}
-						<strong class="text-secondary"><i class="far fa-comments"></i>
-								{{ total_comments }}</strong>
-						{% endwith %}
+					{% with comments.count as total_comments %}
+					<strong class="text-secondary"
+						><i class="far fa-comments"></i> {{ total_comments }}</strong
+					>
+					<!-- Number of "comments" -->
+					{% endwith %}
 				</div>
+			</div>
 		</div>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col">
-<hr>
-</div>
-</div>
-<div class="row">
-<div class="col-md-8 card mb-4  mt-3 ">
-<h3>Comments:</h3>
-<div class="card-body">
-		{% for comment in comments %}
-		<div class="comments" style="padding: 10px;">
-				<p class="font-weight-bold">
-						{{ comment.name }}
-						<span class=" text-muted font-weight-normal">
-								{{ comment.created_on }}
-						</span> wrote:
-				</p>
-			
-				{{ comment.body | linebreaks }}
-		</div>
-		{% endfor %}
-</div>
-</div>
-<div class="col-md-4 card mb-4  mt-3 ">
-<div class="card-body">
-		{% if commented %}
-		<div class="alert alert-success" role="alert">
-			Your comment is awaiting approval
-		</div>
-		{% else %}
-		{% if user.is_authenticated %}
 
-		<h3>Leave a comment:</h3>
-		<p>Posting as: {{ user.username }}</p>
-		<form method="post" style="margin-top: 1.3em;">
-			{{ comment_form | crispy }}
+		<!-- Only if the user is the Author, then the delete button for the post if visible. -->
+		{% if user == post.author %}
+		<!-- POST request to delete a post identified by its primary key -->
+		<form method="post" action="{% url 'post_delete' post.pk %}">
+			<!-- Security measure to guard against unauthorized or malicious form submissions. -->
 			{% csrf_token %}
-			<button type="submit" class="btn btn-signup btn-lg">Submit</button>
-	</form>
+			<button type="submit" class="btn custom-delete-button">
+				Delete My Post
+			</button>
+		</form>
 		{% endif %}
-		{% endif %}
+	</div>
 </div>
+
+<!-- Comments section display comments if any and a form for commenting
+	or a message saying that the comment is awaiting approval if the user has
+	commented -->
+<div class="row">
+	<div class="col">
+		<hr />
+	</div>
 </div>
-</div>
+<div class="row">
+	<div class="col-md-8 card mb-4 mt-3">
+		<h3>Comments:</h3>
+		<div class="card-body">
+			{% for comment in comments %}
+			<div class="comments" style="padding: 10px">
+				<p class="font-weight-bold">
+					<!-- Dynamically displays the name of the user that wrote the comment -->
+					{{ comment.name }}
+					<span class="text-muted font-weight-normal"
+						>{{ comment.created_on }}</span
+					>
+					wrote:
+				</p>
+				{{ comment.body | linebreaks }}
+				<!-- Comment body with line breaks -->
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<!-- Comment form section, visible only to authenticated users -->
+	<div class="col-md-4 card mb-4 mt-3">
+		<div class="card-body">
+			<!-- If the user leaves a comment, they get an alert saying that their 
+				comment is awaiting approval.  Otherwise it says "Leave a comment" -->
+			{% if commented %}
+			<div class="alert alert-success" role="alert">
+				Your comment is awaiting approval
+			</div>
+			{% else %} {% if user.is_authenticated %}
+			<h3>Leave a comment:</h3>
+			<p>Posting as: {{ user.username }}</p>
+			<!-- Display username -->
+			<form method="post" class="form-style">
+				{{ comment_form | crispy }}
+				<!-- Security measure to guard against unauthorized or malicious form submissions. -->
+				{% csrf_token %}
+				<button type="submit" class="btn custom-button-color">Submit</button>
+			</form>
+			<!-- End of conditional display that requests a comment of tells the user that their comment is awaiting approval. -->
+			{% endif %} {% endif %}
+		</div>
+	</div>
 </div>
 
 {% endblock content %}
+<!-- Content block ends -->
