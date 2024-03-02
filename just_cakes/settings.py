@@ -44,7 +44,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
     "local",
-    "https://just-cakes-184a064333be.herokuapp.com",
+    "just-cakes-184a064333be.herokuapp.com",
 ]
 
 
