@@ -41,6 +41,9 @@ class CustomerAccount(models.Model):
         default="Information not provided",
     )
 
+    # Not using a default for the telephone field as it clashed with using
+    # regex to validate entries, which included any meaningful default value
+    # which suggested to the user that they enter the phone number.
     phone = models.CharField(
         max_length=30,
         validators=[phone_regex],

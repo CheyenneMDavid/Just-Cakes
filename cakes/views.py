@@ -14,10 +14,9 @@ def cake_list(request):
     """
 
     # Fetching the cake categories.
-    wedding_category = CakeCategory.objects.get(category="Wedding")
-    novelty_category = CakeCategory.objects.get(category="Novelty")
-    birthday_category = CakeCategory.objects.get(category="Birthday")
-
+    wedding_category = get_object_or_404(CakeCategory, category="Wedding")
+    novelty_category = get_object_or_404(CakeCategory, category="Novelty")
+    birthday_category = get_object_or_404(CakeCategory, category="Birthday")
     # Filtering the cakes according to the categories and using prefetch to
     # limit the number of database queries
     wedding_cakes = IndividualCake.objects.filter(

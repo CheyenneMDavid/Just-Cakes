@@ -4,33 +4,50 @@
 	<hr />
 	<div class="row">
 		<div class="col-md-6">
+			<!-- Check if there are any images available for the cake -->
 			{% if cake.images.all %}
-
+			<!-- Check if the first image url contains a placeholder -->
+			{% if "placeholder" in cake.images.all.0.image.url %}
+			<!-- Display placeholder image -->
+			<img
+				src="https://res.cloudinary.com/cheymd/image/upload/v1708667412/comming-soon_hfi86g.jpg"
+				alt="Placeholder Image"
+				class="img-fluid"
+			/>
+			{% else %}
+			<!-- Display the first image if available that's in webp -->
 			<img
 				src="{{ cake.images.all.0.image.url|add:'?format=webp' }}"
 				alt="{{ cake.name }}"
 				class="img-fluid"
 			/>
-
-			{% else %}
-			<p>No image available</p>
+			{% endif %} {% else %}
+			<!-- Display a default image or a message when no images are available -->
+			<img
+				src="https://res.cloudinary.com/cheymd/image/upload/v1708667412/comming-soon_hfi86g.jpg"
+				alt="Default Image"
+				class="img-fluid"
+			/>
 			{% endif %}
 		</div>
 		<div class="col-md-6">
+			<!-- Name, description and details for the individual cake -->
 			<h2>{{ cake.name }}</h2>
 			<p>Category: {{ cake.category.category }}</p>
-
 			<p>{{ cake.description }}</p>
 			<p>£{{ cake.price }}</p>
+			<!-- Boolean fields for plant based and gluten free, displaying the font awesome icons if they're set as yes via the admin panel. Otherwise their default is no. -->
 			{% if cake.is_plant_based %}
 			<p><i class="fas fa-seedling plant-based-icon"></i> Plant Based</p>
 			{% endif %} {% if cake.is_gluten_free %}
 			<p><i class="fas fa-check-circle gluten-free-icon"></i> Gluten Free</p>
 			{% endif %}
+			<!-- Returns to the home page which is the index.html -->
 			<a href="{% url 'index' %}" class="btn custom-button-color"
 				>Back to Our Cakes</a
 			>
 		</div>
 	</div>
 </div>
+
 {% endblock %}

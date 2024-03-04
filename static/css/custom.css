@@ -6,17 +6,16 @@ body {
     color: #444444;
 }
 
-
+/* Headings */
 h1 {
     color: #b0a15d;
     font-size: 60px;
     text-decoration: underline;
     margin-left: 15px;
     margin-right: 15px;
-
 }
 
-h2,h3, h4, h5 {
+h2, h3, h4, h5 {
     color: #b0a15d;
 }
 
@@ -46,51 +45,46 @@ main,
     padding: 10px;
 }
 
+/* Navigation */
 .navbar-toggler-icon {
     background-color: #b0a15d;
-}
-.cake-type-headings {
-    color: #b0a15d;
-    margin-left: 15px;
-    text-decoration: underline;
 }
 
 .navbar-nav .nav-link {
     color: #b0a15d !important;
 }
 
-.review {
+/* Content Headings */
+.cake-type-headings,
+.review,
+.profile-form,
+.mission-statement {
     font-family: 'Lobster', cursive;
     color: #b0a15d;
 }
 
 .mission-statement {
-    font-family: 'Lobster', cursive;
     padding-left: 15px;
 }
 
-.image-container {
-    border: 1px solid #b0a15d;
-}
-
-.author, .image-flash {
-    background-color: #556B2F;
-}
-
+/* Image and Card Styles */
+.image-container,
+.card-img-top,
+.img-fluid,
 .image-flash {
     border: 2px solid #b0a15d;
 }
 
-
-.card-img-top {
-    border: 2px solid #b0a15d;
+.author, 
+.image-flash {
+    background-color: #556B2F;
 }
 
-a, p, .card-text {
+/* Text and Links */
+a, p, .card-text, .username {
     color: #444444;
     text-decoration: none;
 }
-
 
 hr {
     color: #444444;
@@ -101,33 +95,29 @@ hr {
     color: #556B2F;
 }
 
+/* Form and Input Styles */
 .input-labels {
     font-family: 'Roboto', sans-serif;
 }
 
-.custom-button-color {
-    color: whitesmoke;
-    background-color: #b0a15d;
-    border: 3px solid white;
+.form-style {
+    margin-top: 1.3em;
 }
 
-.custom-delete-button {
-    color: red;
+/* Button Styles */
+.custom-button-color,
+.custom-delete-button,
+.custom-submit-color {
+    color: whitesmoke;
     background-color: #b0a15d;
     border: 3px solid white;
 }
 
 .custom-submit-color {
-    color: whitesmoke;
-    background-color: #b0a15d;
-    border: 3px solid white;
     margin-top: 10px;
 }
 
-.img-fluid {
-    border: 2px solid #b0a15d;
-}
-
+/* Icons */
 .plant-based-icon {
     color: rgb(44, 120, 44);
 }
@@ -136,16 +126,7 @@ hr {
     column-rule-color: #556B2F;
 }
 
-.form-style {
-    margin-top: 1.3em;
-}
-
-.comment-padding {
-    style="padding: 10px"
-}
-
-
-/* Footer */
+/* Footer Styles */
 footer {
     background-color: #b0a15d !important;
 }

@@ -1,0 +1,25 @@
+<!-- Extends from the base.html -->
+{% extends "base.html" %}
+
+<!-- Switching back to Crispy -->
+{% load crispy_forms_tags %}
+
+<!-- Start of the content block -->
+{% block content %}
+<hr />
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12">
+			<h2 class="review">Profile Update Form</h2>
+			<form method="post" enctype="multipart/form-data">
+				<!-- CSRF token is included to protect against Cross Site Request Forgery attacks, ensuring that the form that is submitted is the same form that was rendered -->
+				{% csrf_token %}
+				<!-- Using Crispy forms template -->
+				{{ form|crispy }}
+				<button type="submit" class="btn-primary">Update</button>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- End of block content -->
+{% endblock %}

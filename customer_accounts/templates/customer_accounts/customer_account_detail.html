@@ -39,14 +39,22 @@
 					{% endif %}
 				</div>
 				<div class="card-footer text-muted">
-					<a href="#" class="btn btn-primary">Go Back</a
-					>&nbsp;&nbsp;&nbsp;&nbsp;
-					<button type="button" class="btn btn-warning">
-						Update My Profile</button
-					>&nbsp;&nbsp;&nbsp;&nbsp;
-					<button type="button" class="btn btn-danger">
-						Delete My Profile
-					</button>
+					<a href="#" class="btn btn-primary">Go Back</a>
+					<!-- button to update profile page -->
+					<a href="{% url 'customer_profile_update' %}" class="btn btn-primary"
+						>Update My Profile</a
+					>
+					<a href="#" class="btn btn-primary">Go Back</a>
+					<!-- -->
+					<!--  -->
+					<!-- button to delete profile takes the user to a page that asks them if they are sure as deletion can't be undone.-->
+					<!--  -->
+					<!--  -->
+					<a
+						href="{% url 'customer_account_profile_update_form' %}"
+						class="btn btn-primary"
+						>Update My Profile</a
+					>
 				</div>
 			</div>
 		</div>
