@@ -95,6 +95,15 @@
 				<!-- Links in navbar -->
 				<div class="collapse navbar-collapse" id="navbarText">
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+						<!-- Admin login -->
+						<li class="nav-item">
+							<a
+								class="nav-link active"
+								aria-current="page"
+								href="{% url 'admin:index' %}"
+								>Admin</a
+							>
+						</li>
 						<!-- Static Nav Items -->
 						<li class="nav-item">
 							<a
@@ -120,7 +129,7 @@
 						</li>
 						<li class="nav-item">
 							<a
-								href="{% url 'customer_accounts_detail' pk=user.customeraccount.pk %}"
+								href="{% url 'customer_account_detail' pk=user.customeraccount.pk %}"
 								target="_blank"
 								class="nav-link"
 								>My Account</a
