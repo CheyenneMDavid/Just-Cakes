@@ -5,33 +5,48 @@ from .models import CustomerAccount
 
 class CustomerAccountAdmin(admin.ModelAdmin):
     """
-    CustomerAccountAdmin handles the customer account in the admin panel.
+    Defines the admin interface for CustomerAccount models.
+    This configuration improves admin interactions by allowing
+    sorting, searching, and filtering based on relevant fields.
     """
 
-    # Sets the fields that'll be displayed in the admin panel list view
+    # Fields to display in the admin panel list view, gives the admin a quick view of important information.
     list_display = (
         "user",
+        "first_name",
+        "last_name",
         "phone",
-        "address_line_1",
         "city",
         "county",
         "post_code",
         "registration_date",
     )
-    # Sets which fields can be searched in the admin panel.
-    search_fields = ("user__username", "phone", "city", "county", "post_code")
 
-    # This defines the filter that the admin can filter by.
-    # Including the filters of purchase_order_date and delivery_order_date
-    # in the application but they'll only be utilized when functionality
-    # is extended.
+    # Fields that can be used to search through CustomerAccounts in the admin
+    # panel.
+    search_fields = (
+        "user__username",
+        "first_name",
+        "last_name",
+        "phone",
+        "post_code",
+    )
+
+    # Sets the default ordering for CustomerAccounts in the admin list view;
+    # earliest registration dates first.
+    ordering = ("registration_date",)
+
+    # Fields available for filtering in the admin panel, aiding in efficient
+    # navigation and management of records.
     list_filter = (
+        "last_name",
+        "phone",
         "city",
         "county",
         "registration_date",
     )
 
 
-# Using a decorator to ensure this is registered and displayed in the
-# admin panel.
+# Registers the CustomerAccountAdmin with the associated model to ensure it's
+# available in the Django admin panel.
 admin.site.register(CustomerAccount, CustomerAccountAdmin)

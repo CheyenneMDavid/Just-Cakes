@@ -126,6 +126,10 @@ hr {
     column-rule-color: #556B2F;
 }
 
+.contact-form-link {
+    padding-left: 1.5em;
+}
+
 /* Footer Styles */
 footer {
     background-color: #b0a15d !important;

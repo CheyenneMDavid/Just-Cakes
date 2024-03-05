@@ -87,12 +87,14 @@ def update_customer_profile(request, pk):
             "this profile.",
         )
         return redirect(
-            "customer_account/customer_account_detail",
+            "customer_accounts:customer_account_detail",
             pk=request.user.pk,
         )
+
     # Retrieves a customer account that's linked to the user that's logged in.
     customer_account = get_object_or_404(CustomerAccount, pk=pk)
-    # Checks if it's a post request
+
+    # If it's a POST request, process the form submission.
     if request.method == "POST":
         form = UpdateProfileForm(request.POST, instance=customer_account)
         # Validates the form data
@@ -107,17 +109,16 @@ def update_customer_profile(request, pk):
                 "and update this anytime.",
             )
             # Redirects the user to the gallery of available cakes.
-            return redirect("cake_list")
-    # Otherwise, if it's a GET request, it gets the customer's account details.
+            return redirect("index")
     else:
+        # If it's a GET request, render the form.
         form = UpdateProfileForm(instance=customer_account)
-    # Redirects the user to the gallery of available cakes.
+
+    # Render the template with the form.
     return render(
         request,
         "customer_accounts/customer_profile_update_form.html",
-        {
-            "form": form,
-        },
+        {"form": form},
     )
 
 

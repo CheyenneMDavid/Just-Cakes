@@ -14,14 +14,15 @@ class Contact(models.Model):
 
     """
 
-    name = models.CharField(max_length=100, verbose_name="Name")
-    email = models.EmailField(verbose_name="Email")
-    phone_number = models.CharField(max_length=20, verbose_name="Phone number")
-    message = models.TextField(verbose_name="Message")
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        verbose_name="Created at",
+    name = models.CharField(max_length=100, help_text="Please enter your name")
+    email = models.EmailField(help_text="Please enter a valid email address")
+    phone_number = models.CharField(
+        max_length=20, help_text="Please enter a valid phone number"
     )
+    message = models.TextField(
+        help_text="Please leave your message here"
+    )  # Corrected line
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         """

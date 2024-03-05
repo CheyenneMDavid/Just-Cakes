@@ -34,4 +34,9 @@ urlpatterns = [
         delete_customer_profile,
         name="delete_customer_profile",
     ),
+    path(
+        "update-profile/",
+        update_customer_profile,
+        name="update_profile",
+    ),
 ]

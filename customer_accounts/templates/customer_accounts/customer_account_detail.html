@@ -3,10 +3,11 @@
 
 <div class="container-fluid">
 	<div class="row">
-		<div>
+		<div class="col-md-12">
+			<!-- Added class to specify column width -->
 			<div class="card">
 				<div class="card-header">
-					<h4>Customer Account Details</h4>
+					<h4>Customer Profile Details</h4>
 				</div>
 				<div class="card-body">
 					<!-- Block to check if a customer account exists.  If it does, this block of details display
@@ -39,20 +40,18 @@
 					{% endif %}
 				</div>
 				<div class="card-footer text-muted">
-					<a href="#" class="btn btn-primary">Go Back</a>
-					<!-- button to update profile page -->
-					<a href="{% url 'customer_profile_update' %}" class="btn btn-primary"
-						>Update My Profile</a
+					<!-- Button to go back -->
+					<button
+						type="button"
+						class="custom-button-color"
+						onclick="history.back();"
 					>
-					<a href="#" class="btn btn-primary">Go Back</a>
-					<!-- -->
-					<!--  -->
-					<!-- button to delete profile takes the user to a page that asks them if they are sure as deletion can't be undone.-->
-					<!--  -->
-					<!--  -->
+						Go Back
+					</button>
+					<!-- Button to update profile page -->
 					<a
-						href="{% url 'customer_account_profile_update_form' %}"
-						class="btn btn-primary"
+						href="{% url 'update_customer_profile' pk=request.user.pk %}"
+						class="btn custom-button-color"
 						>Update My Profile</a
 					>
 				</div>
