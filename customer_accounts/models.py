@@ -3,6 +3,7 @@ Importing Regex to validate data.
 Importing models in order to define the CustomerAccount model.
 Importing get_user_model to interact with the default User model in Django.
 
+Using text rather than default values, improving the UX, User not having to delete content in fields before filling their details in.
 """
 
 from django.core.validators import RegexValidator
@@ -14,7 +15,9 @@ from django.utils import timezone
 # maintenance of the code in the future.
 User = get_user_model()
 
-
+# Credit for this regex pattern is StackOverflow at this page:
+# https://stackoverflow.com/questions/25155970/
+# validating-uk-phone-number-regex-c
 phone_regex = RegexValidator(
     regex=r"^(((\+44\s?\d{4}|\(?0\d{4}\)?)\s?\d{3}\s?\d{3})|"
     r"((\+44\s?\d{3}|\(?0\d{3}\)?)\s?\d{3}\s?\d{4})|"
@@ -31,14 +34,12 @@ class CustomerAccount(models.Model):
     """
 
     first_name = models.CharField(
-        max_length=30,
-        blank=True,
-        default="Information not provided",
+        max_length=30, blank=True, help_text="Enter your first name"
     )
     last_name = models.CharField(
         max_length=30,
         blank=True,
-        default="Information not provided",
+        help_text="Enter your last name",
     )
 
     # Not using a default for the telephone field as it clashed with using
@@ -55,27 +56,34 @@ class CustomerAccount(models.Model):
     # The longest town in the uk is in wales and only has 58 letters.
     address_line_1 = models.CharField(
         max_length=60,
-        default="Information not provided",
+        blank=True,
+        help_text="Please enter the first line of your address.",
     )
     address_line_2 = models.CharField(
         max_length=60,
-        default="Information not provided",
+        blank=True,
+        help_text="Please enter the second line of your address",
     )
     city = models.CharField(
         max_length=60,
-        default="Information not provided",
+        blank=True,
+        help_text="Please enter your city",
     )
     county = models.CharField(
-        max_length=30,
-        default="Information not provided",
+        max_length=30, blank=True, help_text="Please enter your county"
     )
     post_code = models.CharField(
         max_length=30,
-        default="Information not provided",
+        blank=True,
+        help_text="Please enter your postal code",
     )
 
     # Defines the accepted format of dates, when they are put in by the user.
-    birth_date = models.DateField(null=True, blank=True)
+    birth_date = models.DateField(
+        null=True,
+        blank=True,
+        help_text="Please enter your D.O.B.",
+    )
 
     # Gender selected by user.
     GENDER_CHOICES = [
@@ -96,11 +104,15 @@ class CustomerAccount(models.Model):
     # if talking over the telephone.
     memorable_name = models.CharField(
         max_length=60,
-        default="Information not provided",
+        blank=True,
+        help_text="Please enter a memorable name",
     )
 
     # Defines the accepted format of dates, when they are put in by the user.
-    memorable_date = models.DateField(blank=True, null=True)
+    memorable_date = models.DateField(
+        null=True,
+        blank=True,
+    )
 
     # Links the CustomerAccount model to the django-allauth.
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
