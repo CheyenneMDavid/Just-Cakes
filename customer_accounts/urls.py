@@ -3,7 +3,6 @@ from django.urls import path
 
 # Imports of the forms and views needed for the customer accounts
 from .views import (
-    customer_accounts_list,
     customer_account_detail,
     update_customer_profile,
     confirm_delete_customer_profile,
@@ -12,9 +11,6 @@ from .views import (
 
 # URL patterns for the customer accounts application.
 urlpatterns = [
-    # Listing all customer accounts only accessed by admins via the django
-    # admin panel.
-    path("", customer_accounts_list, name="customer_accounts_list"),
     # Viewing details for a particular profile.
     path("<int:pk>/", customer_account_detail, name="customer_account_detail"),
     path(

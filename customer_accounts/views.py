@@ -24,17 +24,6 @@ from .models import CustomerAccount
 from .forms import UpdateProfileForm
 
 
-def customer_accounts_list(request):
-    """
-    The view fetches all the customer accounts from the database and renders
-    them in a list view which only and admin will have access to via a front
-    end design, separate to what is currently available only via the django
-    admin panel.
-    """
-    # TODO: Implement features described in comments, for future development.
-    # Appropriate decorators will be assigned when this is fully implemented.
-
-
 # Using the login_required decorator to ensure that access is restricted to
 # only authenticated users.
 # Changed from using id to using pk after coming across this in Stackoverflow

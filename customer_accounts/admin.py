@@ -10,7 +10,8 @@ class CustomerAccountAdmin(admin.ModelAdmin):
     sorting, searching, and filtering based on relevant fields.
     """
 
-    # Fields to display in the admin panel list view, gives the admin a quick view of important information.
+    # Fields to display in the admin panel list view, gives the admin a quick
+    # view of important information.
     list_display = (
         "user",
         "first_name",

@@ -2,8 +2,18 @@
 
 <!-- contact.html -->
 <form method="post">
-	{% csrf_token %} {% if submitted %}
-	<p>Thank you for your submission!</p>
+	<!-- csrf, Cross Site Forgery Token being used to ensure that the form being 
+		sent is the form that was filled out by the user. -->
+	{% csrf_token %}
+	<!-- If a form is submitted, the user receives a message that lasts for 3 seconds and then the user is saying
+	"Thank you for contacting us. We'll be in touch soon 😊", -->
+	{% if submitted %}
+	<script>
+		setTimeout(function () {
+			window.location.href = '/';
+		}, 3000);
+	</script>
+	<p>Thank you for contacting us. We'll be in touch soon 😊</p>
 	{% else %} {{ form.as_p }}
 	<button class="btn btn custom-button-color" type="submit">Submit</button>
 	{% endif %}

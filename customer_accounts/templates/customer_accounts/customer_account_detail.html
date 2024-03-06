@@ -40,19 +40,22 @@
 					{% endif %}
 				</div>
 				<div class="card-footer text-muted">
-					<!-- Button to go back -->
-					<button
-						type="button"
-						class="custom-button-color"
-						onclick="history.back();"
-					>
-						Go Back
-					</button>
+					<!-- Button to go back to the homepage -->
+
+					<a href="{% url 'index' %}" class="btn custom-button-color"
+						>Back to Home
+					</a>
 					<!-- Button to update profile page -->
 					<a
 						href="{% url 'update_customer_profile' pk=request.user.pk %}"
 						class="btn custom-button-color"
-						>Update My Profile</a
+						>Update My Profile
+					</a>
+					<!-- Button to delete account -->
+					<a
+						href="{% url 'delete_customer_profile' pk=account.pk %}"
+						class="btn custom-button-color"
+						>Delete my account</a
 					>
 				</div>
 			</div>
