@@ -1,9 +1,6 @@
 from django.apps import AppConfig
 
 
-from django.apps import AppConfig
-
-
 class CustomerAccountsConfig(AppConfig):
     """
     AppConfig for the CustomerAccounts app.
