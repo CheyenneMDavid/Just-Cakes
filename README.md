@@ -138,6 +138,10 @@ The purpose of the site was to showcase their cakes, so I decided to make the ga
   Somehow heroku was referencing an application that had previously been deleted.
   Explicitly specifying the app name with:
   `heroku config:set DISABLE_COLLECTSTATIC=0 --app just-cakes` seemed to break this link, solved the situation and enabled me to replace the hardcoded settings with the environmental variables.
+
+- **Authenticated Users vs Customer account.**
+  Initially having this set to ensure that whenever a user registered, hence becoming an "authenticated" user, a customer account/profile was created.  This also worked in reverse in that if a user where to delete their profile, their corresponding account in the customer_accounts application would also be deleted and the user would then be redirected to the sign-up page
+
   
 ___
 

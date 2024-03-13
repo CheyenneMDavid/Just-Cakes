@@ -9,7 +9,7 @@
 <hr />
 
 <!-- Heading for Wedding Cakes landing page -->
-<h4 class="cake-type-headings">Wedding Cakes</h4>
+<h3 class="cake-type-headings">Wedding Cakes</h3>
 <div class="row">
 	<!-- Check if there are wedding cakes available -->
 	{% if wedding_cakes %}
@@ -23,28 +23,28 @@
 			{% if "placeholder" in cake.images.all.0.image.url %}
 			<!-- Display placeholder image -->
 			<img
-				src="https://res.cloudinary.com/cheymd/image/upload/v1708667412/comming-soon_hfi86g.jpg"
-				class="card-img-top"
+				src="https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg"
+				class="card-img-top image-size" 
 				alt="{{ cake.name }}"
 			/>
 			{% else %}
 			<!-- Display actual cake image -->
 			<img
 				src="{{ cake.images.all.0.image.url|add:'?format=webp' }}"
-				class="card-img-top"
+				class="card-img-top image-size"
 				alt="{{ cake.name }}"
 			/>
 			{% endif %} {% else %}
 			<!-- Display default image if no images available -->
 			<img
-				src="https://res.cloudinary.com/cheymd/image/upload/v1708667412/comming-soon_hfi86g.jpg"
-				class="card-img-top"
+				src="https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg"
+				class="card-img-top image-size"
 				alt="Default Cake Image"
 			/>
 			{% endif %}
 			<div class="card-body">
 				<!-- Display cake name -->
-				<h5 class="card-title">{{ cake.name }}</h5>
+				<h4 class="card-title">{{ cake.name }}</h4>
 				<!-- Provide link to cake detail page -->
 				<a href="{% url 'cake_detail' cake.id %}">
 					<!-- Display truncated cake description -->
@@ -61,7 +61,7 @@
 </div>
 <hr />
 <!-- Heading for birthday Cakes -->
-<h4 class="cake-type-headings">Birthday Cakes</h4>
+<h3 class="cake-type-headings">Birthday Cakes</h3>
 <div class="row">
 	<!-- Check if there are birthday cakes available -->
 	{% if birthday_cakes %}
@@ -75,28 +75,28 @@
 			{% if "placeholder" in cake.images.all.0.image.url %}
 			<!-- Display placeholder image -->
 			<img
-				src="https://res.cloudinary.com/cheymd/image/upload/v1708667412/comming-soon_hfi86g.jpg"
-				class="card-img-top"
+				src="https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg"
+				class="card-img-top image-size"
 				alt="{{ cake.name }}"
 			/>
 			{% else %}
 			<!-- Display actual cake image -->
 			<img
 				src="{{ cake.images.all.0.image.url|add:'?format=webp' }}"
-				class="card-img-top"
+				class="card-img-top image-size"
 				alt="{{ cake.name }}"
 			/>
 			{% endif %} {% else %}
 			<!-- Display default image if no images available -->
 			<img
-				src="https://res.cloudinary.com/cheymd/image/upload/v1708667412/comming-soon_hfi86g.jpg"
-				class="card-img-top"
+				src="https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg"
+				class="card-img-top image-size"
 				alt="Default Cake Image"
 			/>
 			{% endif %}
 			<div class="card-body">
 				<!-- Display cake name -->
-				<h5 class="card-title">{{ cake.name }}</h5>
+				<h4 class="card-title">{{ cake.name }}</h4>
 				<!-- Provide link to cake detail page -->
 				<a href="{% url 'cake_detail' cake.id %}">
 					<!-- Display truncated cake description -->
@@ -113,7 +113,7 @@
 </div>
 <hr />
 <!-- Heading for Novelty Cakes -->
-<h4 class="cake-type-headings">Novelty Cakes</h4>
+<h3 class="cake-type-headings">Novelty Cakes</h3>
 <div class="row">
 	<!-- Check if there are novelty cakes available -->
 	{% if novelty_cakes %}
@@ -127,28 +127,28 @@
 			{% if "placeholder" in cake.images.all.0.image.url %}
 			<!-- Display placeholder image -->
 			<img
-				src="https://res.cloudinary.com/cheymd/image/upload/v1708667412/comming-soon_hfi86g.jpg"
-				class="card-img-top"
+				src="https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg"
+				class="card-img-top image-size"
 				alt="{{ cake.name }}"
 			/>
 			{% else %}
 			<!-- Display actual cake image -->
 			<img
 				src="{{ cake.images.all.0.image.url|add:'?format=webp' }}"
-				class="card-img-top"
+				class="card-img-top image-size"
 				alt="{{ cake.name }}"
 			/>
 			{% endif %} {% else %}
 			<!-- Display default image if no images available -->
 			<img
-				src="https://res.cloudinary.com/cheymd/image/upload/v1708667412/comming-soon_hfi86g.jpg"
-				class="card-img-top"
+				src="https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg"
+				class="card-img-top image-size"
 				alt="Default Cake Image"
 			/>
 			{% endif %}
 			<div class="card-body">
 				<!-- Display cake name -->
-				<h5 class="card-title">{{ cake.name }}</h5>
+				<h4 class="card-title">{{ cake.name }}</h4>
 				<!-- Provide link to cake detail page -->
 				<a href="{% url 'cake_detail' cake.id %}">
 					<!-- Display truncated cake description -->

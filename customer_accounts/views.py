@@ -68,6 +68,8 @@ def update_customer_profile(request, pk):
     This enables a customer to update their profile and gives them a success
     message when they've done it.
     """
+    account = get_object_or_404(CustomerAccount, pk=pk)
+
     # Ensuring that the user is updating their own profile.
     if request.user.pk != pk:
         messages.error(

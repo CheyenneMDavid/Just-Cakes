@@ -3,14 +3,14 @@
 <div class="container-fluid">
 	<hr />
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-6 image-size">
 			<!-- Check if there are any images available for the cake -->
 			{% if cake.images.all %}
 			<!-- Check if the first image url contains a placeholder -->
 			{% if "placeholder" in cake.images.all.0.image.url %}
 			<!-- Display placeholder image -->
 			<img
-				src="https://res.cloudinary.com/cheymd/image/upload/v1708667412/comming-soon_hfi86g.jpg"
+				src="https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg"
 				alt="Placeholder Image"
 				class="img-fluid"
 			/>
@@ -24,9 +24,9 @@
 			{% endif %} {% else %}
 			<!-- Display a default image or a message when no images are available -->
 			<img
-				src="https://res.cloudinary.com/cheymd/image/upload/v1708667412/comming-soon_hfi86g.jpg"
+				src="https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg"
 				alt="Default Image"
-				class="img-fluid"
+				class="img-fluid image-size"
 			/>
 			{% endif %}
 		</div>

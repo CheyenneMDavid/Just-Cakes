@@ -47,7 +47,7 @@
 					</a>
 					<!-- Button to update profile page -->
 					<a
-						href="{% url 'update_customer_profile' pk=request.user.pk %}"
+						href="{% url 'update_customer_profile' pk=request.user.customeraccount.pk %}"
 						class="btn custom-button-color"
 						>Update My Profile
 					</a>

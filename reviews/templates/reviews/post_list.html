@@ -6,14 +6,14 @@
 
 <!-- This entire page is mostly a copy of the walkthrough project -->
 <hr />
-<div class="container-fluid">
-	<div class="row">
+<div class="container-fluid text-center">
+	<div class="row justify-content-center">
 		<!-- post Entries Column -->
-		<div class="col-12 mt-3 left">
+		<div class="col-12 mt-3">
 			<div class="row">
 				<!-- Loops through the post list and displays the post in the cards -->
 				{% for post in post_list %}
-				<div class="col-md-3">
+				<div class="col-md-4 mb-4">
 					<div class="card mb-4">
 						<div class="card-body">
 							<div class="image-container">
@@ -56,7 +56,7 @@
 				</div>
 				<!-- Starts a new row after 3 post -->
 				{% if forloop.counter|divisibleby:3 %}
-			</div>
+
 			<div class="row">{% endif %} {% endfor %}</div>
 		</div>
 	</div>

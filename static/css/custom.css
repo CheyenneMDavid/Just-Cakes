@@ -4,6 +4,7 @@ body {
     background-size: auto;
     background-position: top left;
     color: #444444;
+    font-size: 1.3rem;
 }
 
 /* Headings */
@@ -54,7 +55,7 @@ main,
     color: #b0a15d !important;
 }
 
-/* Content Headings */
+/* Contents Headings */
 .cake-type-headings,
 .review,
 .profile-form,
@@ -73,6 +74,10 @@ main,
 .img-fluid,
 .image-flash {
     border: 2px solid #b0a15d;
+}
+
+.image-size {
+    max-width: 400;
 }
 
 .author, 
@@ -95,7 +100,7 @@ hr {
     color: #556B2F;
 }
 
-/* Form and Input Styles */
+/* Form and Inputs Styles */
 .input-labels {
     font-family: 'Roboto', sans-serif;
 }
@@ -104,7 +109,7 @@ hr {
     margin-top: 1.3em;
 }
 
-/* Button Styles */
+/* Buttons Styles */
 .custom-button-color,
 .custom-delete-button,
 .custom-submit-color {
@@ -129,6 +134,17 @@ hr {
 .contact-form-link {
     padding-left: 1.5em;
 }
+
+/* Center content within containers */
+.container-fluid.text-center {
+    text-align: center;
+}
+
+/* Center content within rows */
+.row.justify-content-center {
+    justify-content: center;
+}
+
 
 /* Footer Styles */
 footer {
