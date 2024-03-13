@@ -42,10 +42,7 @@ X_FRAME_OPTIONS = "SAMEORIGIN"
 DEBUG = development
 
 if development:
-    ALLOWED_HOSTS = [
-        "localhost",
-        "8000-cheyennemdavi-justcakes-wzuihwa0qvu.ws-eu108.gitpod.io",
-    ]
+    ALLOWED_HOSTS = [os.environ.get("HEROKU_DEV")]
 else:
     ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
 
@@ -94,6 +91,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "django.middleware.gzip.GZipMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
