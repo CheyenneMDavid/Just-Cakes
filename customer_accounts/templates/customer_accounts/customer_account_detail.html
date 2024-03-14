@@ -1,24 +1,22 @@
 {% extends 'base.html' %} {% block content %}
-<!-- Inside customer_accounts_detail.html -->
 
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<!-- Added class to specify column width -->
+<!-- Purpose of this template is to display user's/customer's profile.  It also provides them with buttons to update it, delete it or to return to the homepage. -->
+
+<main class="container-fluid">
+	<section class="row">
+		<article class="col-md-12">
 			<div class="card">
-				<div class="card-header">
+				<header class="card-header">
 					<h4>Customer Profile Details</h4>
-				</div>
+				</header>
 				<div class="card-body">
-					<!-- Block to check if a customer account exists.  If it does, this block of details display
-            If they don't exist, then it jumps straight to the "else" and says that the account doesn't -->
 					{% if account %}
-					<!-- changed the entries -->
+
+					<!-- Checks if account exists and displays the details                     -->
 					<p class="card-text">
-						<strong>User Name:</strong>
-						{{ account.user.username }}<br />
-						<strong>Name:</strong>
-						{{ account.first_name }} {{ account.last_name }} <br />
+						<strong>User Name:</strong> {{ account.user.username }}<br />
+						<strong>Name:</strong> {{ account.first_name }} {{
+						account.last_name }}<br />
 						<strong>Phone:</strong> {{ account.phone }}<br />
 						<strong>Address Line 1:</strong> {{ account.address_line_1 }}<br />
 						<strong>Address Line 2:</strong> {{ account.address_line_2 }}<br />
@@ -27,39 +25,27 @@
 						<strong>Post Code:</strong> {{ account.post_code }}<br />
 						<strong>Registration Date:</strong> {{ account.registration_date }}
 					</p>
-
-					<!-- Executed if the customer accounts doesn't exist -->
 					{% else %}
-
-					<!-- Displays to the user that the customer account doesn't exist -->
+					<!-- Although user accounts are created when a user registers.  But if there's no user account associated with the user name then it says so -->
 					<p class="card-text">
 						Customer Account does not exist for the logged-in user.
 					</p>
-
-					<!-- End of the if block -->
 					{% endif %}
 				</div>
-				<div class="card-footer text-muted">
-					<!-- Button to go back to the homepage -->
 
-					<a href="{% url 'index' %}" class="btn custom-button-color"
-						>Back to Home
-					</a>
-					<!-- Button to update profile page -->
-					<a
-						href="{% url 'update_customer_profile' pk=request.user.customeraccount.pk %}"
-						class="btn custom-button-color"
-						>Update My Profile
-					</a>
-					<!-- Button to delete account -->
-					<a
-						href="{% url 'delete_customer_profile' pk=account.pk %}"
-						class="btn custom-button-color"
-						>Delete my account</a
-					>
-				</div>
+				<!-- Using a footer element to house the actionable buttons that are associated with the above card. -->
+				<footer class="card-footer text-muted">
+					<!-- Button for going back to the Homepage -->
+					<a href="{% url 'index' %}" class="btn custom-button-color">Back to Home</a>
+					<!-- Button to update the profile -->
+					<a href="{% url 'update_customer_profile' pk=request.user.customeraccount.pk %}"
+						class="btn custom-button-color">Update My Profile</a>
+					<!-- Button for deletion -->
+					<a href="{% url 'delete_customer_profile' pk=account.pk %}"
+						class="btn custom-button-color">Delete my account</a>
+				</footer>
 			</div>
-		</div>
-	</div>
-</div>
+		</article>
+	</section>
+</main>
 {% endblock %}

@@ -3,7 +3,7 @@
 	<!-- Checking if  -->
 	<h1>Are you sure you want to delete "{{ item.name }}"?</h1>
 	<form method="post">
-		<!-- Using a  Cross-Site Request Forgery token -->
+		<!-- Using CSRF token to guard against Cross Site Forgery attacks -->
 		{% csrf_token %}
 		<input type="submit" value="Confirm Delete" />
 	</form>
