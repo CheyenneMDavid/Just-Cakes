@@ -76,8 +76,16 @@ main,
     border: 2px solid #b0a15d;
 }
 
-.image-size {
-    max-width: 400;
+.image-fluid {
+    max-width: 500px;
+    max-height: 500px;
+   
+}
+
+.detail-image-size {
+    width: auto;
+    height: auto;
+   
 }
 
 .author, 
@@ -136,8 +144,13 @@ hr {
 }
 
 /* Center content within containers */
-.container-fluid.text-center {
+.container-fluid .text-center {
     text-align: center;
+}
+
+/* Comment styles */
+.comment-container {
+    padding: 10px;
 }
 
 /* Center content within rows */
@@ -149,4 +162,13 @@ hr {
 /* Footer Styles */
 footer {
     background-color: #b0a15d !important;
+}
+
+
+/* Smaller devices (e.g., phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .image-size {
+        width: 300px; /* Adjust size for smaller screens */
+        height: 300px;
+    }
 }
