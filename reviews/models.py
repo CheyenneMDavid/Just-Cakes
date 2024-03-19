@@ -1,11 +1,15 @@
 """
 Much of this model has been copied or has been influenced by the django
 Codestar Blog walkthrough project with Code Institute.
+
+Using slugify so that if a user writes a post with a same title, it's doesn't 
+clash.  Slugify generates an alternative that can be read easily
 """
 
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.utils.text import slugify
 
 
 # Defines the status for the post
@@ -46,6 +50,23 @@ class Post(models.Model):
         Counts the number of likes for a post.
         """
         return self.likes.count()
+
+    def save(self, *args, **kwargs):
+        """
+        Override the save method to generate a unique slug.
+        """
+        # Generate a slug from the post title
+        if not self.slug:
+            self.slug = slugify(self.title)
+
+        # Ensure the slug is unique
+        original_slug = self.slug
+        counter = 1
+        while Post.objects.filter(slug=self.slug).exists():
+            self.slug = f"{original_slug}-{counter}"
+            counter += 1
+
+        super().save(*args, **kwargs)
 
 
 class Comment(models.Model):

@@ -1,82 +1,85 @@
 {% extends 'base.html' %} {% block content %}
 
-<!-- Purpose of this template is to display a list of posts.  Each comprising of an image fetched from cloudinary. Title, author, excerpt, number of like and number of comments.  Where an image isn't available, a default image is used.
+<!-- Purpose of this template is to display a list of posts.  Each comprising of an image fetched from cloudinary. Title, author, excerpt, number of likes and number of comments.  When an image isn't available, a default image is used.
 Images are requested from cloudinary in webp format to help load times but will display jpg when webp isn't available.
+Unauthenticated users can read posts, th number of likes and the comments.  Authenticated users can post, like and comment. -->
 
-unauthenticated users can read posts number of likes and comments.  Authenticated users can like and comment. -->
-
-<!-- Section for listing all the posts -->
 <hr />
-<main class="container-fluid text-center">
-	<!-- Display the content as a grid format -->
+<div class="container-fluid text-center">
+	<!-- Section wrapper for posts, centered with Bootstrap utilities -->
 	<section class="row justify-content-center">
+		<h2 class="visually-hidden">Posts</h2>
+		<!-- Accessibility: hidden heading for screen readers -->
 		<div class="col-12 mt-3">
-			<section class="row">
-				<!-- Iterates through posts in the post list -->
+			<div class="row">
 				{% for post in post_list %}
+				<!-- Iterating over each post passed to the template -->
 				<article class="col-md-4 mb-4">
+					<!-- Article element for semantic HTML, each post takes up 4 columns in a medium-sized screen -->
 					<div class="card mb-4">
+						<!-- Bootstrap card component for each post -->
 						<div class="card-body">
-							<!-- Image and the author info for the post. -->
 							<figure class="image-container">
-								<!-- Conditional logic for rendering the placeholder or the actual image -->
+								<!-- Figure element for post image and author caption -->
 								{% if "placeholder" in post.featured_image.url %}
-								<!-- Requesting webp if available. -->
+								<!-- Conditional check for placeholder image -->
+								<!-- Displays a default image if post image URL contains 'placeholder' -->
 								<img
 									src="https://res.cloudinary.com/cheymd/image/upload/v1693482045/default_image_rlpqek.jpg?format=webp"
-									width="100%"
 									alt="default image"
+									class="img-fluid"
 								/>
 								{% else %}
+								<!-- Otherwise, displays the post's image from Cloudinary in webp format -->
 								<img
 									src="{{ post.featured_image.url|add:'?format=webp' }}"
-									width="100%"
 									alt="{{ post.title }}"
+									class="img-fluid"
 								/>
 								{% endif %}
-								<!-- Dynamically displays the author's name -->
-								<figcaption>Author: {{ post.author }}</figcaption>
+								<figcaption class="post-author">
+									Author: {{ post.author }}
+								</figcaption>
+								<!-- Caption with post author -->
 							</figure>
-							<!-- Post title and excerpt linked to detailed view -->
 							<div class="post-title">
-								<a href="{% url 'post_detail' post.slug  %}">
+								<!-- Post title section -->
+								<a href="{% url 'post_detail' post.slug %}">
+									<!-- Link to the detailed view of the post -->
 									<h2>{{ post.title }}</h2>
+									<!-- Display post title -->
 								</a>
 							</div>
-							<!-- Dynamically displayed excerpt -->
 							<p>{{ post.excerpt }}</p>
-							<!-- Date the post was created -->
+							<!-- Display post excerpt -->
 							<p class="card-text text-muted h6">
+								<!-- Post creation date and number of likes -->
 								{{ post.created_on }}
 								<i class="far fa-heart"></i> {{ post.number_of_likes }}
 							</p>
 						</div>
 					</div>
 				</article>
-
-				<!-- Set to start a new row after every 3rd post -->
-				{% if forloop.counter|divisibleby:3 %}
-			</section>
-			<section class="row">{% endif %} {% endfor %}</section>
+				{% if forloop.counter|divisibleby:3 and not forloop.last %}
+				<!-- Ends the current row and starts a new row every 3 posts unless it's the last post -->
+			</div>
+			<div class="row">{% endif %} {% endfor %}</div>
+			{% if is_paginated %}
+			<!-- Pagination navigation, shown if the posts are paginated -->
+			<nav aria-label="Page navigation example">
+				<ul class="pagination justify-content-center">
+					<!-- Pagination links go here -->
+				</ul>
+			</nav>
+			{% endif %} {% if user.is_authenticated %}
+			<!-- Shows 'Write a Review' button only to authenticated users -->
+			<div class="text-center my-4">
+				<a href="{% url 'create_post' %}" class="btn custom-button-color"
+					>Write a Review</a
+				>
+			</div>
+			{% endif %}
 		</div>
 	</section>
-
-	<!-- navigation for the pagination -->
-	{% if is_paginated %}
-	<nav aria-label="Page navigation example">
-		<ul class="pagination justify-content-center">
-			...
-		</ul>
-	</nav>
-	{% endif %}
-	<!-- Link for an authenticated users to write a review.
-    Only visible to authenticated users -->
-	{% if user.is_authenticated %}
-	<div class="text-center my-4">
-		<a href="{% url 'create_post' %}" class="btn custom-button-color"
-			>Write a Review</a
-		>
-	</div>
-	{% endif %}
-</main>
+</div>
 {% endblock %}

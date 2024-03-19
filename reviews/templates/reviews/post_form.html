@@ -1,30 +1,48 @@
-{% extends "base.html" %} {% load crispy_forms_tags %} {% block head_extra %}{{
-form.media }}{% endblock head_extra %} {% block content %}
+{% extends "base.html" %} {% load crispy_forms_tags %} {% block head_extra %}
+{{ form.media }} {% endblock head_extra %} {% block content %}
+
+<!-- section for the post submission form -->
 <div class="container-fluid">
-	<!-- Ensure it's container-fluid for full width -->
-	<div class="row">
-		<!-- Using 'col-12' so it adjusts to the full width of a screen -->
+	<section class="row">
+		<!-- Using "visually-hidden" header to improve accessability via screen readers -->
+		<h2 class="visually-hidden">Review submission</h2>
+
+		<!-- Heading and introduction to the review submission form -->
 		<div class="col-12">
 			<h1 class="review">Leave us a review!</h1>
+			<!-- Placeholder for content preview; dynamically updated with JavaScript if implemented -->
 			<div class="content-preview">
-				<h1 id="preview-title"></h1>
+				<h2 id="preview-title"></h2>
 				<p id="preview-content"></p>
 			</div>
 		</div>
-		<div class="col-12">
-			<!-- Adjusted for full width -->
-			<h3 class="review">We love to hear from our customers!</h3>
-			<hr />
 
-			<form method="POST" action="" enctype="multipart/form-data">
-				{% csrf_token %} {{ form|crispy }}
-				<input
-					type="submit"
-					class="btn custom-submit-color"
-					value="Submit Post"
-				/>
+		<!-- The form section where users can input their review -->
+		<div class="col-12">
+			<h3>We love to hear from our customers!</h3>
+			<hr />
+			<form
+				method="POST"
+				action="{% url 'create_post' %}"
+				enctype="multipart/form-data"
+			>
+				<!-- Using CSRF token to guard against Cross Site Request Forgery attacks.  Ensuring that the form that is sent is the one that was filled out by the user  -->
+				{% csrf_token %}
+				<!-- Using Crispy Forms to render the form fields -->
+				{{ form|crispy }}
+				<button type="submit" class="btn custom-submit-color">
+					Submit Post
+				</button>
 			</form>
+
+			<!-- User gets a success message after form submission -->
+			{% if post_submitted %}
+			<div class="alert alert-success" role="alert">
+				Thank you for post submission. As soon as it's approved, it will be
+				displayed, available for reading.
+			</div>
+			{% endif %}
 		</div>
-	</div>
+	</section>
 </div>
-{% endblock content %}
+{% endblock %}

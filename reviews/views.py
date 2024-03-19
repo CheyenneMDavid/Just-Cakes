@@ -18,6 +18,7 @@ from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm, UserPostForm
 from django.urls import reverse_lazy
+from django.contrib import messages
 
 
 class PostList(generic.ListView):
@@ -127,14 +128,32 @@ class PostLike(View):
 
 class CreatePostView(CreateView):
     """
-    This view handles the creation of a post, and then uses the success_url to
-    return the user to the index page which is the list of posts.
+    This view handles the creation of a new post through a form. Upon
+    the successful submission, the user is redirects to the post list and
+    displays a success message before timing out.
     """
 
     model = Post
     form_class = UserPostForm
     template_name = "reviews/post_form.html"
-    success_url = reverse_lazy("post_list")
+    success_url = reverse_lazy(
+        "post_list"
+    )  # Redirect to this URL after successful form submission
+
+    def form_valid(self, form):
+        """
+        Calling the form_valid method upon form submission and a success
+        message upon redirection.
+        """
+        response = super().form_valid(
+            form
+        )  # This calls the save and redirects to success_url
+        messages.success(
+            self.request,
+            "Thank you for your post submission. As soon as it is approved, "
+            "it will be displayed.",
+        )
+        return response
 
 
 class PostDeleteView(DeleteView):
