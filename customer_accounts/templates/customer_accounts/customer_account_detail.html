@@ -2,21 +2,23 @@
 
 <!-- Purpose of this template is to display user's/customer's profile.  It also provides them with buttons to update it, delete it or to return to the homepage. -->
 
-<main class="container-fluid">
-	<section class="row">
+<div class="container-fluid">
+	<div class="row">
 		<article class="col-md-12">
 			<div class="card">
 				<header class="card-header">
 					<h4>Customer Profile Details</h4>
 				</header>
 				<div class="card-body">
+					<!-- Checks if account exists and displays the details -->
 					{% if account %}
-
-					<!-- Checks if account exists and displays the details                     -->
 					<p class="card-text">
 						<strong>User Name:</strong> {{ account.user.username }}<br />
-						<strong>Name:</strong> {{ account.first_name }} {{
-						account.last_name }}<br />
+						<strong>Name:</strong>
+						<span class="capitalised-username">
+							{{ account.first_name }} {{ account.last_name }}
+						</span>
+						<br />
 						<strong>Phone:</strong> {{ account.phone }}<br />
 						<strong>Address Line 1:</strong> {{ account.address_line_1 }}<br />
 						<strong>Address Line 2:</strong> {{ account.address_line_2 }}<br />
@@ -33,19 +35,24 @@
 					{% endif %}
 				</div>
 
-				<!-- Using a footer element to house the actionable buttons that are associated with the above card. -->
-				<footer class="card-footer text-muted">
-					<!-- Button for going back to the Homepage -->
-					<a href="{% url 'index' %}" class="btn custom-button-color">Back to Home</a>
-					<!-- Button to update the profile -->
-					<a href="{% url 'update_customer_profile' pk=request.user.customeraccount.pk %}"
-						class="btn custom-button-color">Update My Profile</a>
-					<!-- Button for deletion -->
-					<a href="{% url 'delete_customer_profile' pk=account.pk %}"
-						class="btn custom-button-color">Delete my account</a>
+				<!-- Buttons for navigating back, updating account details, or requesting their account deletion. -->
+				<footer class="text-muted">
+					<a href="{% url 'index' %}" class="btn custom-button-color"
+						>Back to Home</a
+					>
+					<a
+						href="{% url 'customer_accounts:update_customer_account' pk=account.pk %}"
+						class="btn custom-button-color"
+						>Update Account</a
+					>
+					<a
+						href="{% url 'customer_accounts:confirm_delete_customer_account' pk=account.pk %}"
+						class="btn btn-danger"
+						>Delete Account</a
+					>
 				</footer>
 			</div>
 		</article>
-	</section>
-</main>
+	</div>
+</div>
 {% endblock %}

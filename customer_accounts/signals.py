@@ -1,38 +1,45 @@
 """
-Signal handlers for creating CustomerAccount instances every time a new user
-is registered.
+Signal handlers for creating, updating and deleting the CustomerAccount
+instances.
 """
 
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, post_delete
 from django.contrib.auth import get_user_model
 from django.dispatch import receiver
 from .models import CustomerAccount
 
-# Importing and using the "get_user_model" for flexibility and easier
-# maintenance of the code in the future.
 User = get_user_model()
 
 
 @receiver(post_save, sender=User)
-def create_customer_account(sender, instance, created, **kwargs):
+def create_or_update_customer_account(sender, instance, created, **kwargs):
     """
-    Signal handler to create a CustomerAccount whenever a new User is created.
-    Using **kwargs allows the function to handle extra,  keyword
-    arguments in the future, guarding against potential errors during updates.
+     Signal handler to create or update a CustomerAccount whenever a User is
+    created or updated.  Less code/more streamline than having them as
+    separate functions and less potential for glitches due to two functions
+    doing a very similar task.
+    Here, it checks if the user instance is newly created.  If it is, then a
+    new customer account instance is created and associated with the new user
+    instance.
+    Otherwise the customer account is instance is saved with the new
+    information.
     """
     if created:
         CustomerAccount.objects.create(user=instance)
+    else:
+        instance.customeraccount.save()
 
 
-@receiver(post_save, sender=User)
-def save_customer_account(sender, instance, **kwargs):
+@receiver(post_delete, sender=CustomerAccount)
+def delete_related_user(sender, instance, **kwargs):
     """
-    Signal handler to save a CustomerAccount instance whenever a User
-    instance is saved.  I'm including **kwargs to allow for any extra/new
-    keyword arguments
-    passed by the signal in the future which allows better flexibility in the
-    future.
+    Signal handler to ensure that user is also deleted when the customer
+    account is deleted. "Gracefully" handling the deletion of a user with the
+    use of a try/except block.  This way, if there's not an associated user,
+    nothing else needs to happen.
     """
-
-    # Save the associated CustomerAccount when the User is saved.
-    instance.customeraccount.save()
+    try:
+        user = instance.user
+        user.delete()
+    except User.DoesNotExist:
+        pass

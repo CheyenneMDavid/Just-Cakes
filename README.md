@@ -1,60 +1,81 @@
-# Just Cakes
+# [Just Cakes](https://just-cakes-184a064333be.herokuapp.com/)
 
-**Just Cakes**, is a maker of beautiful cakes, that takes online orders and delivers across the UK.
+ [**Just Cakes**](https://just-cakes-184a064333be.herokuapp.com/) is a maker of beautiful cakes, that takes online orders and delivers across the UK.
 
-Users of the site are able to browse a gallery of cake according to ingredients, flavours and diet choice.  They can read the reviews of past customers and contribute to the site content when authenticated and make enquiries via a contact form.
+ delivers custom cakes across the UK. The platform allows users to explore cakes by categories such as Wedding, Birthday, and Novelty, with clear indicators for dietary preferences like gluten-free or plant-based. Customers can view detailed cake descriptions, read reviews, and write reviews of the service when authenticated.
+
+ The site displays a wide range of cakes but if customers want more unusual "one of a kind" cakes, they can contact "Just Cake" via the online contact form to get a conversation going, or dive straight in with a phone-call to the number displayed in the carousel display at the top of the page.
 
 ___
 
 ## Table of Contents
+- [List of Applications in Product](#list-of-applications-in-product)
 
 - [Features](#features)
-- [List of Applications in product](#list-of-applications-in-product)
+
 - [Pre-requisites](#pre-requisites)
-- [Project Planning \& Development](#project-planning--development)
+
+- [Project Planning & Development](#project-planning--development)
+
 - [Development Approach](#development-approach)
+
+- [Application Overview and Functionality](#application-overview-and-functionality)
+
+- [Performance Optimization](#performance-optimization)
+
 - [Agile Development Process](#agile-development-process)
+
 - [User Stories](#user-stories)
+
 - [Installation](#installation)
+
 - [Use](#use)
+
 - [Testing](#testing)
+
 - [Conclusion](#conclusion)
+
 - [Further Development](#further-development)
+
 - [Deployment](#deployment)
+
 - [Copy / Improve / Contribute](#copy--improve--contribute)
+
 - [Credits, Acknowledgments and Appreciation](#credits-acknowledgments-and-appreciation)
 
 
 
-___
+## List of Applications in product:
+- Cakes (Homepage / Landing-page / Gallery)
+- Customer Accounts
+- Reviews
+- Contact
 ___
 
 ## Features:
-- **Gallery to browse a gallery of cakes**.
-  The gallery of cakes is the landing page and showcases the available cakes, organising the display according to their category.
+- **Promotional Carousel**
+  The homepage features a dynamic Promotional Carousel that continuously scrolls:
+  - *Spend over £95 for free delivery*
+  - *Click & Collect Available*
+  - *Contact phone number for making direct contact*
 &nbsp;
-- **Registration/sign-in/sign-out**.
-  The process of registration, signing in and signing out are handled by Allauth.
+- **Home**.
+  The homepage acts as the landing page and also the gallery that showcases the cake styles available, all of which are separated into categories of Wedding, Birthday and Novelty so that a user can easily find what they're looking for, but not without having a cursory glance at the variety available, as each cake image is accompanied by the cake name, a short excerpt describing the cake which acts as a link to the detail page of that cake.
+  With clear navigation at the top, leading to other parts of the site, including a link for admins of the site to go straight to the django admin panel, a user is able to find their way about, easily.
 &nbsp;
-- **Ability to create a customer profile**.
-&nbsp;
-- **Ability to update and delete customer profiles**.
-&nbsp;
-- **Ability to write reviews, comment on reviews, and delete reviews**.
-&nbsp;
-- **Ability to add cake images and details via the Django admin**.
-  Additional cake data it easily added via the admin panel.
-  Here an admin can add new data but also create new categories, flavours etc..  Enabling a greater flexibility.  The only thing that has been hardcoded is a default image that would be displayed if the admin didn't load one for the gallery.
-___
+- **Cake Detail Page**
+Once a user selects a cake from our homepage gallery, they are taken to a detailed page dedicated to that cake. The detail page offers an in-depth look at the cake, including larger clear images, a comprehensive description, pricing, and keys to make clear when a cake is plant based or gluten free. Users can also find customer reviews here, giving insights from others who have chosen this cake for their celebrations. With a focus on simplicity, the page provides an easy path to order the cake, ask questions, or return to the gallery for further browsing.
 
-## List of Applications in product:
-- Customer Accounts
-- Cakes
-- Reviews
-___
+  
+&nbsp;
+- **Registration/Sign-In/Sign-Out**: User authentication is managed using Allauth, ensuring a smooth registration, login, and logout process.
+&nbsp;
+- **Customer Profile Management**: Whilst user's profiles are automatically created upon registration, they are in essence blank other than their user name.  Further to this, users can fully create, update, and delete their profiles on the site.
+&nbsp;
+- **Admin Capabilities**: Admins can easily add cake data, including images 
+  and details, via the Django admin panel. Here, admins are able to create new categories, flavours, descriptions and update prices.
 
-
-## Pre-requisites:
+## Pre-requisites
 
 #### For basic functionality:
 ```
@@ -80,7 +101,7 @@ Table for planning **"Reviews"** database `models.py`
 ![Reviews Tables Model](static/assets/images_for_readme/reviews-table.png)
 ___
 
-### Table for planning **Cakes** database models
+### Table for planning Cakes database models
 
 Defining type:Wedding, Novelty and Birthday. Allergy: GF for Gluten Free. V for plantbased.  Flavours and colors. And a list of the cakes themselves, making them searchable by users of the site when such extra functionality added.
 
@@ -115,6 +136,80 @@ Using Classes makes for cleaner more structured and easier to follow structures.
 &nbsp;
 - **Use of Environment Variables**
 I've used an environment variable to control the DEBUG setting, so that it sets to True when I'm working on development of of the application and then to False when it runs in the deployed production mode.  This ensures security in production and detailed error messages in development.  The idea and code was copied from my walkthrough projects with code institute.
+___
+___
+
+
+## Overall Project Overview and Functionality
+
+This section explains the functionality of each application within the Just Cakes project.
+Explanations are provided for how each app works, supported by screenshots to illustrate their operation and design.  This overview provides insights and understanding of the structure and behavior of the applications, offering a clear view of their roles within the overall project.
+
+### Cakes Application Overview and Functionality
+The Cakes application is a pivotal component of the Just Cakes platform, intricately designed to showcase our exquisite range of cakes and provide detailed insights into each offering. This application embodies the fusion of aesthetic appeal with functionality, catering to both casual browsers and decisive buyers. Key features include:
+- **Gallery Showcase**: Utilizing Bootstrap for a responsive layout, the application curates a visually stunning gallery on the homepage, divided into categories like Wedding, Birthday, and Novelty cakes. This categorization aids users in effortlessly navigating through the collection, ensuring a seamless browsing experience.
+
+**Homepage / Landing-Page / Gallery** (Desktop-view)
+![Homepage Desktop-view](static/assets/images_for_readme/homepage-desktop-view.png)
+
+**Homepage / Landing-Page / Gallery** (Tablet-view)
+![Homepage Tablet-view](static/assets/images_for_readme/homepage-table-view.png)
+
+- **Dynamic Cake Detail Presentation**: For each cake, the application dynamically generates a detail page, enriched with high-resolution images fetched from Cloudinary, comprehensive descriptions, pricing information, and dietary indicators (e.g., plant-based, gluten-free). This page is designed to provide all the necessary information a user might need to make an informed decision, enhancing transparency and trust.
+
+![]()
+
+- **Responsive Image Handling**: With an emphasis on performance and user experience, images are requested in webp format to ensure faster load times without compromising on quality. A default image with a "coming soon" placeholder is displayed in cases where specific cake images are not available, maintaining a consistent and professional look across the platform.
+
+![]()
+
+- **User Navigation**: Thoughtful integration of navigational elements, such as a "Back to Our Cakes" button on the cake detail page, ensures users can easily explore different sections of the site, enhancing user engagement and satisfaction.
+
+![]()
+
+- **Inclusive Design**: The application's design and functionality consider diverse user needs, including dietary restrictions, by prominently displaying relevant information and ensuring the site is accessible and navigable for all users.
+  
+- **Screenshots**:
+- TODO
+
+### Customer Accounts Application Overview and Functionality
+
+  
+- **Screenshots**:
+- TODO
+  
+
+### Reviews Application Overview and Functionality
+The Reviews application enriches the user experience by fostering community engagement and providing valuable insights into our cakes. This feature allows users to:
+
+Read Reviews: Unauthenticated users can browse reviews, gaining insights from the experiences of others.
+Like and Comment: Authenticated users can interact with reviews by liking and commenting, promoting a lively and supportive community dialogue.
+Write Reviews: Users who have logged in have the privilege to contribute their own reviews, sharing their experiences and recommendations with the community.
+  
+- **Screenshots**:
+- TODO
+  
+### Contact Application Overview and Functionality
+
+- **Description**:
+- TODO
+  
+- **Screenshots**:
+- TODO
+
+
+---
+
+By providing a detailed look at each application, this section aims to clarify the contributions of individual components to the Just Cakes project, highlighting their integration and synergy.
+
+___
+## Performance Optimization
+
+### Tools Used
+- **Lighthouse**: 
+
+
+___
 
 ## Development Challenges & Solutions.
 During the development of *Just Cakes*, I encountered a number of issues. These are some of the notable ones and the solutions I found...
@@ -131,7 +226,10 @@ Add to this, I was struggling with correctly applying singular and plural usage 
 Another issue that only became apparent later was that in my need to name the html pages according to the applications that they belonged to, I lost focus of keeping index.html as a central point.
 The purpose of the site was to showcase their cakes, so I decided to make the gallery view of the cakes the landing page and changed the cakes_list.html to index.html
 &nbsp;
-- **Deployment & Static files**
+- **Customer Accounts versus Customer Profiles**
+Not being definitive about customer accounts or customer profiles, the boundaries between the two were blurred, even impacting the logic of what things did.  It was only after a mass-renaming of files that I was able to separate things which resulted in having better logic of how templates where connected to one another and also the logic of what they displayed in relation to one another.
+
+### Deployment & Static files
   To simplify things to a level where I had less to look at I once again removed the environmental variables that controlled DEBUG and ALLOWED_HOSTS and hardcoded these into the django settings file.
   The ongoing issue was finally resolved when I tried to manually disable the collect static by logging into Heroku via my console and using:
   `heroku config:set DISABLE_COLLECTSTATIC=0` which gave me a return saying that it couldn't find the app.
@@ -140,8 +238,13 @@ The purpose of the site was to showcase their cakes, so I decided to make the ga
   `heroku config:set DISABLE_COLLECTSTATIC=0 --app just-cakes` seemed to break this link, solved the situation and enabled me to replace the hardcoded settings with the environmental variables.
 
 - **Authenticated Users vs Customer account.**
-  Initially having this set to ensure that whenever a user registered, hence becoming an "authenticated" user, a customer account/profile was created.  This also worked in reverse in that if a user where to delete their profile, their corresponding account in the customer_accounts application would also be deleted and the user would then be redirected to the sign-up page
+  Initially having this set to ensure that whenever a user registered, hence becoming an "authenticated" user, a customer account/profile was created.  This also worked in reverse in that if a user where to delete their profile, their corresponding account in the customer_accounts application would also be deleted and the user would then be redirected to the sign-up page.
 
+- **Code Validation**
+  During the validation process using the [W3C Markup Validation Service](https://validator.w3.org/), I received informational messages stating ```Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.``` and was advised to remove them.  I did attempt to do this but as soon as I would hit "save", these would return.  I attempted to change this default behavior by from my IDE by going into my settings, but was unable to find how to change it.
+  
+  
+  One such message was regarding trailing slashes on void elements, which have no effect and may interact badly with unquoted attribute values.
   
 ___
 

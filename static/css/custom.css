@@ -116,6 +116,10 @@ a, p, .card-text, .username {
     text-transform: capitalize;
 }
 
+.capitalised-username {
+    text-transform: capitalize
+}
+
 hr {
     color: #444444;
 }
@@ -142,6 +146,11 @@ hr {
     background-color: #b0a15d;
     border: 3px solid white;
 }
+
+.inline-block-container {
+    display: inline-block;
+}
+
 
 .custom-submit-color {
     margin-top: 10px;

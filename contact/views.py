@@ -4,7 +4,7 @@ and processing of form submissions.
 It renders the contact form page and handles the submissions.
 """
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .forms import ContactForm
 
 

@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+<!-- This template is used for confirming account deletion by the user. It warns the user about the irreversible action of deleting their account and the permanent removal of their data. -->
+
+<div class="col-sm-8">
+	<h1>Confirm Account Deletion</h1>
+	<h2>Are you sure you want to delete your account?</h2>
+	<p>
+		Deleting your account permanently removes all your data from our system and
+		cannot be undone. This action is irreversible and will result in the loss
+		of access to your account and any associated information. Please consider
+		this carefully before proceeding.
+	</p>
+
+	<!-- Using the CSRF token to guard against Cross Site Request Forgery attacks. -->
+	<form method="post">
+		{% csrf_token %}
+		<input type="submit" value="Confirm Delete" class="btn btn-danger" />
+	</form>
+	<!-- The cancel button is outside the form to avoid sending needlessly. -->
+	<a
+		href="{% url 'customer_accounts:customer_account_detail' pk=account.pk %}"
+		class="btn btn-secondary"
+		>Cancel</a
+	>
+</div>
+{% endblock %}

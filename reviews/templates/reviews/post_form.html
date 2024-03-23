@@ -1,48 +1,55 @@
 {% extends "base.html" %} {% load crispy_forms_tags %} {% block head_extra %}
-{{ form.media }} {% endblock head_extra %} {% block content %}
+{{ form.media }}{% endblock head_extra %}
 
-<!-- section for the post submission form -->
+<!--
+This file renders a post submission form so users can write posts/ submit reviews on the website.
+
+The form includes fields for users to input their name, email address, and written review.
+Aria-live has been used to enhance the experience of people who may need to use screen readers. The "visually-hidden" heading "Review Submission" is provided for accessibility purposes to screen reader users, so that they understand the purpose of the page without the extra information impacting the appearance of it.
+And "aria-live=polite" to ensure changes in the page wait on a natural pause of activity from the user.
+Upon successful form submission, a success message is displayed to the user and they're redirected to the posts page.
+-->
+
+{% block content %}
+
 <div class="container-fluid">
 	<section class="row">
-		<!-- Using "visually-hidden" header to improve accessability via screen readers -->
-		<h2 class="visually-hidden">Review submission</h2>
-
-		<!-- Heading and introduction to the review submission form -->
+		<!-- Using the "visually-hidden" class to hide the h2 heading -->
+		<h2 class="visually-hidden">Review Submission</h2>
 		<div class="col-12">
 			<h1 class="review">Leave us a review!</h1>
-			<!-- Placeholder for content preview; dynamically updated with JavaScript if implemented -->
-			<div class="content-preview">
-				<h2 id="preview-title"></h2>
+			<!-- Placeholder for content preview that's dynamically updated with JavaScript and using "aria-live=polite" so that the user's experience isn't disrupted-->
+			<div class="content-preview" aria-live="polite">
+				<h2 id="preview-title" class="visually-hidden">
+					Review Preview Title
+				</h2>
 				<p id="preview-content"></p>
 			</div>
 		</div>
 
-		<!-- The form section where users can input their review -->
 		<div class="col-12">
 			<h3>We love to hear from our customers!</h3>
 			<hr />
+			<!-- Form submission method is set to POST to send data to the "create_post" endpoint.  Using a CSRF token to guard against Cross-Site Request Forgery attacks and using the enctype attribute of "multipart/form-data" to allow for file/image uploads. -->
 			<form
 				method="POST"
 				action="{% url 'create_post' %}"
 				enctype="multipart/form-data"
 			>
-				<!-- Using CSRF token to guard against Cross Site Request Forgery attacks.  Ensuring that the form that is sent is the one that was filled out by the user  -->
-				{% csrf_token %}
-				<!-- Using Crispy Forms to render the form fields -->
-				{{ form|crispy }}
+				{% csrf_token %} {{ form|crispy }}
 				<button type="submit" class="btn custom-submit-color">
 					Submit Post
 				</button>
 			</form>
-
-			<!-- User gets a success message after form submission -->
+			<!-- Conditional logic to display a success message after a form has been submitted -->
 			{% if post_submitted %}
 			<div class="alert alert-success" role="alert">
-				Thank you for post submission. As soon as it's approved, it will be
-				displayed, available for reading.
+				Thank you for your submission. As soon as it's approved, it will be
+				displayed for reading.
 			</div>
 			{% endif %}
 		</div>
 	</section>
 </div>
+
 {% endblock %}

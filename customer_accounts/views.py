@@ -15,8 +15,6 @@ It imports and uses the following modules and functions:
 - UpdateProfileForm: Updating of profile.
 """
 
-# Moved the comments to the docstring at the top of the page to improve
-# readability.
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
@@ -26,130 +24,90 @@ from .forms import UpdateProfileForm
 
 # Using the login_required decorator to ensure that access is restricted to
 # only authenticated users.
-# Changed from using id to using pk after coming across this in Stackoverflow
-# here: https://stackoverflow.com/questions/2165865/django-queries-id-vs-pk
 @login_required
 def customer_account_detail(request, pk):
-    """
-    Shows the details of a single account.
-    If it can't find it or it doesn't exist, it shows a 404 error.
-    It uses a login_required decorator that checks if a user is
-    logged in/authenticated.
-    """
-
-    # gets the customer account that's passed as an argument to
-    # customer_account_detail
-    account = get_object_or_404(CustomerAccount, pk=pk)
-
-    # Tries to get the customer account that is associated with the user that
-    # is currently logged in.
-    try:
-        customer_account = CustomerAccount.objects.get(user=request.user)
-
-    # If there's no user account associated with the user that's currently
-    # logged in, customer_account is set to None.
-    except CustomerAccount.DoesNotExist:
-        customer_account = None
-
-    # Displays a customer_accounts detail page that is associated with the
-    # user that is currently logged in.
+    account = get_object_or_404(CustomerAccount, pk=pk, user=request.user)
     return render(
         request,
         "customer_accounts/customer_account_detail.html",
-        {"account": account, "customer_account": customer_account},
+        {"account": account},
     )
 
 
 # Using the login_required decorator to ensure that access is restricted to
 # only authenticated users.
 @login_required
-def update_customer_profile(request, pk):
-    """
-    This enables a customer to update their profile and gives them a success
-    message when they've done it.
-    """
-    account = get_object_or_404(CustomerAccount, pk=pk)
+def update_customer_account(request, pk):
+    customer_account = get_object_or_404(
+        CustomerAccount,
+        pk=pk,
+        user=request.user,
+    )
 
-    # Ensuring that the user is updating their own profile.
-    if request.user.pk != pk:
-        messages.error(
-            request,
-            "This is not your profile. You do not have permission to edit"
-            "this profile.",
-        )
-        return redirect(
-            "customer_accounts:customer_account_detail",
-            pk=request.user.pk,
-        )
-
-    # Retrieves a customer account that's linked to the user that's logged in.
-    customer_account = get_object_or_404(CustomerAccount, pk=pk)
-
-    # If it's a POST request, process the form submission.
     if request.method == "POST":
         form = UpdateProfileForm(request.POST, instance=customer_account)
-        # Validates the form data
         if form.is_valid():
-            # And then saves the updated customer_account.
             form.save()
-            # Displays a message to the user, informing them of the successful
-            # updating of their profile.
             messages.success(
                 request,
-                "Your profile has been updated. Remember, you can come back"
-                "and update this anytime.",
+                "Your profile has been updated successfully.",
             )
-            # Redirects the user to the gallery of available cakes.
-            return redirect("index")
+            return redirect("customer_accounts:customer_account_detail", pk=pk)
     else:
-        # If it's a GET request, render the form.
         form = UpdateProfileForm(instance=customer_account)
 
-    # Render the template with the form.
     return render(
         request,
-        "customer_accounts/customer_profile_update_form.html",
-        {"form": form},
+        "customer_accounts/customer_account_update_form.html",
+        {
+            "form": form,
+        },
+    )
+
+
+# Using the login_required decorator to ensure that access is restricted to
+# authenticated users.
+@login_required
+def confirm_delete_customer_account(request, pk):
+    # Retrieves the customer account to be deleted.
+    account = get_object_or_404(CustomerAccount, pk=pk, user=request.user)
+
+    # Checks if the request method is POST, indicating the user has confirmed
+    # deletion.
+    if request.method == "POST":
+        # Delete the customer account.
+        account.delete()
+        # Display a success message to the user.
+        messages.success(
+            request,
+            "Your account has been successfully deleted.",
+        )
+        # Redirect the user to the sign-in page after deletion.
+        return redirect("account_login")
+
+    # If the request method is GET, then render the confirmation template
+    # without deleting anything.
+    return render(
+        request,
+        "customer_accounts/customer_account_confirm_deletion.html",
+        {"account": account},
     )
 
 
 # Using the login_required decorator to ensure that access is restricted to
 # only authenticated users.
 @login_required
-def confirm_delete_customer_profile(request, pk):
-    """
-    Handles the confirmation of a request to delete
-    """
-    # Ensuring that the user is deleting their own profile.
-    if request.user.pk != pk:
+def delete_customer_account(request, pk):
+
+    customer_account = get_object_or_404(CustomerAccount, pk=pk)
+    if request.user != customer_account.user:
         messages.error(
             request,
-            "This is not your profile. You do not have permission to delete it"
-            "this profile.",
+            "You do not have permission to delete this account.",
         )
-        return redirect("customer_account_detail", pk=request.user.pk)
-    # Retrieve the CustomerAccount instance with the given ID or return a
-    # 404 response if not found.
-    customer_account = get_object_or_404(CustomerAccount, pk=pk)
-    account_data_for_deletion = {"customer_account": customer_account}
-    # Renders a html page with a danger warning, a go back button and a button
-    # to confirm deletion
-    return render(request, "confirm_delete.html", account_data_for_deletion)
+        return redirect("customer_accounts:customer_account_detail", pk=pk)
 
-
-# Using the login_required decorator to ensure that access is restricted to
-# only authenticated users.
-@login_required
-def delete_customer_profile(request, pk):
-    """
-    handles the deletion of a customer's profile
-    """
-    # Retrieve the CustomerAccount instance with the given ID or return a
-    # 404 response if not found.
-    customer_account = get_object_or_404(CustomerAccount, pk=pk)
-    # Deletes the customer account/profile.
     customer_account.delete()
-    # Confirms deletion message to user, using an f-string and the user's name
-    messages.success(request, f"{customer_account.name} has been deleted.")
-    # Returns user to the gallery of available cakes
+    messages.success(request, "Your account has been successfully deleted.")
+
     return redirect("account/account_signup")

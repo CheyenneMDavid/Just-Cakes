@@ -5,9 +5,11 @@
 Images are requested in webp format and are displayed as such if they're available.  Otherwise they display in jpg. -->
 
 <section class="container-flex">
+	<h2 class="visually-hidden">Section Description</h2>
 	<hr />
 	<div class="row">
 		<article class="col-md-6 image-size">
+			<h2 class="visually-hidden">Description of the Image</h2>
 			<!-- Checks if there's any cake images available -->
 			{% if cake.images.all %}
 			<!-- Check if the first image url is a placeholder -->

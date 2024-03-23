@@ -10,7 +10,9 @@
 				<!-- Displays the post title -->
 				<h1 class="post-title">{{ post.title }}</h1>
 				<!-- Displays the author and creation date -->
-				<p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+				<p class="post-subtitle capitalised-username">
+					{{ post.author }} | {{ post.created_on }}
+				</p>
 			</div>
 
 			<!-- Placeholder for the user's post image or the default image, asking for it to be in WebP format if it's available, otherwise it accepts jpg -->

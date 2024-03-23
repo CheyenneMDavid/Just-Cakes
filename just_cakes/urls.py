@@ -31,7 +31,13 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("summernote/", include("django_summernote.urls")),
     path("account/", include("allauth.urls")),
-    path("customer_accounts/", include("customer_accounts.urls")),
+    path(
+        "customer_accounts/",
+        include(
+            ("customer_accounts.urls", "customer_accounts"),
+            namespace="customer_accounts",
+        ),
+    ),
     path("", include("cakes.urls")),
     path("reviews/", include("reviews.urls")),
 ]

@@ -124,20 +124,21 @@
 						<!-- Dynamic Nav Items. The display depends on whether a user is logged in or not. -->
 						{% if user.is_authenticated %}
 						<li class="nav-item">
-							<span class="nav-link"
+							<span class="nav-link capitalised-username"
 								>You are signed-in as:&nbsp;<span class="username"
 									>{{ user.username }}</span
 								></span
 							>
 						</li>
+						{% if user.customeraccount %}
 						<li class="nav-item">
 							<a
-								href="{% url 'customer_account_detail' pk=user.customeraccount.pk %}"
-								target="_blank"
 								class="nav-link"
-								>My Account</a
+								href="{% url 'customer_accounts:customer_account_detail' pk=user.customeraccount.pk %}"
+								>View Account</a
 							>
 						</li>
+						{% endif %}
 						<li class="nav-item">
 							<a class="nav-link" href="{% url 'account_logout' %}"
 								>Sign Out</a

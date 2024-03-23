@@ -1,38 +1,28 @@
-# Django imports
 from django.urls import path
-
-# Imports of the forms and views needed for the customer accounts
 from .views import (
     customer_account_detail,
-    update_customer_profile,
-    confirm_delete_customer_profile,
-    delete_customer_profile,
+    update_customer_account,
+    confirm_delete_customer_account,
+    delete_customer_account,
 )
 
-# URL patterns for the customer accounts application.
+app_name = "customer_accounts"
+
 urlpatterns = [
-    # Viewing details for a particular profile.
     path("<int:pk>/", customer_account_detail, name="customer_account_detail"),
     path(
         "<int:pk>/update/",
-        update_customer_profile,
-        name="update_customer_profile",
+        update_customer_account,
+        name="update_customer_account",
     ),
-    # Displays a confirmation page before deleting a profile
     path(
         "<int:pk>/confirm_delete/",
-        confirm_delete_customer_profile,
-        name="confirm_delete_customer_profile",
+        confirm_delete_customer_account,
+        name="confirm_delete_customer_account",
     ),
-    # Page for deleting the profile.
     path(
         "<int:pk>/delete/",
-        delete_customer_profile,
-        name="delete_customer_profile",
-    ),
-    path(
-        "update-profile/",
-        update_customer_profile,
-        name="update_profile",
+        delete_customer_account,
+        name="delete_customer_account",
     ),
 ]
