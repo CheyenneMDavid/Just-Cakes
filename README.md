@@ -98,7 +98,7 @@ Reviews:
 
 Table for planning **"Reviews"** database `models.py`
 
-![Reviews Tables Model](static/assets/images_for_readme/reviews-table.png)
+![Reviews Tables Model](https://res.cloudinary.com/cheymd/image/upload/v1711207188/JustCakes-Readme-images/reviews-table_1_pv1kw7.png)
 ___
 
 ### Table for planning Cakes database models
@@ -112,18 +112,18 @@ The purpose of the tables when planning the structure of the data was not to ref
 
 
 
-![Cake Types](static/assets/images_for_readme/cake-category-table.png)
+![Cake Types](https://res.cloudinary.com/cheymd/image/upload/v1711207072/JustCakes-Readme-images/cake-category-table_all7hy.png)
 
-![Cake color and color association table](static/assets/images_for_readme/cake-colour-association-table.png)
+![Cake color and color association table](https://res.cloudinary.com/cheymd/image/upload/v1711207069/JustCakes-Readme-images/cake-colour-association-table_1_gvtskc.png)
 
-![Cake flavour and flavour association table](static/assets/images_for_readme/cake-flavour-association-table.png)
+![Cake flavour and flavour association table](https://res.cloudinary.com/cheymd/image/upload/v1711207077/JustCakes-Readme-images/cake-flavour-association-table_1_kxeb5q.png)
 
-![Cake List](static/assets/images_for_readme/cake-list.png)
+![Cake List](https://res.cloudinary.com/cheymd/image/upload/v1711207080/JustCakes-Readme-images/cake-list_1_bti57a.png)
 
 ___
 
 Table for planning **Customer Accounts** database models
-![Customer Accounts](static/assets/images_for_readme/customer-account-tables.png)
+![Customer Accounts](https://res.cloudinary.com/cheymd/image/upload/v1711207083/JustCakes-Readme-images/customer-account-tables_1_blheom.png)
 ___
 ## Development Approach
 The Just Cakes project, at this stage is simple.  And the functionality could have been more condensed/streamlined.  But I'm purposely spread it out across applications within the main project.  My intention was to keep it structured in a manner that allowed me to add more features further down the line.  With this in mind, I previously had other apps such as "orders" which whilst not being utilized at this point, I did have fields such as account_number,  payment_method, purchase_order_date, delivery_order_date and basket_item_count which would have contributed to this wider functionality. As few as these extra lines of code were sitting latently as they did, demanded that I add a fair amount of comments around them in order to explain their presence, which resulted in an excessive amount of commenting which in turn detracted from the functional code which was more important.  I decided that removing it and inserting it at a later date was the lesser of the two evils, given that the functional code was the important part for assessment.  Not the provisional code for what the functions might do in the future.
@@ -150,10 +150,10 @@ The Cakes application is a pivotal component of the Just Cakes platform, intrica
 - **Gallery Showcase**: Utilizing Bootstrap for a responsive layout, the application curates a visually stunning gallery on the homepage, divided into categories like Wedding, Birthday, and Novelty cakes. This categorization aids users in effortlessly navigating through the collection, ensuring a seamless browsing experience.
 
 **Homepage / Landing-Page / Gallery** (Desktop-view)
-![Homepage Desktop-view](static/assets/images_for_readme/homepage-desktop-view.png)
+![Homepage Desktop-view](https://res.cloudinary.com/cheymd/image/upload/v1711207194/JustCakes-Readme-images/homepage-desktop-view_tqgzdx.png)
 
 **Homepage / Landing-Page / Gallery** (Tablet-view)
-![Homepage Tablet-view](static/assets/images_for_readme/homepage-table-view.png)
+![Homepage Tablet-view](https://res.cloudinary.com/cheymd/image/upload/v1711213481/JustCakes-Readme-images/homepage-tablet-view_r9sgnv.png)
 
 - **Dynamic Cake Detail Presentation**: For each cake, the application dynamically generates a detail page, enriched with high-resolution images fetched from Cloudinary, comprehensive descriptions, pricing information, and dietary indicators (e.g., plant-based, gluten-free). This page is designed to provide all the necessary information a user might need to make an informed decision, enhancing transparency and trust.
 
@@ -340,25 +340,27 @@ I then systematically deleted one  from each category from the admin panel.
 The screen was rendered using the default images as they should.
 Screenshots of default images displaying:
 - **Wedding** 
-  
-![Wedding section](static/assets/images_for_readme/default-wedding-image.png)
-- Birthday
-  
-![Birthday section](static/assets/images_for_readme/default-birthday-image.png)
+![Wedding section](https://res.cloudinary.com/cheymd/image/upload/v1711207106/JustCakes-Readme-images/default-wedding-image_rqnmyg.png)
+&nbsp;
+- **Birthday**
+![Birthday section](https://res.cloudinary.com/cheymd/image/upload/v1711207086/JustCakes-Readme-images/default-birthday-image_cbmgli.png)
+&nbsp;
 - Novelty
+![Novelty section](https://res.cloudinary.com/cheymd/image/upload/v1711207106/JustCakes-Readme-images/default-wedding-image_rqnmyg.png)
+&nbsp;
 
-![Novelty section](static/assets/images_for_readme/default-novelty-image.png)
-&nbsp;
 **Test images following the same process for the cakes details page.**
-- "test-detail-image-1" is the default image when the individual cake doesn't have an image associated with it.
-![Default image](static/assets/images_for_readme/test-detail-image-1.png)
+- "**test-detail-image-1**" is the default image when the individual cake doesn't have an image associated with it.
+![Default image](https://res.cloudinary.com/cheymd/image/upload/v1711207183/JustCakes-Readme-images/test-detail-image-1_o6v6qg.png)
 &nbsp;
-- "test-detail-image-2" is when a cake image was loaded via the Django interface and was associated with the "Hulk cake".
-![Associated image](static/assets/images_for_readme/test-detail-image-2.png)
+
+- "**test-detail-image-2**" is when a cake image was loaded via the Django interface and was associated with the "Hulk cake".
+![Associated image](https://res.cloudinary.com/cheymd/image/upload/v1711207191/JustCakes-Readme-images/test-detail-image-2_qvyb6q.png)
 
 ___
 
 ## Conclusion
+
 
 ___
 
