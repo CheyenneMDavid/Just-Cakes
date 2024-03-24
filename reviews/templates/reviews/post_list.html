@@ -1,28 +1,23 @@
 {% extends 'base.html' %} {% block content %}
 
-<!-- Purpose of this template is to display a list of posts.  Each comprising of an image fetched from cloudinary. Title, author, excerpt, number of likes and number of comments.  When an image isn't available, a default image is used.
-Images are requested from cloudinary in webp format to help load times but will display jpg when webp isn't available.
-Unauthenticated users can read posts, th number of likes and the comments.  Authenticated users can post, like and comment. -->
-
+<!--  This page is pretty much a carbon copy of the walkthrough project called Codestar with Code Institute.  The purpose of this template is to display a list of posts. Each comprising of an image fetched from cloudinary. Title, author, excerpt, number of likes and number of comments. When an image isn't available, a default image is used. Images are requested from cloudinary in webp format to help load times but will display jpg when webp isn't available. Unauthenticated users can read posts, th number of likes and the comments. Authenticated users can post, like and comment. -->
 <hr />
 <div class="container-fluid text-center">
-	<!-- Section wrapper for posts, centered with Bootstrap utilities -->
 	<section class="row justify-content-center">
-		<h2 class="visually-hidden">Posts</h2>
 		<!-- Accessibility: hidden heading for screen readers -->
+		<h2 class="visually-hidden">Posts</h2>
+
 		<div class="col-12 mt-3">
 			<div class="row">
-				{% for post in post_list %}
 				<!-- Iterating over each post passed to the template -->
+				{% for post in post_list %}
+				<!-- Article element for semantic HTML, each post takes up 4 columns in a medium-sized screen -->
 				<article class="col-md-4 mb-4">
-					<!-- Article element for semantic HTML, each post takes up 4 columns in a medium-sized screen -->
 					<div class="card mb-4">
-						<!-- Bootstrap card component for each post -->
 						<div class="card-body">
 							<figure class="image-container">
-								<!-- Figure element for post image and author caption -->
-								{% if "placeholder" in post.featured_image.url %}
 								<!-- Conditional check for placeholder image -->
+								{% if "placeholder" in post.featured_image.url %}
 								<!-- Displays a default image if post image URL contains 'placeholder' -->
 								<img
 									src="https://res.cloudinary.com/cheymd/image/upload/v1693482045/default_image_rlpqek.jpg?format=webp"
@@ -68,7 +63,25 @@ Unauthenticated users can read posts, th number of likes and the comments.  Auth
 			<!-- Pagination navigation, shown if the posts are paginated -->
 			<nav aria-label="Page navigation example">
 				<ul class="pagination justify-content-center">
-					<!-- Pagination links go here -->
+					{% if page_obj.has_previous %}
+					<li>
+						<a
+							href="?page={{ page_obj.previous_page_number }}"
+							class="page-link btn custom-button-color"
+							>&laquo; PREV
+						</a>
+					</li>
+					{% endif %} {% if page_obj.has_next %}
+					<li>
+						<a
+							href="?page={{ page_obj.next_page_number }}"
+							class="page-link btn custom-button-color"
+						>
+							NEXT &raquo;</a
+						>
+					</li>
+
+					{% endif %}
 				</ul>
 			</nav>
 			{% endif %} {% if user.is_authenticated %}
