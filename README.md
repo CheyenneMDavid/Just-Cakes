@@ -180,15 +180,19 @@ The Cakes application is a pivotal component of the Just Cakes platform, intrica
   
 
 ### Reviews Application Overview and Functionality
-The Reviews application enriches the user experience by fostering community engagement and providing valuable insights into our cakes. This feature allows users to:
+The Reviews application bears witness to the quality and bespoke nature of what "Just Cakes" offers it's customers in way of professional service and the stunning skill of it's staff in how any style of cake is undertaken for any event.
+The application features enable:
 
-Read Reviews: Unauthenticated users can browse reviews, gaining insights from the experiences of others.
-Like and Comment: Authenticated users can interact with reviews by liking and commenting, promoting a lively and supportive community dialogue.
-Write Reviews: Users who have logged in have the privilege to contribute their own reviews, sharing their experiences and recommendations with the community.
-  
-- **Screenshots**:
-- TODO
-  
+- **Read Reviews**: Unauthenticated users can browse reviews, gaining insights from the experiences of others.
+- **Write Reviews**: Authenticated users can write reviews, comment and like posts to show what they found useful.
+
+View of posts list page showing excerpts of each post
+![posts list](https://res.cloudinary.com/cheymd/image/upload/v1711334249/JustCakes-Readme-images/posts-list-page_siozgi.png)
+&nbsp;
+&nbsp;
+
+View of a single post page showing number of comments and like for a post and also facility for commenting for authenticated users.
+![post detail](https://res.cloudinary.com/cheymd/image/upload/v1711334255/JustCakes-Readme-images/single-post_z1od6s.png)
 ### Contact Application Overview and Functionality
 
 - **Description**:
@@ -228,6 +232,12 @@ The purpose of the site was to showcase their cakes, so I decided to make the ga
 &nbsp;
 - **Customer Accounts versus Customer Profiles**
 Not being definitive about customer accounts or customer profiles, the boundaries between the two were blurred, even impacting the logic of what things did.  It was only after a mass-renaming of files that I was able to separate things which resulted in having better logic of how templates where connected to one another and also the logic of what they displayed in relation to one another.
+&nbsp;
+- **Truncated Excerpts** When looking at why excerpts of posts weren't dynamically displaying, I realised that I had fields for "content" and a field literally called "excerpt".  I had been double thinking this and they were attempting to serve the same purpose.  Unfortunately thinking of the word "excerpt" I kept focus on that and used it when trying to serve it up dynamically.  But it was the content fields that was saving the data.  When realising this, I dropped "excerpt" from the post model and used "content correctly".
+I then went about creating new content for the posts so that the posts each had a reasonable number of words before I could make use of truncating down to 25 words.  So I copy pasted generic text in via the admin panel, attributing it to various users.
+However... Upon rendering the screen the copy and pasting had taken html styles across and although it didn't show when entering in via the admin panel, it did show in the render.
+I tried to clean the output by using ```{{ post.content|striptags }}``` and that did work, but not with truncation, so I decided to not bother with the striptags command on the bases that users would normally be entering text a fresh and this issue is unlikely to arise.
+  
 
 ### Deployment & Static files
   To simplify things to a level where I had less to look at I once again removed the environmental variables that controlled DEBUG and ALLOWED_HOSTS and hardcoded these into the django settings file.
@@ -236,6 +246,8 @@ Not being definitive about customer accounts or customer profiles, the boundarie
   Somehow heroku was referencing an application that had previously been deleted.
   Explicitly specifying the app name with:
   `heroku config:set DISABLE_COLLECTSTATIC=0 --app just-cakes` seemed to break this link, solved the situation and enabled me to replace the hardcoded settings with the environmental variables.
+
+
 
 - **Authenticated Users vs Customer account.**
   Initially having this set to ensure that whenever a user registered, hence becoming an "authenticated" user, a customer account/profile was created.  This also worked in reverse in that if a user where to delete their profile, their corresponding account in the customer_accounts application would also be deleted and the user would then be redirected to the sign-up page.
