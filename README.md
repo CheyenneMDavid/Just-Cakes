@@ -348,7 +348,9 @@ Tests for the comment form in the reviews app are copied from the Code Institute
 &nbsp;
 - **User Sign-up/Sign-in/Sign-out**
 ![Sign-Up, Sign-in, Sign-out - pass](/tests/test_authentication.py)
-
+&nbsp;
+- **Contact Form Submission**
+![Contact Form Submission - pass](/contact/tests.py)
 
 All Tests Passed.
 ___
