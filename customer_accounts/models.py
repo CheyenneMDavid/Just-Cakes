@@ -25,6 +25,20 @@ phone_regex = RegexValidator(
     r"((\+44\s?\d{2}|\(?0\d{2}\)?)\s?\d{4}\s?\d{4}))(\s?\#(\d{4}|\d{3}))?$",
 )
 
+# regex pattern that allows for uppercase and lowercase letters, numbers and
+# hyphens for the address_lines 1 and 2.
+address_regex = RegexValidator(
+    regex=r"^[a-zA-Z0-9\s-]*$",
+)
+
+# regex pattern for UK Postcodes from StackOverflow, here:
+# https://stackoverflow.com/questions/164979/regex-for-matching-uk-postcodes
+post_code_regex = RegexValidator(
+    regex=r"^([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z]"
+    r"[A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z]"
+    r"[A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})"
+)
+
 
 class CustomerAccount(models.Model):
     """
@@ -55,14 +69,18 @@ class CustomerAccount(models.Model):
     # I've kept the character count pretty low because this only dealing
     # with UK addresses, so 60 is more than long enough.
     # The longest town in the uk is in wales and only has 58 letters.
+    # Using a regex pattern to validate address lines
     address_line_1 = models.CharField(
         max_length=60,
         blank=True,
+        validators=[address_regex],
         help_text="Please enter the first line of your address.",
     )
+
     address_line_2 = models.CharField(
         max_length=60,
         blank=True,
+        validators=[address_regex],
         help_text="Please enter the second line of your address",
     )
     city = models.CharField(
@@ -76,6 +94,7 @@ class CustomerAccount(models.Model):
     post_code = models.CharField(
         max_length=30,
         blank=True,
+        validators=[post_code_regex],
         help_text="Please enter your postal code",
     )
 
