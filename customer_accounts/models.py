@@ -97,6 +97,7 @@ class CustomerAccount(models.Model):
         max_length=1,
         choices=GENDER_CHOICES,
         default="N",
+        blank=True,
     )
 
     registration_date = models.DateTimeField(default=timezone.now)
