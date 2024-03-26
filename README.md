@@ -345,6 +345,10 @@ Tests for the comment form in the reviews app are copied from the Code Institute
 &nbsp;
 - **Updating Profile Form in Customer_Accounts App**
 ![Update Profile Form - pass](/customer_accounts/tests/test_forms.py)
+&nbsp;
+- **User Sign-up/Sign-in/Sign-out**
+![Sign-Up, Sign-in, Sign-out - pass](/tests/test_authentication.py)
+
 
 All Tests Passed.
 ___
