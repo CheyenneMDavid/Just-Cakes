@@ -339,6 +339,15 @@ ___
 
 ## Testing
 ### Written Tests
+- **Comment Form in Reviews App**
+Tests for the comment form in the reviews app are copied from the Code Institute walkthrough project called Codestar. The code for which can be found here:
+![Comment Form - pass](/reviews/tests/test_forms.py)
+&nbsp;
+- **Updating Profile Form in Customer_Accounts App**
+![Update Profile Form - pass](/customer_accounts/tests/test_forms.py)
+
+All Tests Passed.
+___
 
 ### Manual Testing
 

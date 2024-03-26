@@ -12,7 +12,9 @@ class TestCommentForm(TestCase):
     # Testing to check if a comment form is valid
     def test_form_is_valid(self):
         # Comment form with valid input.
-        comment_form = CommentForm({"body": "This is a great Post"})
+        comment_form = CommentForm(
+            {"body": "This is a great Post"},
+        )
         # Assert that the form is considered valid
         self.assertTrue(
             comment_form.is_valid(),
