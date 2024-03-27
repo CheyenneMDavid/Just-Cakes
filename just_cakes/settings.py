@@ -19,10 +19,8 @@ from django.contrib.messages import constants as messages
 development = os.environ.get("DEVELOPMENT", False)
 
 if os.path.isfile("env.py"):
-    # Linter incorrectly saying that the imported env.py wasn't being used,
-    # so I've disabled the warning because it's off putting.
-    import env  # pylint: disable=unused-import
 
+    import env
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
@@ -120,26 +118,11 @@ TEMPLATES = [
 WSGI_APPLICATION = "just_cakes.wsgi.application"
 
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
-
-
 DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
-
-if "test" in sys.argv:
-    DATABASES["default"]["ENGINE"] = "django.db.backends.sqlite3"
 
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation."
