@@ -18,7 +18,8 @@ class CakeCategory(models.Model):
     category = models.CharField(
         max_length=100,
         unique=True,
-        default="to be set",
+        blank=False,
+        null=False,
     )
 
     def __str__(self):
