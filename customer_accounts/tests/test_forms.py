@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .forms import UpdateProfileForm
+from customer_accounts.forms import UpdateProfileForm
 
 
 class UpdateProfileFormTest(TestCase):
