@@ -354,8 +354,12 @@ The test passes for ```test_invalid_form()``` demonstrated the expected errors, 
 &nbsp;
 - **Contact Form Submission**
 ![Contact Form Submission - pass](/contact/tests.py)
-
-All Tests Passed.
+&nbsp;
+- **Cake Models**
+![Cake Models - pass](/cakes/tests/tests.py)
+&nbsp;
+**All Tests Passed.**
+![](https://res.cloudinary.com/cheymd/image/upload/v1711513147/JustCakes-Readme-images/all-tests_awc3ew.png)
 ___
 
 ### Manual Testing
