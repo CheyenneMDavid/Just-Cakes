@@ -344,6 +344,9 @@ Tests for the comment form in the reviews app are copied from the Code Institute
 ![Comment Form - pass](/reviews/tests/test_forms.py)
 &nbsp;
 - **Updating Profile Form in Customer_Accounts App**
+The test passes for ```test_invalid_form()``` demonstrated the expected errors, as deliberate invalid data was intentionally passed to the form for validation.
+**Screenshot of console from test**:
+![Deliberate invalid data](https://res.cloudinary.com/cheymd/image/upload/v1711505142/JustCakes-Readme-images/update-profile-form-test-console-display_bl37p9.png)
 ![Update Profile Form - pass](/customer_accounts/tests/test_forms.py)
 &nbsp;
 - **User Sign-up/Sign-in/Sign-out**
