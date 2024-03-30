@@ -10,38 +10,26 @@ ___
 
 ## Table of Contents
 - [List of Applications in Product](#list-of-applications-in-product)
-
 - [Features](#features)
-
 - [Pre-requisites](#pre-requisites)
-
 - [Project Planning & Development](#project-planning--development)
-
-- [Development Approach](#development-approach)
-
+    - [Database Schema](#database-schema)
+    - [Wireframes](#wireframes)
+    - [Design Mockups](#design-mockups)
+    - [Development Approach](#development-approach)
 - [Application Overview and Functionality](#application-overview-and-functionality)
-
 - [Performance Optimization](#performance-optimization)
-
 - [Agile Development Process](#agile-development-process)
-
 - [User Stories](#user-stories)
-
 - [Installation](#installation)
-
 - [Use](#use)
-
 - [Testing](#testing)
-
 - [Conclusion](#conclusion)
-
 - [Further Development](#further-development)
-
 - [Deployment](#deployment)
-
 - [Copy / Improve / Contribute](#copy--improve--contribute)
-
 - [Credits, Acknowledgments and Appreciation](#credits-acknowledgments-and-appreciation)
+
 
 
 
@@ -58,18 +46,26 @@ ___
   - *Spend over £95 for free delivery*
   - *Click & Collect Available*
   - *Contact phone number for making direct contact*
-&nbsp;
-- **Home**.
+
+- **Homepage / Cake Gallery**.
   The homepage acts as the landing page and also the gallery that showcases the cake styles available, all of which are separated into categories of Wedding, Birthday and Novelty so that a user can easily find what they're looking for, but not without having a cursory glance at the variety available, as each cake image is accompanied by the cake name, a short excerpt describing the cake which acts as a link to the detail page of that cake.
   With clear navigation at the top, leading to other parts of the site, including a link for admins of the site to go straight to the django admin panel, a user is able to find their way about, easily.
-&nbsp;
-- **Cake Detail Page**
-Once a user selects a cake from our homepage gallery, they are taken to a detailed page dedicated to that cake. The detail page offers an in-depth look at the cake, including larger clear images, a comprehensive description, pricing, and keys to make clear when a cake is plant based or gluten free. Users can also find customer reviews here, giving insights from others who have chosen this cake for their celebrations. With a focus on simplicity, the page provides an easy path to order the cake, ask questions, or return to the gallery for further browsing.
 
-  
-&nbsp;
+- **Individual Cake Detail Page**
+Once a user selects a cake from our homepage gallery, they are taken to a detailed page dedicated to that cake. The detail page offers an in-depth look at the cake, including larger clear images, a comprehensive description, pricing, and keys to make clear when a cake is plant based or gluten free.
+
+- **User Reviews List Page**
+A list page for User Reviews. An image, when uploaded by the user, else a default image.  An excerpt with accompanying photos, when uploaded by the authenticated user, else a default image is provided, with the Authors name, post title, excerpt from the post and the published date and time along with a heart and a number, representing the number of likes.
+
+- **Individual User Review Detail Page**
+
+#
+#
+#
+##
+
 - **Registration/Sign-In/Sign-Out**: User authentication is managed using Allauth, ensuring a smooth registration, login, and logout process.
-&nbsp;
+
 - **Customer Profile Management**: Whilst user's profiles are automatically created upon registration, they are in essence blank other than their user name.  Further to this, users can fully create, update, and delete their profiles on the site.
 &nbsp;
 - **Admin Capabilities**: Admins can easily add cake data, including images 
@@ -110,8 +106,6 @@ In doing so, new content for the fields can be created by a site administrator. 
 
 The purpose of the tables when planning the structure of the data was not to reflect the exact details of each cake currently available, but instead have the relevant sections.  So whilst I've used some of the names of cakes and data such as gluten free, etc...  The precise details of cakes on the site is subject to change, which was the purpose of the field structure.
 
-
-
 ![Cake Types](https://res.cloudinary.com/cheymd/image/upload/v1711207072/JustCakes-Readme-images/cake-category-table_all7hy.png)
 
 ![Cake color and color association table](https://res.cloudinary.com/cheymd/image/upload/v1711207069/JustCakes-Readme-images/cake-colour-association-table_1_gvtskc.png)
@@ -120,10 +114,55 @@ The purpose of the tables when planning the structure of the data was not to ref
 
 ![Cake List](https://res.cloudinary.com/cheymd/image/upload/v1711207080/JustCakes-Readme-images/cake-list_1_bti57a.png)
 
-___
-
 Table for planning **Customer Accounts** database models
 ![Customer Accounts](https://res.cloudinary.com/cheymd/image/upload/v1711207083/JustCakes-Readme-images/customer-account-tables_1_blheom.png)
+___
+
+## Wireframes
+For uniformity, all the pages are templates and are served their header and footer by the base.html that extends to them.  The Header consists of a ticker-tape advertizing at the very top, followed by the logo and navigation.  Whilst the footer holds links for social media platforms and a contact form.
+
+The wireframes I created provide an outline of key pages. While these wireframes may not perfectly reflect the final design of the site, they serve as a foundational guide for the layout and structure of the most relevant pages. Below, you'll find wireframe representations of the landing page and detail pages for cakes and posts.  Images, brief details on the list pages and full details accompanying the images on the detail pages, for both the cakes application and also the reviews application.
+
+### Desktop Views
+
+ **Wireframe for: Cake List - Desktop View**
+  ![Landing Page Desktop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1711623079/JustCakes-Readme-images/cake-list-desktop-view_buauft.jpg)
+
+ **Wireframe for: Cake Detail - Desktop View**
+  ![Cake Detail - Desktop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1711836164/JustCakes-Readme-images/cake-detail-desktop_dtrfnj.jpg)
+&nbsp;
+ **Wireframe for: Post List Desktop View**
+  ![Post List Desktop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1711608505/JustCakes-Readme-images/post-list-desktop-view_feudjn.jpg)
+&nbsp;
+
+### Mobile Views
+&nbsp;
+ **Wireframe for: Cake List - Mobile View**
+  ![Landing Page Mobile Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1711623079/JustCakes-Readme-images/cake-list-mobile-view_wcs8to.jpg)
+&nbsp;
+**Wireframe for: Cake Detail - Mobile View**
+  ![Cake Detail - Mobile Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1711836163/JustCakes-Readme-images/ckae-detail-mobile_abeupu.jpg)
+&nbsp;
+**Wireframe for: Post List Mobile View**
+  ![Post List Mobile View Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1711608505/JustCakes-Readme-images/post-list-mobile-view_rg1wr3.jpg)
+&nbsp;
+**Wireframe for: Post Detail Mobile View**
+  ![Post Detail Mobile View Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1711608505/JustCakes-Readme-images/post-detail-mobile-view_p309ub.jpg)
+&nbsp;
+**Wireframe for: View**
+&nbsp;
+**Wireframe for: View**
+&nbsp;
+**Wireframe for: View**
+&nbsp;
+**Wireframe for: View**
+&nbsp;
+**Wireframe for: View**
+&nbsp;
+**Wireframe for: View**
+&nbsp;
+**Wireframe for: View**
+
 ___
 ## Development Approach
 The Just Cakes project, at this stage is simple.  And the functionality could have been more condensed/streamlined.  But I'm purposely spread it out across applications within the main project.  My intention was to keep it structured in a manner that allowed me to add more features further down the line.  With this in mind, I previously had other apps such as "orders" which whilst not being utilized at this point, I did have fields such as account_number,  payment_method, purchase_order_date, delivery_order_date and basket_item_count which would have contributed to this wider functionality. As few as these extra lines of code were sitting latently as they did, demanded that I add a fair amount of comments around them in order to explain their presence, which resulted in an excessive amount of commenting which in turn detracted from the functional code which was more important.  I decided that removing it and inserting it at a later date was the lesser of the two evils, given that the functional code was the important part for assessment.  Not the provisional code for what the functions might do in the future.
@@ -137,10 +176,9 @@ Using Classes makes for cleaner more structured and easier to follow structures.
 - **Use of Environment Variables**
 I've used an environment variable to control the DEBUG setting, so that it sets to True when I'm working on development of of the application and then to False when it runs in the deployed production mode.  This ensures security in production and detailed error messages in development.  The idea and code was copied from my walkthrough projects with code institute.
 ___
-___
 
 
-## Overall Project Overview and Functionality
+## Application Overview and Functionality
 
 This section explains the functionality of each application within the Just Cakes project.
 Explanations are provided for how each app works, supported by screenshots to illustrate their operation and design.  This overview provides insights and understanding of the structure and behavior of the applications, offering a clear view of their roles within the overall project.

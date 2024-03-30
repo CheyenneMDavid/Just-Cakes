@@ -77,7 +77,9 @@
 		"unliking",
 		"urllib",
 		"webp",
-		"whitenoise"
+		"whitenoise",
+		"wireframe",
+		"Wireframes"
 	],
 	"[python]": {
 		"editor.defaultFormatter": "ms-python.black-formatter"
