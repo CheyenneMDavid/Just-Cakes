@@ -123,6 +123,9 @@ For uniformity, all the pages are templates and are served their header and foot
 
 The wireframes I created provide an outline of key pages. While these wireframes may not perfectly reflect the final design of the site, they serve as a foundational guide for the layout and structure of the most relevant pages. Below, you'll find wireframe representations of the landing page and detail pages for cakes and posts.  Images, brief details on the list pages and full details accompanying the images on the detail pages, for both the cakes application and also the reviews application.
 
+Not all pages have wireframes.  Pages that are handled by Allauth have such basic elements that I didn't deem it necessary to present these.  Also pages such as the updating of profiles is literally a vertical listing of fields that the page contains, and so didn't change in the mobile view.
+The only changes being how the logo and navigation are laid out in the header.  But the changes in these are a constant in all pages when changing from desktop to mobile.
+
 ### Desktop Views
 
  **Wireframe for: Cake List - Desktop View**
@@ -149,7 +152,8 @@ The wireframes I created provide an outline of key pages. While these wireframes
 **Wireframe for: Post Detail Mobile View**
   ![Post Detail Mobile View Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1711608505/JustCakes-Readme-images/post-detail-mobile-view_p309ub.jpg)
 &nbsp;
-**Wireframe for: View**
+**Wireframe for: Update Profile Form**
+![Update Profile Form](https://res.cloudinary.com/cheymd/image/upload/v1711894888/JustCakes-Readme-images/update-profile_dpjsld.jpg)
 &nbsp;
 **Wireframe for: View**
 &nbsp;
