@@ -58,6 +58,14 @@ Once a user selects a cake from our homepage gallery, they are taken to a detail
 A list page for User Reviews. An image, when uploaded by the user, else a default image.  An excerpt with accompanying photos, when uploaded by the authenticated user, else a default image is provided, with the Authors name, post title, excerpt from the post and the published date and time along with a heart and a number, representing the number of likes.
 
 - **Individual User Review Detail Page**
+A page in which the entire post could be read by a user and where comments and likes can be added by authenticated users.
+
+- **Update & Deletion of Profile**
+Upon initial registration, users have an account automatically created.  But other than their user name, the fields are empty.  upon sigh in, the authenticated user has the facility to view account via the navigation where they can update the profile or delete it, there by deleting account.
+
+- **Contact Form Submission**
+Users, both authenticated and non-authenticated can enter their details with a description of their requirements in a contact for for submission in order to be contacted by Just Cakes.
+
 
 #
 #
@@ -299,19 +307,38 @@ I tried to clean the output by using ```{{ post.content|striptags }}``` and that
   
   
   One such message was regarding trailing slashes on void elements, which have no effect and may interact badly with unquoted attribute values.
-  
+___
 ___
 
 ## Agile Development Process
+**Agile-Inspired Development Approach**.
+This project was guided by an "Agile-inspired" approach in that, without a team or base to which I could goto in order to get others to check, test and provide feedback, I often found myself taking this role in order to assess what I needed to do next.  This made for a slow process, but it did provide an environment that allowed for continual change.  Often I would utilise family and friends who had no technical knowledge whatsoever to use aspects of the site, whilst I gained feedback by way of observing how they went about things, given what I placed in-front of them.  And also listening to what they had to say of their experience.
+
+In retrospect, while this approach was instrumental for refining the UX, I recognize that it was less systematic for developing functionality. This realization underscores the importance of maintaining methodical development practices even when working in a flexible, Agile-influenced manner.
+
+**Iterative Development**
+The development unfolded in an iterative manner. Without predefined sprints, I tackled the project in small, manageable increments. Each commit in the version history represents a step in this journey, sometimes forward and occasionally a step back, reflecting an organic, exploratory process as I developed both the project and also my own ability.
+
+**Continuous Adaptation**
+Embracing change, one of the Agile's key values, was essential. When functionality didn't work as it was supposed to, or when a better solution was discovered, I adjusted accordingly.  This resulted in a commit history that didn't follow a strict linear path, but did reflect an adaptability and willingness to make changes wherever needed.
+
+**Self-Managed Process**
+Lacking a team environment in which stand-ups could be used to track progress, identify obstacles, and plan strategies to overcome them, I created a daily handover book to myself which consisted of a list of tasks that needed doing, a ticking off, of the tasks as they were done and a plan for the next day.  It was a liner method, but one that navigated according to need as required, creating fresh lists and tasks as things evolved.
+
+**Tools for Agile Management**
+I used Git for version control and tracking which allowed me to create branches, try out ideas, discard them or keep them depending on how they played out.
+
+**Reflection and Growth**
+My solo journey with this project has been as much about learning Agile practices as it has been about developing the application itself. The process has been documented honestly, warts and all, to showcase not just the final product but the resilience and continuous learning that went into creating it.
 
 ### User Stories
 
 These are a few key user stories that guided the development of *Just Cakes:*
 
-- As a Site User, I can browse a selection of cakes so that I can choose one I like.
-- As a Site User, I can like and unlike reviews so that I can show if I found them helpful
+- As a **Site User**, I can **browse a selection of cakes** so that I can **choose one I like**.
+- As a **Site User**, I can **like and unlike reviews** so that I can **show if I found them helpful**
 
-- As a Admin, I can search posts using filters such as titles and when the posts were written so that I'm able to find the posts I'm looking for, quicker and more efficiently
+- As a **Admin**, I can **search posts using filters such as titles and when the posts were written** so that I'm **able to find the posts I'm looking for, quicker and more efficiently**
 
 For a complete list of user stories, see [My Project Board](https://github.com/users/CheyenneMDavid/projects/30).
 
