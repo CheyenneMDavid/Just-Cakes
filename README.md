@@ -66,12 +66,6 @@ Upon initial registration, users have an account automatically created.  But oth
 - **Contact Form Submission**
 Users, both authenticated and non-authenticated can enter their details with a description of their requirements in a contact for for submission in order to be contacted by Just Cakes.
 
-
-#
-#
-#
-##
-
 - **Registration/Sign-In/Sign-Out**: User authentication is managed using Allauth, ensuring a smooth registration, login, and logout process.
 
 - **Customer Profile Management**: Whilst user's profiles are automatically created upon registration, they are in essence blank other than their user name.  Further to this, users can fully create, update, and delete their profiles on the site.
@@ -94,36 +88,44 @@ dj3-cloudinary-storage 0.0.6
 django-cloudinary-storage 0.3.0
 gunicorn 21.2.0
 ```
-
+___
+___
 
 
 ## Project Planning & Development:
-Reviews:
+This section outlines the planning process and development approach for our project. Below is a flowchart diagram that provides a visual representation of the overall functionality of the application.
+![](https://res.cloudinary.com/cheymd/image/upload/v1712064156/JustCakes-Readme-images/basic-layout-of-functionality_v0az3y.png)
 
-Table for planning **"Reviews"** database `models.py`
 
+- **Reviews**:
+Table for planning "Reviews" database
 ![Reviews Tables Model](https://res.cloudinary.com/cheymd/image/upload/v1711207188/JustCakes-Readme-images/reviews-table_1_pv1kw7.png)
-___
 
-### Table for planning Cakes database models
+- **Customer Accounts**
+Table for planning "Customer Accounts" database
+![Customer Accounts](https://res.cloudinary.com/cheymd/image/upload/v1711207083/JustCakes-Readme-images/customer-account-tables_1_blheom.png)
 
+- **Cakes**
+Table for planning "Cakes" database
 Defining type:Wedding, Novelty and Birthday. Allergy: GF for Gluten Free. V for plantbased.  Flavours and colors. And a list of the cakes themselves, making them searchable by users of the site when such extra functionality added.
-
+&nbsp;
 Using Normalization to organize the data, so when changes to the data is required, it's more easily managed.
-In doing so, new content for the fields can be created by a site administrator.  The new content being cake names, descriptions and additional categories if the so wish.
-
+In doing so, new content for the fields can be created by a site administrator.  The new content being cake names, descriptions and additional categories if they so wish.
+&nbsp;
 The purpose of the tables when planning the structure of the data was not to reflect the exact details of each cake currently available, but instead have the relevant sections.  So whilst I've used some of the names of cakes and data such as gluten free, etc...  The precise details of cakes on the site is subject to change, which was the purpose of the field structure.
 
-![Cake Types](https://res.cloudinary.com/cheymd/image/upload/v1711207072/JustCakes-Readme-images/cake-category-table_all7hy.png)
+#### Cake Categories
+![Cake Categories](https://res.cloudinary.com/cheymd/image/upload/v1711207072/JustCakes-Readme-images/cake-category-table_all7hy.png)
 
+####  Cake Colours
 ![Cake color and color association table](https://res.cloudinary.com/cheymd/image/upload/v1711207069/JustCakes-Readme-images/cake-colour-association-table_1_gvtskc.png)
 
+Cake Flavours
 ![Cake flavour and flavour association table](https://res.cloudinary.com/cheymd/image/upload/v1711207077/JustCakes-Readme-images/cake-flavour-association-table_1_kxeb5q.png)
 
+Cake List
 ![Cake List](https://res.cloudinary.com/cheymd/image/upload/v1711207080/JustCakes-Readme-images/cake-list_1_bti57a.png)
 
-Table for planning **Customer Accounts** database models
-![Customer Accounts](https://res.cloudinary.com/cheymd/image/upload/v1711207083/JustCakes-Readme-images/customer-account-tables_1_blheom.png)
 ___
 
 ## Wireframes
@@ -136,82 +138,91 @@ The only changes being how the logo and navigation are laid out in the header.  
 
 ### Desktop Views
 
- **Wireframe for: Cake List - Desktop View**
-  ![Landing Page Desktop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1711623079/JustCakes-Readme-images/cake-list-desktop-view_buauft.jpg)
+#### Wireframe for: Cake List - Desktop View
+ ![Landing Page Desktop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045053/JustCakes-Readme-images/desktop-cake-list_ok8ybo.jpg)
 
- **Wireframe for: Cake Detail - Desktop View**
-  ![Cake Detail - Desktop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1711836164/JustCakes-Readme-images/cake-detail-desktop_dtrfnj.jpg)
-&nbsp;
- **Wireframe for: Post List Desktop View**
-  ![Post List Desktop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1711608505/JustCakes-Readme-images/post-list-desktop-view_feudjn.jpg)
-&nbsp;
+#### Wireframe for: Cake Detail - Desktop View 
+ ![Cake Detail - Desktop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045055/JustCakes-Readme-images/desktop-cake-detail_oozmzq.jpg)
+
+#### Wireframe for: Post List Desktop View
+ 
+ ![Post List Desktop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045048/JustCakes-Readme-images/desktop-post-list_rjit9b.jpg)
+
+#### Wireframe for: Post Detail Desktop View
+
+![Post Detail Desktop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045050/JustCakes-Readme-images/desktop-post-detail_r5sp7r.jpg)
+
 
 ### Mobile Views
-&nbsp;
- **Wireframe for: Cake List - Mobile View**
-  ![Landing Page Mobile Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1711623079/JustCakes-Readme-images/cake-list-mobile-view_wcs8to.jpg)
-&nbsp;
-**Wireframe for: Cake Detail - Mobile View**
-  ![Cake Detail - Mobile Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1711836163/JustCakes-Readme-images/ckae-detail-mobile_abeupu.jpg)
-&nbsp;
-**Wireframe for: Post List Mobile View**
-  ![Post List Mobile View Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1711608505/JustCakes-Readme-images/post-list-mobile-view_rg1wr3.jpg)
-&nbsp;
-**Wireframe for: Post Detail Mobile View**
-  ![Post Detail Mobile View Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1711608505/JustCakes-Readme-images/post-detail-mobile-view_p309ub.jpg)
-&nbsp;
-**Wireframe for: Update Profile Form**
-![Update Profile Form](https://res.cloudinary.com/cheymd/image/upload/v1711894888/JustCakes-Readme-images/update-profile_dpjsld.jpg)
-&nbsp;
-**Wireframe for: View**
-&nbsp;
-**Wireframe for: View**
-&nbsp;
-**Wireframe for: View**
-&nbsp;
-**Wireframe for: View**
-&nbsp;
-**Wireframe for: View**
-&nbsp;
-**Wireframe for: View**
 
+#### Wireframe for: Cake List - Mobile View
+| ![Landing Page Mobile Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045043/JustCakes-Readme-images/mobile-cake-list_mfprek.jpg)
+
+#### Wireframe for: Cake Detail - Mobile View
+![Cake Detail - Mobile Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045046/JustCakes-Readme-images/mobile-cake-detail_pcvukn.jpg)
+
+#### Wireframe for: Post List Mobile View
+![Post List Mobile View Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045039/JustCakes-Readme-images/mobile-post-list_ivas1f.jpg)
+
+#### Wireframe for: Post Detail Mobile View
+![Post Detail Mobile View Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045041/JustCakes-Readme-images/mobile-post-detail_sbttxr.jpg)
+
+#### Wireframe for: Update Profile Form
+![Update Profile Form](https://res.cloudinary.com/cheymd/image/upload/v1712045058/JustCakes-Readme-images/update-profile-form_ll9txl.jpg)
 ___
+___
+
+## Mockups
+In this section, you'll find visual representations of the site's design and layout through mockups. These mockups provide a detailed preview of how the various pages and components will appear to users. They serve as a visual guide for the development process and help ensure consistency in design across different screen sizes and devices.
+![Mockup - All Devices](https://res.cloudinary.com/cheymd/image/upload/v1712048533/all-devices-black_gac35v.png)
+___
+___
+
 ## Development Approach
 The Just Cakes project, at this stage is simple.  And the functionality could have been more condensed/streamlined.  But I'm purposely spread it out across applications within the main project.  My intention was to keep it structured in a manner that allowed me to add more features further down the line.  With this in mind, I previously had other apps such as "orders" which whilst not being utilized at this point, I did have fields such as account_number,  payment_method, purchase_order_date, delivery_order_date and basket_item_count which would have contributed to this wider functionality. As few as these extra lines of code were sitting latently as they did, demanded that I add a fair amount of comments around them in order to explain their presence, which resulted in an excessive amount of commenting which in turn detracted from the functional code which was more important.  I decided that removing it and inserting it at a later date was the lesser of the two evils, given that the functional code was the important part for assessment.  Not the provisional code for what the functions might do in the future.
 
 - **Decision to use Function Based Views vs Class Based Views**
-As I've been developing this project, I've used both function based views and class based views. Initially I had a preference to class based because it's what was shown in the walk throughs, so it was "familiar".  But as I've progressed, I found myself less reliant on patterns of usage that I had learned.  And instead I found myself leaning toward function based views because I found them to be clearer to "me", for what I was wanting to do.  The `models.py` in each application have remained class based because it's more suited to django. Doubtless, as I progress, my need will change. I'll probably move back and forth between classes and functions according to the complexity of tasks or indeed which seems to suit better, as I myself progress in my learning.
+As I've been developing this project, I've used both function based views and class based views. Initially I had a preference to class based because it's what was shown in the walk throughs, so it was "familiar".  But as I've progressed, I found myself less reliant on patterns of usage that I had learned.  And instead I found myself leaning toward function based views because I found them to be clearer to "me", for what I was wanting to do at times.
 &nbsp;
-**Since first writing the above**, this has indeed changed.  When adding the facility to comment and considering the facility to update posts, I've chosen to change more toward class based views.  This has been important because this project has is condensed into only three apps which makes for a lot of things in one space, making the code quite hard to read.
-Using Classes makes for cleaner more structured and easier to follow structures.
+**Since first writing the above**, this has indeed changed.  When adding the facility to comment and considering the facility to update posts, I've swayed toward class based views.  This has been important because this project, has functionalities that are squeezed into very few apps which makes for a lot of things in one space, making the code quite hard to read.
+Using Classes makes for cleaner code and easier to follow structures.  But doubtless both ways have their place.
 &nbsp;
 - **Use of Environment Variables**
 I've used an environment variable to control the DEBUG setting, so that it sets to True when I'm working on development of of the application and then to False when it runs in the deployed production mode.  This ensures security in production and detailed error messages in development.  The idea and code was copied from my walkthrough projects with code institute.
 ___
+___
 
-
-## Application Overview and Functionality
-
+## Application Overview and Functionality of Individual Apps.
 This section explains the functionality of each application within the Just Cakes project.
 Explanations are provided for how each app works, supported by screenshots to illustrate their operation and design.  This overview provides insights and understanding of the structure and behavior of the applications, offering a clear view of their roles within the overall project.
 
-### Cakes Application Overview and Functionality
-The Cakes application is a pivotal component of the Just Cakes platform, intricately designed to showcase our exquisite range of cakes and provide detailed insights into each offering. This application embodies the fusion of aesthetic appeal with functionality, catering to both casual browsers and decisive buyers. Key features include:
-- **Gallery Showcase**: Utilizing Bootstrap for a responsive layout, the application curates a visually stunning gallery on the homepage, divided into categories like Wedding, Birthday, and Novelty cakes. This categorization aids users in effortlessly navigating through the collection, ensuring a seamless browsing experience.
+### Cakes
+The Cakes application is intended as the core of the project as the purpose is to showcase the cake designs that are available to order.
 
-**Homepage / Landing-Page / Gallery** (Desktop-view)
+Cakes that are fitting for a small children's birthday party or the extreme high level of craftsmanship in designing, creating and providing custom cake designs for the most austentatious occasion.
+
+#### Key features include
+**Gallery Showcase**: Utilizing Bootstrap for a responsive layout, the application curates a visually stunning gallery on the homepage, divided into categories like Wedding, Birthday, and Novelty cakes. This categorization aids users in effortlessly navigating through the collection, ensuring a seamless browsing experience.
+
+- **Homepage / Landing-Page / Gallery** (Desktop-view)
 ![Homepage Desktop-view](https://res.cloudinary.com/cheymd/image/upload/v1711207194/JustCakes-Readme-images/homepage-desktop-view_tqgzdx.png)
 
-**Homepage / Landing-Page / Gallery** (Tablet-view)
+&nbsp;
+- **Homepage / Landing-Page / Gallery** (Tablet-view)
+I've purposely screen-shotted the view that a tablet such as the Samsung Galaxy S6 would have, rather than show a mobile view because the single image screen shot that a mobile would have created would have been excessively long.
 ![Homepage Tablet-view](https://res.cloudinary.com/cheymd/image/upload/v1711213481/JustCakes-Readme-images/homepage-tablet-view_r9sgnv.png)
 
+&nbsp;
 - **Dynamic Cake Detail Presentation**: For each cake, the application dynamically generates a detail page, enriched with high-resolution images fetched from Cloudinary, comprehensive descriptions, pricing information, and dietary indicators (e.g., plant-based, gluten-free). This page is designed to provide all the necessary information a user might need to make an informed decision, enhancing transparency and trust.
+![Individual Cake Detail](https://res.cloudinary.com/cheymd/image/upload/v1712069531/JustCakes-Readme-images/cakes-detail_xqhkul.png)
 
-![]()
+&nbsp;
+- **Responsive Image Handling**: With an emphasis on performance and user experience, images are requested in webp format to ensure faster load times without compromising on quality. A default image with a "coming soon" placeholder is displayed in cases where specific cake images are not available, maintaining a consistent and professional look across the platform.  Already viewable in the above whole page screenshots, this is the individual page's appearance of default image that would be displayed in the place of the correct cake.  I'm differentiating between this and a normal default image because the purpose is to advertise specific cake styles that are available for order, so a "coming soon" image is more suitable.
+![Coming Soon Detail](https://res.cloudinary.com/cheymd/image/upload/v1712070694/JustCakes-Readme-images/detail-coming-soon_sbcqv7.png)
 
-- **Responsive Image Handling**: With an emphasis on performance and user experience, images are requested in webp format to ensure faster load times without compromising on quality. A default image with a "coming soon" placeholder is displayed in cases where specific cake images are not available, maintaining a consistent and professional look across the platform.
 
-![]()
+PICKUP AND START HERE PICKUP AND START HERE PICKUP AND START HERE PICKUP AND START HERE 
+
 
 - **User Navigation**: Thoughtful integration of navigational elements, such as a "Back to Our Cakes" button on the cake detail page, ensures users can easily explore different sections of the site, enhancing user engagement and satisfaction.
 
