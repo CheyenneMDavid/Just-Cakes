@@ -218,24 +218,18 @@ I've purposely screen-shotted the view that a tablet such as the Samsung Galaxy 
 
 &nbsp;
 - **Responsive Image Handling**: With an emphasis on performance and user experience, images are requested in webp format to ensure faster load times without compromising on quality. A default image with a "coming soon" placeholder is displayed in cases where specific cake images are not available, maintaining a consistent and professional look across the platform.  Already viewable in the above whole page screenshots, this is the individual page's appearance of default image that would be displayed in the place of the correct cake.  I'm differentiating between this and a normal default image because the purpose is to advertise specific cake styles that are available for order, so a "coming soon" image is more suitable.
+Integration of navigational elements, such as a "Back to Our Cakes" button on the cake detail page, ensures users can easily return to the main page without the need to use browser navigation.
 ![Coming Soon Detail](https://res.cloudinary.com/cheymd/image/upload/v1712070694/JustCakes-Readme-images/detail-coming-soon_sbcqv7.png)
 
+### Customer Accounts
+Central to the Customer Accounts App is the the customer's profile.  At first this may seem surplus to requirements however, ultimately the application is to be evolve into one that can be fully utilized by a fully "automated" order and delivery/booked collection system, at which point the more detailed nature of Customer Accounts will come into its own.
 
-PICKUP AND START HERE PICKUP AND START HERE PICKUP AND START HERE PICKUP AND START HERE 
-
-
-- **User Navigation**: Thoughtful integration of navigational elements, such as a "Back to Our Cakes" button on the cake detail page, ensures users can easily explore different sections of the site, enhancing user engagement and satisfaction.
-
-![]()
-
-- **Inclusive Design**: The application's design and functionality consider diverse user needs, including dietary restrictions, by prominently displaying relevant information and ensuring the site is accessible and navigable for all users.
+#### Current key features include
+- **Profile Creation and Update**: Initially blank when initially created and associated with a user, the individual customer profile can be updated by the user.  Validation is in place for details such as phone numbers and postcodes using regex and custom validation logic in forms.py
   
-- **Screenshots**:
-- TODO
+PICK-UP AND START HERE! PICK-UP AND START HERE!
 
-### Customer Accounts Application Overview and Functionality
 
-  
 - **Screenshots**:
 - TODO
   

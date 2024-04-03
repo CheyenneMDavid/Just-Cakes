@@ -82,13 +82,7 @@ main,
 }
 
 .image-fluid {
-    width: 100%;
-    height: auto;
-}
-
-.detail-image-size {
-    position: relative;
-    width: 100%;
+    width: auto;
     height: auto;
 }
 
@@ -101,6 +95,8 @@ main,
 .detail-image-size {
     border-radius: 10px;
     margin-bottom: 15px;
+    height: auto;
+    width: auto;
 }
 
 .detail-image-size {
