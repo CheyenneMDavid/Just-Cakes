@@ -19,12 +19,12 @@ class UpdateProfileForm(forms.ModelForm):
     birth_date = forms.DateField(
         input_formats=["%d.%m.%Y"],
         required=False,
-        help_text="Please enter your D.O.B. in dd.mm.yy format.",
+        help_text="Please enter your D.O.B. in dd.mm.yyyy format.",
     )
     memorable_date = forms.DateField(
         input_formats=["%d.%m.%Y"],
         required=False,
-        help_text="Please enter a memorable date in dd.mm.yy format.",
+        help_text="Please enter a memorable date in dd.mm.yyyy format.",
     )
 
     class Meta:

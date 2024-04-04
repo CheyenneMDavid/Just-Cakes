@@ -183,8 +183,8 @@ The Just Cakes project, at this stage is simple.  And the functionality could ha
 
 - **Decision to use Function Based Views vs Class Based Views**
 As I've been developing this project, I've used both function based views and class based views. Initially I had a preference to class based because it's what was shown in the walk throughs, so it was "familiar".  But as I've progressed, I found myself less reliant on patterns of usage that I had learned.  And instead I found myself leaning toward function based views because I found them to be clearer to "me", for what I was wanting to do at times.
-&nbsp;
-**Since first writing the above**, this has indeed changed.  When adding the facility to comment and considering the facility to update posts, I've swayed toward class based views.  This has been important because this project, has functionalities that are squeezed into very few apps which makes for a lot of things in one space, making the code quite hard to read.
+
+  **Since first writing the above**, this has indeed changed.  When adding the facility to comment and considering the facility to update posts, I've swayed toward class based views.  This has been important because this project, has functionalities that are squeezed into very few apps which makes for a lot of things in one space, making the code quite hard to read.
 Using Classes makes for cleaner code and easier to follow structures.  But doubtless both ways have their place.
 &nbsp;
 - **Use of Environment Variables**
@@ -196,72 +196,77 @@ ___
 This section explains the functionality of each application within the Just Cakes project.
 Explanations are provided for how each app works, supported by screenshots to illustrate their operation and design.  This overview provides insights and understanding of the structure and behavior of the applications, offering a clear view of their roles within the overall project.
 
-### Cakes
+### Cakes Application Overview.
 The Cakes application is intended as the core of the project as the purpose is to showcase the cake designs that are available to order.
 
 Cakes that are fitting for a small children's birthday party or the extreme high level of craftsmanship in designing, creating and providing custom cake designs for the most austentatious occasion.
 
-#### Key features include
-**Gallery Showcase**: Utilizing Bootstrap for a responsive layout, the application curates a visually stunning gallery on the homepage, divided into categories like Wedding, Birthday, and Novelty cakes. This categorization aids users in effortlessly navigating through the collection, ensuring a seamless browsing experience.
+Utilizing Bootstrap for a responsive layout, the application curates a visually stunning gallery on the homepage, divided into categories like Wedding, Birthday, and Novelty cakes. This categorization aids users in effortlessly navigating through the collection, ensuring a seamless browsing experience.
 
-- **Homepage / Landing-Page / Gallery** (Desktop-view)
+#### Homepage/Landing-Page/Gallery (Desktop-view)
 ![Homepage Desktop-view](https://res.cloudinary.com/cheymd/image/upload/v1711207194/JustCakes-Readme-images/homepage-desktop-view_tqgzdx.png)
 
-&nbsp;
-- **Homepage / Landing-Page / Gallery** (Tablet-view)
+#### Homepage/Landing-Page/Gallery (Tablet-view)
 I've purposely screen-shotted the view that a tablet such as the Samsung Galaxy S6 would have, rather than show a mobile view because the single image screen shot that a mobile would have created would have been excessively long.
 ![Homepage Tablet-view](https://res.cloudinary.com/cheymd/image/upload/v1711213481/JustCakes-Readme-images/homepage-tablet-view_r9sgnv.png)
 
+#### Dynamic Cake Detail Presentation
+For each cake, the application dynamically generates a detail page, enriched with high-resolution images fetched from Cloudinary, comprehensive descriptions, pricing information, and dietary indicators (e.g., plant-based, gluten-free). This page is designed to provide all the necessary information a user might need to make an informed decision, enhancing transparency and trust.
+
 &nbsp;
-- **Dynamic Cake Detail Presentation**: For each cake, the application dynamically generates a detail page, enriched with high-resolution images fetched from Cloudinary, comprehensive descriptions, pricing information, and dietary indicators (e.g., plant-based, gluten-free). This page is designed to provide all the necessary information a user might need to make an informed decision, enhancing transparency and trust.
 ![Individual Cake Detail](https://res.cloudinary.com/cheymd/image/upload/v1712069531/JustCakes-Readme-images/cakes-detail_xqhkul.png)
 
 &nbsp;
-- **Responsive Image Handling**: With an emphasis on performance and user experience, images are requested in webp format to ensure faster load times without compromising on quality. A default image with a "coming soon" placeholder is displayed in cases where specific cake images are not available, maintaining a consistent and professional look across the platform.  Already viewable in the above whole page screenshots, this is the individual page's appearance of default image that would be displayed in the place of the correct cake.  I'm differentiating between this and a normal default image because the purpose is to advertise specific cake styles that are available for order, so a "coming soon" image is more suitable.
+#### Responsive Image Handling
+With an emphasis on performance and user experience, images are requested in webp format to ensure faster load times without compromising on quality. A default image with a "coming soon" placeholder is displayed in cases where specific cake images are not available, maintaining a consistent and professional look across the platform.  Already viewable in the above whole page screenshots, this is the individual page's appearance of default image that would be displayed in the place of the correct cake.  I'm differentiating between this and a normal default image because the purpose is to advertise specific cake styles that are available for order, so a "coming soon" image is more suitable.
 Integration of navigational elements, such as a "Back to Our Cakes" button on the cake detail page, ensures users can easily return to the main page without the need to use browser navigation.
-![Coming Soon Detail](https://res.cloudinary.com/cheymd/image/upload/v1712070694/JustCakes-Readme-images/detail-coming-soon_sbcqv7.png)
 
-### Customer Accounts
+![Coming Soon Detail](https://res.cloudinary.com/cheymd/image/upload/v1712070694/JustCakes-Readme-images/detail-coming-soon_sbcqv7.png)
+___
+
+### Customer Accounts Overview.
 Central to the Customer Accounts App is the the customer's profile.  At first this may seem surplus to requirements however, ultimately the application is to be evolve into one that can be fully utilized by a fully "automated" order and delivery/booked collection system, at which point the more detailed nature of Customer Accounts will come into its own.
 
-#### Current key features include
-- **Profile Creation and Update**: Initially blank when initially created and associated with a user, the individual customer profile can be updated by the user.  Validation is in place for details such as phone numbers and postcodes using regex and custom validation logic in forms.py
+  Screenshot of the Individual user's account detail/profile page with buttons to return home, update their profile or delete their profile which would also delete their account.
+  ![Profile Page](https://res.cloudinary.com/cheymd/image/upload/v1712226451/JustCakes-Readme-images/profile-details_wydnup.png)
+
+&nbsp;
+- **Profile Creation and Update**: Initially blank when initially created and associated with a user, the individual customer profile can be updated by the user.  Validation is in place for details such as phone numbers and postcodes using regex and custom validation logic in `forms.py`
   
-PICK-UP AND START HERE! PICK-UP AND START HERE!
+&nbsp;
+Update Profile Form with fields to update, help text to guide the user and an update button.
+![](https://res.cloudinary.com/cheymd/image/upload/v1712227329/JustCakes-Readme-images/update-profile-form_fpcptt.png)
 
-
-- **Screenshots**:
-- TODO
-  
-
-### Reviews Application Overview and Functionality
-The Reviews application bears witness to the quality and bespoke nature of what "Just Cakes" offers it's customers in way of professional service and the stunning skill of it's staff in how any style of cake is undertaken for any event.
-The application features enable:
+### Reviews Application Overview.
+The Reviews application bears witness to the quality and bespoke nature of what "Just Cakes" offers its customers in way of professional service and the stunning skill of it's staff in how any style of cake is undertaken for any event.
+The application features:
 
 - **Read Reviews**: Unauthenticated users can browse reviews, gaining insights from the experiences of others.
 - **Write Reviews**: Authenticated users can write reviews, comment and like posts to show what they found useful.
 
-View of posts list page showing excerpts of each post
+Screenshot of the posts list page showing excerpts of each post
 ![posts list](https://res.cloudinary.com/cheymd/image/upload/v1711334249/JustCakes-Readme-images/posts-list-page_siozgi.png)
 &nbsp;
 &nbsp;
 
 View of a single post page showing number of comments and like for a post and also facility for commenting for authenticated users.
 ![post detail](https://res.cloudinary.com/cheymd/image/upload/v1711334255/JustCakes-Readme-images/single-post_z1od6s.png)
-### Contact Application Overview and Functionality
-
-- **Description**:
-- TODO
-  
-- **Screenshots**:
-- TODO
-
-
----
-
-By providing a detailed look at each application, this section aims to clarify the contributions of individual components to the Just Cakes project, highlighting their integration and synergy.
-
 ___
+
+### Contact Application Overview.
+The Contact form is accessible from all pages and can be used by authenticated users and unauthenticated users alike.  In the admin panel, the form data can be listed and filtered according to when the forms were received.  To ensure valid data upon form submission, django manages the email address validation, but I've used a regex pattern and a message that tells the user to enter a valid UK phone number if they enter an invalid one.
+The regex pattern I've used for validating the phone numbers is from StackOverflow and I've credited it as such in the `forms.py` file itself.
+Upon successful form submission, the user gets an onscreen message thanking them, which lasts for 3 seconds before they are then redirected to the homepage.
+
+Screenshot of the "contact form"
+![Contact Form](https://res.cloudinary.com/cheymd/image/upload/v1712271776/JustCakes-Readme-images/contact-form_oc4pby.png)
+
+Screenshot of successful contact form submission
+![Upon Submitting a contact form](https://res.cloudinary.com/cheymd/image/upload/v1712272553/JustCakes-Readme-images/contact-form-submission_sjib1a.png)
+___
+
+PICK-UP AND START HERE PICK-UP AND START HERE PICK-UP AND START HERE PICK-UP AND START HERE 
+
 ## Performance Optimization
 
 ### Tools Used
