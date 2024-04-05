@@ -411,8 +411,6 @@ Check the list of required packages in the README file and make sure to install 
 
 ### User: sign-up / sign-in / sign-out
 All handled by Allauth
-
-
 ___
 ___
 
@@ -473,7 +471,21 @@ Screenshots of default images displaying:
 ___
 
 ## Conclusion
+The conclusion for this project is very much one that is about me and the learning I am taking from this.
+This project has been a pretty profound learning journey, characterized not just by the development of a web application but also by significant personal and professional growth.  Looking back on the process, now, I'd say that they center round the critical importance of planning and also a willingness in asking for help when hitting a brick wall, rather than repeated smash into it until either breaking through or finally climbing over.
 
+### The Impact of Insufficient Planning
+The absence of a detailed plan at the project's inception led to numerous challenges. These ranged from features either creeping in due to not defining the structure, and getting so drawn into individual parts that I forgot to ensure certain aspects were present as I went forward.
+This lack of foresight resulted in a development process that ran me, rather than me running it.
+
+### The Impact of Not Reaching Out
+Not reaching out has been a significant stumbling block and has cost me a great deal of time. Only upon stepping back from things, I've seen with far more clarity that sometimes overly analyzing something resulted in paralysis. Also, sometimes, the problems that I "thought" were an issue weren't actually mine to solve. I refer to the types of deprecation warnings and other error messages that led me down rabbit holes of troubleshooting, only to realize later that they were either unrelated to my project or could have been easily resolved with a simple update or configuration adjustment. These experiences have underscored the importance of seeking guidance and collaboration when facing challenges, as well as the need to differentiate between critical issues that require immediate attention and those that can be safely ignored or addressed at a later stage.
+
+Despite the challenges and time-consuming detours caused by navigating through these issues, ultimately they've contributed to not just my growth but my actual skill development. Each rabbit hole I found myself in, broadened my skills in areas, parallel to what I was doing.  So, whilst experiences may have prolonged project timelines in the short term, they have equipped me with a deeper understanding of software development and equipped me with problem-solving strategies that will undoubtedly hugely benefit me in future.
+
+Gaining valuable insights and a deeper understanding of software dependencies, version compatibility issues, and the importance of staying informed about evolving technologies, has been immeasurable.
+
+PICKUP AND RESTART HERE PICKUP AND RESTART HERE PICKUP AND RESTART HERE PICKUP AND RESTART HERE PICKUP AND RESTART HERE 
 
 ___
 
@@ -503,12 +515,12 @@ ___
 ## Credits, Acknowledgments and Appreciation.
 
 The reviews application within the just cakes project has been copied from the Code Institute walkthrough django project "codestar".
-
+StackOverflow for Regex patterns and how to implement them.
 Picture images have been courtesy of Midjourney and Microsoft's Bing image-creator. Some I have
-I have used ChatGPT as a tutor that is on tap, asking it's advice about structure with a view to further development.
-The things I needed to consider from a point of practicality and scalability in future development.  That's why there are parts that are dormant.
-
+I have used ChatGPT as a tutor that is on tap, asking it's advice about structure with a view to further development and also advice on completing aspects of this readme, in how I should go about things.  Sometimes to my detriment because it would get carried away, resulting in me having to scrub work and redo it.
+Code Institute Tutors for help when I reached out.
 The favicon.ico is courtesy of [Favicon Generator](https://favicon.io)
+https://websitemockupgenerator.com
 
 
 Code and the idea for toggling the DEBUG according to environment is courtesy of Code Institute walkthrough projects.
