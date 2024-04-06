@@ -265,12 +265,23 @@ Screenshot of successful contact form submission
 ![Upon Submitting a contact form](https://res.cloudinary.com/cheymd/image/upload/v1712272553/JustCakes-Readme-images/contact-form-submission_sjib1a.png)
 ___
 
-PICK-UP AND START HERE PICK-UP AND START HERE PICK-UP AND START HERE PICK-UP AND START HERE 
-
 ## Performance Optimization
 
-### Tools Used
-- **Lighthouse**: 
+To help pages load faster, I've utilised webp where I could.  The images that I have loaded into cloudinary were loaded as webp and when using the dynamic templating to bring them back, the logic I've used requested them from cloudinary as webp, wherever possible.
+
+### Performance Insights
+
+I used Google's "Lighthouse" to measure my site.  Measuring only the main pages, I gained the following scores, of which I've screenshotted the readouts from Lighthouse.
+
+Index Page Desktop Lighthouse Score
+![Index Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712426925/JustCakes-Readme-images/index-page-lighthouse-desktop-score_ruw2uj.png)
+
+Index Page Mobile Lighthouse Score
+![Index Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712426926/JustCakes-Readme-images/index-page-lighthouse-mobile-score_ht5ggs.png)
+Cake Detail Desktop Lighthouse Score
+![Cake Detail Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712426926/JustCakes-Readme-images/cake-detail-lighthouse-desktop-score_qf9oby.png)
+Cake Detail Mobile Lighthouse Score
+![Cake Detial Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712426925/JustCakes-Readme-images/cake-detail-lighthouse-mobile-score_zihdh0.png)
 
 
 ___
