@@ -299,7 +299,7 @@ However... Upon rendering the screen the copy and pasting had taken html styles 
 I tried to clean the output by using ```{{ post.content|striptags }}``` and that did work, but not with truncation, so I decided to not bother with the striptags command on the bases that users would normally be entering text a fresh and this issue is unlikely to arise.
   
 
-### Deployment & Static files
+### Deployment Challenges and Solutions
   To simplify things to a level where I had less to look at I once again removed the environmental variables that controlled DEBUG and ALLOWED_HOSTS and hardcoded these into the django settings file.
   The ongoing issue was finally resolved when I tried to manually disable the collect static by logging into Heroku via my console and using:
   `heroku config:set DISABLE_COLLECTSTATIC=0` which gave me a return saying that it couldn't find the app.
@@ -314,9 +314,9 @@ I tried to clean the output by using ```{{ post.content|striptags }}``` and that
 
 - **Code Validation**
   During the validation process using the [W3C Markup Validation Service](https://validator.w3.org/), I received informational messages stating ```Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.``` and was advised to remove them.  I did attempt to do this but as soon as I would hit "save", these would return.  I attempted to change this default behavior by from my IDE by going into my settings, but was unable to find how to change it.
-  
-  
   One such message was regarding trailing slashes on void elements, which have no effect and may interact badly with unquoted attribute values.
+  
+Additionally, the validation process highlighted other potential issues, including compliance with HTML and CSS standards, ensuring proper nesting of elements, and addressing any deprecated or non-standard attributes. These messages served as valuable feedback, guiding me to refine and improve the quality of my markup code.
 ___
 ___
 
@@ -418,19 +418,24 @@ ___
 ### Written Tests
 - **Comment Form in Reviews App**
 Tests for the comment form in the reviews app are copied from the Code Institute walkthrough project called Codestar. The code for which can be found here:
-![Comment Form - pass](/reviews/tests/test_forms.py)
+![Comment Form - pass](reviews/tests/tests_forms.py)
+
 &nbsp;
 - **Updating Profile Form in Customer_Accounts App**
 The test passes for ```test_invalid_form()``` demonstrated the expected errors, as deliberate invalid data was intentionally passed to the form for validation.
 **Screenshot of console from test**:
 ![Deliberate invalid data](https://res.cloudinary.com/cheymd/image/upload/v1711505142/JustCakes-Readme-images/update-profile-form-test-console-display_bl37p9.png)
 ![Update Profile Form - pass](/customer_accounts/tests/test_forms.py)
+
 &nbsp;
 - **User Sign-up/Sign-in/Sign-out**
 ![Sign-Up, Sign-in, Sign-out - pass](/tests/test_authentication.py)
+
 &nbsp;
 - **Contact Form Submission**
 ![Contact Form Submission - pass](/contact/tests.py)
+
+
 &nbsp;
 - **Cake Models**
 ![Cake Models - pass](/cakes/tests/tests.py)
@@ -450,24 +455,46 @@ I then systematically deleted one  from each category from the admin panel.
 **Result** -- **Pass**
 The screen was rendered using the default images as they should.
 Screenshots of default images displaying:
-- **Wedding** 
+
+- **Wedding**
+
 ![Wedding section](https://res.cloudinary.com/cheymd/image/upload/v1711207106/JustCakes-Readme-images/default-wedding-image_rqnmyg.png)
+
 &nbsp;
 - **Birthday**
+
 ![Birthday section](https://res.cloudinary.com/cheymd/image/upload/v1711207086/JustCakes-Readme-images/default-birthday-image_cbmgli.png)
+
 &nbsp;
-- Novelty
+- **Novelty**
+
 ![Novelty section](https://res.cloudinary.com/cheymd/image/upload/v1711207106/JustCakes-Readme-images/default-wedding-image_rqnmyg.png)
 &nbsp;
-
+___
 **Test images following the same process for the cakes details page.**
-- "**test-detail-image-1**" is the default image when the individual cake doesn't have an image associated with it.
-![Default image](https://res.cloudinary.com/cheymd/image/upload/v1711207183/JustCakes-Readme-images/test-detail-image-1_o6v6qg.png)
-&nbsp;
 
-- "**test-detail-image-2**" is when a cake image was loaded via the Django interface and was associated with the "Hulk cake".
+"**test-detail-image-1**" is the default image when the individual cake doesn't have an image associated with it.
+ 
+&nbsp;
+![Default image](https://res.cloudinary.com/cheymd/image/upload/v1711207183/JustCakes-Readme-images/test-detail-image-1_o6v6qg.png)
+
+&nbsp;
+"**test-detail-image-2**" is when a cake image was loaded via the Django interface and was associated with the "Hulk cake".
+
 ![Associated image](https://res.cloudinary.com/cheymd/image/upload/v1711207191/JustCakes-Readme-images/test-detail-image-2_qvyb6q.png)
 
+___
+___
+## Code Validation
+As stated in the "Deployment Challenges and Solutions" section, I used https://validator.w3.org to validate my code.  Any issues that were raised were addressed.
+
+### CSS Validation
+Both the project's stylesheets (style.css & custom.css) have been validated with the W3C CSS Validator, confirming adherence to the latest CSS standards.
+[![Valid CSS](http://jigsaw.w3.org/css-validator/images/vcss)](http://jigsaw.w3.org/css-validator/check/referer)
+
+
+
+___
 ___
 
 ## Conclusion
@@ -482,22 +509,25 @@ This lack of foresight resulted in a development process that ran me, rather tha
 Not reaching out has been a significant stumbling block and has cost me a great deal of time. Only upon stepping back from things, I've seen with far more clarity that sometimes overly analyzing something resulted in paralysis. Also, sometimes, the problems that I "thought" were an issue weren't actually mine to solve. I refer to the types of deprecation warnings and other error messages that led me down rabbit holes of troubleshooting, only to realize later that they were either unrelated to my project or could have been easily resolved with a simple update or configuration adjustment. These experiences have underscored the importance of seeking guidance and collaboration when facing challenges, as well as the need to differentiate between critical issues that require immediate attention and those that can be safely ignored or addressed at a later stage.
 
 Despite the challenges and time-consuming detours caused by navigating through these issues, ultimately they've contributed to not just my growth but my actual skill development. Each rabbit hole I found myself in, broadened my skills in areas, parallel to what I was doing.  So, whilst experiences may have prolonged project timelines in the short term, they have equipped me with a deeper understanding of software development and equipped me with problem-solving strategies that will undoubtedly hugely benefit me in future.
-
-Gaining valuable insights and a deeper understanding of software dependencies, version compatibility issues, and the importance of staying informed about evolving technologies, has been immeasurable.
-
-PICKUP AND RESTART HERE PICKUP AND RESTART HERE PICKUP AND RESTART HERE PICKUP AND RESTART HERE PICKUP AND RESTART HERE 
+Navigating through this chaos, I gained valuable insights and a deeper understanding of software dependencies, version compatibility issues, and the importance of staying informed about evolving technologies, has been immeasurable.
 
 ___
 
 ## Further Development
 
-Just Cakes is more the business name.  The application's aim is to create and hold accounts, ability to order/buy online.  Further development would be to add a "delivery application" which would tie in with other applications within the over all , holding many of their bits of information as foreign keys in it's own model.
+Just Cakes is more the business name.  The application's aim is to create and hold accounts with data that would enable the fully automated ordering and delivery of goods and services.
+Services that would allow for a calendar bookings for:
+- Booking for delivery
+- Bookings for collection
+- Bookings for taster days which would allow the customers to come and sample the types of cake that they would potentially be ordering.
+- Payment features
+- Instalment payment features.
 
-It's because I plan to develop these aspects, I've purposely kept things quite separate.  So that when it's further developed, as aspects of it expand, they won't impinge on one another.  Hence, apparently redundant code such as
-
+Further to this, whilst currently, customers are able to communicate via the contact forms and telephone as to how they may want a one off cake designed, the addition of a user centric front end in which a customer would have a graphical interface from which they can design their own cakes, is planned.
 ___
 
 ## Deployment
+
 
 ___
 
