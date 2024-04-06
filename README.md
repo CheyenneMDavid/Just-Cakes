@@ -312,7 +312,7 @@ I tried to clean the output by using ```{{ post.content|striptags }}``` and that
 - **Authenticated Users vs Customer account.**
   Initially having this set to ensure that whenever a user registered, hence becoming an "authenticated" user, a customer account/profile was created.  This also worked in reverse in that if a user where to delete their profile, their corresponding account in the customer_accounts application would also be deleted and the user would then be redirected to the sign-up page.
 
-- **Code Validation**
+- **Code Validation Issues**
   During the validation process using the [W3C Markup Validation Service](https://validator.w3.org/), I received informational messages stating ```Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.``` and was advised to remove them.  I did attempt to do this but as soon as I would hit "save", these would return.  I attempted to change this default behavior by from my IDE by going into my settings, but was unable to find how to change it.
   One such message was regarding trailing slashes on void elements, which have no effect and may interact badly with unquoted attribute values.
   
@@ -485,12 +485,19 @@ ___
 
 ___
 ___
-## Code Validation
+
+## Code Validation and Quality Assurance
+
+### HTML Validation
 As stated in the "Deployment Challenges and Solutions" section, I used https://validator.w3.org to validate my code.  Any issues that were raised were addressed.
+The only issue raised there was the matter of trailing slashes which would always return upon saving, despite removing them.
 
 ### CSS Validation
 Both the project's stylesheets (style.css & custom.css) have been validated with the W3C CSS Validator, confirming adherence to the latest CSS standards.
 [![Valid CSS](http://jigsaw.w3.org/css-validator/images/vcss)](http://jigsaw.w3.org/css-validator/check/referer)
+
+### Python Code Quality
+For my Python code, I used Black to enforce formatting, ensuring readability and consistency, closely following but not limited to PEP 8 standards. This approach not only helped in maintaining clean code but also contributed to the overall quality of my project.
 
 
 
