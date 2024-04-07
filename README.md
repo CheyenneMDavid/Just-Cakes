@@ -274,13 +274,17 @@ To help pages load faster, I've utilised webp where I could.  The images that I 
 I used Google's "Lighthouse" to measure my site.  Measuring only the main pages, I gained the following scores, of which I've screenshotted the readouts from Lighthouse.
 
 Index Page Desktop Lighthouse Score
-![Index Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712426925/JustCakes-Readme-images/index-page-lighthouse-desktop-score_ruw2uj.png)
+![Index Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712508049/JustCakes-Readme-images/index-page-lighthouse-desktop-score_i43r3o.png)
+
 Index Page Mobile Lighthouse Score
-![Index Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712426926/JustCakes-Readme-images/index-page-lighthouse-mobile-score_ht5ggs.png)
+![Index Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712508048/JustCakes-Readme-images/index-page-lighthouse-mobile-score_ymrbcq.png)
+
 Cake Detail Desktop Lighthouse Score
 ![Cake Detail Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712426926/JustCakes-Readme-images/cake-detail-lighthouse-desktop-score_qf9oby.png)
+
 Cake Detail Mobile Lighthouse Score
 ![Cake Detail Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712426925/JustCakes-Readme-images/cake-detail-lighthouse-mobile-score_zihdh0.png)
+
 
 Post List Page Desktop Lighthouse Score
 ![Post List Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712501267/JustCakes-Readme-images/post-list-lighthouse-desktop-score_j98snw.png)
@@ -427,11 +431,28 @@ Check the list of required packages in the README file and make sure to install 
 - [How to deploy on Heroku](https://devcenter.heroku.com/categories/deployment)
 - [How to use Cloudinary cloud based media service](https://cloudinary.com/documentation/how_to_integrate_cloudinary#:~:text=The%20best%20way%20to%20get,in%205%20minutes%20or%20less.)
 - [How to use Managed PostgreSQL database hosting service](https://www.elephantsql.com/docs/index.html)
+___
+___
 
 ## Use
 
 ### User: sign-up / sign-in / sign-out
 All handled by Allauth
+
+### Using the Navigation
+Use of the navigation is limited or extended according to whether someone is signed in or not.
+When not signed in or unauthenticated use of the navigation is limited to
+-Home, Reviews, Sign-in and Sign-up and a direct link to the Admin page.  When Authenticated, the navigation consists of a Home, Reviews, A statement saying who the user is signed in as, A View account button and a sign-out button.
+
+Home takes a user to the gallery of cakes whilst the Reviews button takes a user to the Reviews section. Regardless of whether they are authenticated or not.
+
+If a user is authenticated and signed in, they can click on the "View Account which then takes them to the account detail page where they can view their profile details, update them and delete their account."
+
+### Updating and deleting a profile
+
+Pickup Restart here! Pickup Restart here! Pickup Restart here! Pickup Restart here! 
+
+### Creating Posts and Commenting
 ___
 ___
 
