@@ -438,6 +438,7 @@ ___
 
 ### User: sign-up / sign-in / sign-out
 All handled by Allauth
+When signing in, there's a timed display telling the user that they are signed in successfully.  The green message informing the user has a close button in the form of an "X".  Whilst it is functional, it's more cosmetic because although a user can click it, the message times out and the screen changes quickly.
 
 ### Using the Navigation
 Use of the navigation is limited or extended according to whether someone is signed in or not.
@@ -449,10 +450,17 @@ Home takes a user to the gallery of cakes whilst the Reviews button takes a user
 If a user is authenticated and signed in, they can click on the "View Account which then takes them to the account detail page where they can view their profile details, update them and delete their account."
 
 ### Updating and deleting a profile
+When a user signs up, a profile is created, albeit a blank/empty one.
+The navigation takes the user to the customer accounts profile page which displays the user's details.  From this page the user can update the blank profile and also delete it, which also deletes their authentication and access to the site until they complete the sign-up process again.
+The fields aren't compulsory and the user can choose which fields they update.
 
-Pickup Restart here! Pickup Restart here! Pickup Restart here! Pickup Restart here! 
+### Reviews, Creating Posts and Commenting
+The reviews page that the navigation takes a user to, provides the unauthenticated user to read excerpts of each review, so they can choose which they want to read in full in the post's detail page.  At the bottom of this page, there is page navigation,  If there is sufficient posts to create more pages and a button that says "write a review" for the authenticated user who wishes to add to the reviews page.  Also, for the authenticated user, at the bottom of the detail of an individual post is a comments box where a authenticated user can contribute to the individual post.
+The authenticated user can also like posts, which adds to the likes count which is displayed under a post.
+ 
+RE-START HERE!  RE-START HERE!  RE-START HERE!  RE-START HERE!  
 
-### Creating Posts and Commenting
+
 ___
 ___
 
@@ -583,8 +591,7 @@ ___
 ## Copy / Improve / Contribute
 ### More work needed.
 **Code should be implemented to guard against**
-- negative number of layers input from admin panel
-- Repetition of input for names such as cake names, flavours, etc..
+Performance speeds of loading need to be improved.
 
 If anyone wishes to copy and improve this software by contributing changes,
 please do.  You will find instructions from
