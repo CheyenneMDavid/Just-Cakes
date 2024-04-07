@@ -286,7 +286,7 @@ Post List Page Desktop Lighthouse Score
 ![Post List Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712501267/JustCakes-Readme-images/post-list-lighthouse-desktop-score_j98snw.png)
 
 Post List Page Mobile Lighthouse Score
-![Post List Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712501267/JustCakes-Readme-images/post-list-lighthouse-desktop-score_j98snw.png)
+![Post List Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712501268/JustCakes-Readme-images/post-list-lighthouse-mobile-score_pycud6.png)
 
 Post Detail Page Desktop Lighthouse Score
 ![Post Detail Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712501268/JustCakes-Readme-images/post-detail-lighthouse-desktop-score_lyw9dw.png)
