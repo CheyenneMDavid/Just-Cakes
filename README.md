@@ -275,14 +275,24 @@ I used Google's "Lighthouse" to measure my site.  Measuring only the main pages,
 
 Index Page Desktop Lighthouse Score
 ![Index Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712426925/JustCakes-Readme-images/index-page-lighthouse-desktop-score_ruw2uj.png)
-
 Index Page Mobile Lighthouse Score
 ![Index Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712426926/JustCakes-Readme-images/index-page-lighthouse-mobile-score_ht5ggs.png)
 Cake Detail Desktop Lighthouse Score
 ![Cake Detail Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712426926/JustCakes-Readme-images/cake-detail-lighthouse-desktop-score_qf9oby.png)
 Cake Detail Mobile Lighthouse Score
-![Cake Detial Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712426925/JustCakes-Readme-images/cake-detail-lighthouse-mobile-score_zihdh0.png)
+![Cake Detail Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712426925/JustCakes-Readme-images/cake-detail-lighthouse-mobile-score_zihdh0.png)
 
+Post List Page Desktop Lighthouse Score
+![Post List Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712501267/JustCakes-Readme-images/post-list-lighthouse-desktop-score_j98snw.png)
+
+Post List Page Mobile Lighthouse Score
+![Post List Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712501267/JustCakes-Readme-images/post-list-lighthouse-desktop-score_j98snw.png)
+
+Post Detail Page Desktop Lighthouse Score
+![Post Detail Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712501268/JustCakes-Readme-images/post-detail-lighthouse-desktop-score_lyw9dw.png)
+
+Post Detail Page Mobile Lighthouse Score
+![Post Detail Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712501267/JustCakes-Readme-images/post-detail-lighthouse-mobile-score_cwkxiu.png)
 
 ___
 
