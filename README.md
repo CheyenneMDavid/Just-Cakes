@@ -688,7 +688,7 @@ ___
 
 The reviews application within the just cakes project has been copied from the Code Institute walkthrough django project "codestar".
 **StackOverflow** for Regex patterns and how to implement them.
-Picture images have been courtesy of **Midjourney** and **Microsoft's Bing image-creator**.
+Picture images have been courtesy of **Midjourney** and **Microsoft's Bing image-creator**. whilst the descriptions for the cakes were supplied by chatgpt.
 **Picsart** and `Draw.io` for creating wireframes and flowcharts for my project.
 I have used **ChatGPT** as a tutor, fellow student and sounding board that had on tap, asking it to explain concepts I found hard to grasp, meanings of terms that are often taken as a given and also it's advice about structure of the project with a view to further development and also advice on completing aspects of this very readme, in how I should go about things.
 However...  Sometimes this has been to my detriment because it would get carried away in conversations about goals and routes to them, resulting in me having to scrub work and redo it.
