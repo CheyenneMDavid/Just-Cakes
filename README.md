@@ -95,17 +95,21 @@ ___
 ## Project Planning & Development:
 This section outlines the planning process and development approach for our project. Below is a flowchart diagram that provides a visual representation of the overall functionality of the application.
 ![](https://res.cloudinary.com/cheymd/image/upload/v1712064156/JustCakes-Readme-images/basic-layout-of-functionality_v0az3y.png)
+___
 
-
-- **Reviews**:
+&nbsp;
 Table for planning "Reviews" database
+
 ![Reviews Tables Model](https://res.cloudinary.com/cheymd/image/upload/v1711207188/JustCakes-Readme-images/reviews-table_1_pv1kw7.png)
 
-- **Customer Accounts**
+&nbsp;
 Table for planning "Customer Accounts" database
+
 ![Customer Accounts](https://res.cloudinary.com/cheymd/image/upload/v1711207083/JustCakes-Readme-images/customer-account-tables_1_blheom.png)
 
-- **Cakes**
+&nbsp;
+Cakes
+
 Table for planning "Cakes" database
 Defining type:Wedding, Novelty and Birthday. Allergy: GF for Gluten Free. V for plantbased.  Flavours and colors. And a list of the cakes themselves, making them searchable by users of the site when such extra functionality added.
 &nbsp;
@@ -114,18 +118,23 @@ In doing so, new content for the fields can be created by a site administrator. 
 &nbsp;
 The purpose of the tables when planning the structure of the data was not to reflect the exact details of each cake currently available, but instead have the relevant sections.  So whilst I've used some of the names of cakes and data such as gluten free, etc...  The precise details of cakes on the site is subject to change, which was the purpose of the field structure.
 
-#### Cake Categories
+&nbsp;
+Cake Categories
+
 ![Cake Categories](https://res.cloudinary.com/cheymd/image/upload/v1711207072/JustCakes-Readme-images/cake-category-table_all7hy.png)
 
-####  Cake Colours
+&nbsp;
+Cake Colours
+
 ![Cake color and color association table](https://res.cloudinary.com/cheymd/image/upload/v1711207069/JustCakes-Readme-images/cake-colour-association-table_1_gvtskc.png)
 
-Cake Flavours
+#### Cake Flavours
 ![Cake flavour and flavour association table](https://res.cloudinary.com/cheymd/image/upload/v1711207077/JustCakes-Readme-images/cake-flavour-association-table_1_kxeb5q.png)
 
-Cake List
+#### Cake List
 ![Cake List](https://res.cloudinary.com/cheymd/image/upload/v1711207080/JustCakes-Readme-images/cake-list_1_bti57a.png)
 
+___
 ___
 
 ## Wireframes
@@ -230,8 +239,9 @@ Central to the Customer Accounts App is the the customer's profile.  At first th
   Screenshot of the Individual user's account detail/profile page with buttons to return home, update their profile or delete their profile which would also delete their account.
   ![Profile Page](https://res.cloudinary.com/cheymd/image/upload/v1712226451/JustCakes-Readme-images/profile-details_wydnup.png)
 
-&nbsp;
-- **Profile Creation and Update**: Initially blank when initially created and associated with a user, the individual customer profile can be updated by the user.  Validation is in place for details such as phone numbers and postcodes using regex and custom validation logic in `forms.py`
+
+Profile Creation and Update
+Initially blank when initially created and associated with a user, the individual customer profile can be updated by the user.  Validation is in place for details such as phone numbers and postcodes using regex and custom validation logic in `forms.py`
   
 &nbsp;
 Update Profile Form with fields to update, help text to guide the user and an update button.
@@ -258,7 +268,9 @@ The Contact form is accessible from all pages and can be used by authenticated u
 The regex pattern I've used for validating the phone numbers is from StackOverflow and I've credited it as such in the `forms.py` file itself.
 Upon successful form submission, the user gets an onscreen message thanking them, which lasts for 3 seconds before they are then redirected to the homepage.
 
+&nbsp;
 Screenshot of the "contact form"
+
 ![Contact Form](https://res.cloudinary.com/cheymd/image/upload/v1712271776/JustCakes-Readme-images/contact-form_oc4pby.png)
 
 Screenshot of successful contact form submission
@@ -274,28 +286,36 @@ To help pages load faster, I've utilised webp where I could.  The images that I 
 I used Google's "Lighthouse" to measure my site.  Measuring only the main pages, I gained the following scores, of which I've screenshotted the readouts from Lighthouse.
 
 Index Page Desktop Lighthouse Score
+
 ![Index Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712508049/JustCakes-Readme-images/index-page-lighthouse-desktop-score_i43r3o.png)
 
 Index Page Mobile Lighthouse Score
+
 ![Index Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712508048/JustCakes-Readme-images/index-page-lighthouse-mobile-score_ymrbcq.png)
 
 Cake Detail Desktop Lighthouse Score
+
 ![Cake Detail Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712426926/JustCakes-Readme-images/cake-detail-lighthouse-desktop-score_qf9oby.png)
 
 Cake Detail Mobile Lighthouse Score
+
 ![Cake Detail Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712426925/JustCakes-Readme-images/cake-detail-lighthouse-mobile-score_zihdh0.png)
 
 
 Post List Page Desktop Lighthouse Score
+
 ![Post List Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712501267/JustCakes-Readme-images/post-list-lighthouse-desktop-score_j98snw.png)
 
 Post List Page Mobile Lighthouse Score
+
 ![Post List Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712501268/JustCakes-Readme-images/post-list-lighthouse-mobile-score_pycud6.png)
 
 Post Detail Page Desktop Lighthouse Score
+
 ![Post Detail Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712501268/JustCakes-Readme-images/post-detail-lighthouse-desktop-score_lyw9dw.png)
 
 Post Detail Page Mobile Lighthouse Score
+
 ![Post Detail Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712501267/JustCakes-Readme-images/post-detail-lighthouse-mobile-score_cwkxiu.png)
 
 ___
@@ -466,16 +486,23 @@ ___
 
 ## Testing
 ### Written Tests
-- **Comment Form in Reviews App**
+**Comment Form in Reviews App**
+  
 Tests for the comment form in the reviews app are copied from the Code Institute walkthrough project called Codestar. The code for which can be found here:
 ![Comment Form - pass](reviews/tests/tests_forms.py)
 
 &nbsp;
-- **Updating Profile Form in Customer_Accounts App**
+**Updating Profile Form in Customer_Accounts App**
+
 The test passes for ```test_invalid_form()``` demonstrated the expected errors, as deliberate invalid data was intentionally passed to the form for validation.
+
+&nbsp;
 **Screenshot of console from test**:
+
 ![Deliberate invalid data](https://res.cloudinary.com/cheymd/image/upload/v1711505142/JustCakes-Readme-images/update-profile-form-test-console-display_bl37p9.png)
-![Update Profile Form - pass](/customer_accounts/tests/test_forms.py)
+
+&nbsp;
+![Update Profile Form - pass](customer_accounts/tests/test_forms.py)
 
 &nbsp;
 - **User Sign-up/Sign-in/Sign-out**
@@ -585,10 +612,69 @@ ___
 
 ## Deployment
 
+This guide outlines the steps to deploy the Just Cakes Project on Heroku, set up ElephantSQL for database management, and Cloudinary for handling media files.
+
+### Prerequisites
+
+Before beginning the deployment process, ensure you have accounts and installations for the following services and platforms:
+
+- **Heroku Account**: Platform to host your app.
+- **ElephantSQL Account**: As your database.
+- **Cloudinary Account**: To store your media files.
+- **GitHub Account**: Which you'll use to clone the repo
+- **Gitpod Account or Your Preferred IDE**: This guide uses Gitpod as the IDE.
+
+### Deployment Guide
+
+#### Setting Up on Heroku
+
+1. **Create a Heroku App**: Follow the instructions to create a new app on Heroku. Choose a unique name for your Just Cakes version. Instructions can be found [here](https://dev.to/ivadyhabimana/3-creating-your-first-heroku-app-3d1d).
+
+#### Cloning and Preparing the Repository
+
+1. **Clone the Repository**: Clone the Just Cakes project repository from GitHub. Instructions for cloning are available [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+2. **Open in Gitpod**: Start your Gitpod environment (or your chosen IDE) and open the cloned repository.
+3. **Install Dependencies**: Install the project dependencies by running `pip install -r requirements.txt` in the terminal.
+
+#### Database Setup with ElephantSQL
+
+1. **Create a Database Instance**: Navigate to [ElephantSQL's documentation](https://www.elephantsql.com/docs/index.html) and create a new PostgreSQL database instance. Follow the given instructions to set up the instance and obtain the connection URL.
+
+#### Setting Up Cloudinary for Media Management
+
+1. **Create a Cloudinary Account**: Go to [Cloudinary's integration guide](https://cloudinary.com/documentation/how_to_integrate_cloudinary#landingpage) to create an account and get your API keys for media management.
+
+#### Integrating and Deploying to Heroku
+
+1. **Configure Environment Variables**: Set up the necessary environment variables in your Heroku app settings. Include database URLs from ElephantSQL and API keys from Cloudinary.
+2. **Deploy Your Application**: Link your GitHub repository to your Heroku app for automatic or manual deployment. Use the Heroku CLI to push your changes if preferred:
+    - Log into Heroku CLI: `heroku login`
+    - Link your repository: `heroku git:remote -a <your-heroku-app-name>`
+    - Deploy your application: `git push heroku main`
+
+#### Verifying Deployment
+
+1. **Check Your Application**: Visit your Heroku app's URL to see the live Just Cakes site. Ensure that the database and media files are correctly linked and functioning.
+
+### Troubleshooting
+
+- **Deployment Errors**: Use `heroku logs --tail` in the terminal to check for any deployment errors.
+- **Database Connection Issues**: Verify that the ElephantSQL URL is correctly set in the Heroku app's environment variables.
+- **Media Files Not Loading**: Check that Cloudinary API keys are correctly configured in the environment variables.
+
+For further assistance, you can refer to the documentation that is provided by Heroku, ElephantSQL, and Cloudinary, or consult their respective support forums where will find a wealth of experience amongst their membership.
+
 
 ___
 
 ## Copy / Improve / Contribute
+
+If anyone wishes to copy and improve this software by contributing changes,
+please do.  You will find instructions from
+[GitHub on how to do this.](https://docs.github.com/en/get-started/quickstart/contributing-to-projects#forking-a-repository)
+___
+
+
 ### More work needed.
 **Code should be implemented to guard against**
 Performance speeds of loading need to be improved.
@@ -601,13 +687,14 @@ ___
 ## Credits, Acknowledgments and Appreciation.
 
 The reviews application within the just cakes project has been copied from the Code Institute walkthrough django project "codestar".
-StackOverflow for Regex patterns and how to implement them.
-Picture images have been courtesy of Midjourney and Microsoft's Bing image-creator. Some I have
-I have used ChatGPT as a tutor that is on tap, asking it's advice about structure with a view to further development and also advice on completing aspects of this readme, in how I should go about things.  Sometimes to my detriment because it would get carried away, resulting in me having to scrub work and redo it.
-Code Institute Tutors for help when I reached out.
+**StackOverflow** for Regex patterns and how to implement them.
+Picture images have been courtesy of **Midjourney** and **Microsoft's Bing image-creator**.
+**Picsart** and `Draw.io` for creating wireframes and flowcharts for my project.
+I have used **ChatGPT** as a tutor, fellow student and sounding board that had on tap, asking it to explain concepts I found hard to grasp, meanings of terms that are often taken as a given and also it's advice about structure of the project with a view to further development and also advice on completing aspects of this very readme, in how I should go about things.
+However...  Sometimes this has been to my detriment because it would get carried away in conversations about goals and routes to them, resulting in me having to scrub work and redo it.
+**Code Institute Tutors** for help when I reached out.
 The favicon.ico is courtesy of [Favicon Generator](https://favicon.io)
 https://websitemockupgenerator.com
-
 
 Code and the idea for toggling the DEBUG according to environment is courtesy of Code Institute walkthrough projects.
 
