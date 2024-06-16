@@ -41,7 +41,7 @@ X_FRAME_OPTIONS = "SAMEORIGIN"
 DEBUG = development
 
 if development:
-    ALLOWED_HOSTS = [os.environ.get("HEROKU_DEV")]
+    ALLOWED_HOSTS = [os.environ.get("ALLOWED_LOCAL_HOST")]
 else:
     ALLOWED_HOSTS = [os.environ.get("HEROKU_HOSTNAME")]
 
