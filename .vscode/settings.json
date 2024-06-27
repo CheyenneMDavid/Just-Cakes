@@ -42,8 +42,10 @@
   ],
   "cSpell.ignoreWords": [
     "autodocstring",
+    "charliermarsh",
     "dbaeumer",
     "debugpy",
+    "esbenp",
     "eventyret",
     "formulahendry",
     "keymap",

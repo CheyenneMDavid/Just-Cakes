@@ -2,8 +2,13 @@ image:
   file: .gitpod.dockerfile
 
 tasks:
-  - init: . ${GITPOD_REPO_ROOT}/.vscode/init_tasks.sh
-    command: /home/gitpod/.pg_ctl/bin/pg_start > /dev/null
+  - init: |
+      . ${GITPOD_REPO_ROOT}/.vscode/init_tasks.sh
+      /home/gitpod/.pg_ctl/bin/pg_start > /dev/null
+      unset PIP_USER
+      source myenv/bin/activate
+      pip install -r requirements.txt
+      npm install
   - command: . ${GITPOD_REPO_ROOT}/.vscode/uptime.sh &
 
 vscode:
@@ -24,3 +29,5 @@ vscode:
     - njpwerner.autodocstring
     - vscode-icons-team.vscode-icons
     - yzhang.markdown-all-in-one
+    - esbenp.prettier-vscode
+    - charliermarsh.ruff
