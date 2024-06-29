@@ -8,6 +8,7 @@ tasks:
       unset PIP_USER
       source myenv/bin/activate
       pip install -r requirements.txt
+      . $NVM_DIR/nvm.sh && nvm install 18 && nvm use 18
       npm install
   - command: . ${GITPOD_REPO_ROOT}/.vscode/uptime.sh &
 
