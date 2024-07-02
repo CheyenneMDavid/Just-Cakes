@@ -41,6 +41,8 @@
     "wght"
   ],
   "cSpell.ignoreWords": [
+    "Picsart",
+    "Pylint",
     "autodocstring",
     "charliermarsh",
     "dbaeumer",
@@ -50,10 +52,15 @@
     "formulahendry",
     "keymap",
     "kohler",
+    "myenv",
     "njpwerner",
     "rudge",
     "stackoverflow",
+    "stylelint",
+    "stylelintrc",
     "toolsai",
+    "unrecognised",
+    "wireframes",
     "yzhang"
   ]
 }

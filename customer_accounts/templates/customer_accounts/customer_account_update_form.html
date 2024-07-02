@@ -4,18 +4,18 @@
 
 <hr />
 <div class="container-fluid">
-	<article class="row">
-		<h2>Profile Update Form</h2>
-		<!-- Provides a clear title for the form's purpose -->
-		<form method="post" enctype="multipart/form-data">
-			{% csrf_token %}
-			<!-- Using CSRF token to guard against Cross Site Forgery attacks -->
-			{{ form|crispy }}
-			<!-- Renders the form fields with crispy forms -->
-			<button type="submit" class="btn custom-submit-color">Update</button>
-			<!-- Button to submit the form and update profile information -->
-		</form>
-	</article>
+  <article class="row">
+    <h2>Profile Update Form</h2>
+    <!-- Provides a clear title for the form's purpose -->
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- Using CSRF token to guard against Cross Site Forgery attacks -->
+      {{ form|crispy }}
+      <!-- Renders the form fields with crispy forms -->
+      <button type="submit" class="btn custom-submit-color">Update</button>
+      <!-- Button to submit the form and update profile information -->
+    </form>
+  </article>
 </div>
 
 {% endblock %}

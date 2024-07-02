@@ -1,148 +1,151 @@
 {% extends 'base.html' %} {% block content %} {% load crispy_forms_tags %}
 
-<!-- Purpose of this template is to display an individual post and it's accompanying image. If an image isn't available, then uses a default one.  Images are requested in webp format if they are available  This is to aid page loading-->
+<!-- Purpose of this template is to display an individual post and it's accompanying image. 
+ If an image isn't available, then uses a default one.  
+ Images are requested in webp format if they are available  This is to aid page loading-->
 
 <section class="masthead">
-	<h2 class="visually-hidden">Section Description</h2>
-	<div class="container">
-		<div class="row g-0">
-			<div class="col-md-6 masthead-text">
-				<!-- Displays the post title -->
-				<h1 class="post-title">{{ post.title }}</h1>
-				<!-- Displays the author and creation date -->
-				<p class="post-subtitle capitalised-username">
-					{{ post.author }} | {{ post.created_on }}
-				</p>
-			</div>
+  <h2 class="visually-hidden">Section Description</h2>
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-md-6 masthead-text">
+        <!-- Displays the post title -->
+        <h1 class="post-title">{{ post.title }}</h1>
+        <!-- Displays the author and creation date -->
+        <p class="post-subtitle capitalised-username">
+          {{ post.author }} | {{ post.created_on }}
+        </p>
+      </div>
 
-			<!-- Placeholder for the user's post image or the default image, asking for it to be in WebP format if it's available, otherwise it accepts jpg -->
-			<div class="d-none d-md-block col-md-6 masthead-image">
-				{% if "placeholder" in post.featured_image.url %}
-				<img
-					src="https://res.cloudinary.com/cheymd/image/upload/v1693482045/default_image_rlpqek.jpg?format=webp"
-					alt="default image"
-					class="img-fluid"
-				/>
-				{% else %}
-				<img
-					src="{{ post.featured_image.url|add:'?format=webp' }}"
-					alt="{{ post.title }}"
-					class="img-fluid"
-				/>
-				{% endif %}
-			</div>
-		</div>
-	</div>
+      <!-- Placeholder for the user's post image or the default image, asking for it to be in WebP format 
+	   if it's available, otherwise it accepts jpg -->
+      <div class="d-none d-md-block col-md-6 masthead-image">
+        {% if "placeholder" in post.featured_image.url %}
+        <img
+          src="https://res.cloudinary.com/cheymd/image/upload/v1693482045/default_image_rlpqek.jpg?format=webp"
+          alt="default image"
+          class="img-fluid"
+        />
+        {% else %}
+        <img
+          src="{{ post.featured_image.url|add:'?format=webp' }}"
+          alt="{{ post.title }}"
+          class="img-fluid"
+        />
+        {% endif %}
+      </div>
+    </div>
+  </div>
 </section>
 
 <div class="container row">
-	<section class="col card mb-4 mt-3 left top">
-		<div class="card-body">
-			<!-- Safely renders the post's content, allowing HTML -->
-			<p class="card-text">{{ post.content | safe }}</p>
-			<div class="row">
-				<div class="col-1">
-					<div>
-						<h3 class="visually-hidden">Comment Submission Form</h3>
-						{% if user.is_authenticated %}
-						<form
-							class="d-inline"
-							action="{% url 'post_like' post.slug %}"
-							method="POST"
-						>
-							<!-- Using a CSRF token to guard against Cross-Site Request Forgery attack -->
-							{% csrf_token %} {% if liked %}
-							<!-- Unlike button because it's "is liked" -->
-							<button
-								type="submit"
-								name="blogpost_id"
-								value="{{post.slug}}"
-								class="btn-like"
-								aria-label="Unlike post"
-							>
-								<i class="fas fa-heart"></i>
-							</button>
-							{% else %}
-							<!-- Otherwise it's a "Like" button -->
-							<button
-								type="submit"
-								name="blogpost_id"
-								value="{{post.slug}}"
-								class="btn-like"
-								aria-label="Like post"
-							>
-								<i class="far fa-heart"></i>
-							</button>
-							{% endif %}
-						</form>
-						{% else %}
-						<span class="text-secondary"><i class="far fa-heart"></i></span>
-						<!-- Shows a heart icon for non-authenticated users -->
-						{% endif %}
-						<span class="text-secondary">
-							<!-- Displays the number of likes -->
-							{{ post.number_of_likes }}</span
-						>
-					</div>
-				</div>
-				<div class="col-1">
-					{% with comments.count as total_comments %}
-					<strong class="text-secondary">
-						<i class="far fa-comments"></i>
-						<!-- Displays the total number of comments -->
-						{{ total_comments }}
-					</strong>
-					{% endwith %}
-				</div>
-			</div>
-		</div>
-	</section>
-	<hr />
-	<section class="row">
-		<h2 class="visually-hidden">Comments</h2>
-		<div class="col-md-8 card mb-4 mt-3">
-			<h3>Comments:</h3>
-			<!-- Heading for the comments section -->
-			<div class="card-body">
-				{% for comment in comments %}
-				<div class="comment-container">
-					<p class="font-weight-bold">
-						{{ comment.name }}
-						<span class="text-muted font-weight-normal"
-							>{{ comment.created_on }}</span
-						>
-						wrote:
-					</p>
-					<!-- Dynamically displays the comment -->
-					{{ comment.body | linebreaks }}
-				</div>
-				{% endfor %}
-			</div>
-		</div>
-		<div class="col-md-4 card mb-4 mt-3">
-			<div class="card-body">
-				<!-- If the user comments, then they receive a message to say it is awaiting approval. -->
-				{% if commented %}
-				<div class="alert alert-success" role="alert">
-					<!-- Message to user. -->
-					Your comment is awaiting approval
-				</div>
-				{% else %} {% if user.is_authenticated %}
-				<h3>Leave a comment:</h3>
-				<p>Posting as: {{ user.username }}</p>
-				<form method="post" class="form-style">
-					{{ comment_form | crispy }}
-					<!-- Using a CSRF token to guard against Cross-Site Request Forgery attack -->
-					{% csrf_token %}
-					<!-- Comment submission button -->
-					<button type="submit" class="btn custom-submit-color btn-lg">
-						Submit
-					</button>
-				</form>
-				{% endif %} {% endif %}
-			</div>
-		</div>
-	</section>
+  <section class="col card mb-4 mt-3 left top">
+    <div class="card-body">
+      <!-- Safely renders the post's content, allowing HTML -->
+      <p class="card-text">{{ post.content | safe }}</p>
+      <div class="row">
+        <div class="col-1">
+          <div>
+            <h3 class="visually-hidden">Comment Submission Form</h3>
+            {% if user.is_authenticated %}
+            <form
+              class="d-inline"
+              action="{% url 'post_like' post.slug %}"
+              method="POST"
+            >
+              <!-- Using a CSRF token to guard against Cross-Site Request Forgery attack -->
+              {% csrf_token %} {% if liked %}
+              <!-- Unlike button because it's "is liked" -->
+              <button
+                type="submit"
+                name="blogpost_id"
+                value="{{post.slug}}"
+                class="btn-like"
+                aria-label="Unlike post"
+              >
+                <i class="fas fa-heart"></i>
+              </button>
+              {% else %}
+              <!-- Otherwise it's a "Like" button -->
+              <button
+                type="submit"
+                name="blogpost_id"
+                value="{{post.slug}}"
+                class="btn-like"
+                aria-label="Like post"
+              >
+                <i class="far fa-heart"></i>
+              </button>
+              {% endif %}
+            </form>
+            {% else %}
+            <span class="text-secondary"><i class="far fa-heart"></i></span>
+            <!-- Shows a heart icon for non-authenticated users -->
+            {% endif %}
+            <span class="text-secondary">
+              <!-- Displays the number of likes -->
+              {{ post.number_of_likes }}</span
+            >
+          </div>
+        </div>
+        <div class="col-1">
+          {% with comments.count as total_comments %}
+          <strong class="text-secondary">
+            <i class="far fa-comments"></i>
+            <!-- Displays the total number of comments -->
+            {{ total_comments }}
+          </strong>
+          {% endwith %}
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr />
+  <section class="row">
+    <h2 class="visually-hidden">Comments</h2>
+    <div class="col-md-8 card mb-4 mt-3">
+      <h3>Comments:</h3>
+      <!-- Heading for the comments section -->
+      <div class="card-body">
+        {% for comment in comments %}
+        <div class="comment-container">
+          <p class="font-weight-bold">
+            {{ comment.name }}
+            <span class="text-muted font-weight-normal"
+              >{{ comment.created_on }}</span
+            >
+            wrote:
+          </p>
+          <!-- Dynamically displays the comment -->
+          {{ comment.body | linebreaks }}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-md-4 card mb-4 mt-3">
+      <div class="card-body">
+        <!-- If the user comments, then they receive a message to say it is awaiting approval. -->
+        {% if commented %}
+        <div class="alert alert-success" role="alert">
+          <!-- Message to user. -->
+          Your comment is awaiting approval
+        </div>
+        {% else %} {% if user.is_authenticated %}
+        <h3>Leave a comment:</h3>
+        <p>Posting as: {{ user.username }}</p>
+        <form method="post" class="form-style">
+          {{ comment_form | crispy }}
+          <!-- Using a CSRF token to guard against Cross-Site Request Forgery attack -->
+          {% csrf_token %}
+          <!-- Comment submission button -->
+          <button type="submit" class="btn custom-submit-color btn-lg">
+            Submit
+          </button>
+        </form>
+        {% endif %} {% endif %}
+      </div>
+    </div>
+  </section>
 </div>
 
 {% endblock content %}

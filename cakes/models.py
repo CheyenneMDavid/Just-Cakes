@@ -43,7 +43,8 @@ class IndividualCake(models.Model):
     is_plant_based = models.BooleanField(default=False)
 
     # Guidance on how to limit the input was taken from stackoverflow here:
-    # https://stackoverflow.com/questions/849142/how-to-limit-the-maximum-value-of-a-numeric-field-in-a-django-model
+    # https://stackoverflow.com/questions/849142/
+    # how-to-limit-the-maximum-value-of-a-numeric-field-in-a-django-model
     # and whilst it's not solution with the most ratings from the page's
     # contributors, it is the solution that fitted the fields in my model.
     number_of_layers = models.IntegerField(

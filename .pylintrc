@@ -1,4 +1,0 @@
-; # Configuration file to stop Pylint error messages that aren't correct.
-[MASTER]
-load-plugins=pylint_django
-disable=unused-import

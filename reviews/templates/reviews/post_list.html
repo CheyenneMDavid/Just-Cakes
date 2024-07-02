@@ -1,98 +1,103 @@
 {% extends 'base.html' %} {% block content %}
 
-<!--  This page is pretty much a carbon copy of the walkthrough project called Codestar with Code Institute.  The purpose of this template is to display a list of posts. Each comprising of an image fetched from cloudinary. Title, author, excerpt, number of likes and number of comments. When an image isn't available, a default image is used. Images are requested from cloudinary in webp format to help load times but will display jpg when webp isn't available. Unauthenticated users can read posts, th number of likes and the comments. Authenticated users can post, like and comment. -->
+<!--  This page is pretty much a carbon copy of the walkthrough project called Codestar with Code Institute.
+  The purpose of this template is to display a list of posts. Each comprising of an image fetched from Cloudinary.
+  Title, author, excerpt, number of likes and number of comments. When an image isn't available, a default image
+  is used. Images are requested from Cloudinary in webp format to help load times but will display jpg when
+  webp isn't available. Unauthenticated users can read posts, th number of likes and the comments.
+  Authenticated users can post, like and comment. -->
 <hr />
 <div class="container-fluid text-center">
-	<section class="row justify-content-center">
-		<!-- Accessibility: hidden heading for screen readers -->
-		<h2 class="visually-hidden">Posts</h2>
+  <section class="row justify-content-center">
+    <!-- Accessibility: hidden heading for screen readers -->
+    <h2 class="visually-hidden">Posts</h2>
 
-		<div class="col-12 mt-3">
-			<div class="row">
-				<!-- Iterating over each post passed to the template -->
-				{% for post in post_list %}
-				<!-- Article element for semantic HTML, each post takes up 4 columns in a medium-sized screen -->
-				<article class="col-md-4 mb-4">
-					<div class="card mb-4">
-						<div class="card-body">
-							<figure class="image-container">
-								<!-- Conditional check for placeholder image -->
-								{% if "placeholder" in post.featured_image.url %}
-								<!-- Displays a default image if post image URL contains 'placeholder' -->
-								<img
-									src="https://res.cloudinary.com/cheymd/image/upload/v1693482045/default_image_rlpqek.jpg?format=webp"
-									alt="default image"
-									class="img-fluid"
-								/>
-								{% else %}
-								<!-- Otherwise, displays the post's image from Cloudinary in webp format -->
-								<img
-									src="{{ post.featured_image.url|add:'?format=webp' }}"
-									alt="{{ post.title }}"
-									class="img-fluid"
-								/>
-								{% endif %}
-								<figcaption class="post-author">
-									Author: {{ post.author }}
-								</figcaption>
-								<!-- Caption with post author -->
-							</figure>
-							<div class="post-title">
-								<!-- Post title section -->
-								<a href="{% url 'post_detail' post.slug %}">
-									<!-- Link to the detailed view of the post -->
-									<h2>{{ post.title }}</h2>
-									<!-- Display post title -->
-								</a>
-							</div>
-							<p>{{ post.content|truncatewords:25}}</p>
-							<!-- Display post excerpt -->
-							<p class="card-text text-muted h6">
-								<!-- Post creation date and number of likes -->
-								{{ post.created_on }}
-								<i class="far fa-heart"></i> {{ post.number_of_likes }}
-							</p>
-						</div>
-					</div>
-				</article>
-				{% if forloop.counter|divisibleby:3 and not forloop.last %}
-				<!-- Ends the current row and starts a new row every 3 posts unless it's the last post -->
-			</div>
-			<div class="row">{% endif %} {% endfor %}</div>
-			{% if is_paginated %}
-			<!-- Pagination navigation, shown if the posts are paginated -->
-			<nav aria-label="Page navigation example">
-				<ul class="pagination justify-content-center">
-					{% if page_obj.has_previous %}
-					<li>
-						<a
-							href="?page={{ page_obj.previous_page_number }}"
-							class="page-link btn custom-button-color"
-							>&laquo; PREV
-						</a>
-					</li>
-					{% endif %} {% if page_obj.has_next %}
-					<li>
-						<a
-							href="?page={{ page_obj.next_page_number }}"
-							class="page-link btn custom-button-color"
-						>
-							NEXT &raquo;</a
-						>
-					</li>
+    <div class="col-12 mt-3">
+      <div class="row">
+        <!-- Iterating over each post passed to the template -->
+        {% for post in post_list %}
+        <!-- Article element for semantic HTML, each post takes up 4 columns in a medium-sized screen -->
+        <article class="col-md-4 mb-4">
+          <div class="card mb-4">
+            <div class="card-body">
+              <figure class="image-container">
+                <!-- Conditional check for placeholder image -->
+                {% if "placeholder" in post.featured_image.url %}
+                <!-- Displays a default image if post image URL contains 'placeholder' -->
+                <img
+                  src="https://res.cloudinary.com/cheymd/image/upload/v1693482045/default_image_rlpqek.jpg?format=webp"
+                  alt="default image"
+                  class="img-fluid"
+                />
+                {% else %}
+                <!-- Otherwise, displays the post's image from Cloudinary in webp format -->
+                <img
+                  src="{{ post.featured_image.url|add:'?format=webp' }}"
+                  alt="{{ post.title }}"
+                  class="img-fluid"
+                />
+                {% endif %}
+                <figcaption class="post-author">
+                  Author: {{ post.author }}
+                </figcaption>
+                <!-- Caption with post author -->
+              </figure>
+              <div class="post-title">
+                <!-- Post title section -->
+                <a href="{% url 'post_detail' post.slug %}">
+                  <!-- Link to the detailed view of the post -->
+                  <h2>{{ post.title }}</h2>
+                  <!-- Display post title -->
+                </a>
+              </div>
+              <p>{{ post.content|truncatewords:25}}</p>
+              <!-- Display post excerpt -->
+              <p class="card-text text-muted h6">
+                <!-- Post creation date and number of likes -->
+                {{ post.created_on }}
+                <i class="far fa-heart"></i> {{ post.number_of_likes }}
+              </p>
+            </div>
+          </div>
+        </article>
+        {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        <!-- Ends the current row and starts a new row every 3 posts unless it's the last post -->
+      </div>
+      <div class="row">{% endif %} {% endfor %}</div>
+      {% if is_paginated %}
+      <!-- Pagination navigation, shown if the posts are paginated -->
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          {% if page_obj.has_previous %}
+          <li>
+            <a
+              href="?page={{ page_obj.previous_page_number }}"
+              class="page-link btn custom-button-color"
+              >&laquo; PREV
+            </a>
+          </li>
+          {% endif %} {% if page_obj.has_next %}
+          <li>
+            <a
+              href="?page={{ page_obj.next_page_number }}"
+              class="page-link btn custom-button-color"
+            >
+              NEXT &raquo;</a
+            >
+          </li>
 
-					{% endif %}
-				</ul>
-			</nav>
-			{% endif %} {% if user.is_authenticated %}
-			<!-- Shows 'Write a Review' button only to authenticated users -->
-			<div class="text-center my-4">
-				<a href="{% url 'create_post' %}" class="btn custom-button-color"
-					>Write a Review</a
-				>
-			</div>
-			{% endif %}
-		</div>
-	</section>
+          {% endif %}
+        </ul>
+      </nav>
+      {% endif %} {% if user.is_authenticated %}
+      <!-- Shows 'Write a Review' button only to authenticated users -->
+      <div class="text-center my-4">
+        <a href="{% url 'create_post' %}" class="btn custom-button-color"
+          >Write a Review</a
+        >
+      </div>
+      {% endif %}
+    </div>
+  </section>
 </div>
 {% endblock %}

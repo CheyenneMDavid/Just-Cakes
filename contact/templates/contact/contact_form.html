@@ -1,36 +1,37 @@
 {% extends 'base.html' %} {% block content %}
 
-<!-- Purpose of this template is to provide a contact form for users.
-It uses CSRF tokens for protection and gives the user feedback upon submission. -->
+<!-- Purpose of this template is to provide a contact form for users. 
+ 	It uses CSRF tokens for protection and gives the user feedback upon submission. -->
 
 <div role="main" class="container">
-	<section>
-		<h2>Contact Us</h2>
-		<form method="post">
-			<!-- CSRF token to guard against "Cross Site Request Forgery" attacks. It ensures that the form sent is the same form that the use has filled in. -->
-			{% csrf_token %}
+  <section>
+    <h2>Contact Us</h2>
+    <form method="post">
+      <!-- CSRF token to guard against "Cross Site Request Forgery" attacks. 
+       Ensuring that the form sent is the same form that the uses completed. -->
+      {% csrf_token %}
 
-			<!-- Displays a success message and redirects the user after form submission. -->
-			{% if submitted %}
-			<script>
-				// Redirects the user to the homepage after 3 seconds of displaying a thank you message.
-				setTimeout(function () {
-					window.location.href = '/';
-				}, 3000);
-			</script>
-			<h1>
-				Well done on finding and reaching out to the best custom cake makers
-				there is!"
-			</h1>
+      <!-- Displays a success message and redirects the user after form submission. -->
+      {% if submitted %}
+      <script>
+        // Redirects the user to the homepage after 3 seconds of displaying a thank you message.
+        setTimeout(function () {
+          window.location.href = "/";
+        }, 3000);
+      </script>
+      <h1>
+        Well done on finding and reaching out to the best custom cake makers
+        there is!"
+      </h1>
 
-			<p>We'll be in touch soon 😊</p>
-			{% else %}
-			<!-- Displays the form fields. -->
-			{{ form.as_p }}
-			<button class="btn custom-button-color" type="submit">Submit</button>
-			{% endif %}
-		</form>
-	</section>
+      <p>We'll be in touch soon 😊</p>
+      {% else %}
+      <!-- Displays the form fields. -->
+      {{ form.as_p }}
+      <button class="btn custom-button-color" type="submit">Submit</button>
+      {% endif %}
+    </form>
+  </section>
 </div>
 
 {% endblock %}

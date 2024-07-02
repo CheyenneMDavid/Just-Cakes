@@ -1,48 +1,42 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% load i18n %} {% block head_title %} {% trans
+"Signup" %}
 <!-- Using comments to prevent line breaks in Dynamic Templating to ensure proper functionality -->
-{% load i18n %}
-<!-- Using comments to prevent line breaks in Dynamic Templating to ensure proper functionality -->
-{% block head_title %}
-<!-- Using comments to prevent line breaks in Dynamic Templating to ensure proper functionality -->
-{% trans "Signup" %}
-<!-- Using comments to prevent line breaks in Dynamic Templating to ensure proper functionality -->
-{% endblock %}
-<!-- Using comments to prevent line breaks in Dynamic Templating to ensure proper functionality -->
-{% block content %}
+{% endblock %} {% block content %}
 <div class="container custom-svg">
-	<div class="row">
-		<div class="col-md-8 mt-3 offset-md-2">
-			<h3>{% trans "Sign Up" %}</h3>
-			<p>
-				{% blocktrans %}Welcome to Just Cakes. Do you already have an account?
-				Then please
-				<a class="link" href="{{ login_url }}">sign in</a> instead.
-				<!-- Using comments to prevent line breaks in Dynamic Templating to ensure proper functionality -->
-				{% endblocktrans %}
-			</p>
-		</div>
-	</div>
-	<div class="row input-labels">
-		<div class="col-md-8 mt-3 offset-md-2">
-			<form
-				class="signup"
-				id="signup_form"
-				method="post"
-				action="{% url 'account_signup' %}"
-			>
-				{% csrf_token %} {{ form.as_p }} {% if redirect_field_value %}
-				<input
-					type="hidden"
-					name="{{ redirect_field_name }}"
-					value="{{ redirect_field_value }}"
-				/>
-				{% endif %}
-				<button class="btn btn-signup right" type="submit">
-					{% trans "Sign Up" %} &raquo;
-				</button>
-			</form>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-md-8 mt-3 offset-md-2">
+      <h3>{% trans "Sign Up" %}</h3>
+      <p>
+        {% blocktrans %}Welcome to Just Cakes. Do you already have an account?
+        Then please
+        <a class="link" href="{{ login_url }}">sign in</a>
+        instead.
+        <!-- Using comments to prevent line breaks in Dynamic Templating to ensure proper functionality -->
+        {% endblocktrans %}
+      </p>
+    </div>
+  </div>
+  <div class="row input-labels">
+    <div class="col-md-8 mt-3 offset-md-2">
+      <form
+        class="signup"
+        id="signup_form"
+        method="post"
+        action="{% url 'account_signup' %}"
+      >
+        {% csrf_token %} {{ form.as_p }} {% if redirect_field_value %}
+        <input
+          type="hidden"
+          name="{{ redirect_field_name }}"
+          value="{{ redirect_field_value }}"
+        />
+        {% endif %}
+        <button class="btn btn-signup right" type="submit">
+          {% trans "Sign Up" %} &raquo;
+        </button>
+      </form>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
