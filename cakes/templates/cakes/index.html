@@ -22,7 +22,15 @@
     <div class="col-md-3">
       <article class="card">
         <!-- Displays the cake image -->
-
+        <img
+          src="{% if cake.images.all and not 'placeholder' in cake.images.all.0.image.url %}
+                {{ cake.images.all.0.image.url|add:'?format=webp' }}
+                {% else %}
+                https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg
+                {% endif %}"
+          class="card-img-top list-image-size"
+          alt="{{ cake.name }}"
+        />
         <!-- Dynamically displays the cake name -->
         <h4 class="card-title">{{ cake.name }}</h4>
         <!-- Link to cake detail page -->
@@ -52,10 +60,11 @@
       <article class="card">
         <!-- Displays the cake image -->
         <img
-          src="{{ 
-			cake.images.all.0.image.url|default:
-			'https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg' 
-		}}?format=webp"
+          src="{% if cake.images.all and not 'placeholder' in cake.images.all.0.image.url %}
+                {{ cake.images.all.0.image.url|add:'?format=webp' }}
+                {% else %}
+                https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg
+                {% endif %}"
           class="card-img-top list-image-size"
           alt="{{ cake.name }}"
         />
@@ -88,11 +97,12 @@
       <article class="card">
         <!-- Display cake image -->
         <img
-          src="{{ 
-			cake.images.all.0.image.url|default:
-			'https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg' 
-		}}?format=webp"
-          class="card-img-top image-list-size"
+          src="{% if cake.images.all and not 'placeholder' in cake.images.all.0.image.url %}
+                {{ cake.images.all.0.image.url|add:'?format=webp' }}
+                {% else %}
+                https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg
+                {% endif %}"
+          class="card-img-top list-image-size"
           alt="{{ cake.name }}"
         />
         <!-- Display the cake name -->
