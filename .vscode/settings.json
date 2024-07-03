@@ -45,6 +45,7 @@
     "Pylint",
     "autodocstring",
     "charliermarsh",
+    "customeraccount",
     "dbaeumer",
     "debugpy",
     "esbenp",
