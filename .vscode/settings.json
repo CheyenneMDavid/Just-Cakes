@@ -1,67 +1,85 @@
 {
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "ms-python.black-formatter",
-  "python.formatting.provider": "black",
-  "python.formatting.blackPath": "/workspace/Just-Cakes/myenv/bin/black",
-  "python.formatting.blackArgs": ["--line-length=79"],
-  "python.linting.enabled": true,
-  "python.linting.lintOnSave": true,
-  "python.linting.linter": "ruff",
-  "python.linting.ruffArgs": ["--max-line-length=79"],
-  "python.linting.ruffPath": "/workspace/Just-Cakes/myenv/bin/ruff",
-  "files.exclude": {
-    "**/.DS_Store": true,
-    "**/.git": true,
-    "**/.github": true,
-    "**/.gitp*": true,
-    "**/.hg": true,
-    "**/.svn": true,
-    "**/.vscode": true,
-    "**/core.Microsoft*": true,
-    "**/core.mongo*": true,
-    "**/core.python*": true,
-    "**/CVS": true
-  },
+  // General editor settings
+  "workbench.iconTheme": "vscode-icons",
   "workbench.colorTheme": "Default High Contrast",
   "terminal.integrated.gpuAcceleration": "auto",
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.wordWrap": "bounded",
+  "editor.wordWrapColumn": 120,
+
+  // ESLint settings
+  "eslint.format.enable": true,
+  "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
   },
+
+
+  // Python settings
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--line-length", 79],
+  "python.formatting.blackPath": "/workspace/Just-Cakes/myenv/bin/black",
+  "python.linting.enabled": true,
   "python.linting.pylintEnabled": false,
-  "python.linting.flake8Enabled": false,
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "cSpell.words": [
-    "blogpost",
-    "Cloudinary",
-    "socialaccount",
-    "Templating",
-    "wght"
-  ],
+  "python.linting.ruffEnabled": true,
+
+  // Ruff settings
+  "ruff.lineLength": 79,
+  "ruff.format.preview": false,
+  "ruff.lint.run": "onSave",
+  "ruff.organizeImports": false,
+  "ruff.showNotifications": "onError",
+  "ruff.nativeServer": true,
+  "ruff.ignoreStandardLibrary": false,
+
+  // Prettier settings
+  "prettier.requireConfig": true,
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": false,
+  "prettier.semi": true,
+  "prettier.singleQuote": false,
+  "prettier.trailingComma": "es5",
+  "prettier.bracketSpacing": true,
+  "prettier.jsxSingleQuote": false,
+  "prettier.proseWrap": "preserve",
+  "prettier.arrowParens": "always",
+  "prettier.quoteProps": "as-needed",
+  "prettier.bracketSameLine": false,
+  "prettier.vueIndentScriptAndStyle": false,
+  "prettier.printWidth": 120,
+
+  // Spelling settings
   "cSpell.ignoreWords": [
-    "Picsart",
-    "Pylint",
-    "autodocstring",
-    "charliermarsh",
-    "customeraccount",
-    "dbaeumer",
-    "debugpy",
-    "esbenp",
-    "eventyret",
-    "formulahendry",
-    "keymap",
-    "kohler",
-    "myenv",
-    "njpwerner",
-    "rudge",
-    "stackoverflow",
-    "stylelint",
-    "stylelintrc",
-    "toolsai",
-    "unrecognised",
-    "wireframes",
-    "yzhang"
-  ]
+      "Parens",
+      "myenv",
+      "pylint"
+  ],
+
+  // File exclusion settings
+  "files.exclude": {
+      "**/.DS_Store": true,
+      "**/.git": true,
+      "**/.github": true,
+      "**/.gitp*": true,
+      "**/.hg": true,
+      "**/.svn": true,
+      "**/.vscode": true,
+      "**/core.Microsoft*": true,
+      "**/core.mongo*": true,
+      "**/core.python*": true,
+      "**/CVS": true
+  },
+
+  // Language specific settings
+  "[python]": {
+      "editor.wordWrap": "bounded",
+      "editor.wordWrapColumn": 79,
+      "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+
+  "[html]": {
+      "editor.wordWrap": "on",
+      "editor.wordWrapColumn": 120
+  }
+
 }
