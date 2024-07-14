@@ -2,17 +2,19 @@
  with Code Institute. -->
 
 <!-- Extends from the base.html template -->
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+
+<!-- Start of the content block -->
+{% block content %}
 
 <!-- This template uses bootstrap classes for it's styling and layout,  It's purpose is to dynamically 
- display the image, name and details of an individual cake.  It fetches the relevant image from cloudinary.
+ display the image, name and details of an individual cake.  It fetches the relevant image from Cloudinary.
  When the correct image isn't available, it displays a default one that says "coming soon.
  Images are requested and display as webp format if they're available.  Otherwise they display in jpg. -->
 
-<section class="container-flex">
-  <h2 class="visually-hidden">Section Description</h2>
+<section>
   <hr />
-
+  <h2 class="visually-hidden">Section Description</h2>
   <div class="row">
     <article class="col-md-6 image-size">
       <h2 class="visually-hidden">Description of the Image</h2>
