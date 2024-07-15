@@ -9,117 +9,91 @@
 
 <!-- Horizontal rule for visual separation of page layout -->
 <hr />
-
-<!-- Wedding Cakes "section" -->
-<section class="container-flex" aria-labelledby="wedding-cakes">
-  <!-- Heading for Wedding Cakes -->
-  <h2 id="wedding-cakes">Wedding Cakes</h2>
-  <div class="row">
-    <!-- Checks if there's any wedding cakes -->
-    {% if wedding_cakes %}
-    <!-- Loops through each wedding cake -->
-    {% for cake in wedding_cakes %}
-    <div class="col-md-3">
-      <article class="card">
-        <!-- Displays the cake image -->
-        <img
-          src="{% if cake.images.all and not 'placeholder' in cake.images.all.0.image.url %}
-                {{ cake.images.all.0.image.url|add:'?format=webp' }}
-                {% else %}
-                https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg
-                {% endif %}"
-          class="card-img-top list-image-size"
-          alt="{{ cake.name }}"
-        />
-        <!-- Dynamically displays the cake name -->
-        <h4 class="card-title">{{ cake.name }}</h4>
-        <!-- Link to cake detail page -->
+<!-- For all cake types: Weddings, Birthdays, Novelties. Each cake type is checked to see if the type is present. If found, each individual cake of that type is looped through and dynamically displayed. Otherwise, "No cakes found." is displayed-->
+<section>
+  <!-- Wedding Cakes Section -->
+  <article aria-labelledby="wedding-cakes">
+    <h2 id="wedding-cakes">Wedding Cakes</h2>
+    <div class="row">
+      {% if wedding_cakes %} {% for cake in wedding_cakes %}
+      <div class="col-md-3">
         <a href="{% url 'cake_detail' cake.id %}">
-          <!-- Dynamically displays excerpt for the cake description -->
-          <p class="card-text">{{ cake.description|truncatewords:25 }}</p>
+          <div class="card">
+            <img
+              src="{% if cake.images.all and not 'placeholder' in cake.images.all.0.image.url %}
+                  {{ cake.images.all.0.image.url|add:'?format=webp' }}
+                  {% else %}
+                  https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg
+                  {% endif %}"
+              class="card-img-top list-image-size"
+              alt="{{ cake.name }}"
+            />
+            <h4>{{ cake.name }}</h4>
+            <p class="card-text">{{ cake.description|truncatewords:25 }}</p>
+          </div>
         </a>
-      </article>
+      </div>
+      {% endfor %} {% else %}
+      <p>No cakes found.</p>
+      {% endif %}
     </div>
-    {% endfor %} {% else %}
-    <!--If no cakes are found, it displays a message to say so message -->
-    <p>No cakes found.</p>
-    {% endif %}
-  </div>
-</section>
+  </article>
 
-<!-- Birthday Cakes "section" -->
-<section aria-labelledby="birthday-cakes">
-  <!-- Heading for Birthday Cakes -->
-  <h2 id="birthday-cakes">Birthday Cakes</h2>
-  <div class="row">
-    <!-- Check if there's any birthday cakes -->
-    {% if birthday_cakes %}
-    <!-- Loops through each birthday cake -->
-    {% for cake in birthday_cakes %}
-    <div class="col-md-3">
-      <article class="card">
-        <!-- Displays the cake image -->
-        <img
-          src="{% if cake.images.all and not 'placeholder' in cake.images.all.0.image.url %}
-                {{ cake.images.all.0.image.url|add:'?format=webp' }}
-                {% else %}
-                https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg
-                {% endif %}"
-          class="card-img-top list-image-size"
-          alt="{{ cake.name }}"
-        />
-        <!-- Dynamically displays the cake name -->
-        <h4 class="card-title">{{ cake.name }}</h4>
-        <!-- Link to cake detail page -->
+  <!-- Birthday Cakes Section -->
+  <article aria-labelledby="birthday-cakes">
+    <h2 id="birthday-cakes">Birthday Cakes</h2>
+    <div class="row">
+      {% if birthday_cakes %} {% for cake in birthday_cakes %}
+      <div class="col-md-3">
         <a href="{% url 'cake_detail' cake.id %}">
-          <!-- Dynamically displays excerpt for the cake description -->
-          <p class="card-text">{{ cake.description|truncatewords:25 }}</p>
+          <div class="card">
+            <img
+              src="{% if cake.images.all and not 'placeholder' in cake.images.all.0.image.url %}
+                  {{ cake.images.all.0.image.url|add:'?format=webp' }}
+                  {% else %}
+                  https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg
+                  {% endif %}"
+              class="card-img-top list-image-size"
+              alt="{{ cake.name }}"
+            />
+            <h4>{{ cake.name }}</h4>
+            <p class="card-text">{{ cake.description|truncatewords:25 }}</p>
+          </div>
         </a>
-      </article>
+      </div>
+      {% endfor %} {% else %}
+      <p>No cakes found.</p>
+      {% endif %}
     </div>
-    {% endfor %} {% else %}
-    <!--If no cakes are found, it displays a message to say so. -->
-    <p>No cakes found.</p>
-    {% endif %}
-  </div>
-</section>
+  </article>
 
-<!-- Novelty Cakes "section" -->
-<section aria-labelledby="novelty-cakes">
-  <!-- Heading for Novelty Cakes -->
-  <h2 id="novelty-cakes">Novelty Cakes</h2>
-  <div class="row">
-    <!-- Checks if there's any novelty cakes -->
-    {% if novelty_cakes %}
-    <!-- Loops through each novelty cake -->
-    {% for cake in novelty_cakes %}
-    <div class="col-md-3">
-      <article class="card">
-        <!-- Display cake image -->
-        <img
-          src="{% if cake.images.all and not 'placeholder' in cake.images.all.0.image.url %}
-                {{ cake.images.all.0.image.url|add:'?format=webp' }}
-                {% else %}
-                https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg
-                {% endif %}"
-          class="card-img-top list-image-size"
-          alt="{{ cake.name }}"
-        />
-        <!-- Display the cake name -->
-        <h4 class="card-title">{{ cake.name }}</h4>
-        <!-- Link to cake detail page -->
+  <!-- Novelty Cakes Section -->
+  <article aria-labelledby="novelty-cakes">
+    <h2 id="novelty-cakes">Novelty Cakes</h2>
+    <div class="row">
+      {% if novelty_cakes %} {% for cake in novelty_cakes %}
+      <div class="col-md-3">
         <a href="{% url 'cake_detail' cake.id %}">
-          <!-- Dynamically displays excerpt for the cake description -->
-          <p class="card-text">{{ cake.description|truncatewords:25 }}</p>
+          <div class="card">
+            <img
+              src="{% if cake.images.all and not 'placeholder' in cake.images.all.0.image.url %}
+                  {{ cake.images.all.0.image.url|add:'?format=webp' }}
+                  {% else %}
+                  https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg
+                  {% endif %}"
+              class="card-img-top list-image-size"
+              alt="{{ cake.name }}"
+            />
+            <h4>{{ cake.name }}</h4>
+            <p class="card-text">{{ cake.description|truncatewords:25 }}</p>
+          </div>
         </a>
-      </article>
+      </div>
+      {% endfor %} {% else %}
+      <p>No cakes found.</p>
+      {% endif %}
     </div>
-    {% endfor %} {% else %}
-    <!--If no cakes are found, it displays a message to say so message -->
-    <p>No cakes found.</p>
-    {% endif %}
-  </div>
+  </article>
 </section>
-
 <!-- End of content block -->
 {% endblock %}
