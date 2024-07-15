@@ -138,11 +138,8 @@ hr {
 
 .post-link:hover,
 .page-link {
-  color: #556b2f;
-}
-
-.socialmedia-background-color {
   background-color: #b0a15d;
+  border: none;
 }
 
 /* Form and Inputs Styles */

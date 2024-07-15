@@ -45,7 +45,7 @@
   "prettier.vueIndentScriptAndStyle": false,
   "prettier.printWidth": 120,
 
-  "cSpell.ignoreWords": ["Parens", "myenv", "pylint"],
+  "cSpell.ignoreWords": ["Parens", "capitalised", "myenv", "pylint"],
 
   "files.exclude": {
     "**/.DS_Store": true,
@@ -70,5 +70,6 @@
   "[html]": {
     "editor.wordWrap": "on",
     "editor.wordWrapColumn": 120
-  }
+  },
+  "cSpell.words": ["Cloudinary"]
 }
