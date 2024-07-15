@@ -45,7 +45,14 @@
   "prettier.vueIndentScriptAndStyle": false,
   "prettier.printWidth": 120,
 
-  "cSpell.ignoreWords": ["Parens", "capitalised", "myenv", "pylint"],
+  "cSpell.ignoreWords": [
+    "Parens",
+    "capitalised",
+    "myenv",
+    "pylint",
+    "socialaccount",
+    "templating"
+  ],
 
   "files.exclude": {
     "**/.DS_Store": true,

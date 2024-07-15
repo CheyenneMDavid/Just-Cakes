@@ -12,7 +12,7 @@
 <!-- Prevent line breaks in dynamic templating -->
 {% block content %}
 
-<div class="container custom-svg">
+<div class="custom-svg">
   <div class="row">
     <div class="col-md-8 mt-3 offset-md-2">
       <h3>{% trans "Sign In" %}</h3>
@@ -20,7 +20,7 @@
         {% blocktrans %}Welcome back to Just Cakes. Please log in. If you
         haven't created an account yet, then
         <a class="link" href="{{ signup_url }}">sign up</a> first.
-        <!-- Using comments to prevent line breaks in Dynamic Templating to ensure proper functionality -->
+        <!-- Using comments to prevent line breaks in dynamic templating to ensure proper functionality -->
         {% endblocktrans %}
       </p>
     </div>
