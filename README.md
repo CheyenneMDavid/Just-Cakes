@@ -227,15 +227,15 @@ The Just Cakes project, at this stage is simple. And the functionality could hav
 
 ## Formatters and Linters
 
-After migrating my Gitpod workspace due to a change in how I needed to access the IDE, I noticed changes in code formatting.  This led to reinstalling and changing formatters and linters.
+After migrating my Gitpod workspace due to a change in how I needed to access the IDE, I noticed changes in code formatting. This led to reinstalling and changing formatters and linters.
 Unfortunately, the configurations that I’d previously relied on when installing via the Gitpod Marketplace UI, didn’t seem to work correctly.
 
 Python Related
-In settings.json, blocks of code that related to Python files were greyed out and showed as “Unknown Configuration”.  Attempting to understand why this was the case led me to uninstalling and re-installing extensions, checking paths to the packages and updating them from running globally to reaching my virtual environment.  Despite the changes made, the configurations that were related to Python remained unrecognised.  I understand Pylint to be widely used and actively maintained too for checking quality of Python code, but despite this it was causing warnings of depreciation.  In the search to understand why I came across Ruff which claimed to be a simpler, faster and more streamlined tool.  Changing to Ruff resulted many of the settings that weren’t going to be included in Newer versions of Pylint as it developed, and so the deprecation warnings came to an end.  I’ve not been able to understand why the Python specific configurations which are separate to Ruff remain unrecognised and yet do seem to have effect on files.
+In settings.json, blocks of code that related to Python files were greyed out and showed as “Unknown Configuration”. Attempting to understand why this was the case led me to uninstalling and re-installing extensions, checking paths to the packages and updating them from running globally to reaching my virtual environment. Despite the changes made, the configurations that were related to Python remained unrecognised. I understand Pylint to be widely used and actively maintained too for checking quality of Python code, but despite this it was causing warnings of depreciation. In the search to understand why I came across Ruff which claimed to be a simpler, faster and more streamlined tool. Changing to Ruff resulted many of the settings that weren’t going to be included in Newer versions of Pylint as it developed, and so the deprecation warnings came to an end. I’ve not been able to understand why the Python specific configurations which are separate to Ruff remain unrecognised and yet do seem to have effect on files.
 
 Prettier
 Warnings about Beautify being deprecated have been continuous, but these warnings have since changed to saying that Beautify was no longer being supported.
-I chose Prettier and ESLint from the Gitpod marketplace for all file formats other than Python.  But the settings that normal installation provides didn’t work.  The configuration and settings I finally arrived at were a result of guidance, explanations and advice in the form of tutoring by ChatGPT from OpenAI.
+I chose Prettier and ESLint from the Gitpod marketplace for all file formats other than Python. But the settings that normal installation provides didn’t work. The configuration and settings I finally arrived at were a result of guidance, explanations and advice in the form of tutoring by ChatGPT from OpenAI.
 This covered the converting of .eslintrc to eslint.config.js, inclusion of the ignore property as opposed to a separate .eslintignore and an additional stylelintrc.json which enables settings that stopped false errors and allowed for specified units such as “["em", "rem", "%", "s"]”
 To ensure that the automatic loading of Beautify didn’t clash with prettier settings, I removed it from .gitpod.yml file
 
@@ -395,6 +395,14 @@ During the development of _Just Cakes_, I encountered a number of issues. These 
   I then went about creating new content for the posts so that the posts each had a reasonable number of words before I could make use of truncating down to 25 words. So I copy pasted generic text in via the admin panel, attributing it to various users.
   However... Upon rendering the screen the copy and pasting had taken html styles across and although it didn't show when entering in via the admin panel, it did show in the render.
   I tried to clean the output by using `{{ post.content|striptags }}` and that did work, but not with truncation, so I decided to not bother with the striptags command on the bases that users would normally be entering text a fresh and this issue is unlikely to arise.
+
+### Improved Layout
+
+- **Removal of unwanted classes**: In the cakes list page, both the header and the footer didn't act as expected as I shrunk the window. It was fine in all the other pages. This led me looking at unrequired classes. I removed all the container-fluid classes from the all html files except for the base.html which was being extended to all other HTMLs, relying on the single container-fluid class that was in the body tag.
+
+- **Clickable Cards**: Originally I had just the titles of posts in the list pages or the paragraph content in the cake gallery as the links to their respective detail pages. In both cases I made the entire cards clickable which made for a better user experience.
+
+These changes improved the overall structure, responsiveness, and usability of the website.
 
 ### Deployment Challenges and Solutions
 
@@ -770,14 +778,14 @@ please do. You will find instructions from
 ## Credits, Acknowledgments and Appreciation.
 
 - The reviews application within the just cakes project has been copied from the Code Institute walkthrough django project "codestar".
-**StackOverflow** for Regex patterns and how to implement them.
-Picture images have been courtesy of **Midjourney** and **Microsoft's Bing image-creator**. whilst the descriptions for the cakes were supplied by chatgpt.
-**Picsart** and `Draw.io` for creating wireframes and flowcharts for my project.
-I have used **ChatGPT** as a tutor, fellow student and sounding board that had on tap, asking it to explain concepts I found hard to grasp, meanings of terms that are often taken as a given and also it's advice about structure of the project with a view to further development and also advice on completing aspects of this very readme, in how I should go about things.
-However... Sometimes this has been to my detriment because it would get carried away in conversations about goals and routes to them, resulting in me having to scrub work and redo it.
-**Code Institute Tutors** for help when I reached out.
-The favicon.ico is courtesy of [Favicon Generator](https://favicon.io)
-https://websitemockupgenerator.com
+  **StackOverflow** for Regex patterns and how to implement them.
+  Picture images have been courtesy of **Midjourney** and **Microsoft's Bing image-creator**. whilst the descriptions for the cakes were supplied by chatgpt.
+  **Picsart** and `Draw.io` for creating wireframes and flowcharts for my project.
+  I have used **ChatGPT** as a tutor, fellow student and sounding board that had on tap, asking it to explain concepts I found hard to grasp, meanings of terms that are often taken as a given and also it's advice about structure of the project with a view to further development and also advice on completing aspects of this very readme, in how I should go about things.
+  However... Sometimes this has been to my detriment because it would get carried away in conversations about goals and routes to them, resulting in me having to scrub work and redo it.
+  **Code Institute Tutors** for help when I reached out.
+  The favicon.ico is courtesy of [Favicon Generator](https://favicon.io)
+  https://websitemockupgenerator.com
 
 - Code and the idea for toggling the DEBUG according to environment is courtesy of Code Institute walkthrough projects.
 
