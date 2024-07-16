@@ -19,45 +19,49 @@
         <!-- Article element for semantic HTML, each post takes up 4 columns in a medium-sized screen -->
         <article class="col-md-4 mb-4">
           <div class="card mb-4">
-            <div class="card-body">
-              <figure class="image-container">
-                <!-- Conditional check for placeholder image -->
-                {% if "placeholder" in post.featured_image.url %}
-                <!-- Displays a default image if post image URL contains 'placeholder' -->
-                <img
-                  src="https://res.cloudinary.com/cheymd/image/upload/v1693482045/default_image_rlpqek.jpg?format=webp"
-                  alt="default image"
-                  class="img-fluid"
-                />
-                {% else %}
-                <!-- Otherwise, displays the post's image from Cloudinary in webp format -->
-                <img
-                  src="{{ post.featured_image.url|add:'?format=webp' }}"
-                  alt="{{ post.title }}"
-                  class="img-fluid"
-                />
-                {% endif %}
-                <figcaption class="post-author">
-                  Author: {{ post.author }}
-                </figcaption>
-                <!-- Caption with post author -->
-              </figure>
-              <div class="post-title">
-                <!-- Post title section -->
-                <a href="{% url 'post_detail' post.slug %}">
-                  <!-- Link to the detailed view of the post -->
+            <!-- Entire card-body made clickable, acting as link to detail page -->
+            <a
+              href="{% url 'post_detail' post.slug %}"
+              class="card-link"
+              style="display: block"
+            >
+              <div class="card-body">
+                <figure class="image-container">
+                  <!-- Conditional check for placeholder image -->
+                  {% if "placeholder" in post.featured_image.url %}
+                  <!-- Displays a default image if post image URL contains 'placeholder' -->
+                  <img
+                    src="https://res.cloudinary.com/cheymd/image/upload/v1693482045/default_image_rlpqek.jpg?format=webp"
+                    alt="default image"
+                    class="img-fluid"
+                  />
+                  {% else %}
+                  <!-- Otherwise, displays the post's image from Cloudinary in webp format -->
+                  <img
+                    src="{{ post.featured_image.url|add:'?format=webp' }}"
+                    alt="{{ post.title }}"
+                    class="img-fluid"
+                  />
+                  {% endif %}
+                  <figcaption class="post-author">
+                    Author: {{ post.author }}
+                  </figcaption>
+                  <!-- Caption with post author -->
+                </figure>
+                <div class="post-title">
+                  <!-- Post title section -->
                   <h2>{{ post.title }}</h2>
                   <!-- Display post title -->
-                </a>
+                </div>
+                <p>{{ post.content|truncatewords:25}}</p>
+                <!-- Display post excerpt -->
+                <p class="card-text text-muted h6">
+                  <!-- Post creation date and number of likes -->
+                  {{ post.created_on }}
+                  <i class="far fa-heart"></i> {{ post.number_of_likes }}
+                </p>
               </div>
-              <p>{{ post.content|truncatewords:25}}</p>
-              <!-- Display post excerpt -->
-              <p class="card-text text-muted h6">
-                <!-- Post creation date and number of likes -->
-                {{ post.created_on }}
-                <i class="far fa-heart"></i> {{ post.number_of_likes }}
-              </p>
-            </div>
+            </a>
           </div>
         </article>
         {% if forloop.counter|divisibleby:3 and not forloop.last %}
