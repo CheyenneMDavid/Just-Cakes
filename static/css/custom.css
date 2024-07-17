@@ -71,33 +71,16 @@ main,
 }
 
 /* Contents Headings */
-.cake-type-headings,
-.review,
-.profile-form,
-.mission-statement {
+.review {
   font-family: "Lobster", cursive;
   color: #b0a15d;
 }
 
-.mission-statement {
-  padding-left: 15px;
-}
-
 /* Image and Card Styles */
-.image-container,
-.card-img-top,
-.img-fluid,
-.image-flash {
+.card-img-top .list-image-size {
   border: 2px solid #b0a15d;
-}
-
-.image-fluid {
-  width: auto;
+  width: 100%;
   height: auto;
-}
-
-.col-md-3 {
-  padding: 20px;
 }
 
 /* Custom styles for list and detail images */
@@ -105,12 +88,15 @@ main,
 .detail-image-size {
   border-radius: 10px;
   margin-bottom: 15px;
-  height: auto;
-  width: auto;
 }
 
 .detail-image-size {
   border: 3px solid #b0a15d;
+}
+
+img {
+  width: 600px;
+  height: auto;
 }
 
 /* Text and Links */
@@ -153,15 +139,10 @@ hr {
 
 /* Buttons Styles */
 .custom-button-color,
-.custom-delete-button,
 .custom-submit-color {
   color: whitesmoke;
   background-color: #b0a15d;
   border: 3px solid whitesmoke;
-}
-
-.inline-block-container {
-  display: inline-block;
 }
 
 .custom-submit-color {
