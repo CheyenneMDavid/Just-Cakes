@@ -18,6 +18,7 @@ The site displays a wide range of cakes but if customers want more unusual "one 
   - [Wireframes](#wireframes)
   - [Design Mockups](#design-mockups)
   - [Development Approach](#development-approach)
+- [Development Decisions](#development-decisions)
 - [Formatters and Linters](#formatters-and-linters)
 - [Application Overview and Functionality](#application-overview-and-functionality)
 - [Performance Optimization](#performance-optimization)
@@ -224,6 +225,21 @@ The Just Cakes project, at this stage is simple. And the functionality could hav
   I've used an environment variable to control the DEBUG setting, so that it sets to True when I'm working on development of of the application and then to False when it runs in the deployed production mode. This ensures security in production and detailed error messages in development. The idea and code was copied from my walkthrough projects with code institute.
 
 ---
+
+## Development Decisions
+
+- **Switching to "only" WebP Format** for Images for the landing page and also the cake detail page.
+  Previously having the option of images to be served up as JPG or WebP, the performance was poor.
+  Initially setting out to ensure that everything was served as WebP, I realised that the poor performance was not just due to the image format.
+
+- **But also the excessive CSS that was redundant**. Initially, I looked online for help on how to automate the search for redundant CSS, but when following instructions on implementation, I was getting error messages that would send me down rabbit holes. This is happened too many times, so I instead carried out a manual but systematic search through the custom.css for the occurrences of class names in the html files with the command `git grep -l '<class name being searched for>' -- '**/*html'`, deleting the classes that didn't return any listings and testing for changes.
+
+- User Friendly vs Efficiency.
+  The landing page is the gallery view which promotes the bespoke cakes that Just Cakes creates and supply. The gallery is maintained by an admin whose is responsible for ensuring that the various lines of cakes are shown to their best. On this bases, I decided that whilst it would be "nice" to make the uploading of cake images a little less regimented for the experience of an admin that was maintaining the site, it was more important that the experience of the user who would be browsing the pages of the site, be a a more fluid process.
+
+- This would be different to the Reviews page that both admins and users were able to contribute
+  toward. With this in mind I decided that only using WebP images for the cakes gallery was
+  orientated toward the user experience... The Reviews page would be less regimented in its formats, for precisely the same reason. Uploading posts and accompanying images should be conditional, because you can't account for every eventuality. But not unfriendly, and so other formats could be uploaded.
 
 ## Formatters and Linters
 
