@@ -7,10 +7,9 @@
 <!-- Start of the content block -->
 {% block content %}
 
-<!-- This template uses bootstrap classes for it's styling and layout,  It's purpose is to dynamically 
- display the image, name and details of an individual cake.  It fetches the relevant image from Cloudinary.
- When the correct image isn't available, it displays a default one that says "coming soon.
- Images are requested and display as webp format if they're available.  Otherwise they display in jpg. -->
+<!-- This template uses bootstrap classes for its styling and layout. Its purpose is to dynamically 
+ display the image, name, and details of an individual cake. It fetches the relevant image from Cloudinary.
+ When the correct image isn't available, it displays a default one that says "coming soon." -->
 
 <section>
   <hr />
@@ -18,46 +17,43 @@
   <div class="row">
     <article class="col-md-6 image-size">
       <h2 class="visually-hidden">Description of the Image</h2>
-      <!-- Checks if there's any cake images available -->
+      <!-- Check if there are any cake images available -->
       {% if cake.images.all %}
-      <!-- Check if the first image url is a placeholder -->
-      {% if "placeholder" in cake.images.all.0.image.url %}
-      <!-- Displays placeholder image -->
-      <img
-        src="https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg"
-        alt="Placeholder Image"
-        class="img-fluid detail-image-size"
-      />
+      <!-- Display the first image -->
+      <div class="card image-container">
+        <img
+          src="{{ cake.images.all.0.image.url }}"
+          alt="{{ cake.name }}"
+          width="600"
+          height="600"
+        />
+      </div>
       {% else %}
-      <!-- Displays the first image if available that's in webp -->
-      <img
-        src="{{ cake.images.all.0.image.url|add:'?format=webp' }}"
-        alt="{{ cake.name }}"
-        class="img-fluid detail-image-size"
-      />
-      {% endif %} {% else %}
-      <!-- Displays the default image -->
-      <img
-        src="https://res.cloudinary.com/cheymd/image/upload/v1710298157/default-image_yzftki.jpg"
-        alt="Default Image"
-        class="img-fluid detail-image-size"
-      />
+      <!-- Displays a default image if no cake images are available -->
+      <div class="card image-container">
+        <img
+          src="https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp"
+          alt="Default Image"
+          width="600"
+          height="600"
+        />
+      </div>
       {% endif %}
     </article>
+
     <article class="col-md-6">
-      <!-- Name, description and details for the individual cake -->
+      <!-- Name, description, and details for the individual cake -->
       <h2>{{ cake.name }}</h2>
       <p>Category: {{ cake.category.category }}</p>
       <p>{{ cake.description }}</p>
       <p>£{{ cake.price }}</p>
-      <!-- This part of the code shows if the cake is plant based or gluten free.  
-       It can be set in the admin panel and will display a font awesome icon indicating it's status. -->
+      <!-- Display icons for plant-based or gluten-free status -->
       {% if cake.is_plant_based %}
       <p><i class="fas fa-seedling plant-based-icon"></i> Plant Based</p>
       {% endif %} {% if cake.is_gluten_free %}
       <p><i class="fas fa-check-circle gluten-free-icon"></i> Gluten Free</p>
       {% endif %}
-      <!-- Button for back to the homepage (index.html) -->
+      <!-- Button to navigate back to the homepage (index.html) -->
       <a href="{% url 'index' %}" class="btn custom-button-color"
         >Back to Our Cakes</a
       >

@@ -76,27 +76,13 @@ main,
   color: #b0a15d;
 }
 
-/* Image and Card Styles */
-.card-img-top .list-image-size {
-  border: 2px solid #b0a15d;
+/* Image Container */
+.image-container {
   width: 100%;
   height: auto;
-}
-
-/* Custom styles for list and detail images */
-.list-image-size,
-.detail-image-size {
+  border: 2px solid #b0a15d;
   border-radius: 10px;
   margin-bottom: 15px;
-}
-
-.detail-image-size {
-  border: 3px solid #b0a15d;
-}
-
-img {
-  width: 600px;
-  height: auto;
 }
 
 /* Text and Links */
