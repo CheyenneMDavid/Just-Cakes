@@ -1,75 +1,67 @@
 {% extends 'base.html' %} {% block content %}
-
-<!--  This page is pretty much a carbon copy of the walkthrough project called Codestar with Code Institute.
-  The purpose of this template is to display a list of posts. Each comprising of an image fetched from Cloudinary.
-  Title, author, excerpt, number of likes and number of comments. When an image isn't available, a default image
-  is used. Images are requested from Cloudinary in webp format to help load times but will display jpg when
-  webp isn't available. Unauthenticated users can read posts, th number of likes and the comments.
-  Authenticated users can post, like and comment. -->
 <hr />
 <div class="text-center">
   <section class="row justify-content-center">
-    <!-- Accessibility: hidden heading for screen readers -->
     <h2 class="visually-hidden">Posts</h2>
-
     <div class="col-12 mt-3">
       <div class="row">
-        <!-- Iterating over each post passed to the template -->
         {% for post in post_list %}
-        <!-- Article element for semantic HTML, each post takes up 4 columns in a medium-sized screen -->
-        <article class="col-md-4 mb-4">
+        <article class="col-md-4 mb-4 box-control">
           <div class="card mb-4">
-            <!-- Entire card-body made clickable, acting as link to detail page -->
             <a
               href="{% url 'post_detail' post.slug %}"
               class="card-link"
               style="display: block"
             >
               <div class="card-body">
-                <figure class="image-container">
-                  <!-- Conditional check for placeholder image -->
+                <div class="index-post-image-container">
                   {% if "placeholder" in post.featured_image.url %}
-                  <!-- Displays a default image if post image URL contains 'placeholder' -->
                   <img
-                    src="https://res.cloudinary.com/cheymd/image/upload/v1693482045/default_image_rlpqek.jpg?format=webp"
+                    src="https://res.cloudinary.com/cheymd/image/upload/w_300,c_scale,q_auto,f_auto/v1693482045/default_image_rlpqek.webp"
+                    srcset="
+                      https://res.cloudinary.com/cheymd/image/upload/w_200,c_scale,q_auto,f_auto/v1693482045/default_image_rlpqek.webp 200w,
+                      https://res.cloudinary.com/cheymd/image/upload/w_300,c_scale,q_auto,f_auto/v1693482045/default_image_rlpqek.webp 300w,
+                      https://res.cloudinary.com/cheymd/image/upload/w_400,c_scale,q_auto,f_auto/v1693482045/default_image_rlpqek.webp 400w
+                    "
+                    sizes="(max-width: 576px) 90vw, (max-width: 768px) 45vw, (min-width: 769px) 30vw"
                     alt="default image"
                     class="img-fluid"
+                    width="300"
+                    height="300"
+                    loading="lazy"
                   />
                   {% else %}
-                  <!-- Otherwise, displays the post's image from Cloudinary in webp format -->
                   <img
-                    src="{{ post.featured_image.url|add:'?format=webp' }}"
+                    src="{{ post.featured_image.url|add:'?w=300&c_scale&q_auto&f_auto' }}"
+                    srcset="
+                      {{ post.featured_image.url|add:'?w=200&c_scale&q_auto&f_auto' }} 200w,
+                      {{ post.featured_image.url|add:'?w=300&c_scale&q_auto&f_auto' }} 300w,
+                      {{ post.featured_image.url|add:'?w=400&c_scale&q_auto&f_auto' }} 400w
+                    "
+                    sizes="(max-width: 576px) 90vw, (max-width: 768px) 45vw, (min-width: 769px) 30vw"
                     alt="{{ post.title }}"
                     class="img-fluid"
+                    width="300"
+                    height="300"
+                    loading="lazy"
                   />
                   {% endif %}
-                  <figcaption class="post-author">
-                    Author: {{ post.author }}
-                  </figcaption>
-                  <!-- Caption with post author -->
-                </figure>
-                <div class="post-title">
-                  <!-- Post title section -->
-                  <h2>{{ post.title }}</h2>
-                  <!-- Display post title -->
                 </div>
-                <p>{{ post.content|truncatewords:25}}</p>
-                <!-- Display post excerpt -->
-                <p class="card-text text-muted h6">
-                  <!-- Post creation date and number of likes -->
-                  {{ post.created_on }}
-                  <i class="far fa-heart"></i> {{ post.number_of_likes }}
+                <h2 class="post-title">{{ post.title }}</h2>
+                <p class="post-author">Author: {{ post.author }}</p>
+                <p>{{ post.content|truncatewords:25 }}</p>
+                <p class="list-card-text text-muted h6">
+                  {{ post.created_on }} <i class="far fa-heart"></i>
+                  {{ post.number_of_likes }}
                 </p>
               </div>
             </a>
           </div>
         </article>
         {% if forloop.counter|divisibleby:3 and not forloop.last %}
-        <!-- Ends the current row and starts a new row every 3 posts unless it's the last post -->
       </div>
       <div class="row">{% endif %} {% endfor %}</div>
       {% if is_paginated %}
-      <!-- Pagination navigation, shown if the posts are paginated -->
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
           {% if page_obj.has_previous %}
@@ -77,24 +69,21 @@
             <a
               href="?page={{ page_obj.previous_page_number }}"
               class="page-link btn custom-button-color"
-              >&laquo; PREV
-            </a>
+              >&laquo; PREV</a
+            >
           </li>
           {% endif %} {% if page_obj.has_next %}
           <li>
             <a
               href="?page={{ page_obj.next_page_number }}"
               class="page-link btn custom-button-color"
-            >
-              NEXT &raquo;</a
+              >NEXT &raquo;</a
             >
           </li>
-
           {% endif %}
         </ul>
       </nav>
       {% endif %} {% if user.is_authenticated %}
-      <!-- Shows 'Write a Review' button only to authenticated users -->
       <div class="text-center my-4">
         <a href="{% url 'create_post' %}" class="btn custom-button-color"
           >Write a Review</a
