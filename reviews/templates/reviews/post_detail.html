@@ -4,33 +4,32 @@
  If an image isn't available, then uses a default one.  
  Images are requested in webp format if they are available  This is to aid page loading-->
 
+<hr />
 <section class="masthead">
   <h2 class="visually-hidden">Section Description</h2>
   <div>
     <div class="row g-0">
-      <div class="col-md-6 masthead-text">
+      <div class="col-md-8 masthead-text">
         <!-- Displays the post title -->
-        <h1 class="post-title">{{ post.title }}</h1>
+        <h2 class="post-title">{{ post.title }}</h2>
         <!-- Displays the author and creation date -->
-        <p class="post-subtitle capitalised-username">
-          {{ post.author }} | {{ post.created_on }}
-        </p>
+        <p class="post-author">{{ post.author }} | {{ post.created_on }}</p>
       </div>
 
       <!-- Placeholder for the user's post image or the default image, asking for it to be in WebP format 
 	   if it's available, otherwise it accepts jpg -->
-      <div class="d-none d-md-block col-md-6 masthead-image">
+      <div class="d-none d-md-block col-md-4 masthead-image">
         {% if "placeholder" in post.featured_image.url %}
         <img
           src="https://res.cloudinary.com/cheymd/image/upload/v1693482045/default_image_rlpqek.jpg?format=webp"
           alt="default image"
-          class="img-fluid"
+          class="post-img-fluid"
         />
         {% else %}
         <img
           src="{{ post.featured_image.url|add:'?format=webp' }}"
           alt="{{ post.title }}"
-          class="img-fluid"
+          class="post-img-fluid"
         />
         {% endif %}
       </div>
@@ -39,7 +38,7 @@
 </section>
 
 <div class="row">
-  <section class="col card mb-4 mt-3 left top">
+  <section class="col mb-4 mt-3 left top">
     <div class="card-body">
       <!-- Safely renders the post's content, allowing HTML -->
       <p class="card-text">{{ post.content | safe }}</p>
@@ -103,7 +102,7 @@
   <hr />
   <section class="row">
     <h2 class="visually-hidden">Comments</h2>
-    <div class="col-md-8 card mb-4 mt-3">
+    <div class="col-md-6 card mb-4 mt-3">
       <h3>Comments:</h3>
       <!-- Heading for the comments section -->
       <div class="card-body">
@@ -122,7 +121,7 @@
         {% endfor %}
       </div>
     </div>
-    <div class="col-md-4 card mb-4 mt-3">
+    <div class="col-md-6 card mb-4 mt-3">
       <div class="card-body">
         <!-- If the user comments, then they receive a message to say it is awaiting approval. -->
         {% if commented %}
