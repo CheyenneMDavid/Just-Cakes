@@ -21,12 +21,7 @@
       {% if cake.images.all %}
       <!-- Display the first image -->
       <div class="card image-container">
-        <img
-          src="{{ cake.images.all.0.image.url }}"
-          alt="{{ cake.name }}"
-          width="600"
-          height="600"
-        />
+        <img src="{{ cake.images.all.0.image.url }}" alt="{{ cake.name }}" />
       </div>
       {% else %}
       <!-- Displays a default image if no cake images are available -->
@@ -34,14 +29,12 @@
         <img
           src="https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp"
           alt="Default Image"
-          width="600"
-          height="600"
         />
       </div>
       {% endif %}
     </article>
 
-    <article class="col-md-6">
+    <article class="col-md-6 mb-4">
       <!-- Name, description, and details for the individual cake -->
       <h2>{{ cake.name }}</h2>
       <p>Category: {{ cake.category.category }}</p>
