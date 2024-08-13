@@ -15,26 +15,50 @@
   <hr />
   <h2 class="visually-hidden">Section Description</h2>
   <div class="row">
-    <article class="col-md-6 image-size">
+    <article class="col-md-6">
       <h2 class="visually-hidden">Description of the Image</h2>
       <!-- Check if there are any cake images available -->
       {% if cake.images.all %}
       <!-- Display the first image -->
       <div class="card image-container">
-        <img src="{{ cake.images.all.0.image.url }}" alt="{{ cake.name }}" />
+        <img
+          src="{{ cake.images.all.0.image.url|add:'?fm=webp&w=500' }}"
+          srcset="{{ cake.images.all.0.image.url|add:'?fm=webp&w=500' }} 500w,
+                  {{ cake.images.all.0.image.url|add:'?fm=webp&w=1000' }} 1000w"
+          sizes="(max-width: 600px) 500px, 1000px"
+          alt="{{ cake.name }}"
+        />
       </div>
       {% else %}
-      <!-- Displays a default image if no cake images are available -->
+      <!-- Display a default image if no cake images are available -->
       <div class="card image-container">
+        <!-- Initially used https://johnfraney.ca/tools/responsive-image-generator/ to create the code block that allows a browser to select the the best display size based on the device's viewport.  Resolution choices from: https://www.browserstack.com/guide/common-screen-resolutions/  -->
         <img
           src="https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp"
+          srcset="
+            https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp  360w,
+            https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp  390w,
+            https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp  393w,
+            https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp  768w,
+            https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp 1366w,
+            https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp 1536w,
+            https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp 1920w
+          "
+          sizes="
+        (max-width: 22.5rem) 360px,
+        (max-width: 24.375rem) 390px,
+        (max-width: 24.5625rem) 393px,
+        (min-width: 85.375rem) and (max-width: 85.375rem) 1366px,
+        (min-width: 96rem) and (max-width: 96rem) 1536px,
+        (min-width: 120rem) 1920px,
+        100vw"
           alt="Default Image"
         />
       </div>
       {% endif %}
     </article>
 
-    <article class="col-md-6 mb-4">
+    <article class="col-md-6">
       <!-- Name, description, and details for the individual cake -->
       <h2>{{ cake.name }}</h2>
       <p>Category: {{ cake.category.category }}</p>
@@ -47,7 +71,7 @@
       <p><i class="fas fa-check-circle gluten-free-icon"></i> Gluten Free</p>
       {% endif %}
       <!-- Button to navigate back to the homepage (index.html) -->
-      <a href="{% url 'index' %}" class="btn custom-button-color"
+      <a href="{% url 'index' %}" class="btn custom-button-color mb-4"
         >Back to Our Cakes</a
       >
     </article>
