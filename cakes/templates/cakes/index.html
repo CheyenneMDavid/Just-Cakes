@@ -10,7 +10,7 @@
 <!-- Horizontal rule for visual separation of page layout -->
 <hr />
 
-<!-- For all cake types: Weddings, Birthdays, Novelties. Each cake type is checked to see if the type is present. If found, each individual cake of that type is looped through and dynamically displayed. If no cakes of that type are found a message that is specific to that cake types is displayed, saying that they're returning soon.. -->
+<!-- For all cake types: Weddings, Birthdays, Novelties. Each cake type is checked to see if the type is present. If found, each individual cake of that type is looped through, transformed to WebP format and dynamically displayed. If no cakes of that type are found a message that is specific to that cake types is displayed, saying that they're returning soon.. -->
 <section>
   <!-- Wedding Cakes Section -->
   <article aria-labelledby="wedding-cakes">
@@ -19,16 +19,13 @@
       {% if wedding_cakes %} {% for cake in wedding_cakes %}
       <div class="col-md-3">
         <a href="{% url 'cake_detail' cake.id %}">
-          <div class="card">
+          <div class="card list-image-container">
             <img
-              src="{% if cake.images.all %}
-                        {{ cake.images.all.0.image.url }}
-                        {% else %}
-                        https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp
-                        {% endif %}"
-              width="600"
-              height="600"
-              class="image-container"
+              src="{% if cake.images.all|length > 0 %}
+                            {{ cake.images.all.0.image.url|add:'?fm=webp' }}
+                          {% else %}
+                            https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp
+                          {% endif %}"
               alt="{{ cake.name }}"
             />
             <h4>{{ cake.name }}</h4>
@@ -49,16 +46,13 @@
       {% if birthday_cakes %} {% for cake in birthday_cakes %}
       <div class="col-md-3">
         <a href="{% url 'cake_detail' cake.id %}">
-          <div class="card">
+          <div class="card image-container">
             <img
-              src="{% if cake.images.all %}
-                        {{ cake.images.all.0.image.url }}
-                        {% else %}
-                        https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp
-                        {% endif %}"
-              width="600"
-              height="600"
-              class="image-container"
+              src="{% if cake.images.all|length > 0 %}
+                            {{ cake.images.all.0.image.url|add:'?fm=webp' }}
+                          {% else %}
+                            https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp
+                          {% endif %}"
               alt="{{ cake.name }}"
             />
             <h4>{{ cake.name }}</h4>
@@ -67,7 +61,7 @@
         </a>
       </div>
       {% endfor %} {% else %}
-      <p>>Birthday Cakes Returning Soon!</p>
+      <p>Birthday Cakes Returning Soon!</p>
       {% endif %}
     </div>
   </article>
@@ -79,16 +73,13 @@
       {% if novelty_cakes %} {% for cake in novelty_cakes %}
       <div class="col-md-3">
         <a href="{% url 'cake_detail' cake.id %}">
-          <div class="card">
+          <div class="card image-container">
             <img
-              src="{% if cake.images.all %}
-                        {{ cake.images.all.0.image.url }}
-                        {% else %}
-                        https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp
-                        {% endif %}"
-              width="600"
-              height="600"
-              class="image-container"
+              src="{% if cake.images.all|length > 0 %}
+                            {{ cake.images.all.0.image.url|add:'?fm=webp' }}
+                          {% else %}
+                            https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp
+                          {% endif %}"
               alt="{{ cake.name }}"
             />
             <h4>{{ cake.name }}</h4>
@@ -97,7 +88,7 @@
         </a>
       </div>
       {% endfor %} {% else %}
-      <p>>Novelty Cakes Returning Soon!</p>
+      <p>Novelty Cakes Returning Soon!</p>
       {% endif %}
     </div>
   </article>
