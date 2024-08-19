@@ -1,56 +1,88 @@
-{% extends 'base.html' %} {% block content %}
+<!-- Extends from the base.html template -->
+{% extends 'base.html' %}
+
+<!-- Start of the content block -->
+{% block content %}
+
+<!-- Horizontal rule for visual separation of page layout -->
 <hr />
+
 <div class="text-center">
-  <section class="row justify-content-center">
+  <section class="row">
     <h2 class="visually-hidden">Posts</h2>
     <div class="col-12 mt-3">
       <div class="row">
+        <!-- Loops through each post in the post_list -->
         {% for post in post_list %}
-        <article class="col-md-4 mb-4 box-control">
-          <div class="card mb-4">
-            <a
-              href="{% url 'post_detail' post.slug %}"
-              class="card-link"
-              style="display: block"
-            >
+        <article class="col-md-3">
+          <div class="card">
+            <a href="{% url 'post_detail' post.slug %}" style="display: block">
               <div class="card-body">
-                <div class="post-list-image-container">
+                <div class="image-container">
+                  <!-- Checks if the featured image has "placeholder" in it's url.  If so, the placeholder image is displayed, otherwise the featured image is displayed.
+                   Images are transformed to WebP format and dynamically displayed. Use of srcset allows a browser to select the the best display size based on the device's viewport and use of the "truncatewords" filter set to 25 words to create an excerpt.  -->
+
                   {% if "placeholder" in post.featured_image.url %}
+                  <!-- Initially used https://johnfraney.ca/tools/responsive-image-generator/ to create the code block that allows a browser to select the the best display size based on the device's viewport.  Resolution choices from: https://www.browserstack.com/guide/common-screen-resolutions/  -->
                   <img
-                    src="https://res.cloudinary.com/cheymd/image/upload/w_300,c_scale,q_auto,f_auto/v1693482045/default_image_rlpqek.webp"
+                    src="https://res.cloudinary.com/cheymd/image/upload/v1724106996/just_cakes_images/default_image_rlpqek_y54ics.webp"
                     srcset="
-                      https://res.cloudinary.com/cheymd/image/upload/w_200,c_scale,q_auto,f_auto/v1693482045/default_image_rlpqek.webp 200w,
-                      https://res.cloudinary.com/cheymd/image/upload/w_300,c_scale,q_auto,f_auto/v1693482045/default_image_rlpqek.webp 300w,
-                      https://res.cloudinary.com/cheymd/image/upload/w_400,c_scale,q_auto,f_auto/v1693482045/default_image_rlpqek.webp 400w
+                      https://res.cloudinary.com/cheymd/image/upload/v1724106996/just_cakes_images/default_image_rlpqek_y54ics.webp  360w,
+                      https://res.cloudinary.com/cheymd/image/upload/v1724106996/just_cakes_images/default_image_rlpqek_y54ics.webp  390w,
+                      https://res.cloudinary.com/cheymd/image/upload/v1724106996/just_cakes_images/default_image_rlpqek_y54ics.webp  393w,
+                      https://res.cloudinary.com/cheymd/image/upload/v1724106996/just_cakes_images/default_image_rlpqek_y54ics.webp  768w,
+                      https://res.cloudinary.com/cheymd/image/upload/v1724106996/just_cakes_images/default_image_rlpqek_y54ics.webp 1366w,
+                      https://res.cloudinary.com/cheymd/image/upload/v1724106996/just_cakes_images/default_image_rlpqek_y54ics.webp 1536w,
+                      https://res.cloudinary.com/cheymd/image/upload/v1724106996/just_cakes_images/default_image_rlpqek_y54ics.webp 1920w
                     "
-                    sizes="(max-width: 576px) 90vw, (max-width: 768px) 45vw, (min-width: 769px) 30vw"
+                    sizes=" (max-width: 22.5rem) 360px,
+                    (max-width: 24.375rem) 390px,
+                    (max-width: 24.5625rem) 393px,
+                    (min-width: 85.375rem) and (max-width: 85.375rem) 1366px,
+                    (min-width: 96rem) and (max-width: 96rem) 1536px,
+                    (min-width: 120rem) 1920px,
+                    100vw"
                     alt="default image"
-                    class="img-fluid"
-                    width="300"
-                    height="300"
+                    width="400"
+                    height="400"
                     loading="lazy"
                   />
+                  <!-- Otherwise, displays the featured image-->
                   {% else %}
+                  <!-- srcset to for best display size according to device being used -->
                   <img
-                    src="{{ post.featured_image.url|add:'?w=300&c_scale&q_auto&f_auto' }}"
+                    src="{{ post.featured_image.url|add:'?fm=webp&w=400' }}"
                     srcset="
-                      {{ post.featured_image.url|add:'?w=200&c_scale&q_auto&f_auto' }} 200w,
-                      {{ post.featured_image.url|add:'?w=300&c_scale&q_auto&f_auto' }} 300w,
-                      {{ post.featured_image.url|add:'?w=400&c_scale&q_auto&f_auto' }} 400w
+                      {{ post.featured_image.url|add:'?fm=webp&w=360' }} 360w,
+                      {{ post.featured_image.url|add:'?fm=webp&w=390' }} 390w,
+                      {{ post.featured_image.url|add:'?fm=webp&w=393' }} 393w,
+                      {{ post.featured_image.url|add:'?fm=webp&w=768' }} 768w,
+                      {{ post.featured_image.url|add:'?fm=webp&w=1366' }} 1366w,
+                      {{ post.featured_image.url|add:'?fm=webp&w=1536' }} 1536w,
+                      {{ post.featured_image.url|add:'?fm=webp&w=1920' }} 1920w
                     "
-                    sizes="(max-width: 576px) 90vw, (max-width: 768px) 45vw, (min-width: 769px) 30vw"
+                    sizes="
+                    (max-width: 22.5rem) 360px,
+                    (max-width: 24.375rem) 390px,
+                    (max-width: 24.5625rem) 393px,
+                    (min-width: 85.375rem) and (max-width: 85.375rem) 1366px,
+                    (min-width: 96rem) and (max-width: 96rem) 1536px,
+                    (min-width: 120rem) 1920px,
+                    100vw"
                     alt="{{ post.title }}"
-                    class="img-fluid"
-                    width="300"
-                    height="300"
+                    width="400"
+                    height="400"
                     loading="lazy"
                   />
                   {% endif %}
                 </div>
+
+                <!-- Dynamically displays the post title, post author and a truncated excerpt -->
                 <h2 class="post-title">{{ post.title }}</h2>
                 <p class="post-author">Author: {{ post.author }}</p>
                 <p>{{ post.content|truncatewords:25 }}</p>
-                <p class="list-card-text text-muted h6">
+                <!-- Displays post creation date and number of likes -->
+                <p class="text-muted h6 text-nowrap">
                   {{ post.created_on }} <i class="far fa-heart"></i>
                   {{ post.number_of_likes }}
                 </p>
@@ -58,13 +90,18 @@
             </a>
           </div>
         </article>
-        {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        <!-- Starts a new row after every 4th item. -->
+        {% if forloop.counter|divisibleby:4 and not forloop.last %}
       </div>
+      <hr />
       <div class="row">{% endif %} {% endfor %}</div>
+      <hr />
+      <!-- Pagination controls -->
       {% if is_paginated %}
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
           {% if page_obj.has_previous %}
+          <!-- Button for page back -->
           <li>
             <a
               href="?page={{ page_obj.previous_page_number }}"
@@ -73,6 +110,7 @@
             >
           </li>
           {% endif %} {% if page_obj.has_next %}
+          <!-- Button for page forward -->
           <li>
             <a
               href="?page={{ page_obj.next_page_number }}"
@@ -83,6 +121,7 @@
           {% endif %}
         </ul>
       </nav>
+      <!-- Displays a "Write a Review" button for authenticated users, when signed in -->
       {% endif %} {% if user.is_authenticated %}
       <div class="text-center my-4">
         <a href="{% url 'create_post' %}" class="btn custom-button-color"
