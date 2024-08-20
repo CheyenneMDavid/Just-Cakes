@@ -21,15 +21,54 @@
       <div class="d-none d-md-block col-md-4 masthead-image">
         {% if "placeholder" in post.featured_image.url %}
         <img
-          src="https://res.cloudinary.com/cheymd/image/upload/v1693482045/default_image_rlpqek.jpg?format=webp"
+          src="https://res.cloudinary.com/cheymd/image/upload/v1724106996/just_cakes_images/default_image_rlpqek_y54ics.webp"
+          srcset="
+            https://res.cloudinary.com/cheymd/image/upload/v1724106996/just_cakes_images/default_image_rlpqek_y54ics.webp  360w,
+            https://res.cloudinary.com/cheymd/image/upload/v1724106996/just_cakes_images/default_image_rlpqek_y54ics.webp  390w,
+            https://res.cloudinary.com/cheymd/image/upload/v1724106996/just_cakes_images/default_image_rlpqek_y54ics.webp  393w,
+            https://res.cloudinary.com/cheymd/image/upload/v1724106996/just_cakes_images/default_image_rlpqek_y54ics.webp  768w,
+            https://res.cloudinary.com/cheymd/image/upload/v1724106996/just_cakes_images/default_image_rlpqek_y54ics.webp 1366w,
+            https://res.cloudinary.com/cheymd/image/upload/v1724106996/just_cakes_images/default_image_rlpqek_y54ics.webp 1536w,
+            https://res.cloudinary.com/cheymd/image/upload/v1724106996/just_cakes_images/default_image_rlpqek_y54ics.webp 1920w
+          "
+          sizes=" (max-width: 22.5rem) 360px,
+                    (max-width: 24.375rem) 390px,
+                    (max-width: 24.5625rem) 393px,
+                    (min-width: 85.375rem) and (max-width: 85.375rem) 1366px,
+                    (min-width: 96rem) and (max-width: 96rem) 1536px,
+                    (min-width: 120rem) 1920px,
+                    100vw"
           alt="default image"
-          class="post-img-fluid"
+          width="400"
+          height="400"
+          loading="lazy"
         />
+        <!-- Otherwise, displays the featured image-->
         {% else %}
+        <!-- srcset to for best display size according to device being used -->
         <img
-          src="{{ post.featured_image.url|add:'?format=webp' }}"
+          src="{{ post.featured_image.url|add:'?fm=webp&w=400' }}"
+          srcset="
+                      {{ post.featured_image.url|add:'?fm=webp&w=360' }} 360w,
+                      {{ post.featured_image.url|add:'?fm=webp&w=390' }} 390w,
+                      {{ post.featured_image.url|add:'?fm=webp&w=393' }} 393w,
+                      {{ post.featured_image.url|add:'?fm=webp&w=768' }} 768w,
+                      {{ post.featured_image.url|add:'?fm=webp&w=1366' }} 1366w,
+                      {{ post.featured_image.url|add:'?fm=webp&w=1536' }} 1536w,
+                      {{ post.featured_image.url|add:'?fm=webp&w=1920' }} 1920w
+                    "
+          sizes="
+                    (max-width: 22.5rem) 360px,
+                    (max-width: 24.375rem) 390px,
+                    (max-width: 24.5625rem) 393px,
+                    (min-width: 85.375rem) and (max-width: 85.375rem) 1366px,
+                    (min-width: 96rem) and (max-width: 96rem) 1536px,
+                    (min-width: 120rem) 1920px,
+                    100vw"
           alt="{{ post.title }}"
-          class="post-img-fluid"
+          width="400"
+          height="400"
+          loading="lazy"
         />
         {% endif %}
       </div>
