@@ -12,7 +12,10 @@
 
 <!-- For all cake types: Weddings, Birthdays, Novelties. Each cake type is checked to see if the type is present. If found, each individual cake of that type is looped through, transformed to WebP format and dynamically displayed. Use of srcset allows a browser to select the the best display size based on the device's viewport and use of the "truncatewords" filter set to 25 words to create an excerpt.
 If no cakes of that type are found a message that is specific to that cake types is displayed, saying that they're returning soon.. -->
-<section>
+<section aria-labelledby="section-heading">
+  <!-- Add a heading with the same ID that you use in aria-labelledby -->
+  <h2 id="section-heading" class="visually-hidden">Cake Types</h2>
+
   <!-- Wedding Cakes Section -->
   <article aria-labelledby="wedding-cakes">
     <h2 id="wedding-cakes">Wedding Cakes</h2>
@@ -28,14 +31,28 @@ If no cakes of that type are found a message that is specific to that cake types
             <!-- Displays the first cake image if available -->
             {% if cake.images.all %}
             <img
-              src="{{ cake.images.all.0.image.url|add:'?fm=webp&w=500' }}"
-              srcset="{{ cake.images.all.0.image.url|add:'?fm=webp&w=500' }} 500w,
-                        {{ cake.images.all.0.image.url|add:'?fm=webp&w=1000' }} 1000w"
-              sizes="(max-width: 600px) 500px, 1000px"
-              alt="{{ cake.name }}"
-              width="500"
-              height="500"
+              src="{{ cake.images.all.0.image.url|add:'?fm=webp&w=400' }}"
+              srcset="
+                {{ cake.images.all.0.image.url|add:'?fm=webp&w=360' }} 360w,
+                {{ cake.images.all.0.image.url|add:'?fm=webp&w=390' }} 390w,
+                {{ cake.images.all.0.image.url|add:'?fm=webp&w=768' }} 768w,
+                {{ cake.images.all.0.image.url|add:'?fm=webp&w=1366' }} 1366w,
+                {{ cake.images.all.0.image.url|add:'?fm=webp&w=1536' }} 1536w,
+                {{ cake.images.all.0.image.url|add:'?fm=webp&w=1920' }} 1920w
+              "
+              sizes="
+                (max-width: 22.5rem) 360px,
+                (max-width: 24.375rem) 390px,
+                (max-width: 24.5625rem) 393px,
+                (min-width: 85.375rem) and (max-width: 85.375rem) 1366px,
+                (min-width: 96rem) and (max-width: 96rem) 1536px,
+                (min-width: 120rem) 1920px,
+                100vw
+              "
+              width="400"
+              height="400"
               loading="lazy"
+              alt="{{ cake.name }}"
             />
 
             <!-- Displays the default cake image if no wedding cakes are found  -->
@@ -60,7 +77,10 @@ If no cakes of that type are found a message that is specific to that cake types
               (min-width: 96rem) and (max-width: 96rem) 1536px,
               (min-width: 120rem) 1920px,
               100vw"
-              alt="Default Image"
+              width="400"
+              height="400"
+              loading="lazy"
+              alt="{{ cake.name }}"
             />
             {% endif %}
             <!-- Displays the cake name and a truncated description -->
@@ -91,14 +111,28 @@ If no cakes of that type are found a message that is specific to that cake types
             <!-- Displays the first cake image if available -->
             {% if cake.images.all %}
             <img
-              src="{{ cake.images.all.0.image.url|add:'?fm=webp&w=500' }}"
-              srcset="{{ cake.images.all.0.image.url|add:'?fm=webp&w=500' }} 500w,
-                      {{ cake.images.all.0.image.url|add:'?fm=webp&w=1000' }} 1000w"
-              sizes="(max-width: 600px) 500px, 1000px"
-              alt="{{ cake.name }}"
-              width="500"
-              height="500"
+              src="{{ cake.images.all.0.image.url|add:'?fm=webp&w=400' }}"
+              srcset="
+                {{ cake.images.all.0.image.url|add:'?fm=webp&w=360' }} 360w,
+                {{ cake.images.all.0.image.url|add:'?fm=webp&w=390' }} 390w,
+                {{ cake.images.all.0.image.url|add:'?fm=webp&w=768' }} 768w,
+                {{ cake.images.all.0.image.url|add:'?fm=webp&w=1366' }} 1366w,
+                {{ cake.images.all.0.image.url|add:'?fm=webp&w=1536' }} 1536w,
+                {{ cake.images.all.0.image.url|add:'?fm=webp&w=1920' }} 1920w
+              "
+              sizes="
+                (max-width: 22.5rem) 360px,
+                (max-width: 24.375rem) 390px,
+                (max-width: 24.5625rem) 393px,
+                (min-width: 85.375rem) and (max-width: 85.375rem) 1366px,
+                (min-width: 96rem) and (max-width: 96rem) 1536px,
+                (min-width: 120rem) 1920px,
+                100vw
+              "
+              width="400"
+              height="400"
               loading="lazy"
+              alt="{{ cake.name }}"
             />
 
             <!-- Displays the default cake image if no birthday cakes are found  -->
@@ -123,7 +157,10 @@ If no cakes of that type are found a message that is specific to that cake types
             (min-width: 96rem) and (max-width: 96rem) 1536px,
             (min-width: 120rem) 1920px,
             100vw"
-              alt="Default Image"
+              width="400"
+              height="400"
+              loading="lazy"
+              alt="{{ cake.name }}"
             />
             {% endif %}
             <!-- Displays the cake name and a truncated description -->
@@ -154,14 +191,28 @@ If no cakes of that type are found a message that is specific to that cake types
             <!-- Displays the first cake image if available -->
             {% if cake.images.all %}
             <img
-              src="{{ cake.images.all.0.image.url|add:'?fm=webp&w=500' }}"
-              srcset="{{ cake.images.all.0.image.url|add:'?fm=webp&w=500' }} 500w,
-                        {{ cake.images.all.0.image.url|add:'?fm=webp&w=1000' }} 1000w"
-              sizes="(max-width: 600px) 500px, 1000px"
-              alt="{{ cake.name }}"
-              width="500"
-              height="500"
+              src="{{ cake.images.all.0.image.url|add:'?fm=webp&w=400' }}"
+              srcset="
+                {{ cake.images.all.0.image.url|add:'?fm=webp&w=360' }} 360w,
+                {{ cake.images.all.0.image.url|add:'?fm=webp&w=390' }} 390w,
+                {{ cake.images.all.0.image.url|add:'?fm=webp&w=768' }} 768w,
+                {{ cake.images.all.0.image.url|add:'?fm=webp&w=1366' }} 1366w,
+                {{ cake.images.all.0.image.url|add:'?fm=webp&w=1536' }} 1536w,
+                {{ cake.images.all.0.image.url|add:'?fm=webp&w=1920' }} 1920w
+              "
+              sizes="
+                (max-width: 22.5rem) 360px,
+                (max-width: 24.375rem) 390px,
+                (max-width: 24.5625rem) 393px,
+                (min-width: 85.375rem) and (max-width: 85.375rem) 1366px,
+                (min-width: 96rem) and (max-width: 96rem) 1536px,
+                (min-width: 120rem) 1920px,
+                100vw
+              "
+              width="400"
+              height="400"
               loading="lazy"
+              alt="{{ cake.name }}"
             />
 
             <!-- Displays the default cake image if no novelty cakes are found  -->
@@ -186,7 +237,10 @@ If no cakes of that type are found a message that is specific to that cake types
               (min-width: 96rem) and (max-width: 96rem) 1536px,
               (min-width: 120rem) 1920px,
               100vw"
-              alt="Default Image"
+              width="400"
+              height="400"
+              loading="lazy"
+              alt="{{ cake.name }}"
             />
             {% endif %}
             <!-- Displays the cake name and a truncated description -->
