@@ -1,24 +1,30 @@
 /* Global Styles */
+/* setting the base font size to 19.2px */
+html {
+  font-size: 1.2rem;
+}
+
 body {
   background-image: url("https://res.cloudinary.com/cheymd/image/upload/v1711222865/just_cakes_images/endless-clouds_xkdx7i.svg");
   background-repeat: repeat;
   background-size: auto;
   background-position: top left;
   color: #444444;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .logo {
   font-family: "Lobster";
+  font-size: 2.4rem;
 }
 
 /* Headings */
 h1 {
   color: #b0a15d;
-  font-size: 60px;
+  font-size: 2rem;
   text-decoration: underline;
-  margin-left: 15px;
-  margin-right: 15px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 h2 {
@@ -30,18 +36,18 @@ h3,
 h4,
 h5 {
   color: #b0a15d;
-  margin-left: 15px;
 }
 
 /* Header */
 .navbar,
 .custom-svg {
   font-family: "Lobster", cursive;
-  font-size: 25px;
+  font-size: 1.1rem;
   background-image: url("https://res.cloudinary.com/cheymd/image/upload/v1711222865/just_cakes_images/endless-clouds_xkdx7i.svg");
   background-repeat: repeat;
   background-size: auto;
   background-position: top left;
+  height: auto;
 }
 
 .username {
@@ -52,13 +58,23 @@ h5 {
 main,
 .custom-nav .container-fluid {
   margin: 0 auto;
-  max-width: 1300px;
+  max-width: 65rem;
 }
 
-.carousel-top-margin {
+.carousel-inner {
+  height: 3rem;
+}
+
+.carousel-item {
   color: whitesmoke;
   background-color: #b0a15d;
-  padding: 10px;
+}
+
+.carousel-font-size {
+  font-size: 0.8rem;
+  padding-top: 0.313rem;
+  padding-bottom: 0.313rem;
+  box-sizing: border-box;
 }
 
 /* Navigation */
@@ -76,14 +92,37 @@ main,
   color: #b0a15d;
 }
 
-/* Image Container */
-.image-container {
+/* Images and image containers */
+img {
   width: 100%;
   height: auto;
-  border: 2px solid #b0a15d;
-  border-radius: 10px;
-  margin-bottom: 15px;
+  border: 0.188rem solid #b0a15d;
 }
+
+.image-container {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: auto;
+  padding: 0.313rem;
+}
+
+/* Reviews Pages */
+
+.masthead {
+  margin-top: 0.625rem;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: auto;
+}
+
+.masthead-image {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Post Images */
 
 /* Text and Links */
 a,
@@ -92,15 +131,29 @@ p,
 .username {
   color: #444444;
   text-decoration: none;
+  padding-bottom: 0.5rem;
+}
+
+.card-text {
+  min-height: 4em;
+  line-height: 1.5em;
+}
+
+.card-body {
+  padding: 0;
+}
+
+.post-title {
+  margin: 0;
+  color: #b0a15d;
+  text-align: center;
 }
 
 .post-author {
+  font-size: 1rem;
   color: #b0a15d;
-  background-color: #556b2f;
-  text-transform: capitalize;
-}
-
-.capitalised-username {
+  text-align: center;
+  /* margin-left: 5%; */
   text-transform: capitalize;
 }
 
@@ -128,11 +181,11 @@ hr {
 .custom-submit-color {
   color: whitesmoke;
   background-color: #b0a15d;
-  border: 3px solid whitesmoke;
+  border: 0.188rem solid whitesmoke;
 }
 
 .custom-submit-color {
-  margin-top: 10px;
+  margin-top: 0.625rem;
 }
 
 /* Icons */
@@ -141,7 +194,7 @@ hr {
 }
 
 .gluten-free-icon {
-  column-rule-color: #556b2f;
+  color: #ffa500;
 }
 
 .contact-form-link {
@@ -156,7 +209,7 @@ hr {
 
 /* Comment styles */
 .comment-container {
-  padding: 10px;
+  padding: 0.625rem;
 }
 
 /* Center content within rows */
@@ -166,5 +219,41 @@ hr {
 
 /* Footer Styles */
 footer {
+  font-size: 0.8rem;
+  height: fit-content;
   background-color: #b0a15d !important;
+}
+
+/* Media Queries Section */
+/* Top Common Screen Resolutions Worldwide in 2024.
+Guidance taken from: https://www.browserstack.com/guide/common-screen-resolutions.  Device choice and sizing decided using: https://blisk.io/devices */
+
+/* 1920 x 1080 (Desktops) */
+@media (min-width: 120rem) {
+  /* Styles for 1920px wide screens */
+}
+
+/* 360 x 800 (Galaxy S20 and similar) */
+@media (max-width: 22.5rem) and (max-height: 50rem) {
+  /* Styles for 360px wide screens */
+}
+
+/* 1366 x 768 (Laptops) */
+@media (min-width: 85.375rem) and (max-width: 85.375rem) {
+  /* Styles for 1366px wide screens */
+}
+
+/* 1536 x 864 (Large tablets and laptops) */
+@media (min-width: 96rem) and (max-width: 96rem) {
+  /* Styles for 1536px wide screens */
+}
+
+/* 390 x 844 (Apple iPhone PRO) */
+@media (max-width: 24.375rem) and (max-height: 52.75rem) {
+  /* Styles for 390px wide screens */
+}
+
+/* 393 x 873 (Google Pixel) */
+@media (max-width: 24.5625rem) and (max-height: 54.5625rem) {
+  /* Styles for 393px wide screens */
 }
