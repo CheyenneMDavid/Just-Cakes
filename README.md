@@ -154,7 +154,7 @@ For uniformity, all the pages are templates and are served their header and foot
 
 The wireframes I created provide an outline of key pages. While these wireframes may not perfectly reflect the final design of the site, they serve as a foundational guide for the layout and structure of the most relevant pages. Below, you'll find wireframe representations of the landing page and detail pages for cakes and posts. Images, brief details on the list pages and full details accompanying the images on the detail pages, for both the cakes application and also the reviews application.
 
-Not all pages have wireframes. Pages that are handled by Allauth have basic elements which enable functionality. Other than font size and colors, there is no customization,. Also pages such as the updating of profiles is literally a vertical listing of fields that the page contains, and so didn't change in the mobile view. The only changes being how the logo and navigation are laid out in the header. But such changes are constant when changing from desk/laptop to mobile and are demonstrated as such in the wireframes that are present in this readme.
+Not all pages have wireframes. Pages that are handled by Allauth have basic elements which enable functionality. Other than font size and colors, there is no customization,. Also pages such as the updating of profiles is literally a vertical listing of fields that the page contains, and so didn't change in the mobile view. The only changes being how the logo and navigation are laid out in the header. But such changes are constant when changing from desk/laptop to mobile and are demonstrated as such in the wireframes that are present in this README.
 
 ### Wireframes for Laptop Views
 
@@ -829,20 +829,34 @@ please do. You will find instructions from
 
 ## Credits, Acknowledgments and Appreciation.
 
-- The reviews application within the just cakes project has been copied from the Code Institute walkthrough django project "codestar".
-  **StackOverflow** for Regex patterns and how to implement them.
-  Picture images have been courtesy of **Midjourney** and **Microsoft's Bing image-creator**. whilst the descriptions for the cakes were supplied by chatgpt.
-  **Picsart** and `Draw.io` for creating wireframes and flowcharts for my project.
-  I have used **ChatGPT** as a tutor, fellow student and sounding board that had on tap, asking it to explain concepts I found hard to grasp, meanings of terms that are often taken as a given and also it's advice about structure of the project with a view to further development and also advice on completing aspects of this very readme, in how I should go about things.
-  However... Sometimes this has been to my detriment because it would get carried away in conversations about goals and routes to them, resulting in me having to scrub work and redo it.
-  **Code Institute Tutors** for help when I reached out.
-  The favicon.ico is courtesy of [Favicon Generator](https://favicon.io)
-  https://websitemockupgenerator.com
+  - The reviews application within the just cakes project has been copied from the Code Institute walkthrough django project "codestar".
+  
+    **StackOverflow** for Regex patterns and how to implement them.
+    Picture images have been courtesy of **Midjourney** and **Microsoft's Bing image-creator**. whilst the descriptions for the cakes were supplied by chatgpt.
 
-- Code and the idea for toggling the DEBUG according to environment is courtesy of Code Institute walkthrough projects.
+    **Picsart** and `Draw.io` for creating wireframes and flowcharts for my project.
+    I have used **ChatGPT** as a tutor, fellow student and sounding board that had on tap, asking it to explain concepts I found hard to grasp, meanings of terms that are often taken as a given and also it's advice about structure of the project with a view to further development and also advice on completing aspects of this very README, in how I should go about things.
+    However... Sometimes this has been to my detriment because it would get carried away in conversations about goals and routes to them, resulting in me having to scrub work and redo it.
 
-- The wallpaper for the site was sourced as a svg file courtesy of [Hero Patterns](https://heropatterns.com/)
+    **Code Institute Tutors** for help when I reached out.
+    
+    **The favicon.ico** is courtesy of [Favicon Generator](https://favicon.io)
+    https://websitemockupgenerator.com
 
-- Configuration assistance for extensions such as Ruff, Black, Prettier and ESLint was provided by ChatGPT from OpenAI.
+  - Code and the idea for toggling the DEBUG according to environment is courtesy of Code Institute learning materials
 
----
+  - The wallpaper for the site was sourced as a svg file courtesy of [Hero Patterns](https://heropatterns.com)
+
+  - Configuration assistance for extensions such as Ruff, Black, Prettier and ESLint was provided by ChatGPT from OpenAI.
+
+  - **developer.mozilla.org** for handling responsive images
+  
+  - **johnfraney.ca** for use of their responsive image generator
+  
+  - **BrowserStack** for advising most common screen sizes
+  
+  - **Blisk** for a comprehensive list of devices with accompanying information on Viewport   Sizes, Screen Sizes and Device Pixel Ratio which enabled me to setup Emulated Devices in Chrome Devtools which was mega useful in testing the responsiveness.
+  
+
+
+  ---
