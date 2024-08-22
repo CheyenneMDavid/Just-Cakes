@@ -119,7 +119,7 @@ Table for planning "Customer Accounts" database
 Cakes
 
 Table for planning "Cakes" database
-Defining type:Wedding, Novelty and Birthday. Allergy: GF for Gluten Free. V for plantbased. Flavours and colors. And a list of the cakes themselves, making them searchable by users of the site when such extra functionality added.
+Defining type:Wedding, Novelty and Birthday. Allergy: GF for Gluten Free. V for plant-based. Flavours and colors. And a list of the cakes themselves, making them searchable by users of the site when such extra functionality added.
 &nbsp;
 Using Normalization to organize the data, so when changes to the data is required, it's more easily managed.
 In doing so, new content for the fields can be created by a site administrator. The new content being cake names, descriptions and additional categories if they so wish.
@@ -154,48 +154,73 @@ For uniformity, all the pages are templates and are served their header and foot
 
 The wireframes I created provide an outline of key pages. While these wireframes may not perfectly reflect the final design of the site, they serve as a foundational guide for the layout and structure of the most relevant pages. Below, you'll find wireframe representations of the landing page and detail pages for cakes and posts. Images, brief details on the list pages and full details accompanying the images on the detail pages, for both the cakes application and also the reviews application.
 
-Not all pages have wireframes. Pages that are handled by Allauth have such basic elements that I didn't deem it necessary to present these. Also pages such as the updating of profiles is literally a vertical listing of fields that the page contains, and so didn't change in the mobile view.
-The only changes being how the logo and navigation are laid out in the header. But the changes in these are a constant in all pages when changing from desktop to mobile.
+Not all pages have wireframes. Pages that are handled by Allauth have basic elements which enable functionality. Other than font size and colors, there is no customization,. Also pages such as the updating of profiles is literally a vertical listing of fields that the page contains, and so didn't change in the mobile view. The only changes being how the logo and navigation are laid out in the header. But such changes are constant when changing from desk/laptop to mobile and are demonstrated as such in the wireframes that are present in this readme.
 
-### Desktop Views
+### Wireframes for Laptop Views
 
-#### Wireframe for: Cake List - Desktop View
+**Index page / Cake List / Landing Page**
 
 ![Landing Page Desktop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045053/JustCakes-Readme-images/desktop-cake-list_ok8ybo.jpg)
 
-#### Wireframe for: Cake Detail - Desktop View
+&nbsp;
 
-![Cake Detail - Desktop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045055/JustCakes-Readme-images/desktop-cake-detail_oozmzq.jpg)
+**Cake Detail Page**
 
-#### Wireframe for: Post List Desktop View
+![Cake Detail - Laptop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045055/JustCakes-Readme-images/desktop-cake-detail_oozmzq.jpg)
 
-![Post List Desktop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045048/JustCakes-Readme-images/desktop-post-list_rjit9b.jpg)
+&nbsp;
 
-#### Wireframe for: Post Detail Desktop View
+**Post List Page**
 
-![Post Detail Desktop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045050/JustCakes-Readme-images/desktop-post-detail_r5sp7r.jpg)
+![Post List - Laptop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1724212479/JustCakes-Readme-images/wireframe-post-list_pshvue.jpg)
+
+&nbsp;
+
+**Post Detail Page**
+
+![Post Detail - Laptop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045050/JustCakes-Readme-images/desktop-post-detail_r5sp7r.jpg)
+
+&nbsp;
 
 ### Mobile Views
 
-#### Wireframe for: Cake List - Mobile View
+Both the Cake list (index page) and Post list Page, in reality are scrolling lists, but the frames show what a single section of that list pages would contain.
 
-| ![Landing Page Mobile Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045043/JustCakes-Readme-images/mobile-cake-list_mfprek.jpg)
+**Index page / Cake List / Landing Page**
 
-#### Wireframe for: Cake Detail - Mobile View
+| ![Landing Page - Mobile Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045043/JustCakes-Readme-images/mobile-cake-list_mfprek.jpg)
+
+&nbsp;
+
+**Cake Detail Page**
 
 ![Cake Detail - Mobile Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045046/JustCakes-Readme-images/mobile-cake-detail_pcvukn.jpg)
 
-#### Wireframe for: Post List Mobile View
+&nbsp;
 
-![Post List Mobile View Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045039/JustCakes-Readme-images/mobile-post-list_ivas1f.jpg)
+**Post List Page**
 
-#### Wireframe for: Post Detail Mobile View
+![Post List - Mobile View Wireframe]()
 
-![Post Detail Mobile View Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045041/JustCakes-Readme-images/mobile-post-detail_sbttxr.jpg)
+&nbsp;
 
-#### Wireframe for: Update Profile Form
+**Post Detail Page**
 
-![Update Profile Form](https://res.cloudinary.com/cheymd/image/upload/v1712045058/JustCakes-Readme-images/update-profile-form_ll9txl.jpg)
+![Post Detail - Mobile View Wireframe]()
+
+&nbsp;
+
+**Account Detail Page**
+
+![Customer Account Mobile View Wireframe]()
+
+&nbsp;
+
+Update Profile Form
+
+![Update Profile Form - Mobile View Wireframe]()
+
+&nbsp;
 
 ---
 
@@ -232,14 +257,24 @@ The Just Cakes project, at this stage is simple. And the functionality could hav
   Previously having the option of images to be served up as JPG or WebP, the performance was poor.
   Initially setting out to ensure that everything was served as WebP, I realised that the poor performance was not just due to the image format.
 
-- **But also the excessive CSS that was redundant**. Initially, I looked online for help on how to automate the search for redundant CSS, but when following instructions on implementation, I was getting error messages that would send me down rabbit holes. This is happened too many times, so I instead carried out a manual but systematic search through the custom.css for the occurrences of class names in the html files with the command `git grep -l '<class name being searched for>' -- '**/*html'`, deleting the classes that didn't return any listings and testing for changes.
+- **But also the excessive CSS that was redundant**. Initially, I looked online for help on how to automate the search for redundant CSS, but when following instructions on implementation, I was getting error messages that would send me down rabbit holes. This is happened too many times, so I instead carried out a manual but systematic search through the custom.css for the occurrences of class names in the HTML files with the command `git grep -l '<class name being searched for>' -- '**/*html'`, deleting the classes that didn't return any listings and testing for changes.
 
 - User Friendly vs Efficiency.
   The landing page is the gallery view which promotes the bespoke cakes that Just Cakes creates and supply. The gallery is maintained by an admin whose is responsible for ensuring that the various lines of cakes are shown to their best. On this bases, I decided that whilst it would be "nice" to make the uploading of cake images a little less regimented for the experience of an admin that was maintaining the site, it was more important that the experience of the user who would be browsing the pages of the site, be a a more fluid process.
 
-- This would be different to the Reviews page that both admins and users were able to contribute
+- This would be different to the Reviews page that both admins and users  
+  were able to contribute
   toward. With this in mind I decided that only using WebP images for the cakes gallery was
   orientated toward the user experience... The Reviews page would be less regimented in its formats, for precisely the same reason. Uploading posts and accompanying images should be conditional, because you can't account for every eventuality. But not unfriendly, and so other formats could be uploaded.
+
+- **Optimization of post_list.html Layout and the re-aligning of other HTMLs**.  
+  Initially when writing the post list page, I followed the format and structure of "Django Blog, CodeStar" which was a Code Institute walkthrough project, but whilst it gave me a workable template that I could use immediately. As I customised the HTML, I drifted further and further from the original structure, but as I did, I neglected to removed unnecessary classes, both bootstrap and ones that that had been defined in the original stylesheet.css.
+
+  It was the process of using Lighthouse, looking at the scores and studying how these scores were calculated, that led me to brave away from the HTML structure that still resembled the walkthrough project and make the layout work better for "me".
+
+  The Lighthouse advice on shifts in the layout resulted in me restructuring how I wanted the images, authors, and excerpts to display. There seemed no quick way to remove unnecessary CSS which Lighthouse suggested was contributing toward the poor performance, so I manually searched for occurrences of a class by using `git grep -l '<classname>' -- '**/*.*'`, slowly removing what seemed to be unnecessary. This did improve things, but the issue of image sizes still remained, despite changing to WebP format for faster loading. Searching the web for ways to size my images in a more efficient way I found https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images, which explained how to use the srcset and sizes attributes. Not feeling confident with the use of these attributes and the syntax they required, I found online help here: https://johnfraney.ca/tools/responsive-image-generator. It allowed me to load in an image and then be presented with the code block, albeit not the sizes I required. Armed with a better understanding of the syntax surrounding the srcset and sizes attributes, I found further help from "BrowserStack" at https://www.browserstack.com/guide/common-screen-resolutions from which I took the measurements for the most common screen sizes and used them in my srcset and sizes settings. Working with them, I added the media-queries, measurements for which I'd taken from BrowserStack and chosen devices that met these measurements using https://blisk.io/devices. Blisk was particularly helpful when setting up the measurements for Emulated Devices in devtools.
+
+---
 
 ## Formatters and Linters
 
@@ -260,7 +295,7 @@ To ensure that the automatic loading of Beautify didn’t clash with prettier se
 ## Application Overview and Functionality of Individual Apps.
 
 This section explains the functionality of each application within the Just Cakes project.
-Explanations are provided for how each app works, supported by screenshots to illustrate their operation and design. This overview provides insights and understanding of the structure and behavior of the applications, offering a clear view of their roles within the overall project.
+Explanations are provided for how each app works, supported by screenshots to illustrate their operation and design. This overview provides insights and understanding of the structure and behavior of the applications, offering a clear view of their roles within the overall project. All screen shots are shown in laptops resolutions of 1366 x 768 or 360 x 800, inline with Samsung Galaxy S20 and similar devices.
 
 ### Cakes Application Overview.
 
@@ -270,31 +305,34 @@ Cakes that are fitting for a small children's birthday party or the extreme high
 
 Utilizing Bootstrap for a responsive layout, the application curates a visually stunning gallery on the homepage, divided into categories like Wedding, Birthday, and Novelty cakes. This categorization aids users in effortlessly navigating through the collection, ensuring a seamless browsing experience.
 
-#### Homepage/Landing-Page/Gallery (Desktop-view)
+#### Homepage/Landing-Page/Gallery (Laptop-view)
 
-![Homepage Desktop-view](https://res.cloudinary.com/cheymd/image/upload/v1711207194/JustCakes-Readme-images/homepage-desktop-view_tqgzdx.png)
+![Homepage Laptop-view](https://res.cloudinary.com/cheymd/image/upload/v1724208859/JustCakes-Readme-images/homepage-laptop-view_qrxzwi.png)
 
-#### Homepage/Landing-Page/Gallery (Tablet-view)
+#### Homepage/Landing-Page/Gallery (Mobile-view)
 
-I've purposely screen-shotted the view that a tablet such as the Samsung Galaxy S6 would have, rather than show a mobile view because the single image screen shot that a mobile would have created would have been excessively long.
-![Homepage Tablet-view](https://res.cloudinary.com/cheymd/image/upload/v1711213481/JustCakes-Readme-images/homepage-tablet-view_r9sgnv.png)
+The tablet view of the desktop is much the same as the laptop view, so I've chosen to omit it. This is the mobile view.
+![Homepage Mobile-view](https://res.cloudinary.com/cheymd/image/upload/v1724209336/JustCakes-Readme-images/homepage-mobile-view_gfqtnw.png)
 
 #### Dynamic Cake Detail Presentation
 
 For each cake, the application dynamically generates a detail page, enriched with high-resolution images fetched from Cloudinary, comprehensive descriptions, pricing information, and dietary indicators (e.g., plant-based, gluten-free). This page is designed to provide all the necessary information a user might need to make an informed decision, enhancing transparency and trust.
 
+Laptop View:
+![Individual Cake Laptop-view](https://res.cloudinary.com/cheymd/image/upload/v1724209608/JustCakes-Readme-images/cake-detail-laptop-view_y4duif.png)
 &nbsp;
-![Individual Cake Detail](https://res.cloudinary.com/cheymd/image/upload/v1712069531/JustCakes-Readme-images/cakes-detail_xqhkul.png)
+Mobile View
+![Individual Cake Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1724209608/JustCakes-Readme-images/cake-detail-mobile-view_rcdjyx.png)
 
 &nbsp;
 
 #### Responsive Image Handling
 
-With an emphasis on performance and user experience, images are requested in webp format to ensure faster load times without compromising on quality. A default image with a "coming soon" placeholder is displayed in cases where specific cake images are not available, maintaining a consistent and professional look across the platform. Already viewable in the above whole page screenshots, this is the individual page's appearance of default image that would be displayed in the place of the correct cake. I'm differentiating between this and a normal default image because the purpose is to advertise specific cake styles that are available for order, so a "coming soon" image is more suitable.
+With an emphasis on performance and user experience, images are requested to be delivered by cloudinary in WebP format by adding `?fm=webp` and `&w=400` to specify the image size and the `srcset` and `sizes` attributes so that the browsers can select the best image size according to the device being used.
+A default image with a "coming soon" placeholder is displayed in cases where specific cake images are not available, maintaining a consistent and professional look across the platform. Already viewable in the above whole page screenshots, this is the individual page's appearance of default image that would be displayed in the place of the correct cake. I'm differentiating between this and a normal default image because the purpose is to advertise specific cake styles that are available for order, so a "coming soon" image is more suitable.
 Integration of navigational elements, such as a "Back to Our Cakes" button on the cake detail page, ensures users can easily return to the main page without the need to use browser navigation.
 
-![Coming Soon Detail](https://res.cloudinary.com/cheymd/image/upload/v1712070694/JustCakes-Readme-images/detail-coming-soon_sbcqv7.png)
-
+![Coming Soon Detail](https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp)
 ---
 
 ### Customer Accounts Overview.
@@ -308,6 +346,7 @@ Profile Creation and Update
 Initially blank when initially created and associated with a user, the individual customer profile can be updated by the user. Validation is in place for details such as phone numbers and postcodes using regex and custom validation logic in `forms.py`
 
 &nbsp;
+
 Update Profile Form with fields to update, help text to guide the user and an update button.
 ![](https://res.cloudinary.com/cheymd/image/upload/v1712227329/JustCakes-Readme-images/update-profile-form_fpcptt.png)
 
@@ -320,7 +359,7 @@ The application features:
 - **Write Reviews**: Authenticated users can write reviews, comment and like posts to show what they found useful.
 
 Screenshot of the posts list page showing excerpts of each post
-![posts list](https://res.cloudinary.com/cheymd/image/upload/v1711334249/JustCakes-Readme-images/posts-list-page_siozgi.png)
+![posts list](https://res.cloudinary.com/cheymd/image/upload/v1724208480/JustCakes-Readme-images/posts-list-page_hkzlba.png)
 &nbsp;
 &nbsp;
 
@@ -347,43 +386,40 @@ Screenshot of successful contact form submission
 
 ## Performance Optimization
 
-To help pages load faster, I've utilised webp where I could. The images that I have loaded into cloudinary were loaded as webp and when using the dynamic templating to bring them back, the logic I've used requested them from cloudinary as webp, wherever possible.
+Needing images to load faster, I've utilised WebP format when uploading for the site, but realised that this doesn't guarantee how they're delivered back for the site, especially when users may upload in jpg or png formats.
+To overcome this, I used `?fm=webp` to ask for images to be delivered in the format I wanted and `&w=400` for the size I wanted.
 
 ### Performance Insights
 
-I used Google's "Lighthouse" to measure my site. Measuring only the main pages, I gained the following scores, of which I've screenshotted the readouts from Lighthouse.
+I used Google's "Lighthouse" to measure my site. Measuring only the main pages, I gained the following scores, of which I've screen shotted the readouts from Lighthouse.
 
-Index Page Desktop Lighthouse Score
+#### Laptop / Desktop Lighthouse Scores
 
-![Index Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712508049/JustCakes-Readme-images/index-page-lighthouse-desktop-score_i43r3o.png)
+**Index / Cake List / Gallery Page**
+![index.html desktop score](https://res.cloudinary.com/cheymd/image/upload/v1724272304/JustCakes-Readme-images/desktop-cake-list_cthxxk.png)
 
-Index Page Mobile Lighthouse Score
+**Cake Detail / Gallery Page**
+![cake_detail.html desktop score](https://res.cloudinary.com/cheymd/image/upload/v1724272304/JustCakes-Readme-images/desktop-cake-detail_a4htnt.png)
 
-![Index Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712508048/JustCakes-Readme-images/index-page-lighthouse-mobile-score_ymrbcq.png)
+**Post List Page**
+![post_list.html desktop score](https://res.cloudinary.com/cheymd/image/upload/v1724272303/JustCakes-Readme-images/desktop-post-list_qmzohi.png)
 
-Cake Detail Desktop Lighthouse Score
+**Post Detail Page**
+![post_detail.html desktop score](https://res.cloudinary.com/cheymd/image/upload/v1724272303/JustCakes-Readme-images/desktop-post-detail_tazncc.png)
 
-![Cake Detail Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712426926/JustCakes-Readme-images/cake-detail-lighthouse-desktop-score_qf9oby.png)
+#### Mobile Lighthouse Scores
 
-Cake Detail Mobile Lighthouse Score
+**Index / Cake List / Gallery Page**
+![index.html mobile score](https://res.cloudinary.com/cheymd/image/upload/v1724272303/JustCakes-Readme-images/mobile-cake-list_wblwhf.png)
 
-![Cake Detail Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712426925/JustCakes-Readme-images/cake-detail-lighthouse-mobile-score_zihdh0.png)
+**Cake Detail / Gallery Page**
+![cake_detail.html mobile score](https://res.cloudinary.com/cheymd/image/upload/v1724272306/JustCakes-Readme-images/mobile-cake-detail_gdgpbe.png)
 
-Post List Page Desktop Lighthouse Score
+**Post List Page**
+![post_list.html mobile score](https://res.cloudinary.com/cheymd/image/upload/v1724272306/JustCakes-Readme-images/mobile-post-lisl_qrxhyd.png)
 
-![Post List Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712501267/JustCakes-Readme-images/post-list-lighthouse-desktop-score_j98snw.png)
-
-Post List Page Mobile Lighthouse Score
-
-![Post List Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712501268/JustCakes-Readme-images/post-list-lighthouse-mobile-score_pycud6.png)
-
-Post Detail Page Desktop Lighthouse Score
-
-![Post Detail Desktop View](https://res.cloudinary.com/cheymd/image/upload/v1712501268/JustCakes-Readme-images/post-detail-lighthouse-desktop-score_lyw9dw.png)
-
-Post Detail Page Mobile Lighthouse Score
-
-![Post Detail Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1712501267/JustCakes-Readme-images/post-detail-lighthouse-mobile-score_cwkxiu.png)
+**Post Detail Page**
+![post_detail.html mobile score](https://res.cloudinary.com/cheymd/image/upload/v1724272305/JustCakes-Readme-images/mobile-post-detail_dgt5po.png)
 
 ---
 
@@ -398,10 +434,10 @@ During the development of _Just Cakes_, I encountered a number of issues. These 
   The Unused applications which I've spoken about, aside, I had separate apps for the customer accounts, the database of cakes and the app that handled to posts.
   Initially attempting to adopt the tutorial's naming conventions led to some confusion, particularly with the "reviews" app, which was too narrowly defined and not entirely reflective of its broader purpose in the context of the site.
   Add to this, I was struggling with correctly applying singular and plural usage of the words "review/reviews" when naming the files.
-  **Resolved** I was unsure of how much disruption would have been caused by changing the application's name, so I decided to leave it as "reviews" but chose to change the html files within the application to "post" and "posts" which were more relevant.
+  **Resolved** I was unsure of how much disruption would have been caused by changing the application's name, so I decided to leave it as "reviews" but chose to change the HTML files within the application to "post" and "posts" which were more relevant.
   &nbsp;
 - **The Index.html**
-  Another issue that only became apparent later was that in my need to name the html pages according to the applications that they belonged to, I lost focus of keeping index.html as a central point.
+  Another issue that only became apparent later was that in my need to name the HTML pages according to the applications that they belonged to, I lost focus of keeping index.html as a central point.
   The purpose of the site was to showcase their cakes, so I decided to make the gallery view of the cakes the landing page and changed the cakes_list.html to index.html
   &nbsp;
 - **Customer Accounts versus Customer Profiles**
@@ -409,12 +445,12 @@ During the development of _Just Cakes_, I encountered a number of issues. These 
   &nbsp;
 - **Truncated Excerpts** When looking at why excerpts of posts weren't dynamically displaying, I realised that I had fields for "content" and a field literally called "excerpt". I had been double thinking this and they were attempting to serve the same purpose. Unfortunately thinking of the word "excerpt" I kept focus on that and used it when trying to serve it up dynamically. But it was the content fields that was saving the data. When realising this, I dropped "excerpt" from the post model and used "content correctly".
   I then went about creating new content for the posts so that the posts each had a reasonable number of words before I could make use of truncating down to 25 words. So I copy pasted generic text in via the admin panel, attributing it to various users.
-  However... Upon rendering the screen the copy and pasting had taken html styles across and although it didn't show when entering in via the admin panel, it did show in the render.
+  However... Upon rendering the screen the copy and pasting had taken HTML styles across and although it didn't show when entering in via the admin panel, it did show in the render.
   I tried to clean the output by using `{{ post.content|striptags }}` and that did work, but not with truncation, so I decided to not bother with the striptags command on the bases that users would normally be entering text a fresh and this issue is unlikely to arise.
 
 ### Improved Layout
 
-- **Removal of unwanted classes**: In the cakes list page, both the header and the footer didn't act as expected as I shrunk the window. It was fine in all the other pages. This led me looking at unrequired classes. I removed all the container-fluid classes from the all html files except for the base.html which was being extended to all other HTMLs, relying on the single container-fluid class that was in the body tag.
+- **Removal of unwanted classes**: In the cakes list page, both the header and the footer didn't act as expected as I shrunk the window. It was fine in all the other pages. This led me looking at unrequired classes. I removed all the container-fluid classes from the all HTML files except for the base.html which was being extended to all other HTMLs, relying on the single container-fluid class that was in the body tag.
 
 - **Clickable Cards**: Originally I had just the titles of posts in the list pages or the paragraph content in the cake gallery as the links to their respective detail pages. In both cases I made the entire cards clickable which made for a better user experience.
 
