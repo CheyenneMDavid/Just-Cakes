@@ -396,29 +396,51 @@ I used Google's "Lighthouse" to measure my site. Measuring only the main pages, 
 #### Laptop / Desktop Lighthouse Scores
 
 **Index / Cake List / Gallery Page**
+
 ![index.html desktop score](https://res.cloudinary.com/cheymd/image/upload/v1724272304/JustCakes-Readme-images/desktop-cake-list_cthxxk.png)
 
+&nbsp;
+
 **Cake Detail / Gallery Page**
+
 ![cake_detail.html desktop score](https://res.cloudinary.com/cheymd/image/upload/v1724272304/JustCakes-Readme-images/desktop-cake-detail_a4htnt.png)
 
+&nbsp;
+
 **Post List Page**
+
 ![post_list.html desktop score](https://res.cloudinary.com/cheymd/image/upload/v1724272303/JustCakes-Readme-images/desktop-post-list_qmzohi.png)
 
+&nbsp;
+
 **Post Detail Page**
+
 ![post_detail.html desktop score](https://res.cloudinary.com/cheymd/image/upload/v1724272303/JustCakes-Readme-images/desktop-post-detail_tazncc.png)
+
+&nbsp;
 
 #### Mobile Lighthouse Scores
 
 **Index / Cake List / Gallery Page**
+
 ![index.html mobile score](https://res.cloudinary.com/cheymd/image/upload/v1724272303/JustCakes-Readme-images/mobile-cake-list_wblwhf.png)
 
-**Cake Detail / Gallery Page**
+&nbsp;
+
+**Cake Detail**
+
 ![cake_detail.html mobile score](https://res.cloudinary.com/cheymd/image/upload/v1724272306/JustCakes-Readme-images/mobile-cake-detail_gdgpbe.png)
 
+&nbsp;
+
 **Post List Page**
+
 ![post_list.html mobile score](https://res.cloudinary.com/cheymd/image/upload/v1724272306/JustCakes-Readme-images/mobile-post-lisl_qrxhyd.png)
 
+&nbsp;
+
 **Post Detail Page**
+
 ![post_detail.html mobile score](https://res.cloudinary.com/cheymd/image/upload/v1724272305/JustCakes-Readme-images/mobile-post-detail_dgt5po.png)
 
 ---
