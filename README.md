@@ -156,71 +156,54 @@ The wireframes I created provide an outline of key pages. While these wireframes
 
 Not all pages have wireframes. Pages that are handled by Allauth have basic elements which enable functionality. Other than font size and colors, there is no customization,. Also pages such as the updating of profiles is literally a vertical listing of fields that the page contains, and so didn't change in the mobile view. The only changes being how the logo and navigation are laid out in the header. But such changes are constant when changing from desk/laptop to mobile and are demonstrated as such in the wireframes that are present in this README.
 
-### Wireframes for Laptop Views
+### Wireframes for Desktop Views
 
-**Index page / Cake List / Landing Page**
+#### Index page / Cake List / Landing Page desktop view
 
 ![Landing Page Desktop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045053/JustCakes-Readme-images/desktop-cake-list_ok8ybo.jpg)
 
-&nbsp;
-
-**Cake Detail Page**
+#### Cake Detail Page desktop view
 
 ![Cake Detail - Laptop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045055/JustCakes-Readme-images/desktop-cake-detail_oozmzq.jpg)
 
-&nbsp;
-
-**Post List Page**
+#### Post List Page desktop view
 
 ![Post List - Laptop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1724212479/JustCakes-Readme-images/wireframe-post-list_pshvue.jpg)
 
-&nbsp;
-
-**Post Detail Page**
+#### Post Detail Page desktop view
 
 ![Post Detail - Laptop Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045050/JustCakes-Readme-images/desktop-post-detail_r5sp7r.jpg)
 
-&nbsp;
+---
 
-### Mobile Views
+### Wireframes for Mobile Views
 
-Both the Cake list (index page) and Post list Page, in reality are scrolling lists, but the frames show what a single section of that list pages would contain.
+#### Index page / Cake List / Landing Page mobile view
 
-**Index page / Cake List / Landing Page**
+The Cake List (index page) are scrolling lists. This frame, which is shown in blue and also represents the area which would be a clickable link to the detail page, shows what a single cake list view would contain before repeating the content for another cake for the list page.
+![Landing Page / Cakes list Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1724616950/cake-list-mobile-view_yo6cjv.jpg)
 
-| ![Landing Page - Mobile Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045043/JustCakes-Readme-images/mobile-cake-list_mfprek.jpg)
+#### Cake Detail Page mobile view
 
-&nbsp;
+![Cake Detail - Mobile Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1724616950/cake-detail-mobile-view_b2segq.jpg)
 
-**Cake Detail Page**
+#### Post List Page mobile view
 
-![Cake Detail - Mobile Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1712045046/JustCakes-Readme-images/mobile-cake-detail_pcvukn.jpg)
+The Post List is a scrolling list of posts. This frame, which is shown in blue and also represents the area which would be a clickable link to the detail page, shows what a single post list view would contain before repeating the content for another post for the list page.
+![Post List - Mobile Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1724616949/post-list-mobile-view_cq2jxm.jpg)
 
-&nbsp;
+#### Post Detail Page mobile view
 
-**Post List Page**
+The comment box is only available to authenticated users.
+![Post Detail - Mobile View Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1724616950/post-details-mobile-view_gnqxvx.jpg)
 
-![Post List - Mobile View Wireframe]()
+#### Account Detail Page mobile view
 
-&nbsp;
+![Customer Account Mobile View Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1724616950/customer-details-mobile-view_k5fwnc.jpg)
 
-**Post Detail Page**
+#### Update Profile Form mobile view
 
-![Post Detail - Mobile View Wireframe]()
-
-&nbsp;
-
-**Account Detail Page**
-
-![Customer Account Mobile View Wireframe]()
-
-&nbsp;
-
-Update Profile Form
-
-![Update Profile Form - Mobile View Wireframe]()
-
-&nbsp;
+![Update Profile Form - Mobile View Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1724616950/details-update-mobile-view_rdk9vd.jpg)
 
 ---
 
@@ -332,8 +315,7 @@ With an emphasis on performance and user experience, images are requested to be 
 A default image with a "coming soon" placeholder is displayed in cases where specific cake images are not available, maintaining a consistent and professional look across the platform. Already viewable in the above whole page screenshots, this is the individual page's appearance of default image that would be displayed in the place of the correct cake. I'm differentiating between this and a normal default image because the purpose is to advertise specific cake styles that are available for order, so a "coming soon" image is more suitable.
 Integration of navigational elements, such as a "Back to Our Cakes" button on the cake detail page, ensures users can easily return to the main page without the need to use browser navigation.
 
-![Coming Soon Detail](https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp)
----
+## ![Coming Soon Detail](https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp)
 
 ### Customer Accounts Overview.
 
@@ -851,34 +833,32 @@ please do. You will find instructions from
 
 ## Credits, Acknowledgments and Appreciation.
 
-  - The reviews application within the just cakes project has been copied from the Code Institute walkthrough django project "codestar".
-  
-    **StackOverflow** for Regex patterns and how to implement them.
-    Picture images have been courtesy of **Midjourney** and **Microsoft's Bing image-creator**. whilst the descriptions for the cakes were supplied by chatgpt.
+- The reviews application within the just cakes project has been copied from the Code Institute walkthrough django project "codestar".
 
-    **Picsart** and `Draw.io` for creating wireframes and flowcharts for my project.
-    I have used **ChatGPT** as a tutor, fellow student and sounding board that had on tap, asking it to explain concepts I found hard to grasp, meanings of terms that are often taken as a given and also it's advice about structure of the project with a view to further development and also advice on completing aspects of this very README, in how I should go about things.
-    However... Sometimes this has been to my detriment because it would get carried away in conversations about goals and routes to them, resulting in me having to scrub work and redo it.
+  **StackOverflow** for Regex patterns and how to implement them.
+  Picture images have been courtesy of **Midjourney** and **Microsoft's Bing image-creator**. whilst the descriptions for the cakes were supplied by chatgpt.
 
-    **Code Institute Tutors** for help when I reached out.
-    
-    **The favicon.ico** is courtesy of [Favicon Generator](https://favicon.io)
-    https://websitemockupgenerator.com
+  **Picsart** and `Draw.io` for creating wireframes and flowcharts for my project.
+  I have used **ChatGPT** as a tutor, fellow student and sounding board that had on tap, asking it to explain concepts I found hard to grasp, meanings of terms that are often taken as a given and also it's advice about structure of the project with a view to further development and also advice on completing aspects of this very README, in how I should go about things.
+  However... Sometimes this has been to my detriment because it would get carried away in conversations about goals and routes to them, resulting in me having to scrub work and redo it.
 
-  - Code and the idea for toggling the DEBUG according to environment is courtesy of Code Institute learning materials
+  **Code Institute Tutors** for help when I reached out.
 
-  - The wallpaper for the site was sourced as a svg file courtesy of [Hero Patterns](https://heropatterns.com)
+  **The favicon.ico** is courtesy of [Favicon Generator](https://favicon.io)
+  https://websitemockupgenerator.com
 
-  - Configuration assistance for extensions such as Ruff, Black, Prettier and ESLint was provided by ChatGPT from OpenAI.
+- Code and the idea for toggling the DEBUG according to environment is courtesy of Code Institute learning materials
 
-  - **developer.mozilla.org** for handling responsive images
-  
-  - **johnfraney.ca** for use of their responsive image generator
-  
-  - **BrowserStack** for advising most common screen sizes
-  
-  - **Blisk** for a comprehensive list of devices with accompanying information on Viewport   Sizes, Screen Sizes and Device Pixel Ratio which enabled me to setup Emulated Devices in Chrome Devtools which was mega useful in testing the responsiveness.
-  
+- The wallpaper for the site was sourced as a svg file courtesy of [Hero Patterns](https://heropatterns.com)
 
+- Configuration assistance for extensions such as Ruff, Black, Prettier and ESLint was provided by ChatGPT from OpenAI.
 
-  ---
+- **developer.mozilla.org** for handling responsive images
+
+- **johnfraney.ca** for use of their responsive image generator
+
+- **BrowserStack** for advising most common screen sizes
+
+- **Blisk** for a comprehensive list of devices with accompanying information on Viewport Sizes, Screen Sizes and Device Pixel Ratio which enabled me to setup Emulated Devices in Chrome Devtools which was mega useful in testing the responsiveness.
+
+---
