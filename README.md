@@ -10,28 +10,22 @@ The site displays a wide range of cakes but if customers want more unusual "one 
 
 ## Table of Contents
 
-- [List of Applications in Product](#list-of-applications-in-product)
-- [Features](#features)
-- [Pre-requisites](#pre-requisites)
-- [Project Planning & Development](#project-planning--development)
-  - [Database Schema](#database-schema)
-  - [Wireframes](#wireframes)
-  - [Design Mockups](#design-mockups)
-  - [Development Approach](#development-approach)
-- [Development Decisions](#development-decisions)
-- [Formatters and Linters](#formatters-and-linters)
-- [Application Overview and Functionality](#application-overview-and-functionality)
-- [Performance Optimization](#performance-optimization)
-- [Agile Development Process](#agile-development-process)
-- [User Stories](#user-stories)
-- [Installation](#installation)
-- [Use](#use)
-- [Testing](#testing)
-- [Conclusion](#conclusion)
-- [Further Development](#further-development)
-- [Deployment](#deployment)
-- [Copy / Improve / Contribute](#copy--improve--contribute)
-- [Credits, Acknowledgments and Appreciation](#credits-acknowledgments-and-appreciation)
+- [Just Cakes](#just-cakes)
+  - [Table of Contents](#table-of-contents)
+  - [List of Applications in product:](#list-of-applications-in-product)
+  - [Features:](#features)
+    - [Promotional Carousel](#promotional-carousel)
+    - [Homepage / Cake Gallery](#homepage--cake-gallery)
+    - [Individual Cake Detail Page](#individual-cake-detail-page)
+    - [User Reviews List Page](#user-reviews-list-page)
+    - [Individual User Review Detail Page](#individual-user-review-detail-page)
+    - [Update \& Deletion of Profile](#update--deletion-of-profile)
+    - [Contact Form Submission](#contact-form-submission)
+    - [Registration/Sign-In/Sign-Out](#registrationsign-insign-out)
+    - [Customer Profile Management](#customer-profile-management)
+    - [Admin Capabilities](#admin-capabilities)
+  - [Pre-requisites](#pre-requisites)
+    - [For basic functionality:](#for-basic-functionality)
 
 ## List of Applications in product:
 
@@ -44,42 +38,57 @@ The site displays a wide range of cakes but if customers want more unusual "one 
 
 ## Features:
 
-- **Promotional Carousel**
-  The homepage features a dynamic Promotional Carousel that continuously scrolls:
+### Promotional Carousel
 
-  - _Spend over £95 for free delivery_
-  - _Click & Collect Available_
-  - _Contact phone number for making direct contact_
+The homepage features a dynamic Promotional Carousel that continuously scrolls:
 
-- **Homepage / Cake Gallery**.
-  The homepage acts as the landing page and also the gallery that showcases the cake styles available, all of which are separated into categories of Wedding, Birthday and Novelty so that a user can easily find what they're looking for, but not without having a cursory glance at the variety available, as each cake image is accompanied by the cake name, a short excerpt describing the cake which acts as a link to the detail page of that cake.
-  With clear navigation at the top, leading to other parts of the site, including a link for admins of the site to go straight to the django admin panel, a user is able to find their way about, easily.
+- _Spend over £95 for free delivery_
+- _Click & Collect Available_
+- _Contact phone number for making direct contact_
 
-- **Individual Cake Detail Page**
-  Once a user selects a cake from our homepage gallery, they are taken to a detailed page dedicated to that cake. The detail page offers an in-depth look at the cake, including larger clear images, a comprehensive description, pricing, and keys to make clear when a cake is plant based or gluten free.
+### Homepage / Cake Gallery
 
-- **User Reviews List Page**
-  A list page for User Reviews. An image, when uploaded by the user, else a default image. An excerpt with accompanying photos, when uploaded by the authenticated user, else a default image is provided, with the Authors name, post title, excerpt from the post and the published date and time along with a heart and a number, representing the number of likes.
+The homepage acts as the landing page and also the gallery that showcases the cake styles available, all of which are separated into categories of Wedding, Birthday and Novelty so that a user can easily find what they're looking for, but not without having a cursory glance at the variety available, as each cake image is accompanied by the cake name, a short excerpt describing the cake which acts as a link to the detail page of that cake.
+With clear navigation at the top, leading to other parts of the site, including a link for admins of the site to go straight to the django admin panel, a user is able to find their way about, easily.
 
-- **Individual User Review Detail Page**
-  A page in which the entire post could be read by a user and where comments and likes can be added by authenticated users.
+### Individual Cake Detail Page
 
-- **Update & Deletion of Profile**
-  Upon initial registration, users have an account automatically created. But other than their user name, the fields are empty. upon sigh in, the authenticated user has the facility to view account via the navigation where they can update the profile or delete it, there by deleting account.
+Once a user selects a cake from our homepage gallery, they are taken to a detailed page dedicated to that cake. The detail page offers an in-depth look at the cake, including larger clear images, a comprehensive description, pricing, and keys to make clear when a cake is plant based or gluten free.
 
-- **Contact Form Submission**
-  Users, both authenticated and non-authenticated can enter their details with a description of their requirements in a contact for for submission in order to be contacted by Just Cakes.
+### User Reviews List Page
 
-- **Registration/Sign-In/Sign-Out**: User authentication is managed using Allauth, ensuring a smooth registration, login, and logout process.
+A list page for User Reviews. An image, when uploaded by the user, else a default image. An excerpt with accompanying photos, when uploaded by the authenticated user, else a default image is provided, with the Authors name, post title, excerpt from the post and the published date and time along with a heart and a number, representing the number of likes.
 
-- **Customer Profile Management**: Whilst user's profiles are automatically created upon registration, they are in essence blank other than their user name. Further to this, users can fully create, update, and delete their profiles on the site.
-  &nbsp;
-- **Admin Capabilities**: Admins can easily add cake data, including images
-  and details, via the Django admin panel. Here, admins are able to create new categories, flavours, descriptions and update prices.
+### Individual User Review Detail Page
+
+A page in which the entire post could be read by a user and where comments and likes can be added by authenticated users.
+
+### Update & Deletion of Profile
+
+Upon initial registration, users have an account automatically created. But other than their user name, the fields are empty. upon sigh in, the authenticated user has the facility to view account via the navigation where they can update the profile or delete it, there by deleting account.
+
+### Contact Form Submission
+
+Users, both authenticated and non-authenticated can enter their details with a description of their requirements in a contact for for submission in order to be contacted by Just Cakes.
+
+### Registration/Sign-In/Sign-Out
+
+User authentication is managed using Allauth, ensuring a smooth registration, login, and logout process.
+
+### Customer Profile Management
+
+Whilst user's profiles are automatically created upon registration, they are in essence blank other than their user name. Further to this, users can fully create, update, and delete their profiles on the site.
+
+### Admin Capabilities
+
+Admins can easily add cake data, including images
+and details, via the Django admin panel. Here, admins are able to create new categories, flavours, descriptions and update prices.
+
+---
 
 ## Pre-requisites
 
-#### For basic functionality:
+### For basic functionality:
 
 ```
 Django3.2.20
@@ -96,43 +105,37 @@ gunicorn 21.2.0
 
 ---
 
----
-
 ## Project Planning & Development:
 
 This section outlines the planning process and development approach for our project. Below is a flowchart diagram that provides a visual representation of the overall functionality of the application.
+
 ![](https://res.cloudinary.com/cheymd/image/upload/v1712064156/JustCakes-Readme-images/basic-layout-of-functionality_v0az3y.png)
 
----
+### Database Schema
 
-&nbsp;
-Table for planning "Reviews" database
+### Table for planning "Reviews" database
 
 ![Reviews Tables Model](https://res.cloudinary.com/cheymd/image/upload/v1711207188/JustCakes-Readme-images/reviews-table_1_pv1kw7.png)
 
-&nbsp;
-Table for planning "Customer Accounts" database
+### Table for planning "Customer Accounts" database
 
 ![Customer Accounts](https://res.cloudinary.com/cheymd/image/upload/v1711207083/JustCakes-Readme-images/customer-account-tables_1_blheom.png)
 
-&nbsp;
-Cakes
+### Table for planning "Cakes" database
 
-Table for planning "Cakes" database
 Defining type:Wedding, Novelty and Birthday. Allergy: GF for Gluten Free. V for plant-based. Flavours and colors. And a list of the cakes themselves, making them searchable by users of the site when such extra functionality added.
-&nbsp;
+
 Using Normalization to organize the data, so when changes to the data is required, it's more easily managed.
 In doing so, new content for the fields can be created by a site administrator. The new content being cake names, descriptions and additional categories if they so wish.
-&nbsp;
-The purpose of the tables when planning the structure of the data was not to reflect the exact details of each cake currently available, but instead have the relevant sections. So whilst I've used some of the names of cakes and data such as gluten free, etc... The precise details of cakes on the site is subject to change, which was the purpose of the field structure.
 
+The purpose of the tables when planning the structure of the data was not to reflect the exact details of each cake currently available, but instead have the relevant sections. So whilst I've used some of the names of cakes and data such as gluten free, etc... The precise details of cakes on the site is subject to change, which was the purpose of the field structure.
 &nbsp;
-Cake Categories
+
+#### Cake Categories
 
 ![Cake Categories](https://res.cloudinary.com/cheymd/image/upload/v1711207072/JustCakes-Readme-images/cake-category-table_all7hy.png)
 
-&nbsp;
-Cake Colours
+#### Cake Colours
 
 ![Cake color and color association table](https://res.cloudinary.com/cheymd/image/upload/v1711207069/JustCakes-Readme-images/cake-colour-association-table_1_gvtskc.png)
 
@@ -143,8 +146,6 @@ Cake Colours
 #### Cake List
 
 ![Cake List](https://res.cloudinary.com/cheymd/image/upload/v1711207080/JustCakes-Readme-images/cake-list_1_bti57a.png)
-
----
 
 ---
 
@@ -181,6 +182,7 @@ Not all pages have wireframes. Pages that are handled by Allauth have basic elem
 #### Index page / Cake List / Landing Page mobile view
 
 The Cake List (index page) are scrolling lists. This frame, which is shown in blue and also represents the area which would be a clickable link to the detail page, shows what a single cake list view would contain before repeating the content for another cake for the list page.
+
 ![Landing Page / Cakes list Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1724616950/cake-list-mobile-view_yo6cjv.jpg)
 
 #### Cake Detail Page mobile view
@@ -190,11 +192,14 @@ The Cake List (index page) are scrolling lists. This frame, which is shown in bl
 #### Post List Page mobile view
 
 The Post List is a scrolling list of posts. This frame, which is shown in blue and also represents the area which would be a clickable link to the detail page, shows what a single post list view would contain before repeating the content for another post for the list page.
+&nbsp;
+
 ![Post List - Mobile Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1724616949/post-list-mobile-view_cq2jxm.jpg)
 
 #### Post Detail Page mobile view
 
 The comment box is only available to authenticated users.
+
 ![Post Detail - Mobile View Wireframe](https://res.cloudinary.com/cheymd/image/upload/v1724616950/post-details-mobile-view_gnqxvx.jpg)
 
 #### Account Detail Page mobile view
@@ -207,14 +212,10 @@ The comment box is only available to authenticated users.
 
 ---
 
----
-
 ## Mockups
 
 In this section, you'll find visual representations of the site's design and layout through mockups. These mockups provide a detailed preview of how the various pages and components will appear to users. They serve as a visual guide for the development process and help ensure consistency in design across different screen sizes and devices.
 ![Mockup - All Devices](https://res.cloudinary.com/cheymd/image/upload/v1712048533/all-devices-black_gac35v.png)
-
----
 
 ---
 
@@ -242,15 +243,15 @@ The Just Cakes project, at this stage is simple. And the functionality could hav
 
 - **But also the excessive CSS that was redundant**. Initially, I looked online for help on how to automate the search for redundant CSS, but when following instructions on implementation, I was getting error messages that would send me down rabbit holes. This is happened too many times, so I instead carried out a manual but systematic search through the custom.css for the occurrences of class names in the HTML files with the command `git grep -l '<class name being searched for>' -- '**/*html'`, deleting the classes that didn't return any listings and testing for changes.
 
-- User Friendly vs Efficiency.
+- **User Friendly vs Efficiency**
   The landing page is the gallery view which promotes the bespoke cakes that Just Cakes creates and supply. The gallery is maintained by an admin whose is responsible for ensuring that the various lines of cakes are shown to their best. On this bases, I decided that whilst it would be "nice" to make the uploading of cake images a little less regimented for the experience of an admin that was maintaining the site, it was more important that the experience of the user who would be browsing the pages of the site, be a a more fluid process.
 
-- This would be different to the Reviews page that both admins and users  
+- This would be different to the Reviews page that both admins and users
   were able to contribute
   toward. With this in mind I decided that only using WebP images for the cakes gallery was
   orientated toward the user experience... The Reviews page would be less regimented in its formats, for precisely the same reason. Uploading posts and accompanying images should be conditional, because you can't account for every eventuality. But not unfriendly, and so other formats could be uploaded.
 
-- **Optimization of post_list.html Layout and the re-aligning of other HTMLs**.  
+- **Optimization of post_list.html Layout and the re-aligning of other HTMLs**.
   Initially when writing the post list page, I followed the format and structure of "Django Blog, CodeStar" which was a Code Institute walkthrough project, but whilst it gave me a workable template that I could use immediately. As I customised the HTML, I drifted further and further from the original structure, but as I did, I neglected to removed unnecessary classes, both bootstrap and ones that that had been defined in the original stylesheet.css.
 
   It was the process of using Lighthouse, looking at the scores and studying how these scores were calculated, that led me to brave away from the HTML structure that still resembled the walkthrough project and make the layout work better for "me".
@@ -264,10 +265,12 @@ The Just Cakes project, at this stage is simple. And the functionality could hav
 After migrating my Gitpod workspace due to a change in how I needed to access the IDE, I noticed changes in code formatting. This led to reinstalling and changing formatters and linters.
 Unfortunately, the configurations that I’d previously relied on when installing via the Gitpod Marketplace UI, didn’t seem to work correctly.
 
-Python Related
+### Python Related
+
 In settings.json, blocks of code that related to Python files were greyed out and showed as “Unknown Configuration”. Attempting to understand why this was the case led me to uninstalling and re-installing extensions, checking paths to the packages and updating them from running globally to reaching my virtual environment. Despite the changes made, the configurations that were related to Python remained unrecognised. I understand Pylint to be widely used and actively maintained too for checking quality of Python code, but despite this it was causing warnings of depreciation. In the search to understand why I came across Ruff which claimed to be a simpler, faster and more streamlined tool. Changing to Ruff resulted many of the settings that weren’t going to be included in Newer versions of Pylint as it developed, and so the deprecation warnings came to an end. I’ve not been able to understand why the Python specific configurations which are separate to Ruff remain unrecognised and yet do seem to have effect on files.
 
-Prettier
+### Prettier
+
 Warnings about Beautify being deprecated have been continuous, but these warnings have since changed to saying that Beautify was no longer being supported.
 I chose Prettier and ESLint from the Gitpod marketplace for all file formats other than Python. But the settings that normal installation provides didn’t work. The configuration and settings I finally arrived at were a result of guidance, explanations and advice in the form of tutoring by ChatGPT from OpenAI.
 This covered the converting of .eslintrc to eslint.config.js, inclusion of the ignore property as opposed to a separate .eslintignore and an additional stylelintrc.json which enables settings that stopped false errors and allowed for specified units such as “["em", "rem", "%", "s"]”
@@ -301,13 +304,13 @@ The tablet view of the desktop is much the same as the laptop view, so I've chos
 
 For each cake, the application dynamically generates a detail page, enriched with high-resolution images fetched from Cloudinary, comprehensive descriptions, pricing information, and dietary indicators (e.g., plant-based, gluten-free). This page is designed to provide all the necessary information a user might need to make an informed decision, enhancing transparency and trust.
 
-Laptop View:
-![Individual Cake Laptop-view](https://res.cloudinary.com/cheymd/image/upload/v1724209608/JustCakes-Readme-images/cake-detail-laptop-view_y4duif.png)
-&nbsp;
-Mobile View
-![Individual Cake Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1724209608/JustCakes-Readme-images/cake-detail-mobile-view_rcdjyx.png)
+##### Laptop View
 
-&nbsp;
+![Individual Cake Laptop-view](https://res.cloudinary.com/cheymd/image/upload/v1724209608/JustCakes-Readme-images/cake-detail-laptop-view_y4duif.png)
+
+##### Mobile View
+
+![Individual Cake Mobile View](https://res.cloudinary.com/cheymd/image/upload/v1724209608/JustCakes-Readme-images/cake-detail-mobile-view_rcdjyx.png)
 
 #### Responsive Image Handling
 
@@ -327,8 +330,6 @@ Screenshot of the Individual user's account detail/profile page with buttons to 
 Profile Creation and Update
 Initially blank when initially created and associated with a user, the individual customer profile can be updated by the user. Validation is in place for details such as phone numbers and postcodes using regex and custom validation logic in `forms.py`
 
-&nbsp;
-
 Update Profile Form with fields to update, help text to guide the user and an update button.
 ![](https://res.cloudinary.com/cheymd/image/upload/v1712227329/JustCakes-Readme-images/update-profile-form_fpcptt.png)
 
@@ -342,8 +343,6 @@ The application features:
 
 Screenshot of the posts list page showing excerpts of each post
 ![posts list](https://res.cloudinary.com/cheymd/image/upload/v1724208480/JustCakes-Readme-images/posts-list-page_hkzlba.png)
-&nbsp;
-&nbsp;
 
 View of a single post page showing number of comments and like for a post and also facility for commenting for authenticated users.
 ![post detail](https://res.cloudinary.com/cheymd/image/upload/v1711334255/JustCakes-Readme-images/single-post_z1od6s.png)
@@ -356,12 +355,12 @@ The Contact form is accessible from all pages and can be used by authenticated u
 The regex pattern I've used for validating the phone numbers is from StackOverflow and I've credited it as such in the `forms.py` file itself.
 Upon successful form submission, the user gets an onscreen message thanking them, which lasts for 3 seconds before they are then redirected to the homepage.
 
-&nbsp;
-Screenshot of the "contact form"
+#### Screenshot of the "contact form"
 
 ![Contact Form](https://res.cloudinary.com/cheymd/image/upload/v1712271776/JustCakes-Readme-images/contact-form_oc4pby.png)
 
-Screenshot of successful contact form submission
+#### Screenshot of successful contact form submission
+
 ![Upon Submitting a contact form](https://res.cloudinary.com/cheymd/image/upload/v1712272553/JustCakes-Readme-images/contact-form-submission_sjib1a.png)
 
 ---
@@ -375,53 +374,35 @@ To overcome this, I used `?fm=webp` to ask for images to be delivered in the for
 
 I used Google's "Lighthouse" to measure my site. Measuring only the main pages, I gained the following scores, of which I've screen shotted the readouts from Lighthouse.
 
-#### Laptop / Desktop Lighthouse Scores
-
-**Index / Cake List / Gallery Page**
+#### Index / Cake List / Gallery Page (Desktop)
 
 ![index.html desktop score](https://res.cloudinary.com/cheymd/image/upload/v1724272304/JustCakes-Readme-images/desktop-cake-list_cthxxk.png)
 
-&nbsp;
-
-**Cake Detail / Gallery Page**
+#### Cake Detail / Gallery Page (Desktop)
 
 ![cake_detail.html desktop score](https://res.cloudinary.com/cheymd/image/upload/v1724272304/JustCakes-Readme-images/desktop-cake-detail_a4htnt.png)
 
-&nbsp;
-
-**Post List Page**
+#### Post List Page (Desktop)
 
 ![post_list.html desktop score](https://res.cloudinary.com/cheymd/image/upload/v1724272303/JustCakes-Readme-images/desktop-post-list_qmzohi.png)
 
-&nbsp;
-
-**Post Detail Page**
+#### Post Detail Page (Desktop)
 
 ![post_detail.html desktop score](https://res.cloudinary.com/cheymd/image/upload/v1724272303/JustCakes-Readme-images/desktop-post-detail_tazncc.png)
 
-&nbsp;
-
-#### Mobile Lighthouse Scores
-
-**Index / Cake List / Gallery Page**
+#### Index / Cake List / Gallery Page (Mobile)
 
 ![index.html mobile score](https://res.cloudinary.com/cheymd/image/upload/v1724272303/JustCakes-Readme-images/mobile-cake-list_wblwhf.png)
 
-&nbsp;
-
-**Cake Detail**
+#### Cake Detail (Mobile)
 
 ![cake_detail.html mobile score](https://res.cloudinary.com/cheymd/image/upload/v1724272306/JustCakes-Readme-images/mobile-cake-detail_gdgpbe.png)
 
-&nbsp;
-
-**Post List Page**
+#### Post List Page (Mobile)
 
 ![post_list.html mobile score](https://res.cloudinary.com/cheymd/image/upload/v1724272306/JustCakes-Readme-images/mobile-post-lisl_qrxhyd.png)
 
-&nbsp;
-
-**Post Detail Page**
+#### Post Detail Page (Mobile)
 
 ![post_detail.html mobile score](https://res.cloudinary.com/cheymd/image/upload/v1724272305/JustCakes-Readme-images/mobile-post-detail_dgt5po.png)
 
@@ -439,15 +420,16 @@ During the development of _Just Cakes_, I encountered a number of issues. These 
   Initially attempting to adopt the tutorial's naming conventions led to some confusion, particularly with the "reviews" app, which was too narrowly defined and not entirely reflective of its broader purpose in the context of the site.
   Add to this, I was struggling with correctly applying singular and plural usage of the words "review/reviews" when naming the files.
   **Resolved** I was unsure of how much disruption would have been caused by changing the application's name, so I decided to leave it as "reviews" but chose to change the HTML files within the application to "post" and "posts" which were more relevant.
-  &nbsp;
+
 - **The Index.html**
   Another issue that only became apparent later was that in my need to name the HTML pages according to the applications that they belonged to, I lost focus of keeping index.html as a central point.
   The purpose of the site was to showcase their cakes, so I decided to make the gallery view of the cakes the landing page and changed the cakes_list.html to index.html
-  &nbsp;
+
 - **Customer Accounts versus Customer Profiles**
   Not being definitive about customer accounts or customer profiles, the boundaries between the two were blurred, even impacting the logic of what things did. It was only after a mass-renaming of files that I was able to separate things which resulted in having better logic of how templates where connected to one another and also the logic of what they displayed in relation to one another.
-  &nbsp;
+
 - **Truncated Excerpts** When looking at why excerpts of posts weren't dynamically displaying, I realised that I had fields for "content" and a field literally called "excerpt". I had been double thinking this and they were attempting to serve the same purpose. Unfortunately thinking of the word "excerpt" I kept focus on that and used it when trying to serve it up dynamically. But it was the content fields that was saving the data. When realising this, I dropped "excerpt" from the post model and used "content correctly".
+
   I then went about creating new content for the posts so that the posts each had a reasonable number of words before I could make use of truncating down to 25 words. So I copy pasted generic text in via the admin panel, attributing it to various users.
   However... Upon rendering the screen the copy and pasting had taken HTML styles across and although it didn't show when entering in via the admin panel, it did show in the render.
   I tried to clean the output by using `{{ post.content|striptags }}` and that did work, but not with truncation, so I decided to not bother with the striptags command on the bases that users would normally be entering text a fresh and this issue is unlikely to arise.
@@ -480,28 +462,32 @@ Additionally, the validation process highlighted other potential issues, includi
 
 ---
 
----
-
 ## Agile Development Process
 
-**Agile-Inspired Development Approach**.
+### Agile-Inspired Development Approach
+
 This project was guided by an "Agile-inspired" approach in that, without a team or base to which I could goto in order to get others to check, test and provide feedback, I often found myself taking this role in order to assess what I needed to do next. This made for a slow process, but it did provide an environment that allowed for continual change. Often I would utilise family and friends who had no technical knowledge whatsoever to use aspects of the site, whilst I gained feedback by way of observing how they went about things, given what I placed in-front of them. And also listening to what they had to say of their experience.
 
 In retrospect, while this approach was instrumental for refining the UX, I recognize that it was less systematic for developing functionality. This realization underscores the importance of maintaining methodical development practices even when working in a flexible, Agile-influenced manner.
 
-**Iterative Development**
+### Iterative Development
+
 The development unfolded in an iterative manner. Without predefined sprints, I tackled the project in small, manageable increments. Each commit in the version history represents a step in this journey, sometimes forward and occasionally a step back, reflecting an organic, exploratory process as I developed both the project and also my own ability.
 
-**Continuous Adaptation**
+### Continuous Adaptation
+
 Embracing change, one of the Agile's key values, was essential. When functionality didn't work as it was supposed to, or when a better solution was discovered, I adjusted accordingly. This resulted in a commit history that didn't follow a strict linear path, but did reflect an adaptability and willingness to make changes wherever needed.
 
-**Self-Managed Process**
+### Self-Managed Process
+
 Lacking a team environment in which stand-ups could be used to track progress, identify obstacles, and plan strategies to overcome them, I created a daily handover book to myself which consisted of a list of tasks that needed doing, a ticking off, of the tasks as they were done and a plan for the next day. It was a liner method, but one that navigated according to need as required, creating fresh lists and tasks as things evolved.
 
-**Tools for Agile Management**
+### Tools for Agile Management
+
 I used Git for version control and tracking which allowed me to create branches, try out ideas, discard them or keep them depending on how they played out.
 
-**Reflection and Growth**
+### Reflection and Growth
+
 My solo journey with this project has been as much about learning Agile practices as it has been about developing the application itself. The process has been documented honestly, warts and all, to showcase not just the final product but the resilience and continuous learning that went into creating it.
 
 ### User Stories
@@ -526,21 +512,21 @@ I eventually did away with the requirements-dev.txt file and setup a virtual env
 
 - **Fork to solve Database Schema and `models.py` Issues**
   In the back and forth with the clashing of extensions, At some point the Database Schema and the `models.py` in the customer_accounts app didn't match up. On one hand I was getting errors saying that the first_name, last_name and memorable_dates weren't recognized after I had added and migrated them. On the other hand I couldn't migrate them again because I was told that there were no changes detected. I tried editing the migration files and finally deleted them in the hope of creating fresh migrations, but seemed to come full circle. Eventually, creating a new database instance which seemed a cleaner way to go forward.
-  &nbsp;
+
 - **Database Issue**
   When adding functionality to the reviews app, for users to delete their comments, I had a lot of issues with migrating the changes. Changes weren't showing so couldn't be migrated and it was crashing as it was. Looking to resolve this, I removed the migration files in the hope that changes would be recognised to no avail. Unable to see a way forward I resorted to flushing the database. Even this was still giving me a message that said no changes had been made.
   So I eventually just deleted the database instance at ElephantSQL, created another and re-entered everything again.
   This left me with a lot of files that I had yet to commit, mostly migration ones. So they were committed in bulk to clear the clutter.
-  &nbsp;
+
   **New Site**
   I was unable to get my svg pattern which I was using as wallpaper to display. I thought that this was due to the fact that I hadn't set the DISABLE_COLLECTSTATIC in Heroku and after deploying once with it not set, I couldn't seem to simply set it on the deployments there after. After numerous attempts to get round this which included trying to use Whitenoise to serve the static files, I eventually reverted to Cloudinary settings for them. After numerous re-runs and re-dos I can see that it's not the static file that is the issue because the other styling is present. The SVG pattern is not. It's not interfering with the functioning so this can me addressed at a later date.
-  &nbsp;
 
 ---
 
 ## Installation
 
-\*Note on Versioning
+### Note on Versioning
+
 It's crucial to use compatible versions of all dependencies to ensure that your project runs smoothly. In this guide, we are using Django version3.
 
 ### Install Django
@@ -550,14 +536,20 @@ Notes: Use Django 3.\* to ensure compatibility and support.
 Initialize the Django Project
 Code: django-admin startproject PROJ_NAME .
 Notes: The '.' at the end specifies that the project should be created in the current directory.
-Create Django Apps
+
+### Create Django Apps
+
 Code: `python3 manage.py` startapp APP_NAME
 Notes: This will create a new app inside your Django project. Replace APP_NAME with your desired application name.
-Running and Configuring the Server
-Run the Django Development Server
+
+### Running and Configuring the Server
+
+### Run the Django Development Server
+
 Code: `python3 manage.py runserver`
 
-**Additional Information**
+### Additional Information
+
 For more details, you can refer to the official [Django Documentation](https://www.djangoproject.com).
 Register the App in Django Settings
 
@@ -569,8 +561,6 @@ Check the list of required packages in the README file and make sure to install 
 - [How to deploy on Heroku](https://devcenter.heroku.com/categories/deployment)
 - [How to use Cloudinary cloud based media service](https://cloudinary.com/documentation/how_to_integrate_cloudinary#:~:text=The%20best%20way%20to%20get,in%205%20minutes%20or%20less.)
 - [How to use Managed PostgreSQL database hosting service](https://www.elephantsql.com/docs/index.html)
-
----
 
 ---
 
@@ -602,9 +592,9 @@ The fields aren't compulsory and the user can choose which fields they update.
 The reviews page that the navigation takes a user to, provides the unauthenticated user to read excerpts of each review, so they can choose which they want to read in full in the post's detail page. At the bottom of this page, there is page navigation, If there is sufficient posts to create more pages and a button that says "write a review" for the authenticated user who wishes to add to the reviews page. Also, for the authenticated user, at the bottom of the detail of an individual post is a comments box where a authenticated user can contribute to the individual post.
 The authenticated user can also like posts, which adds to the likes count which is displayed under a post.
 
-RE-START HERE! RE-START HERE! RE-START HERE! RE-START HERE!
+### Browsing Cakes
 
----
+The index page serves as the landing page where users are able to browse cakes available to order, listed under their category. Each item in the index page consists of a cake image, an excerpt of the cake's description, and acts as a link to the detail page for that page where the user will have a larger detailed picture, a fuller description of the cake which specifies whether it is gluten-free or plant-based, using a font-awesome icon, making it quick and easy to understand.
 
 ---
 
@@ -614,39 +604,31 @@ RE-START HERE! RE-START HERE! RE-START HERE! RE-START HERE!
 
 **Comment Form in Reviews App**
 
-Tests for the comment form in the reviews app are copied from the Code Institute walkthrough project called Codestar. The code for which can be found here:
+Tests for the comment form in the reviews app are copied from the Code Institute walkthrough project called Codestar. The code for which can be found here:  
 [Comment Form - pass](reviews/tests/tests_forms.py)
 
-&nbsp;
 **Updating Profile Form in Customer_Accounts App**
 
 The test passes for `test_invalid_form()` demonstrated the expected errors, as deliberate invalid data was intentionally passed to the form for validation.
 
-&nbsp;
-**Screenshot of console from test**:
+**Screenshot of console from test:**
 
 ![Deliberate invalid data](https://res.cloudinary.com/cheymd/image/upload/v1711505142/JustCakes-Readme-images/update-profile-form-test-console-display_bl37p9.png)
 
-&nbsp;
 [Update Profile Form - pass](customer_accounts/tests/test_forms.py)
 
-&nbsp;
-
-- **User Sign-up/Sign-in/Sign-out**
+- **User Sign-up/Sign-in/Sign-out**  
   [Sign-Up, Sign-in, Sign-out - pass](/tests/test_authentication.py)
 
-&nbsp;
-
-- **Contact Form Submission**
+- **Contact Form Submission**  
   [Contact Form Submission - pass](/contact/tests.py)
 
-&nbsp;
-
-- **Cake Models**
+- **Cake Models**  
   [Cake Models - pass](/cakes/tests/tests.py)
-  &nbsp;
-  **All Tests Passed.**
-  ![](https://res.cloudinary.com/cheymd/image/upload/v1711513147/JustCakes-Readme-images/all-tests_awc3ew.png)
+
+**All Tests Passed.**
+
+![All tests passed](https://res.cloudinary.com/cheymd/image/upload/v1711513147/JustCakes-Readme-images/all-tests_awc3ew.png)
 
 ---
 
@@ -659,41 +641,15 @@ I tested this by creating a default image which was placed in Cloudinary. After 
 I then systematically deleted one from each category from the admin panel.
 
 **Result** -- **Pass**
-The screen was rendered using the default images as they should.
-Screenshots of default images displaying:
+The screen was correctly rendered using the generic default image in place of the missing image. This is a screenshot of the process taking place in "Wedding Cakes". The process was also successfully repeated in the sections for Birthday and Novelty Cakes.
 
-- **Wedding**
+**Screenshot of the Default Image Displaying in the index page, within the Wedding Cakes section:**
+![Default Image](https://res.cloudinary.com/cheymd/image/upload/v1724690742/JustCakes-Readme-images/default-list-cake-image_akhnwg.png)
 
-![Wedding section](https://res.cloudinary.com/cheymd/image/upload/v1711207106/JustCakes-Readme-images/default-wedding-image_rqnmyg.png)
+**Test images following the same process for the cake's details page.**
+The default image also appeared on the individual cake detail page when no specific image was provided.
 
-&nbsp;
-
-- **Birthday**
-
-![Birthday section](https://res.cloudinary.com/cheymd/image/upload/v1711207086/JustCakes-Readme-images/default-birthday-image_cbmgli.png)
-
-&nbsp;
-
-- **Novelty**
-
-![Novelty section](https://res.cloudinary.com/cheymd/image/upload/v1711207106/JustCakes-Readme-images/default-wedding-image_rqnmyg.png)
-&nbsp;
-
----
-
-**Test images following the same process for the cakes details page.**
-
-"**test-detail-image-1**" is the default image when the individual cake doesn't have an image associated with it.
-
-&nbsp;
-![Default image](https://res.cloudinary.com/cheymd/image/upload/v1711207183/JustCakes-Readme-images/test-detail-image-1_o6v6qg.png)
-
-&nbsp;
-"**test-detail-image-2**" is when a cake image was loaded via the Django interface and was associated with the "Hulk cake".
-
-![Associated image](https://res.cloudinary.com/cheymd/image/upload/v1711207191/JustCakes-Readme-images/test-detail-image-2_qvyb6q.png)
-
----
+![Default Image](https://res.cloudinary.com/cheymd/image/upload/v1724690741/JustCakes-Readme-images/default-detail-cake-image_zebrty.png)
 
 ---
 
@@ -701,8 +657,59 @@ Screenshots of default images displaying:
 
 ### HTML Validation
 
-As stated in the "Deployment Challenges and Solutions" section, I used https://validator.w3.org to validate my code. Any issues that were raised were addressed.
+As stated in the "Deployment Challenges and Solutions" section, I used https://validator.w3.org to validate my code.
+
 The only issue raised there was the matter of trailing slashes which would always return upon saving, despite removing them.
+
+**Validation Summary for the Just Cakes [Landing Page](https://just-cakes-184a064333be.herokuapp.com/)**
+
+- Status: Document checking completed. No errors or warnings to show.
+- Parser Used: HTML parser
+- Character Encoding: UTF-8
+- Total Execution Time: 341 milliseconds
+- Note: The validation process returned 39 informational messages, which do not affect the functionality or compliance of the HTML
+  code.
+
+**Screenshots of the Validation Process:**
+
+_Validation by URL_
+
+![URL Validation](https://res.cloudinary.com/cheymd/image/upload/v1724694449/JustCakes-Readme-images/index-no-erros-or-warnings_bt0vae.png)
+
+_Validation Results:_
+
+![Validation Results](https://res.cloudinary.com/cheymd/image/upload/v1724694448/JustCakes-Readme-images/index-url-being-validated_fma8tz.png)
+
+**Validation Summary for the Just Cakes [Review Page](https://just-cakes-184a064333be.herokuapp.com/reviews/)**
+
+- Status: Document checking completed. No errors or warnings to show.
+- Parser Used: HTML parser
+- Character Encoding: UTF-8
+- Total Execution Time: 280 milliseconds
+- Note: The validation process returned 22 informational messages, which do not affect the functionality or compliance of the HTML
+  code.
+
+**Screenshots of the Validation Process:**
+
+_Validation by URL_
+
+![URL Validation](https://res.cloudinary.com/cheymd/image/upload/v1724695847/JustCakes-Readme-images/reviews-url-being-validated_fhy1ye.png)
+
+_Validation Results:_
+
+![Validation Results](https://res.cloudinary.com/cheymd/image/upload/v1724695847/JustCakes-Readme-images/reviews-no-erros-or-warnings_jws8zx.png)
+
+---
+
+---
+
+---
+
+---
+
+---
+
+---
 
 ### CSS Validation
 
@@ -862,3 +869,7 @@ please do. You will find instructions from
 - **Blisk** for a comprehensive list of devices with accompanying information on Viewport Sizes, Screen Sizes and Device Pixel Ratio which enabled me to setup Emulated Devices in Chrome Devtools which was mega useful in testing the responsiveness.
 
 ---
+
+```
+
+```
