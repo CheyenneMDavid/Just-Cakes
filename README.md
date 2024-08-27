@@ -367,8 +367,13 @@ Upon successful form submission, the user gets an onscreen message thanking them
 
 ## Performance Optimization
 
-Needing images to load faster, I've utilised WebP format when uploading for the site, but realised that this doesn't guarantee how they're delivered back for the site, especially when users may upload in jpg or png formats.
-To overcome this, I used `?fm=webp` to ask for images to be delivered in the format I wanted and `&w=400` for the size I wanted.
+Needing images to load faster, I've utilized WebP format when uploading for the site, but realized that this doesn't guarantee how they're delivered back for the site, especially when users may upload in jpg or png formats. To overcome this, I used `?fm=webp` to ask for images to be delivered in the format I wanted and `&w=400` for the size I wanted.
+
+### Lazy Loading Images
+
+To improve loading times, I implemented lazy loading selectively across the site. Lazy loading is applied to images on pages where the content is below the fold and not immediately visible to the user, which improves performance by only loading images as they're needed, as they come into view. The one place that lazy loading was not of benefit was the index page because, when in mobile view, regardless of which images followed, the first image of the wedding cakes section would always be above the fold.
+
+Unfortunately this isn't a strategy I could use to the same end in the posts_list.html
 
 ### Performance Insights
 
@@ -699,33 +704,27 @@ _Validation Results:_
 
 ![Validation Results](https://res.cloudinary.com/cheymd/image/upload/v1724695847/JustCakes-Readme-images/reviews-no-erros-or-warnings_jws8zx.png)
 
----
-
----
-
----
-
----
-
----
-
----
-
 ### CSS Validation
 
 The project's stylesheets (`style.css` & `custom.css`) have been validated with the W3C CSS Validator, confirming adherence to the latest CSS standards.
 
-- [![Valid CSS](http://jigsaw.w3.org/css-validator/images/vcss)](http://jigsaw.w3.org/css-validator/validator?uri=https://res.cloudinary.com/cheymd/raw/upload/v1718509804/static/css/style_aizq7l.css)
-  Validate `style.css`
+- [![Valid CSS](http://jigsaw.w3.org/css-validator/images/vcss)](http://jigsaw.w3.org/css-validator/validator?uri=https://res.cloudinary.com/cheymd/raw/upload/v1724758573/style_css_hisofr.css) Validate `style.css`
 
-- [![Valid CSS](http://jigsaw.w3.org/css-validator/images/vcss)](http://jigsaw.w3.org/css-validator/validator?uri=https://res.cloudinary.com/cheymd/raw/upload/v1718509638/static/css/custom_pl5hea.css)
-  Validate `custom.css`
+- [![Valid CSS](http://jigsaw.w3.org/css-validator/images/vcss)](http://jigsaw.w3.org/css-validator/validator?uri=https://res.cloudinary.com/cheymd/raw/upload/v1724755200/custom_css_zlbnqr.css) Validate `custom.css`
+
+**Note:** The validation may show warnings related to browser-specific CSS properties (like `-webkit-transform` and `-moz-transform`). These are automatically included by the framework or tools used and are not custom additions by me. These warnings can be safely ignored as they do not impact the overall validity of the CSS. More importantly, the `style.css` consists of default styles which are not mine.
 
 ### Python Code Quality
 
-For my Python code, I used Black to enforce formatting, ensuring readability and consistency, closely following but not limited to PEP 8 standards. This approach not only helped in maintaining clean code but also contributed to the overall quality of my project.
+I used Black to enforce formatting in my Python code, ensuring readability and consistency. Additionally, I ran the following command to check for any formatting issues:
 
----
+```
+for file in */models.py */views.py */admin.py */urls.py */apps.py; do
+    autopep8 --diff "$file"
+done
+```
+
+No issues were found.
 
 ---
 
