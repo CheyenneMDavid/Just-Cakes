@@ -842,7 +842,7 @@ please do. You will find instructions from
 - The reviews application within the just cakes project has been copied from the Code Institute walkthrough django project "codestar".
 
   **StackOverflow** for Regex patterns and how to implement them.
-  Picture images have been courtesy of **Midjourney** and **Microsoft's Bing image-creator**. whilst the descriptions for the cakes were supplied by chatgpt.
+  Picture images have been courtesy of **Midjourney** and **Microsoft's Bing image-creator**. whilst the descriptions for the cakes were supplied by chatgpt, which I then tailored until it suited my own needs.
 
   **Picsart** and `Draw.io` for creating wireframes and flowcharts for my project.
   I have used **ChatGPT** as a tutor, fellow student and sounding board that had on tap, asking it to explain concepts I found hard to grasp, meanings of terms that are often taken as a given and also it's advice about structure of the project with a view to further development and also advice on completing aspects of this very README, in how I should go about things.
@@ -857,8 +857,6 @@ please do. You will find instructions from
 
 - The wallpaper for the site was sourced as a svg file courtesy of [Hero Patterns](https://heropatterns.com)
 
-- Configuration assistance for extensions such as Ruff, Black, Prettier and ESLint was provided by ChatGPT from OpenAI.
-
 - **developer.mozilla.org** for handling responsive images
 
 - **johnfraney.ca** for use of their responsive image generator
@@ -867,8 +865,16 @@ please do. You will find instructions from
 
 - **Blisk** for a comprehensive list of devices with accompanying information on Viewport Sizes, Screen Sizes and Device Pixel Ratio which enabled me to setup Emulated Devices in Chrome Devtools which was mega useful in testing the responsiveness.
 
----
+### Acknowledgement of AI Assistance
 
-```
+Throughout the development of the _Just Cakes_ project, I utilized OpenAI's ChatGPT at various stages, serving as a versatile tool that helped me navigate different aspects of the project. From task prioritization to providing guidance on using third-party software, such as Draw.io for creating ERDs, ChatGPT was a valuable resource.
 
-```
+Often using ChatGPT as a sounding board, discussing the different parts of the application, their purposes, how they relate to one another, and the functionality required to achieve this.
+
+Having already used Django's Generics package during lessons and walkthrough projects, I sought help from ChatGPT, who explained in better detail key attributes of various views within Generics, better enabling me to create the functionality for the apps I had envisaged
+
+In addition, ChatGPT provided configuration assistance for setting up and using code formatting and linting extensions such as **Ruff**, **Black**, **Prettier**, and **ESLint**, wanting consistency across the project. In hindsight, I realised that this particular aspect of help sent me down a few rabbit holes which caused compatibility issues and I should have bee more selective as to how I went about using some extensions.
+
+Finding it an invaluable tool, I used it to create end-of-day summaries that I would then use as a handover to myself, similar to how one might operate within a team. These summaries helped me reflect on the day’s progress and plan the next steps, ensuring continuity and maintaining focus on the project.
+
+I believe that utilizing this tool has enhanced my understanding of the development process and contributed to maintaining a clear focus throughout the project. While ChatGPT was always available—offering advice, explanations and company, whether it be as a fellow student or extremely patient tutor, all final decisions and implementations were mine.
