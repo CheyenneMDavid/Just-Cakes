@@ -6,33 +6,41 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('contact', '0001_initial'),
+        ("contact", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='contact',
-            name='created_at',
+            model_name="contact",
+            name="created_at",
             field=models.DateTimeField(auto_now_add=True),
         ),
         migrations.AlterField(
-            model_name='contact',
-            name='email',
-            field=models.EmailField(help_text='Please enter a valid email address', max_length=254),
+            model_name="contact",
+            name="email",
+            field=models.EmailField(
+                help_text="Please enter a valid email address", max_length=254
+            ),
         ),
         migrations.AlterField(
-            model_name='contact',
-            name='message',
-            field=models.TextField(help_text='Please leave your message here'),
+            model_name="contact",
+            name="message",
+            field=models.TextField(
+                help_text="Please leave your message here"
+            ),
         ),
         migrations.AlterField(
-            model_name='contact',
-            name='name',
-            field=models.CharField(help_text='Please enter your name', max_length=100),
+            model_name="contact",
+            name="name",
+            field=models.CharField(
+                help_text="Please enter your name", max_length=100
+            ),
         ),
         migrations.AlterField(
-            model_name='contact',
-            name='phone_number',
-            field=models.CharField(help_text='Please enter a valid phone number', max_length=20),
+            model_name="contact",
+            name="phone_number",
+            field=models.CharField(
+                help_text="Please enter a valid phone number", max_length=20
+            ),
         ),
     ]

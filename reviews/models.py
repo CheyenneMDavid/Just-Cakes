@@ -2,7 +2,7 @@
 Much of this model has been copied or has been influenced by the django
 Codestar Blog walkthrough project with Code Institute.
 
-Using slugify so that if a user writes a post with a same title, it's doesn't 
+Using slugify so that if a user writes a post with a same title, it's doesn't
 clash.  Slugify generates an alternative that can be read easily
 """
 
@@ -33,7 +33,9 @@ class Post(models.Model):
     updated_on = models.DateTimeField(
         auto_now=True,
     )
-    likes = models.ManyToManyField(User, related_name="post_likes", blank=True)
+    likes = models.ManyToManyField(
+        User, related_name="post_likes", blank=True
+    )
 
     class Meta:
         ordering = ["-created_on"]

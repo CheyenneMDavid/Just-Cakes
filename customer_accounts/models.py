@@ -3,7 +3,7 @@ Importing Regex to validate data.
 Importing models in order to define the CustomerAccount model.
 Importing get_user_model to interact with the default User model in Django.
 
-Using text rather than default values, improving the UX, User not having to 
+Using text rather than default values, improving the UX, User not having to
 delete content in fields before filling their details in.
 """
 

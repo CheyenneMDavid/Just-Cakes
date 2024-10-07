@@ -68,4 +68,6 @@ class TestIndividualCakeModel(TestCase):
         self.assertEqual(individual_cake.price, Decimal("10.99"))
         self.assertFalse(individual_cake.is_gluten_free)
         self.assertFalse(individual_cake.is_plant_based)
-        self.assertEqual(individual_cake.category.category, "Testing Category")
+        self.assertEqual(
+            individual_cake.category.category, "Testing Category"
+        )

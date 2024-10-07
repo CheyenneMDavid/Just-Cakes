@@ -8,53 +8,68 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('cakes', '0001_initial'),
+        ("cakes", "0001_initial"),
     ]
 
     operations = [
         migrations.DeleteModel(
-            name='CakeColor',
+            name="CakeColor",
         ),
         migrations.RemoveField(
-            model_name='individualcake',
-            name='flavours',
+            model_name="individualcake",
+            name="flavours",
         ),
         migrations.AlterField(
-            model_name='cakecategory',
-            name='category',
-            field=models.CharField(default='to be set', max_length=100, unique=True),
+            model_name="cakecategory",
+            name="category",
+            field=models.CharField(
+                default="to be set", max_length=100, unique=True
+            ),
         ),
         migrations.AlterField(
-            model_name='cakeimage',
-            name='cake',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='images', to='cakes.individualcake'),
+            model_name="cakeimage",
+            name="cake",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="images",
+                to="cakes.individualcake",
+            ),
         ),
         migrations.AlterField(
-            model_name='individualcake',
-            name='category',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='cakes.cakecategory'),
+            model_name="individualcake",
+            name="category",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.PROTECT,
+                to="cakes.cakecategory",
+            ),
         ),
         migrations.AlterField(
-            model_name='individualcake',
-            name='is_gluten_free',
+            model_name="individualcake",
+            name="is_gluten_free",
             field=models.BooleanField(default=False),
         ),
         migrations.AlterField(
-            model_name='individualcake',
-            name='is_plant_based',
+            model_name="individualcake",
+            name="is_plant_based",
             field=models.BooleanField(default=False),
         ),
         migrations.AlterField(
-            model_name='individualcake',
-            name='name',
+            model_name="individualcake",
+            name="name",
             field=models.CharField(max_length=100, unique=True),
         ),
         migrations.AlterField(
-            model_name='individualcake',
-            name='number_of_layers',
-            field=models.IntegerField(validators=[django.core.validators.MinValueValidator(1), django.core.validators.MaxValueValidator(5)]),
+            model_name="individualcake",
+            name="number_of_layers",
+            field=models.IntegerField(
+                validators=[
+                    django.core.validators.MinValueValidator(1),
+                    django.core.validators.MaxValueValidator(5),
+                ]
+            ),
         ),
         migrations.DeleteModel(
-            name='CakeFlavour',
+            name="CakeFlavour",
         ),
     ]

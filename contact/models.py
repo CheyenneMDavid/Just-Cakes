@@ -14,7 +14,9 @@ class Contact(models.Model):
 
     """
 
-    name = models.CharField(max_length=100, help_text="Please enter your name")
+    name = models.CharField(
+        max_length=100, help_text="Please enter your name"
+    )
     email = models.EmailField(help_text="Please enter a valid email address")
     phone_number = models.CharField(
         max_length=20, help_text="Please enter a valid phone number"

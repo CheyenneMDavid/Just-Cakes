@@ -22,10 +22,12 @@ class CakeCategoryAdmin(admin.ModelAdmin):
     Sets how CakeCategory appears and can be searched in the admin panel.
     """
 
-    # Setting the fields that will be displayed in the admin panel's list view.
+    # Setting the fields that will be displayed in the admin panel's list
+    # view.
     list_display = ("category",)
 
-    # Defining which fields can be searched using the admin panel's search bar.
+    # Defining which fields can be searched using the admin panel's search
+    # bar.
     search_fields = ("category",)
 
 
@@ -47,8 +49,10 @@ class IndividualCakeAdmin(admin.ModelAdmin):
         "description",
     )
 
-    # Defining which fields can be searched using the admin panel's search bar.
-    # Using "__" to search for CakeCategory by the cake's name and description.
+    # Defining which fields can be searched using the admin panel's search
+    # bar.
+    # Using "__" to search for CakeCategory by the cake's name and
+    # description.
     search_fields = ("name", "category__category", "description")
 
     # Adds options in the admin panel for filtering.
@@ -61,11 +65,14 @@ class CakeImageAdmin(admin.ModelAdmin):
     Sets how CakeImage appears and can be searched in the admin panel.
     """
 
-    # Defining which fields can be searched using the admin panel's search bar.
+    # Defining which fields can be searched using the admin panel's search
+    # bar.
     list_display = (
         "cake",
         "image",
     )
-    # Defining which fields can be searched using the admin panel's search bar.
+    # Defining which fields can be searched using the admin panel's search
+    # clear
+    # bar.
     # Using "__" to search for CakeImage by the cake's name.
     search_fields = ("cake__name",)

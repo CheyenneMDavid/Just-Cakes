@@ -9,60 +9,132 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Cake',
+            name="Cake",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('description', models.TextField()),
-                ('default_image', models.URLField(default='placeholder')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("description", models.TextField()),
+                ("default_image", models.URLField(default="placeholder")),
             ],
         ),
         migrations.CreateModel(
-            name='CakeCategory',
+            name="CakeCategory",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('category', models.CharField(default='to be set', max_length=100)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "category",
+                    models.CharField(default="to be set", max_length=100),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='CakeColor',
+            name="CakeColor",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('color', models.CharField(max_length=50)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("color", models.CharField(max_length=50)),
             ],
         ),
         migrations.CreateModel(
-            name='CakeFlavour',
+            name="CakeFlavour",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('flavour', models.CharField(max_length=50)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("flavour", models.CharField(max_length=50)),
             ],
         ),
         migrations.CreateModel(
-            name='IndividualCake',
+            name="IndividualCake",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('description', models.TextField(default='')),
-                ('name', models.CharField(max_length=100)),
-                ('is_gluten_free', models.BooleanField()),
-                ('is_plant_based', models.BooleanField()),
-                ('number_of_layers', models.IntegerField()),
-                ('price', models.DecimalField(decimal_places=2, max_digits=5)),
-                ('category', models.ForeignKey(default=None, on_delete=django.db.models.deletion.PROTECT, to='cakes.cakecategory')),
-                ('flavours', models.ManyToManyField(to='cakes.CakeFlavour')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("description", models.TextField(default="")),
+                ("name", models.CharField(max_length=100)),
+                ("is_gluten_free", models.BooleanField()),
+                ("is_plant_based", models.BooleanField()),
+                ("number_of_layers", models.IntegerField()),
+                (
+                    "price",
+                    models.DecimalField(decimal_places=2, max_digits=5),
+                ),
+                (
+                    "category",
+                    models.ForeignKey(
+                        default=None,
+                        on_delete=django.db.models.deletion.PROTECT,
+                        to="cakes.cakecategory",
+                    ),
+                ),
+                ("flavours", models.ManyToManyField(to="cakes.CakeFlavour")),
             ],
         ),
         migrations.CreateModel(
-            name='CakeImage',
+            name="CakeImage",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', cloudinary.models.CloudinaryField(max_length=255, verbose_name='image')),
-                ('cake', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='images', to='cakes.individualcake')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "image",
+                    cloudinary.models.CloudinaryField(
+                        max_length=255, verbose_name="image"
+                    ),
+                ),
+                (
+                    "cake",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="images",
+                        to="cakes.individualcake",
+                    ),
+                ),
             ],
         ),
     ]

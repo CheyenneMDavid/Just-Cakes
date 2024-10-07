@@ -9,7 +9,9 @@ from .views import (
 app_name = "customer_accounts"
 
 urlpatterns = [
-    path("<int:pk>/", customer_account_detail, name="customer_account_detail"),
+    path(
+        "<int:pk>/", customer_account_detail, name="customer_account_detail"
+    ),
     path(
         "<int:pk>/update/",
         update_customer_account,

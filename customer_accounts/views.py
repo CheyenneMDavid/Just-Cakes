@@ -52,7 +52,9 @@ def update_customer_account(request, pk):
                 request,
                 "Your profile has been updated successfully.",
             )
-            return redirect("customer_accounts:customer_account_detail", pk=pk)
+            return redirect(
+                "customer_accounts:customer_account_detail", pk=pk
+            )
     else:
         form = UpdateProfileForm(instance=customer_account)
 

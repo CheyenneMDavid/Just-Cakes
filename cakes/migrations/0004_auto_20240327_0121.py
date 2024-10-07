@@ -6,8 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('cakes', '0003_alter_cakecategory_category'),
+        ("cakes", "0003_alter_cakecategory_category"),
     ]
 
-    operations = [
-    ]
+    operations = []
