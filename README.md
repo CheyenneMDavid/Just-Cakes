@@ -27,7 +27,7 @@ The site displays a wide range of cakes but if customers want more unusual "one 
   - [Pre-requisites](#pre-requisites)
     - [For basic functionality:](#for-basic-functionality)
 
-## List of Applications in product:
+## List of Applications in product
 
 - Cakes (Homepage / Landing-page / Gallery)
 - Customer Accounts
@@ -36,7 +36,7 @@ The site displays a wide range of cakes but if customers want more unusual "one 
 
 ---
 
-## Features:
+## Features
 
 ### Promotional Carousel
 
@@ -88,7 +88,7 @@ and details, via the Django admin panel. Here, admins are able to create new cat
 
 ## Pre-requisites
 
-### For basic functionality:
+### For basic functionality
 
 ```
 Django3.2.20
@@ -105,7 +105,7 @@ gunicorn 21.2.0
 
 ---
 
-## Project Planning & Development:
+## Project Planning & Development
 
 This section outlines the planning process and development approach for our project. Below is a flowchart diagram that provides a visual representation of the overall functionality of the application.
 
@@ -256,7 +256,7 @@ The Just Cakes project, at this stage is simple. And the functionality could hav
 
   It was the process of using Lighthouse, looking at the scores and studying how these scores were calculated, that led me to brave away from the HTML structure that still resembled the walkthrough project and make the layout work better for "me".
 
-  The Lighthouse advice on shifts in the layout resulted in me restructuring how I wanted the images, authors, and excerpts to display. There seemed no quick way to remove unnecessary CSS which Lighthouse suggested was contributing toward the poor performance, so I manually searched for occurrences of a class by using `git grep -l '<classname>' -- '**/*.*'`, slowly removing what seemed to be unnecessary. This did improve things, but the issue of image sizes still remained, despite changing to WebP format for faster loading. Searching the web for ways to size my images in a more efficient way I found https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images, which explained how to use the srcset and sizes attributes. Not feeling confident with the use of these attributes and the syntax they required, I found online help here: https://johnfraney.ca/tools/responsive-image-generator. It allowed me to load in an image and then be presented with the code block, albeit not the sizes I required. Armed with a better understanding of the syntax surrounding the srcset and sizes attributes, I found further help from "BrowserStack" at https://www.browserstack.com/guide/common-screen-resolutions from which I took the measurements for the most common screen sizes and used them in my srcset and sizes settings. Working with them, I added the media-queries, measurements for which I'd taken from BrowserStack and chosen devices that met these measurements using https://blisk.io/devices. Blisk was particularly helpful when setting up the measurements for Emulated Devices in devtools.
+  The Lighthouse advice on shifts in the layout resulted in me restructuring how I wanted the images, authors, and excerpts to display. There seemed no quick way to remove unnecessary CSS which Lighthouse suggested was contributing toward the poor performance, so I manually searched for occurrences of a class by using `git grep -l '<classname>' -- '**/*.*'`, slowly removing what seemed to be unnecessary. This did improve things, but the issue of image sizes still remained, despite changing to WebP format for faster loading. Searching the web for ways to size my images in a more efficient way I found <https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images>, which explained how to use the srcset and sizes attributes. Not feeling confident with the use of these attributes and the syntax they required, I found online help here: <https://johnfraney.ca/tools/responsive-image-generator>. It allowed me to load in an image and then be presented with the code block, albeit not the sizes I required. Armed with a better understanding of the syntax surrounding the srcset and sizes attributes, I found further help from "BrowserStack" at <https://www.browserstack.com/guide/common-screen-resolutions> from which I took the measurements for the most common screen sizes and used them in my srcset and sizes settings. Working with them, I added the media-queries, measurements for which I'd taken from BrowserStack and chosen devices that met these measurements using <https://blisk.io/devices>. Blisk was particularly helpful when setting up the measurements for Emulated Devices in devtools.
 
 ---
 
@@ -278,12 +278,12 @@ To ensure that the automatic loading of Beautify didn’t clash with prettier se
 
 ---
 
-## Application Overview and Functionality of Individual Apps.
+## Application Overview and Functionality of Individual Apps
 
 This section explains the functionality of each application within the Just Cakes project.
 Explanations are provided for how each app works, supported by screenshots to illustrate their operation and design. This overview provides insights and understanding of the structure and behavior of the applications, offering a clear view of their roles within the overall project. All screen shots are shown in laptops resolutions of 1366 x 768 or 360 x 800, inline with Samsung Galaxy S20 and similar devices.
 
-### Cakes Application Overview.
+### Cakes Application Overview
 
 The Cakes application is intended as the core of the project as the purpose is to showcase the cake designs that are available to order.
 
@@ -320,7 +320,7 @@ Integration of navigational elements, such as a "Back to Our Cakes" button on th
 
 ## ![Coming Soon Detail](https://res.cloudinary.com/cheymd/image/upload/v1721181874/coming-soon-default_c5vvlj.webp)
 
-### Customer Accounts Overview.
+### Customer Accounts Overview
 
 Central to the Customer Accounts App is the the customer's profile. At first this may seem surplus to requirements however, ultimately the application is to be evolve into one that can be fully utilized by a fully "automated" order and delivery/booked collection system, at which point the more detailed nature of Customer Accounts will come into its own.
 
@@ -333,7 +333,7 @@ Initially blank when initially created and associated with a user, the individua
 Update Profile Form with fields to update, help text to guide the user and an update button.
 ![](https://res.cloudinary.com/cheymd/image/upload/v1712227329/JustCakes-Readme-images/update-profile-form_fpcptt.png)
 
-### Reviews Application Overview.
+### Reviews Application Overview
 
 The Reviews application bears witness to the quality and bespoke nature of what "Just Cakes" offers its customers in way of professional service and the stunning skill of it's staff in how any style of cake is undertaken for any event.
 The application features:
@@ -349,7 +349,7 @@ View of a single post page showing number of comments and like for a post and al
 
 ---
 
-### Contact Application Overview.
+### Contact Application Overview
 
 The Contact form is accessible from all pages and can be used by authenticated users and unauthenticated users alike. In the admin panel, the form data can be listed and filtered according to when the forms were received. To ensure valid data upon form submission, django manages the email address validation, but I've used a regex pattern and a message that tells the user to enter a valid UK phone number if they enter an invalid one.
 The regex pattern I've used for validating the phone numbers is from StackOverflow and I've credited it as such in the `forms.py` file itself.
@@ -413,7 +413,7 @@ I used Google's "Lighthouse" to measure my site. Measuring only the main pages, 
 
 ---
 
-## Development Challenges & Solutions.
+## Development Challenges & Solutions
 
 During the development of _Just Cakes_, I encountered a number of issues. These are some of the notable ones and the solutions I found...
 
@@ -508,9 +508,9 @@ For a complete list of user stories, see [My Project Board](https://github.com/u
 
 ---
 
-### Clashes between package extensions.
+### Clashes between package extensions
 
-Initially installing linters and formatters to ensure code quality and consistency. But as I tried different extensions, after a while this seemed to cause more issues and I was unable to workout what was clashing with what. So I separated things into a requirements.txt for the stuff that the project was dependant on, in order to run and the stuff that was useful during development was placed in requirements-dev.txt after reading this article: https://realpython.com/lessons/production-vs-development-dependencies/. In the search for way to stop things clashing I eventually came across the term "virtual environment" which people seemed to mention quite a lot on slack.
+Initially installing linters and formatters to ensure code quality and consistency. But as I tried different extensions, after a while this seemed to cause more issues and I was unable to workout what was clashing with what. So I separated things into a requirements.txt for the stuff that the project was dependant on, in order to run and the stuff that was useful during development was placed in requirements-dev.txt after reading this article: <https://realpython.com/lessons/production-vs-development-dependencies/>. In the search for way to stop things clashing I eventually came across the term "virtual environment" which people seemed to mention quite a lot on slack.
 I eventually did away with the requirements-dev.txt file and setup a virtual environment and installed only the packages I wanted.
 
 ### Other issues encountered during development
@@ -639,7 +639,7 @@ The test passes for `test_invalid_form()` demonstrated the expected errors, as d
 
 ### Manual Testing
 
-#### Test to ensure that a default image is displayed if an image isn't supplied from the Django admin panel or if they are deleted.
+#### Test to ensure that a default image is displayed if an image isn't supplied from the Django admin panel or if they are deleted
 
 **Method**
 I tested this by creating a default image which was placed in Cloudinary. After which I used the admin panel to save cake images, tying them up with the individual cake data, also added via the admin panel.
@@ -662,7 +662,7 @@ The default image also appeared on the individual cake detail page when no speci
 
 ### HTML Validation
 
-As stated in the "Deployment Challenges and Solutions" section, I used https://validator.w3.org to validate my code.
+As stated in the "Deployment Challenges and Solutions" section, I used <https://validator.w3.org> to validate my code.
 
 The only issue raised there was the matter of trailing slashes which would always return upon saving, despite removing them.
 
@@ -788,9 +788,11 @@ Before beginning the deployment process, ensure you have accounts and installati
 2. **Open in Gitpod**: Start your Gitpod environment (or your chosen IDE) and open the cloned repository.
 3. **Install Dependencies**: Install the project dependencies by running `pip install -r requirements.txt` in the terminal.
 
-#### Database Setup with ElephantSQL
+#### Database Setup with Supabase
 
-1. **Create a Database Instance**: Navigate to [ElephantSQL's documentation](https://www.elephantsql.com/docs/index.html) and create a new PostgreSQL database instance. Follow the given instructions to set up the instance and obtain the connection URL.
+Note: This project was originally deployed using ElephantSQL. Due to ElephantSQL being discontinued, the database is now hosted on Supabase with no changes to functionality. Follow Supabase’s setup guide instead of ElephantSQL if replicating this project.
+
+Create a Database Instance: Navigate to [Supabase’s documentation](https://supabase.com/docs) and create a new PostgreSQL database instance. Follow the given instructions to set up the instance and obtain the connection URL.
 
 #### Setting Up Cloudinary for Media Management
 
@@ -826,7 +828,7 @@ please do. You will find instructions from
 
 ---
 
-### More work needed.
+### More work needed
 
 **Code should be implemented to guard against**
 Performance speeds of loading need to be improved.
@@ -837,7 +839,7 @@ please do. You will find instructions from
 
 ---
 
-## Credits, Acknowledgments and Appreciation.
+## Credits, Acknowledgments and Appreciation
 
 - The reviews application within the just cakes project has been copied from the Code Institute walkthrough django project "codestar".
 
@@ -851,7 +853,7 @@ please do. You will find instructions from
   **Code Institute Tutors** for help when I reached out.
 
   **The favicon.ico** is courtesy of [Favicon Generator](https://favicon.io)
-  https://websitemockupgenerator.com
+  <https://websitemockupgenerator.com>
 
 - Code and the idea for toggling the DEBUG according to environment is courtesy of Code Institute learning materials
 
