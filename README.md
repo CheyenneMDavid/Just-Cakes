@@ -1,10 +1,10 @@
 # [Just Cakes](https://just-cakes-184a064333be.herokuapp.com/)
 
-[**Just Cakes**](https://just-cakes-184a064333be.herokuapp.com/) is a maker of beautiful cakes, that takes online orders and delivers across the UK.
+[**Just Cakes**](https://just-cakes-184a064333be.herokuapp.com/) is a full-stack web app for ordering custom cakes across the UK.  
+Users can browse by category (Wedding, Birthday, Novelty) with dietary filters such as gluten-free or plant-based.  
+Authenticated users can view details, read and write reviews, and contact the business via form or phone for bespoke orders.
 
-delivers custom cakes across the UK. The platform allows users to explore cakes by categories such as Wedding, Birthday, and Novelty, with clear indicators for dietary preferences like gluten-free or plant-based. Customers can view detailed cake descriptions, read reviews, and write reviews of the service when authenticated.
 
-The site displays a wide range of cakes but if customers want more unusual "one of a kind" cakes, they can contact "Just Cake" via the online contact form to get a conversation going, or dive straight in with a phone-call to the number displayed in the carousel display at the top of the page.
 
 ---
 
